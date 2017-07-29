@@ -1,3 +1,29 @@
+// MARK: Function Precedence Group
+precedencegroup LeftApplyPrecedence {
+  associativity: left
+  higherThan: AssignmentPrecedence
+  lowerThan: TernaryPrecedence
+}
+
+precedencegroup FunctionCompositionPrecedence {
+  associativity: right
+  higherThan: LeftApplyPrecedence
+}
+
+// MARK: Lens Precedence Group
+
+precedencegroup LensCompositionPrecedence {
+  associativity: right
+  higherThan: LensSetPrecedence
+}
+
+precedencegroup LensSetPrecedence {
+  associativity: left
+  higherThan: FunctionCompositionPrecedence
+}
+
+
+// MARK: Monad Precedence Group
 precedencegroup RunesMonadicPrecedenceRight {
   associativity: right
   lowerThan: LogicalDisjunctionPrecedence
@@ -10,11 +36,14 @@ precedencegroup RunesMonadicPrecedenceLeft {
   higherThan: AssignmentPrecedence
 }
 
+// MARK: Alternative Precedence Group
 precedencegroup RunesAlternativePrecedence {
   associativity: left
   higherThan: LogicalConjunctionPrecedence
   lowerThan: ComparisonPrecedence
 }
+
+// MARK: Applicative Precedence Group
 
 precedencegroup RunesApplicativePrecedence {
   associativity: left
@@ -28,7 +57,10 @@ precedencegroup RunesApplicativeSequencePrecedence {
   lowerThan: NilCoalescingPrecedence
 }
 
+// MARK: -
 
+
+// MARK: Functor Operators
 /**
   map a function over a value with context
 
@@ -42,7 +74,7 @@ infix operator <^> : RunesApplicativePrecedence
 
 
 
-
+// MARK: Applicative Functor Operators
 /**
   apply a function with context to a value with context
 
@@ -70,7 +102,7 @@ infix operator *> : RunesApplicativeSequencePrecedence
 
 
 
-
+// MARK: Alternative Operators
 /**
   an associative binary operation
 
@@ -84,7 +116,7 @@ infix operator <|> : RunesAlternativePrecedence
 
 
 
-
+// MARK: Monad Functor Operators
 /**
   map a function over a value with context and flatten the result
 
@@ -120,3 +152,67 @@ infix operator >-> : RunesMonadicPrecedenceRight
   Haskell `infixr 1`
 */
 infix operator <-< : RunesMonadicPrecedenceRight
+
+
+// MARK: Function Operators
+
+/// Pipe forward function application.
+infix operator |> : LeftApplyPrecedence
+
+/// Infix, flipped version of fmap (for arrays), i.e. `xs ||> f := f <^> xs`
+infix operator ||> : LeftApplyPrecedence
+
+/// Infix, flipped version of fmap (for optionals), i.e. `x ?|> f := f <^> x`
+infix operator ?|> : LeftApplyPrecedence
+
+/// Composition
+infix operator • : FunctionCompositionPrecedence
+
+/// Compose forward operator
+infix operator >>> : FunctionCompositionPrecedence
+
+/// Compose backward operator
+infix operator <<< : FunctionCompositionPrecedence
+
+
+// MARK: Semigroup Operators
+
+/// Semigroup binary operation
+infix operator <> : FunctionCompositionPrecedence
+
+/// Semigroup operation partially applied on right
+prefix operator <>
+
+/// Semigroup operation partially applied on left
+postfix operator <>
+
+
+
+// MARK: Lens Operators
+
+/// Lens composition
+infix operator .. : LensCompositionPrecedence
+
+/// Lens view
+infix operator ^* : LeftApplyPrecedence
+
+/// Lens set
+infix operator .~ : LensSetPrecedence
+
+/// Lens over
+infix operator %~ : LensSetPrecedence
+
+/// Lens over with both part and whole.
+infix operator %~~ : LensSetPrecedence
+
+/// Lens semigroup
+infix operator <>~ : LensSetPrecedence
+
+/// Kleisli lens composition
+infix operator >•>
+
+
+
+/// Cons of an element with a non-empty collection.
+infix operator +|: AdditionPrecedence
+
