@@ -166,9 +166,6 @@ prefix operator ~
 
 // MARK: Lens Operators
 
-/// Lens composition
-infix operator .. : LensCompositionPrecedence
-
 /// Lens view
 infix operator ^* : LeftApplyPrecedence
 
@@ -183,9 +180,6 @@ infix operator %~~ : LensSetPrecedence
 
 /// Lens semigroup
 infix operator <>~ : LensSetPrecedence
-
-/// Kleisli lens composition
-infix operator >•>
 
 
 
