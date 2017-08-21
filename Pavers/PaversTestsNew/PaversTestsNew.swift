@@ -1,15 +1,15 @@
 //
-//  PaversTests.swift
-//  PaversTests
+//  PaversTestsNew.swift
+//  PaversTestsNew
 //
-//  Created by Pi on 29/07/2017.
+//  Created by Pi on 01/08/2017.
 //  Copyright © 2017 Keith. All rights reserved.
 //
 
 import XCTest
 @testable import Pavers
 
-class PaversTests: XCTestCase {
+class PaversTestsNew: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -20,11 +20,16 @@ class PaversTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
+  func testPipeForward() {
+    func square(_ x: Int) -> Int { return x * x }
+
+    XCTAssertEqual(4, 2 |> square)
+  }
+
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-      print("Hello")
     }
     
     func testPerformanceExample() {

@@ -1,4 +1,17 @@
 /**
+ Swap two arguments of a function f, i.e. f:(A,B)->C ~ f:(B, A)->C
+
+ - parameter f: A function from (A,B) -> C
+
+ - returns: A function from (B,A)->C.
+ */
+public prefix func ~ <A,B,C> (_ f: @escaping (A, B) -> C)
+  -> (B, A) -> C {
+  return { f($1, $0) }
+}
+
+
+/**
  Pipe a value into a function.
 
  - parameter x: A value.
@@ -8,6 +21,10 @@
  */
 public func |> <A, B> (x: A, f: (A) -> B) -> B {
   return f(x)
+}
+
+public func backwardPipe<A, B>() -> ((A) -> B, A) -> B {
+  return ~(|>)
 }
 
 /**
@@ -35,20 +52,10 @@ public func ?|> <A, B> (x: A?, f: (A) -> B) -> B? {
 }
 
 /**
- Composes two functions in right-to-left order, i.e. (g • f)(x) = g(f(x)
-
- - parameter g: A function.
- - parameter f: A function.
-
- - returns: A function that is the composition of `f` and `g`.
- */
-@available(*, deprecated)
-public func • <A, B, C> (g: @escaping (B) -> C, f: @escaping (A) -> B) -> ((A) -> C) {
-  return { x in g(f(x)) }
-}
-
-/**
- Composes two functions in left-to-right order, i.e. (f >>> g)(x) = g(f(x)
+ Composes two functions in left-to-right order, i.e. (f >>> g)(x) = g(f(x))
+ 
+ read as "f then g"
+ 
  - parameter g: A function.
  - parameter f: A function.
  - returns: A function that is the composition of `f` and `g`.
@@ -58,13 +65,16 @@ public func >>> <A, B, C> (f: @escaping (A) -> B, g: @escaping (B) -> C) -> (A) 
 }
 
 /**
- Composes two functions in right-to-left order, i.e. (f <<< g)(x) = f(g(x)
+ Composes two functions in right-to-left order, i.e. (f <<< g)(x) = f(g(x))
+ 
+ read as "f after g"
+
  - parameter g: A function.
  - parameter f: A function.
  - returns: A function that is the composition of `f` and `g`.
  */
-public func <<< <A, B, C> (g: @escaping (B) -> C, f: @escaping (A) -> B) -> (A) -> C {
-  return { g(f($0)) }
+public func <<< <A, B, C> (f: @escaping (B) -> C, g: @escaping (A) -> B) -> (A) -> C {
+  return { f(g($0)) }
 }
 
 /**
@@ -77,11 +87,12 @@ public func <<< <A, B, C> (g: @escaping (B) -> C, f: @escaping (A) -> B) -> (A) 
  - returns: A function that is the composition of `f` and `g`.
  */
 public func <> <A> (f: @escaping (A) -> A, g: @escaping (A) -> A) -> ((A) -> A) {
-  return { g(f($0)) }
+  return f >>> g
 }
 
 /**
  The identity function on `A`.
+ See identity morphism as a mapping from object A to object A.
 
  - parameter x: Any value.
 
@@ -90,6 +101,20 @@ public func <> <A> (f: @escaping (A) -> A, g: @escaping (A) -> A) -> ((A) -> A) 
 public func id <A> (_ x: A) -> A {
   return x
 }
+
+/**
+ The identity morphism on `A`.
+ See identity morphism as a mapping from object to arrow.
+ 
+ - type parameter A: Any Type
+
+ - returns: f : A -> A
+ */
+public func identityMorphism <A> () -> (A) -> A {
+  return id
+}
+
+
 
 /**
  A constant function.
@@ -101,3 +126,52 @@ public func id <A> (_ x: A) -> A {
 public func const <A, B> (_ b: B) -> ((A) -> B) {
   return { _ in b }
 }
+
+/**
+ A global element function meaning x belongs to X.
+ For all f, g : A -> B, if for all x: 1 -> A, x >>> f == x >>> g, then f == g.
+ That is a category is well-pointed.
+
+ - parameter x: A value of X.
+
+ - returns: A function that returns `x` no matter what it is fed.
+ */
+public func globalElement <X> (of x: X) -> (Unit) -> X {
+  return { _ in x }
+}
+
+/**
+ A generalized element function. Slice Category C/X.
+
+ - parameter f: A function whose domian is X.
+
+ - returns: A function that returns `x` no matter what it is fed.
+ */
+public func generalizedElement <A, X> (of f: @escaping (A) -> X) -> (A) -> X {
+  return f
+}
+
+
+/**
+ The absurb function.
+
+ - parameter f: A function whose domian is X.
+
+ - returns: A function that returns `x` no matter what it is fed.
+ */
+public func absurb<A>(e: Empty) -> A {
+  fatalError("The absurb function cannot be called with argument of Empty")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

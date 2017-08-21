@@ -156,7 +156,7 @@ infix operator <-< : RunesMonadicPrecedenceRight
 
 // MARK: Function Operators
 
-/// Pipe forward function application.
+/// Pipe forward function application, i.e. `x |> f := f(x)`
 infix operator |> : LeftApplyPrecedence
 
 /// Infix, flipped version of fmap (for arrays), i.e. `xs ||> f := f <^> xs`
@@ -165,19 +165,23 @@ infix operator ||> : LeftApplyPrecedence
 /// Infix, flipped version of fmap (for optionals), i.e. `x ?|> f := f <^> x`
 infix operator ?|> : LeftApplyPrecedence
 
-/// Composition
+/// Composition, i.e. `f • g := f <<< g := f(g(x))`
 infix operator • : FunctionCompositionPrecedence
 
-/// Compose forward operator
+/// Compose forward operator, i.e. `f >>> g := g(f(x))`
 infix operator >>> : FunctionCompositionPrecedence
 
-/// Compose backward operator
+/// Compose backward operator, i.e. `f <<< g := f(g(x))`
 infix operator <<< : FunctionCompositionPrecedence
+
+/// Swap binary arguments of a function, 
+/// i.e. `~f: (A, B)-> C := f': (B,A) -> C`
+prefix operator ~
 
 
 // MARK: Semigroup Operators
 
-/// Semigroup binary operation
+/// Semigroup binary operation, i.e. `f <> g := f <<< g := f(g(x))`
 infix operator <> : FunctionCompositionPrecedence
 
 /// Semigroup operation partially applied on right

@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>PaversTestsNew.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>0E8965731F2C8D6B00A867E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0EDF0CFD1F303B2900EDB5DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

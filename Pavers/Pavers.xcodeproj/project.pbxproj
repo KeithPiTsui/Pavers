@@ -74,10 +74,20 @@
 		0E89660C1F2C903B00A867E2 /* VectorTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965F61F2C903B00A867E2 /* VectorTypeTest.swift */; };
 		0E8966101F2C90AC00A867E2 /* Mozart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E89660E1F2C90AC00A867E2 /* Mozart.framework */; };
 		0E8966111F2C90AC00A867E2 /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E89660F1F2C90AC00A867E2 /* SwiftCheck.framework */; };
+		0EDF0D011F303B2900EDB5DE /* PaversTestsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDF0D001F303B2900EDB5DE /* PaversTestsNew.swift */; };
+		0EDF0D031F303B2900EDB5DE /* Pavers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E89656B1F2C8D6B00A867E2 /* Pavers.framework */; };
+		0EDF0D091F303B7200EDB5DE /* FunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965EA1F2C903B00A867E2 /* FunctionTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0E8965761F2C8D6B00A867E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E89656A1F2C8D6B00A867E2;
+			remoteInfo = Pavers;
+		};
+		0EDF0D041F303B2900EDB5DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
 			proxyType = 1;
@@ -157,6 +167,9 @@
 		0E8965F61F2C903B00A867E2 /* VectorTypeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTypeTest.swift; sourceTree = "<group>"; };
 		0E89660E1F2C90AC00A867E2 /* Mozart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mozart.framework; sourceTree = "<group>"; };
 		0E89660F1F2C90AC00A867E2 /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftCheck.framework; sourceTree = "<group>"; };
+		0EDF0CFE1F303B2900EDB5DE /* PaversTestsNew.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversTestsNew.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDF0D001F303B2900EDB5DE /* PaversTestsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversTestsNew.swift; sourceTree = "<group>"; };
+		0EDF0D021F303B2900EDB5DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,12 +190,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0EDF0CFB1F303B2900EDB5DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EDF0D031F303B2900EDB5DE /* Pavers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0E8965611F2C8D6B00A867E2 = {
 			isa = PBXGroup;
 			children = (
+				0EDF0CFF1F303B2900EDB5DE /* PaversTestsNew */,
 				0E89660D1F2C90A000A867E2 /* Frameworks */,
 				0E8965851F2C8E9500A867E2 /* Sources */,
 				0E89656D1F2C8D6B00A867E2 /* Pavers */,
@@ -196,6 +218,7 @@
 			children = (
 				0E89656B1F2C8D6B00A867E2 /* Pavers.framework */,
 				0E8965741F2C8D6B00A867E2 /* PaversTests.xctest */,
+				0EDF0CFE1F303B2900EDB5DE /* PaversTestsNew.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,9 +327,9 @@
 		0E8965A51F2C8E9500A867E2 /* Runes */ = {
 			isa = PBXGroup;
 			children = (
+				0E8965B01F2C8E9500A867E2 /* Runes.swift */,
 				0E8965A61F2C8E9500A867E2 /* Array */,
 				0E8965AB1F2C8E9500A867E2 /* Optional */,
-				0E8965B01F2C8E9500A867E2 /* Runes.swift */,
 				0E8965B11F2C8E9500A867E2 /* State */,
 			);
 			path = Runes;
@@ -368,6 +391,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0EDF0CFF1F303B2900EDB5DE /* PaversTestsNew */ = {
+			isa = PBXGroup;
+			children = (
+				0EDF0D001F303B2900EDB5DE /* PaversTestsNew.swift */,
+				0EDF0D021F303B2900EDB5DE /* Info.plist */,
+			);
+			path = PaversTestsNew;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -418,6 +450,24 @@
 			productReference = 0E8965741F2C8D6B00A867E2 /* PaversTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0EDF0CFD1F303B2900EDB5DE /* PaversTestsNew */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EDF0D061F303B2900EDB5DE /* Build configuration list for PBXNativeTarget "PaversTestsNew" */;
+			buildPhases = (
+				0EDF0CFA1F303B2900EDB5DE /* Sources */,
+				0EDF0CFB1F303B2900EDB5DE /* Frameworks */,
+				0EDF0CFC1F303B2900EDB5DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0EDF0D051F303B2900EDB5DE /* PBXTargetDependency */,
+			);
+			name = PaversTestsNew;
+			productName = PaversTestsNew;
+			productReference = 0EDF0CFE1F303B2900EDB5DE /* PaversTestsNew.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -438,6 +488,11 @@
 						DevelopmentTeam = 6T5NK4S24M;
 						ProvisioningStyle = Automatic;
 					};
+					0EDF0CFD1F303B2900EDB5DE = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6T5NK4S24M;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 0E8965651F2C8D6B00A867E2 /* Build configuration list for PBXProject "Pavers" */;
@@ -454,6 +509,7 @@
 			targets = (
 				0E89656A1F2C8D6B00A867E2 /* Pavers */,
 				0E8965731F2C8D6B00A867E2 /* PaversTests */,
+				0EDF0CFD1F303B2900EDB5DE /* PaversTestsNew */,
 			);
 		};
 /* End PBXProject section */
@@ -467,6 +523,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0E8965721F2C8D6B00A867E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EDF0CFC1F303B2900EDB5DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -553,6 +616,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0EDF0CFA1F303B2900EDB5DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EDF0D011F303B2900EDB5DE /* PaversTestsNew.swift in Sources */,
+				0EDF0D091F303B7200EDB5DE /* FunctionTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -560,6 +632,11 @@
 			isa = PBXTargetDependency;
 			target = 0E89656A1F2C8D6B00A867E2 /* Pavers */;
 			targetProxy = 0E8965761F2C8D6B00A867E2 /* PBXContainerItemProxy */;
+		};
+		0EDF0D051F303B2900EDB5DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E89656A1F2C8D6B00A867E2 /* Pavers */;
+			targetProxy = 0EDF0D041F303B2900EDB5DE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -737,6 +814,30 @@
 			};
 			name = Release;
 		};
+		0EDF0D071F303B2900EDB5DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6T5NK4S24M;
+				INFOPLIST_FILE = PaversTestsNew/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversTestsNew;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0EDF0D081F303B2900EDB5DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6T5NK4S24M;
+				INFOPLIST_FILE = PaversTestsNew/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversTestsNew;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -763,6 +864,15 @@
 			buildConfigurations = (
 				0E8965831F2C8D6B00A867E2 /* Debug */,
 				0E8965841F2C8D6B00A867E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EDF0D061F303B2900EDB5DE /* Build configuration list for PBXNativeTarget "PaversTestsNew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EDF0D071F303B2900EDB5DE /* Debug */,
+				0EDF0D081F303B2900EDB5DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
