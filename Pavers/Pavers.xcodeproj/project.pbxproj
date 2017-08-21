@@ -72,8 +72,8 @@
 		0E5151A71F4AD1F60006BE05 /* Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151841F4AD1F60006BE05 /* Tuple.swift */; };
 		0E5151A81F4AD1F60006BE05 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151851F4AD1F60006BE05 /* Unit.swift */; };
 		0E5151A91F4AD1F60006BE05 /* Unpack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151861F4AD1F60006BE05 /* Unpack.swift */; };
-		0E5151AA1F4AD1F60006BE05 /* Value+NumericType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151871F4AD1F60006BE05 /* Value+NumericType.swift */; };
-		0E5151AB1F4AD1F60006BE05 /* Value+VectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151881F4AD1F60006BE05 /* Value+VectorType.swift */; };
+		0E5151C21F4AD36C0006BE05 /* Value+NumericType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151C01F4AD36C0006BE05 /* Value+NumericType.swift */; };
+		0E5151C31F4AD36C0006BE05 /* Value+VectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151C11F4AD36C0006BE05 /* Value+VectorType.swift */; };
 		0E89657C1F2C8D6B00A867E2 /* Pavers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E89656E1F2C8D6B00A867E2 /* Pavers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E8965E01F2C8E9500A867E2 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965B71F2C8E9500A867E2 /* Curry.swift */; };
 /* End PBXBuildFile section */
@@ -135,8 +135,8 @@
 		0E5151841F4AD1F60006BE05 /* Tuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.swift; sourceTree = "<group>"; };
 		0E5151851F4AD1F60006BE05 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		0E5151861F4AD1F60006BE05 /* Unpack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unpack.swift; sourceTree = "<group>"; };
-		0E5151871F4AD1F60006BE05 /* Value+NumericType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Value+NumericType.swift"; sourceTree = "<group>"; };
-		0E5151881F4AD1F60006BE05 /* Value+VectorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Value+VectorType.swift"; sourceTree = "<group>"; };
+		0E5151C01F4AD36C0006BE05 /* Value+NumericType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Value+NumericType.swift"; sourceTree = "<group>"; };
+		0E5151C11F4AD36C0006BE05 /* Value+VectorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Value+VectorType.swift"; sourceTree = "<group>"; };
 		0E89656B1F2C8D6B00A867E2 /* Pavers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pavers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E89656E1F2C8D6B00A867E2 /* Pavers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pavers.h; sourceTree = "<group>"; };
 		0E89656F1F2C8D6B00A867E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -248,6 +248,15 @@
 			path = State;
 			sourceTree = "<group>";
 		};
+		0E5151BF1F4AD36C0006BE05 /* Value */ = {
+			isa = PBXGroup;
+			children = (
+				0E5151C01F4AD36C0006BE05 /* Value+NumericType.swift */,
+				0E5151C11F4AD36C0006BE05 /* Value+VectorType.swift */,
+			);
+			path = Value;
+			sourceTree = "<group>";
+		};
 		0E8965611F2C8D6B00A867E2 = {
 			isa = PBXGroup;
 			children = (
@@ -337,28 +346,27 @@
 		0E8965B51F2C8E9500A867E2 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				0E5151611F4AD1F60006BE05 /* Array */,
 				0E5151671F4AD1F60006BE05 /* Bool.swift */,
 				0E5151681F4AD1F60006BE05 /* Comparable.swift */,
 				0E5151691F4AD1F60006BE05 /* Comparator.swift */,
 				0E51516A1F4AD1F60006BE05 /* Dictionary.swift */,
 				0E51516B1F4AD1F60006BE05 /* Either.swift */,
 				0E51516C1F4AD1F60006BE05 /* Empty.swift */,
-				0E51516D1F4AD1F60006BE05 /* Error */,
 				0E5151711F4AD1F60006BE05 /* Function.swift */,
-				0E5151721F4AD1F60006BE05 /* Lens */,
 				0E5151751F4AD1F60006BE05 /* NonEmpty.swift */,
-				0E5151761F4AD1F60006BE05 /* Optional */,
 				0E51517C1F4AD1F60006BE05 /* Ordering.swift */,
 				0E51517D1F4AD1F60006BE05 /* Result.swift */,
 				0E51517E1F4AD1F60006BE05 /* Set.swift */,
-				0E51517F1F4AD1F60006BE05 /* State */,
 				0E5151831F4AD1F60006BE05 /* String.swift */,
 				0E5151841F4AD1F60006BE05 /* Tuple.swift */,
 				0E5151851F4AD1F60006BE05 /* Unit.swift */,
 				0E5151861F4AD1F60006BE05 /* Unpack.swift */,
-				0E5151871F4AD1F60006BE05 /* Value+NumericType.swift */,
-				0E5151881F4AD1F60006BE05 /* Value+VectorType.swift */,
+				0E5151611F4AD1F60006BE05 /* Array */,
+				0E51516D1F4AD1F60006BE05 /* Error */,
+				0E5151721F4AD1F60006BE05 /* Lens */,
+				0E5151761F4AD1F60006BE05 /* Optional */,
+				0E51517F1F4AD1F60006BE05 /* State */,
+				0E5151BF1F4AD36C0006BE05 /* Value */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -544,7 +552,7 @@
 				0E5151A91F4AD1F60006BE05 /* Unpack.swift in Sources */,
 				0E5151A41F4AD1F60006BE05 /* State+Monad.swift in Sources */,
 				0E5151A31F4AD1F60006BE05 /* State+Functor.swift in Sources */,
-				0E5151AA1F4AD1F60006BE05 /* Value+NumericType.swift in Sources */,
+				0E5151C21F4AD36C0006BE05 /* Value+NumericType.swift in Sources */,
 				0E5151931F4AD1F60006BE05 /* Empty.swift in Sources */,
 				0E5151921F4AD1F60006BE05 /* Either.swift in Sources */,
 				0E51518D1F4AD1F60006BE05 /* Array.swift in Sources */,
@@ -570,7 +578,7 @@
 				0E51519E1F4AD1F60006BE05 /* Optional+Monad.swift in Sources */,
 				0E51519B1F4AD1F60006BE05 /* Optional+Alternative.swift in Sources */,
 				0E51519C1F4AD1F60006BE05 /* Optional+Applicative.swift in Sources */,
-				0E5151AB1F4AD1F60006BE05 /* Value+VectorType.swift in Sources */,
+				0E5151C31F4AD36C0006BE05 /* Value+VectorType.swift in Sources */,
 				0E51515C1F4ACFA20006BE05 /* VectorType.swift in Sources */,
 				0E5151A71F4AD1F60006BE05 /* Tuple.swift in Sources */,
 				0E51515A1F4ACEF40006BE05 /* NumericType.swift in Sources */,

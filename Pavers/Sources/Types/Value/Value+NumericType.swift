@@ -17,3 +17,4 @@ extension Double : NumericType {
     return 1.0
   }
 }
+
