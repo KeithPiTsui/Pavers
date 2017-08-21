@@ -1,5 +1,8 @@
 import Pavers
-import UIKit
+import Foundation
+
+
+extension NSObject: LensObject {}
 
 public protocol KSObjectProtocol: NSObjectProtocol {
   var accessibilityElementsHidden: Bool { get set }

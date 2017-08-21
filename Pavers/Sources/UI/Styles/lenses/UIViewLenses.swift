@@ -25,6 +25,8 @@ public protocol UIViewProtocol: KSObjectProtocol, UITraitEnvironmentProtocol, Le
   var tintColor: UIColor! { get set }
   var translatesAutoresizingMaskIntoConstraints: Bool { get set }
   var userInteractionEnabled: Bool { get set }
+
+  var transform: CGAffineTransform {get set}
 }
 
 extension UIView: UIViewProtocol {}
@@ -156,6 +158,15 @@ public extension LensHolder where Object: UIViewProtocol {
       set: { $1.userInteractionEnabled = $0; return $1 }
     )
   }
+
+  public var transform: Lens<Object, CGAffineTransform> {
+    return Lens(
+      view: { $0.transform },
+      set: { $1.transform = $0; return $1 }
+    )
+  }
+
+
 }
 
 public extension Lens where Whole: UIViewProtocol, Part == CGRect {
@@ -220,5 +231,13 @@ public extension Lens where Whole: UIViewProtocol, Part == CALayer {
 
   public var shouldRasterize: Lens<Whole, Bool> {
     return Whole.lens.layer>>>CALayer.lens.shouldRasterize
+  }
+
+  public var rasterizationScale: Lens<Whole, CGFloat> {
+    return Whole.lens.layer>>>CALayer.lens.rasterizationScale
+  }
+
+  public var transform3D: Lens<Whole, CATransform3D> {
+    return Whole.lens.layer>>>CALayer.lens.transform
   }
 }

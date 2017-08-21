@@ -112,7 +112,6 @@
 		0E5152861F4AD9E30006BE05 /* UIViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525C1F4AD9E30006BE05 /* UIViewLenses.swift */; };
 		0E5152871F4AD9E30006BE05 /* UIWebViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525D1F4AD9E30006BE05 /* UIWebViewLenses.swift */; };
 		0E5152881F4AD9E30006BE05 /* WKWebViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525E1F4AD9E30006BE05 /* WKWebViewLenses.swift */; };
-		0E5152891F4AD9E30006BE05 /* LensHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525F1F4AD9E30006BE05 /* LensHolder.swift */; };
 		0E51528A1F4AD9E30006BE05 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152601F4AD9E30006BE05 /* UIButton.swift */; };
 		0E51528C1F4AD9E30006BE05 /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152621F4AD9E30006BE05 /* UIEdgeInsets.swift */; };
 		0E51528D1F4AD9E30006BE05 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152631F4AD9E30006BE05 /* UIImage.swift */; };
@@ -124,6 +123,7 @@
 		0E5152BC1F4ADC570006BE05 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152AC1F4ADC570006BE05 /* Fonts.swift */; };
 		0E5152C21F4ADC570006BE05 /* TabBarItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152B21F4ADC570006BE05 /* TabBarItemStyles.swift */; };
 		0E5152C51F4ADD640006BE05 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152C41F4ADD640006BE05 /* UIColor.swift */; };
+		0E5152C71F4B26010006BE05 /* CAGradientLayerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152C61F4B26010006BE05 /* CAGradientLayerLenses.swift */; };
 		0E89657C1F2C8D6B00A867E2 /* Pavers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E89656E1F2C8D6B00A867E2 /* Pavers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E8965E01F2C8E9500A867E2 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965B71F2C8E9500A867E2 /* Curry.swift */; };
 /* End PBXBuildFile section */
@@ -240,7 +240,6 @@
 		0E51525C1F4AD9E30006BE05 /* UIViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewLenses.swift; sourceTree = "<group>"; };
 		0E51525D1F4AD9E30006BE05 /* UIWebViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewLenses.swift; sourceTree = "<group>"; };
 		0E51525E1F4AD9E30006BE05 /* WKWebViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewLenses.swift; sourceTree = "<group>"; };
-		0E51525F1F4AD9E30006BE05 /* LensHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensHolder.swift; sourceTree = "<group>"; };
 		0E5152601F4AD9E30006BE05 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		0E5152621F4AD9E30006BE05 /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		0E5152631F4AD9E30006BE05 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -252,6 +251,7 @@
 		0E5152AC1F4ADC570006BE05 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		0E5152B21F4ADC570006BE05 /* TabBarItemStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemStyles.swift; sourceTree = "<group>"; };
 		0E5152C41F4ADD640006BE05 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		0E5152C61F4B26010006BE05 /* CAGradientLayerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayerLenses.swift; sourceTree = "<group>"; };
 		0E89656B1F2C8D6B00A867E2 /* Pavers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pavers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E89656E1F2C8D6B00A867E2 /* Pavers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pavers.h; sourceTree = "<group>"; };
 		0E89656F1F2C8D6B00A867E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -408,7 +408,6 @@
 			children = (
 				0E5152A31F4ADC570006BE05 /* Presets */,
 				0E51523B1F4AD9E30006BE05 /* lenses */,
-				0E51525F1F4AD9E30006BE05 /* LensHolder.swift */,
 				0E5152601F4AD9E30006BE05 /* UIButton.swift */,
 				0E5152C41F4ADD640006BE05 /* UIColor.swift */,
 				0E5152621F4AD9E30006BE05 /* UIEdgeInsets.swift */,
@@ -422,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				0E51523C1F4AD9E30006BE05 /* CALayerLenses.swift */,
+				0E5152C61F4B26010006BE05 /* CAGradientLayerLenses.swift */,
 				0E51523D1F4AD9E30006BE05 /* CGPointLenses.swift */,
 				0E51523E1F4AD9E30006BE05 /* CGRectLenses.swift */,
 				0E51523F1F4AD9E30006BE05 /* CGSizeLenses.swift */,
@@ -820,6 +820,7 @@
 				0E5152B81F4ADC570006BE05 /* Colors.swift in Sources */,
 				0E51528D1F4AD9E30006BE05 /* UIImage.swift in Sources */,
 				0E5152691F4AD9E30006BE05 /* CGSizeLenses.swift in Sources */,
+				0E5152C71F4B26010006BE05 /* CAGradientLayerLenses.swift in Sources */,
 				0E51527C1F4AD9E30006BE05 /* UITabBarItemLenses.swift in Sources */,
 				0E5152671F4AD9E30006BE05 /* CGPointLenses.swift in Sources */,
 				0E5152C21F4ADC570006BE05 /* TabBarItemStyles.swift in Sources */,
@@ -860,7 +861,6 @@
 				0E5152871F4AD9E30006BE05 /* UIWebViewLenses.swift in Sources */,
 				0E5152851F4AD9E30006BE05 /* UIViewControllerLenses.swift in Sources */,
 				0E51526C1F4AD9E30006BE05 /* NSTextContainerLenses.swift in Sources */,
-				0E5152891F4AD9E30006BE05 /* LensHolder.swift in Sources */,
 				0E51528A1F4AD9E30006BE05 /* UIButton.swift in Sources */,
 				0E51528E1F4AD9E30006BE05 /* UITraitCollection.swift in Sources */,
 			);
