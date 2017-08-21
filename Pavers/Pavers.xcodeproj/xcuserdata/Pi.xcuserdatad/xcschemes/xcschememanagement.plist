@@ -9,10 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>PaversUI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0E5151161F4ABC730006BE05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0E5151C81F4AD7280006BE05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0E5151D01F4AD7280006BE05</key>
 		<dict>
 			<key>primary</key>
 			<true/>

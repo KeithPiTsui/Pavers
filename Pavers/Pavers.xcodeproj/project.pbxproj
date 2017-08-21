@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E51511A1F4ABC730006BE05 /* PaversTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151191F4ABC730006BE05 /* PaversTests.swift */; };
 		0E51511C1F4ABC730006BE05 /* Pavers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E89656B1F2C8D6B00A867E2 /* Pavers.framework */; };
 		0E51512A1F4ABDCD0006BE05 /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965F51F2C903B00A867E2 /* UnitTests.swift */; };
 		0E51512B1F4ABDE40006BE05 /* VectorTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965F61F2C903B00A867E2 /* VectorTypeTest.swift */; };
@@ -74,6 +73,57 @@
 		0E5151A91F4AD1F60006BE05 /* Unpack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151861F4AD1F60006BE05 /* Unpack.swift */; };
 		0E5151C21F4AD36C0006BE05 /* Value+NumericType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151C01F4AD36C0006BE05 /* Value+NumericType.swift */; };
 		0E5151C31F4AD36C0006BE05 /* Value+VectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151C11F4AD36C0006BE05 /* Value+VectorType.swift */; };
+		0E5151D21F4AD7280006BE05 /* PaversUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5151C91F4AD7280006BE05 /* PaversUI.framework */; };
+		0E5151D71F4AD7290006BE05 /* PaversUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151D61F4AD7290006BE05 /* PaversUITests.swift */; };
+		0E5151D91F4AD7290006BE05 /* PaversUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5151CB1F4AD7280006BE05 /* PaversUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E5152351F4AD7E50006BE05 /* Pavers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E89656B1F2C8D6B00A867E2 /* Pavers.framework */; };
+		0E5152661F4AD9E30006BE05 /* CALayerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51523C1F4AD9E30006BE05 /* CALayerLenses.swift */; };
+		0E5152671F4AD9E30006BE05 /* CGPointLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51523D1F4AD9E30006BE05 /* CGPointLenses.swift */; };
+		0E5152681F4AD9E30006BE05 /* CGRectLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51523E1F4AD9E30006BE05 /* CGRectLenses.swift */; };
+		0E5152691F4AD9E30006BE05 /* CGSizeLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51523F1F4AD9E30006BE05 /* CGSizeLenses.swift */; };
+		0E51526A1F4AD9E30006BE05 /* NSMutableParagraphStyleLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152401F4AD9E30006BE05 /* NSMutableParagraphStyleLenses.swift */; };
+		0E51526B1F4AD9E30006BE05 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152411F4AD9E30006BE05 /* NSObject.swift */; };
+		0E51526C1F4AD9E30006BE05 /* NSTextContainerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152421F4AD9E30006BE05 /* NSTextContainerLenses.swift */; };
+		0E51526D1F4AD9E30006BE05 /* UIAccessibilityLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152431F4AD9E30006BE05 /* UIAccessibilityLenses.swift */; };
+		0E51526E1F4AD9E30006BE05 /* UIActivityIndicatorViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152441F4AD9E30006BE05 /* UIActivityIndicatorViewLenses.swift */; };
+		0E51526F1F4AD9E30006BE05 /* UIBarButtonItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152451F4AD9E30006BE05 /* UIBarButtonItemLenses.swift */; };
+		0E5152701F4AD9E30006BE05 /* UIBarItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152461F4AD9E30006BE05 /* UIBarItemLenses.swift */; };
+		0E5152711F4AD9E30006BE05 /* UIButtonLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152471F4AD9E30006BE05 /* UIButtonLenses.swift */; };
+		0E5152721F4AD9E30006BE05 /* UIControlLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152481F4AD9E30006BE05 /* UIControlLenses.swift */; };
+		0E5152731F4AD9E30006BE05 /* UIEdgeInsetsLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152491F4AD9E30006BE05 /* UIEdgeInsetsLenses.swift */; };
+		0E5152741F4AD9E30006BE05 /* UIImageViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51524A1F4AD9E30006BE05 /* UIImageViewLenses.swift */; };
+		0E5152751F4AD9E30006BE05 /* UILabelLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51524B1F4AD9E30006BE05 /* UILabelLenses.swift */; };
+		0E5152761F4AD9E30006BE05 /* UINavigationBarLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51524C1F4AD9E30006BE05 /* UINavigationBarLenses.swift */; };
+		0E5152771F4AD9E30006BE05 /* UINavigationControllerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51524D1F4AD9E30006BE05 /* UINavigationControllerLenses.swift */; };
+		0E5152781F4AD9E30006BE05 /* UINavigationItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51524E1F4AD9E30006BE05 /* UINavigationItemLenses.swift */; };
+		0E5152791F4AD9E30006BE05 /* UIProgressViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51524F1F4AD9E30006BE05 /* UIProgressViewLenses.swift */; };
+		0E51527A1F4AD9E30006BE05 /* UIScrollViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152501F4AD9E30006BE05 /* UIScrollViewLenses.swift */; };
+		0E51527B1F4AD9E30006BE05 /* UIStackViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152511F4AD9E30006BE05 /* UIStackViewLenses.swift */; };
+		0E51527C1F4AD9E30006BE05 /* UITabBarItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152521F4AD9E30006BE05 /* UITabBarItemLenses.swift */; };
+		0E51527D1F4AD9E30006BE05 /* UITabBarLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152531F4AD9E30006BE05 /* UITabBarLenses.swift */; };
+		0E51527E1F4AD9E30006BE05 /* UITableViewCellLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152541F4AD9E30006BE05 /* UITableViewCellLenses.swift */; };
+		0E51527F1F4AD9E30006BE05 /* UITableViewControllerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152551F4AD9E30006BE05 /* UITableViewControllerLenses.swift */; };
+		0E5152801F4AD9E30006BE05 /* UITableViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152561F4AD9E30006BE05 /* UITableViewLenses.swift */; };
+		0E5152811F4AD9E30006BE05 /* UITextFieldLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152571F4AD9E30006BE05 /* UITextFieldLenses.swift */; };
+		0E5152821F4AD9E30006BE05 /* UITextInputTraitsLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152581F4AD9E30006BE05 /* UITextInputTraitsLenses.swift */; };
+		0E5152831F4AD9E30006BE05 /* UITextViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152591F4AD9E30006BE05 /* UITextViewLenses.swift */; };
+		0E5152841F4AD9E30006BE05 /* UITraitEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525A1F4AD9E30006BE05 /* UITraitEnvironment.swift */; };
+		0E5152851F4AD9E30006BE05 /* UIViewControllerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525B1F4AD9E30006BE05 /* UIViewControllerLenses.swift */; };
+		0E5152861F4AD9E30006BE05 /* UIViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525C1F4AD9E30006BE05 /* UIViewLenses.swift */; };
+		0E5152871F4AD9E30006BE05 /* UIWebViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525D1F4AD9E30006BE05 /* UIWebViewLenses.swift */; };
+		0E5152881F4AD9E30006BE05 /* WKWebViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525E1F4AD9E30006BE05 /* WKWebViewLenses.swift */; };
+		0E5152891F4AD9E30006BE05 /* LensHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51525F1F4AD9E30006BE05 /* LensHolder.swift */; };
+		0E51528A1F4AD9E30006BE05 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152601F4AD9E30006BE05 /* UIButton.swift */; };
+		0E51528C1F4AD9E30006BE05 /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152621F4AD9E30006BE05 /* UIEdgeInsets.swift */; };
+		0E51528D1F4AD9E30006BE05 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152631F4AD9E30006BE05 /* UIImage.swift */; };
+		0E51528E1F4AD9E30006BE05 /* UITraitCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152641F4AD9E30006BE05 /* UITraitCollection.swift */; };
+		0E5152B51F4ADC570006BE05 /* BarButtonItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152A51F4ADC570006BE05 /* BarButtonItemStyles.swift */; };
+		0E5152B61F4ADC570006BE05 /* BaseStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152A61F4ADC570006BE05 /* BaseStyles.swift */; };
+		0E5152B71F4ADC570006BE05 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152A71F4ADC570006BE05 /* ButtonStyles.swift */; };
+		0E5152B81F4ADC570006BE05 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152A81F4ADC570006BE05 /* Colors.swift */; };
+		0E5152BC1F4ADC570006BE05 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152AC1F4ADC570006BE05 /* Fonts.swift */; };
+		0E5152C21F4ADC570006BE05 /* TabBarItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152B21F4ADC570006BE05 /* TabBarItemStyles.swift */; };
+		0E5152C51F4ADD640006BE05 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152C41F4ADD640006BE05 /* UIColor.swift */; };
 		0E89657C1F2C8D6B00A867E2 /* Pavers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E89656E1F2C8D6B00A867E2 /* Pavers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E8965E01F2C8E9500A867E2 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965B71F2C8E9500A867E2 /* Curry.swift */; };
 /* End PBXBuildFile section */
@@ -86,12 +136,24 @@
 			remoteGlobalIDString = 0E89656A1F2C8D6B00A867E2;
 			remoteInfo = Pavers;
 		};
+		0E5151D31F4AD7280006BE05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E5151C81F4AD7280006BE05;
+			remoteInfo = PaversUI;
+		};
+		0E5152331F4AD7DF0006BE05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E89656A1F2C8D6B00A867E2;
+			remoteInfo = Pavers;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0E5151171F4ABC730006BE05 /* PaversTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E5151191F4ABC730006BE05 /* PaversTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversTests.swift; sourceTree = "<group>"; };
-		0E51511B1F4ABC730006BE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E51514A1F4ACAF00006BE05 /* OptionalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
 		0E51514D1F4ACB9D0006BE05 /* Semigroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semigroup.swift; sourceTree = "<group>"; };
 		0E51514F1F4ACC5F0006BE05 /* EitherType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EitherType.swift; sourceTree = "<group>"; };
@@ -137,6 +199,59 @@
 		0E5151861F4AD1F60006BE05 /* Unpack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unpack.swift; sourceTree = "<group>"; };
 		0E5151C01F4AD36C0006BE05 /* Value+NumericType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Value+NumericType.swift"; sourceTree = "<group>"; };
 		0E5151C11F4AD36C0006BE05 /* Value+VectorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Value+VectorType.swift"; sourceTree = "<group>"; };
+		0E5151C91F4AD7280006BE05 /* PaversUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E5151CB1F4AD7280006BE05 /* PaversUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversUI.h; sourceTree = "<group>"; };
+		0E5151CC1F4AD7280006BE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E5151D11F4AD7280006BE05 /* PaversUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E5151D61F4AD7290006BE05 /* PaversUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversUITests.swift; sourceTree = "<group>"; };
+		0E5151D81F4AD7290006BE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E51523C1F4AD9E30006BE05 /* CALayerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerLenses.swift; sourceTree = "<group>"; };
+		0E51523D1F4AD9E30006BE05 /* CGPointLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointLenses.swift; sourceTree = "<group>"; };
+		0E51523E1F4AD9E30006BE05 /* CGRectLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectLenses.swift; sourceTree = "<group>"; };
+		0E51523F1F4AD9E30006BE05 /* CGSizeLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeLenses.swift; sourceTree = "<group>"; };
+		0E5152401F4AD9E30006BE05 /* NSMutableParagraphStyleLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableParagraphStyleLenses.swift; sourceTree = "<group>"; };
+		0E5152411F4AD9E30006BE05 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		0E5152421F4AD9E30006BE05 /* NSTextContainerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextContainerLenses.swift; sourceTree = "<group>"; };
+		0E5152431F4AD9E30006BE05 /* UIAccessibilityLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAccessibilityLenses.swift; sourceTree = "<group>"; };
+		0E5152441F4AD9E30006BE05 /* UIActivityIndicatorViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewLenses.swift; sourceTree = "<group>"; };
+		0E5152451F4AD9E30006BE05 /* UIBarButtonItemLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemLenses.swift; sourceTree = "<group>"; };
+		0E5152461F4AD9E30006BE05 /* UIBarItemLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarItemLenses.swift; sourceTree = "<group>"; };
+		0E5152471F4AD9E30006BE05 /* UIButtonLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonLenses.swift; sourceTree = "<group>"; };
+		0E5152481F4AD9E30006BE05 /* UIControlLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlLenses.swift; sourceTree = "<group>"; };
+		0E5152491F4AD9E30006BE05 /* UIEdgeInsetsLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsLenses.swift; sourceTree = "<group>"; };
+		0E51524A1F4AD9E30006BE05 /* UIImageViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewLenses.swift; sourceTree = "<group>"; };
+		0E51524B1F4AD9E30006BE05 /* UILabelLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelLenses.swift; sourceTree = "<group>"; };
+		0E51524C1F4AD9E30006BE05 /* UINavigationBarLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarLenses.swift; sourceTree = "<group>"; };
+		0E51524D1F4AD9E30006BE05 /* UINavigationControllerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerLenses.swift; sourceTree = "<group>"; };
+		0E51524E1F4AD9E30006BE05 /* UINavigationItemLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItemLenses.swift; sourceTree = "<group>"; };
+		0E51524F1F4AD9E30006BE05 /* UIProgressViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIProgressViewLenses.swift; sourceTree = "<group>"; };
+		0E5152501F4AD9E30006BE05 /* UIScrollViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewLenses.swift; sourceTree = "<group>"; };
+		0E5152511F4AD9E30006BE05 /* UIStackViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewLenses.swift; sourceTree = "<group>"; };
+		0E5152521F4AD9E30006BE05 /* UITabBarItemLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarItemLenses.swift; sourceTree = "<group>"; };
+		0E5152531F4AD9E30006BE05 /* UITabBarLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarLenses.swift; sourceTree = "<group>"; };
+		0E5152541F4AD9E30006BE05 /* UITableViewCellLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellLenses.swift; sourceTree = "<group>"; };
+		0E5152551F4AD9E30006BE05 /* UITableViewControllerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewControllerLenses.swift; sourceTree = "<group>"; };
+		0E5152561F4AD9E30006BE05 /* UITableViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewLenses.swift; sourceTree = "<group>"; };
+		0E5152571F4AD9E30006BE05 /* UITextFieldLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldLenses.swift; sourceTree = "<group>"; };
+		0E5152581F4AD9E30006BE05 /* UITextInputTraitsLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextInputTraitsLenses.swift; sourceTree = "<group>"; };
+		0E5152591F4AD9E30006BE05 /* UITextViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewLenses.swift; sourceTree = "<group>"; };
+		0E51525A1F4AD9E30006BE05 /* UITraitEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITraitEnvironment.swift; sourceTree = "<group>"; };
+		0E51525B1F4AD9E30006BE05 /* UIViewControllerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerLenses.swift; sourceTree = "<group>"; };
+		0E51525C1F4AD9E30006BE05 /* UIViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewLenses.swift; sourceTree = "<group>"; };
+		0E51525D1F4AD9E30006BE05 /* UIWebViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewLenses.swift; sourceTree = "<group>"; };
+		0E51525E1F4AD9E30006BE05 /* WKWebViewLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewLenses.swift; sourceTree = "<group>"; };
+		0E51525F1F4AD9E30006BE05 /* LensHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensHolder.swift; sourceTree = "<group>"; };
+		0E5152601F4AD9E30006BE05 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		0E5152621F4AD9E30006BE05 /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
+		0E5152631F4AD9E30006BE05 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		0E5152641F4AD9E30006BE05 /* UITraitCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITraitCollection.swift; sourceTree = "<group>"; };
+		0E5152A51F4ADC570006BE05 /* BarButtonItemStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonItemStyles.swift; sourceTree = "<group>"; };
+		0E5152A61F4ADC570006BE05 /* BaseStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStyles.swift; sourceTree = "<group>"; };
+		0E5152A71F4ADC570006BE05 /* ButtonStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		0E5152A81F4ADC570006BE05 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0E5152AC1F4ADC570006BE05 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		0E5152B21F4ADC570006BE05 /* TabBarItemStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemStyles.swift; sourceTree = "<group>"; };
+		0E5152C41F4ADD640006BE05 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0E89656B1F2C8D6B00A867E2 /* Pavers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pavers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E89656E1F2C8D6B00A867E2 /* Pavers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pavers.h; sourceTree = "<group>"; };
 		0E89656F1F2C8D6B00A867E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,8 +278,6 @@
 		0E8965F41F2C903B00A867E2 /* TupleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleTests.swift; sourceTree = "<group>"; };
 		0E8965F51F2C903B00A867E2 /* UnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		0E8965F61F2C903B00A867E2 /* VectorTypeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTypeTest.swift; sourceTree = "<group>"; };
-		0EDF0D001F303B2900EDB5DE /* PaversTestsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversTestsNew.swift; sourceTree = "<group>"; };
-		0EDF0D021F303B2900EDB5DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +286,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E51511C1F4ABC730006BE05 /* Pavers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E5151C51F4AD7280006BE05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E5152351F4AD7E50006BE05 /* Pavers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E5151CE1F4AD7280006BE05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E5151D21F4AD7280006BE05 /* PaversUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,15 +315,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E5151181F4ABC730006BE05 /* PaversTests */ = {
-			isa = PBXGroup;
-			children = (
-				0E5151191F4ABC730006BE05 /* PaversTests.swift */,
-				0E51511B1F4ABC730006BE05 /* Info.plist */,
-			);
-			path = PaversTests;
-			sourceTree = "<group>";
-		};
 		0E5151611F4AD1F60006BE05 /* Array */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,16 +377,112 @@
 			path = Value;
 			sourceTree = "<group>";
 		};
+		0E5151CA1F4AD7280006BE05 /* PaversUI */ = {
+			isa = PBXGroup;
+			children = (
+				0E5151CB1F4AD7280006BE05 /* PaversUI.h */,
+				0E5151CC1F4AD7280006BE05 /* Info.plist */,
+			);
+			path = PaversUI;
+			sourceTree = "<group>";
+		};
+		0E5151D51F4AD7290006BE05 /* PaversUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0E5151D61F4AD7290006BE05 /* PaversUITests.swift */,
+				0E5151D81F4AD7290006BE05 /* Info.plist */,
+			);
+			path = PaversUITests;
+			sourceTree = "<group>";
+		};
+		0E5152391F4AD9E30006BE05 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0E51523A1F4AD9E30006BE05 /* Styles */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0E51523A1F4AD9E30006BE05 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				0E5152A31F4ADC570006BE05 /* Presets */,
+				0E51523B1F4AD9E30006BE05 /* lenses */,
+				0E51525F1F4AD9E30006BE05 /* LensHolder.swift */,
+				0E5152601F4AD9E30006BE05 /* UIButton.swift */,
+				0E5152C41F4ADD640006BE05 /* UIColor.swift */,
+				0E5152621F4AD9E30006BE05 /* UIEdgeInsets.swift */,
+				0E5152631F4AD9E30006BE05 /* UIImage.swift */,
+				0E5152641F4AD9E30006BE05 /* UITraitCollection.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		0E51523B1F4AD9E30006BE05 /* lenses */ = {
+			isa = PBXGroup;
+			children = (
+				0E51523C1F4AD9E30006BE05 /* CALayerLenses.swift */,
+				0E51523D1F4AD9E30006BE05 /* CGPointLenses.swift */,
+				0E51523E1F4AD9E30006BE05 /* CGRectLenses.swift */,
+				0E51523F1F4AD9E30006BE05 /* CGSizeLenses.swift */,
+				0E5152401F4AD9E30006BE05 /* NSMutableParagraphStyleLenses.swift */,
+				0E5152411F4AD9E30006BE05 /* NSObject.swift */,
+				0E5152421F4AD9E30006BE05 /* NSTextContainerLenses.swift */,
+				0E5152431F4AD9E30006BE05 /* UIAccessibilityLenses.swift */,
+				0E5152441F4AD9E30006BE05 /* UIActivityIndicatorViewLenses.swift */,
+				0E5152451F4AD9E30006BE05 /* UIBarButtonItemLenses.swift */,
+				0E5152461F4AD9E30006BE05 /* UIBarItemLenses.swift */,
+				0E5152471F4AD9E30006BE05 /* UIButtonLenses.swift */,
+				0E5152481F4AD9E30006BE05 /* UIControlLenses.swift */,
+				0E5152491F4AD9E30006BE05 /* UIEdgeInsetsLenses.swift */,
+				0E51524A1F4AD9E30006BE05 /* UIImageViewLenses.swift */,
+				0E51524B1F4AD9E30006BE05 /* UILabelLenses.swift */,
+				0E51524C1F4AD9E30006BE05 /* UINavigationBarLenses.swift */,
+				0E51524D1F4AD9E30006BE05 /* UINavigationControllerLenses.swift */,
+				0E51524E1F4AD9E30006BE05 /* UINavigationItemLenses.swift */,
+				0E51524F1F4AD9E30006BE05 /* UIProgressViewLenses.swift */,
+				0E5152501F4AD9E30006BE05 /* UIScrollViewLenses.swift */,
+				0E5152511F4AD9E30006BE05 /* UIStackViewLenses.swift */,
+				0E5152521F4AD9E30006BE05 /* UITabBarItemLenses.swift */,
+				0E5152531F4AD9E30006BE05 /* UITabBarLenses.swift */,
+				0E5152541F4AD9E30006BE05 /* UITableViewCellLenses.swift */,
+				0E5152551F4AD9E30006BE05 /* UITableViewControllerLenses.swift */,
+				0E5152561F4AD9E30006BE05 /* UITableViewLenses.swift */,
+				0E5152571F4AD9E30006BE05 /* UITextFieldLenses.swift */,
+				0E5152581F4AD9E30006BE05 /* UITextInputTraitsLenses.swift */,
+				0E5152591F4AD9E30006BE05 /* UITextViewLenses.swift */,
+				0E51525A1F4AD9E30006BE05 /* UITraitEnvironment.swift */,
+				0E51525B1F4AD9E30006BE05 /* UIViewControllerLenses.swift */,
+				0E51525C1F4AD9E30006BE05 /* UIViewLenses.swift */,
+				0E51525D1F4AD9E30006BE05 /* UIWebViewLenses.swift */,
+				0E51525E1F4AD9E30006BE05 /* WKWebViewLenses.swift */,
+			);
+			path = lenses;
+			sourceTree = "<group>";
+		};
+		0E5152A31F4ADC570006BE05 /* Presets */ = {
+			isa = PBXGroup;
+			children = (
+				0E5152A51F4ADC570006BE05 /* BarButtonItemStyles.swift */,
+				0E5152A61F4ADC570006BE05 /* BaseStyles.swift */,
+				0E5152A71F4ADC570006BE05 /* ButtonStyles.swift */,
+				0E5152A81F4ADC570006BE05 /* Colors.swift */,
+				0E5152AC1F4ADC570006BE05 /* Fonts.swift */,
+				0E5152B21F4ADC570006BE05 /* TabBarItemStyles.swift */,
+			);
+			path = Presets;
+			sourceTree = "<group>";
+		};
 		0E8965611F2C8D6B00A867E2 = {
 			isa = PBXGroup;
 			children = (
-				0EDF0CFF1F303B2900EDB5DE /* PaversTestsNew */,
-				0E5151181F4ABC730006BE05 /* PaversTests */,
 				0E89660D1F2C90A000A867E2 /* Frameworks */,
-				0E8965851F2C8E9500A867E2 /* Sources */,
 				0E89656D1F2C8D6B00A867E2 /* Pavers */,
 				0E8965781F2C8D6B00A867E2 /* PaversTests */,
+				0E5151CA1F4AD7280006BE05 /* PaversUI */,
+				0E5151D51F4AD7290006BE05 /* PaversUITests */,
 				0E89656C1F2C8D6B00A867E2 /* Products */,
+				0E8965851F2C8E9500A867E2 /* Sources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,6 +491,8 @@
 			children = (
 				0E89656B1F2C8D6B00A867E2 /* Pavers.framework */,
 				0E5151171F4ABC730006BE05 /* PaversTests.xctest */,
+				0E5151C91F4AD7280006BE05 /* PaversUI.framework */,
+				0E5151D11F4AD7280006BE05 /* PaversUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,6 +538,7 @@
 		0E8965851F2C8E9500A867E2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0E5152391F4AD9E30006BE05 /* UI */,
 				0E89659F1F2C8E9500A867E2 /* Protocols */,
 				0E8965B51F2C8E9500A867E2 /* Types */,
 				0E8965B61F2C8E9500A867E2 /* Utilities */,
@@ -387,18 +606,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0EDF0CFF1F303B2900EDB5DE /* PaversTestsNew */ = {
-			isa = PBXGroup;
-			children = (
-				0EDF0D001F303B2900EDB5DE /* PaversTestsNew.swift */,
-				0EDF0D021F303B2900EDB5DE /* Info.plist */,
-			);
-			path = PaversTestsNew;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0E5151C61F4AD7280006BE05 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E5151D91F4AD7290006BE05 /* PaversUI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0E8965681F2C8D6B00A867E2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +644,43 @@
 			name = PaversTests;
 			productName = PaversTests;
 			productReference = 0E5151171F4ABC730006BE05 /* PaversTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0E5151C81F4AD7280006BE05 /* PaversUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E5151DA1F4AD7290006BE05 /* Build configuration list for PBXNativeTarget "PaversUI" */;
+			buildPhases = (
+				0E5151C41F4AD7280006BE05 /* Sources */,
+				0E5151C51F4AD7280006BE05 /* Frameworks */,
+				0E5151C61F4AD7280006BE05 /* Headers */,
+				0E5151C71F4AD7280006BE05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E5152341F4AD7DF0006BE05 /* PBXTargetDependency */,
+			);
+			name = PaversUI;
+			productName = PaversUI;
+			productReference = 0E5151C91F4AD7280006BE05 /* PaversUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0E5151D01F4AD7280006BE05 /* PaversUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E5151DD1F4AD7290006BE05 /* Build configuration list for PBXNativeTarget "PaversUITests" */;
+			buildPhases = (
+				0E5151CD1F4AD7280006BE05 /* Sources */,
+				0E5151CE1F4AD7280006BE05 /* Frameworks */,
+				0E5151CF1F4AD7280006BE05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E5151D41F4AD7280006BE05 /* PBXTargetDependency */,
+			);
+			name = PaversUITests;
+			productName = PaversUITests;
+			productReference = 0E5151D11F4AD7280006BE05 /* PaversUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		0E89656A1F2C8D6B00A867E2 /* Pavers */ = {
@@ -461,6 +716,16 @@
 						DevelopmentTeam = 6T5NK4S24M;
 						ProvisioningStyle = Automatic;
 					};
+					0E5151C81F4AD7280006BE05 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6T5NK4S24M;
+						ProvisioningStyle = Automatic;
+					};
+					0E5151D01F4AD7280006BE05 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6T5NK4S24M;
+						ProvisioningStyle = Automatic;
+					};
 					0E89656A1F2C8D6B00A867E2 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6T5NK4S24M;
@@ -482,12 +747,28 @@
 			targets = (
 				0E89656A1F2C8D6B00A867E2 /* Pavers */,
 				0E5151161F4ABC730006BE05 /* PaversTests */,
+				0E5151C81F4AD7280006BE05 /* PaversUI */,
+				0E5151D01F4AD7280006BE05 /* PaversUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0E5151151F4ABC730006BE05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E5151C71F4AD7280006BE05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E5151CF1F4AD7280006BE05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,7 +789,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E51511A1F4ABC730006BE05 /* PaversTests.swift in Sources */,
 				0E51512A1F4ABDCD0006BE05 /* UnitTests.swift in Sources */,
 				0E51512B1F4ABDE40006BE05 /* VectorTypeTest.swift in Sources */,
 				0E51512C1F4ABDF60006BE05 /* AnyErrorTests.swift in Sources */,
@@ -529,6 +809,68 @@
 				0E51513D1F4ABDF60006BE05 /* StateSpec.swift in Sources */,
 				0E51513E1F4ABDF60006BE05 /* StringTests.swift in Sources */,
 				0E51513F1F4ABDF60006BE05 /* TupleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E5151C41F4AD7280006BE05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E5152731F4AD9E30006BE05 /* UIEdgeInsetsLenses.swift in Sources */,
+				0E5152B81F4ADC570006BE05 /* Colors.swift in Sources */,
+				0E51528D1F4AD9E30006BE05 /* UIImage.swift in Sources */,
+				0E5152691F4AD9E30006BE05 /* CGSizeLenses.swift in Sources */,
+				0E51527C1F4AD9E30006BE05 /* UITabBarItemLenses.swift in Sources */,
+				0E5152671F4AD9E30006BE05 /* CGPointLenses.swift in Sources */,
+				0E5152C21F4ADC570006BE05 /* TabBarItemStyles.swift in Sources */,
+				0E5152861F4AD9E30006BE05 /* UIViewLenses.swift in Sources */,
+				0E5152841F4AD9E30006BE05 /* UITraitEnvironment.swift in Sources */,
+				0E5152761F4AD9E30006BE05 /* UINavigationBarLenses.swift in Sources */,
+				0E51527F1F4AD9E30006BE05 /* UITableViewControllerLenses.swift in Sources */,
+				0E5152B61F4ADC570006BE05 /* BaseStyles.swift in Sources */,
+				0E5152701F4AD9E30006BE05 /* UIBarItemLenses.swift in Sources */,
+				0E5152811F4AD9E30006BE05 /* UITextFieldLenses.swift in Sources */,
+				0E5152821F4AD9E30006BE05 /* UITextInputTraitsLenses.swift in Sources */,
+				0E5152791F4AD9E30006BE05 /* UIProgressViewLenses.swift in Sources */,
+				0E51526F1F4AD9E30006BE05 /* UIBarButtonItemLenses.swift in Sources */,
+				0E51526A1F4AD9E30006BE05 /* NSMutableParagraphStyleLenses.swift in Sources */,
+				0E5152801F4AD9E30006BE05 /* UITableViewLenses.swift in Sources */,
+				0E51527A1F4AD9E30006BE05 /* UIScrollViewLenses.swift in Sources */,
+				0E51527B1F4AD9E30006BE05 /* UIStackViewLenses.swift in Sources */,
+				0E51527E1F4AD9E30006BE05 /* UITableViewCellLenses.swift in Sources */,
+				0E5152751F4AD9E30006BE05 /* UILabelLenses.swift in Sources */,
+				0E5152B51F4ADC570006BE05 /* BarButtonItemStyles.swift in Sources */,
+				0E51526B1F4AD9E30006BE05 /* NSObject.swift in Sources */,
+				0E51526E1F4AD9E30006BE05 /* UIActivityIndicatorViewLenses.swift in Sources */,
+				0E5152C51F4ADD640006BE05 /* UIColor.swift in Sources */,
+				0E5152831F4AD9E30006BE05 /* UITextViewLenses.swift in Sources */,
+				0E5152BC1F4ADC570006BE05 /* Fonts.swift in Sources */,
+				0E5152711F4AD9E30006BE05 /* UIButtonLenses.swift in Sources */,
+				0E5152661F4AD9E30006BE05 /* CALayerLenses.swift in Sources */,
+				0E5152781F4AD9E30006BE05 /* UINavigationItemLenses.swift in Sources */,
+				0E5152681F4AD9E30006BE05 /* CGRectLenses.swift in Sources */,
+				0E51526D1F4AD9E30006BE05 /* UIAccessibilityLenses.swift in Sources */,
+				0E51527D1F4AD9E30006BE05 /* UITabBarLenses.swift in Sources */,
+				0E51528C1F4AD9E30006BE05 /* UIEdgeInsets.swift in Sources */,
+				0E5152B71F4ADC570006BE05 /* ButtonStyles.swift in Sources */,
+				0E5152881F4AD9E30006BE05 /* WKWebViewLenses.swift in Sources */,
+				0E5152741F4AD9E30006BE05 /* UIImageViewLenses.swift in Sources */,
+				0E5152771F4AD9E30006BE05 /* UINavigationControllerLenses.swift in Sources */,
+				0E5152721F4AD9E30006BE05 /* UIControlLenses.swift in Sources */,
+				0E5152871F4AD9E30006BE05 /* UIWebViewLenses.swift in Sources */,
+				0E5152851F4AD9E30006BE05 /* UIViewControllerLenses.swift in Sources */,
+				0E51526C1F4AD9E30006BE05 /* NSTextContainerLenses.swift in Sources */,
+				0E5152891F4AD9E30006BE05 /* LensHolder.swift in Sources */,
+				0E51528A1F4AD9E30006BE05 /* UIButton.swift in Sources */,
+				0E51528E1F4AD9E30006BE05 /* UITraitCollection.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E5151CD1F4AD7280006BE05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E5151D71F4AD7290006BE05 /* PaversUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +935,16 @@
 			target = 0E89656A1F2C8D6B00A867E2 /* Pavers */;
 			targetProxy = 0E51511D1F4ABC730006BE05 /* PBXContainerItemProxy */;
 		};
+		0E5151D41F4AD7280006BE05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E5151C81F4AD7280006BE05 /* PaversUI */;
+			targetProxy = 0E5151D31F4AD7280006BE05 /* PBXContainerItemProxy */;
+		};
+		0E5152341F4AD7DF0006BE05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E89656A1F2C8D6B00A867E2 /* Pavers */;
+			targetProxy = 0E5152331F4AD7DF0006BE05 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -625,6 +977,70 @@
 				INFOPLIST_FILE = PaversTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		0E5151DB1F4AD7290006BE05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6T5NK4S24M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PaversUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0E5151DC1F4AD7290006BE05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6T5NK4S24M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PaversUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		0E5151DE1F4AD7290006BE05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6T5NK4S24M;
+				INFOPLIST_FILE = PaversUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0E5151DF1F4AD7290006BE05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6T5NK4S24M;
+				INFOPLIST_FILE = PaversUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -788,6 +1204,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		0E5151DA1F4AD7290006BE05 /* Build configuration list for PBXNativeTarget "PaversUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E5151DB1F4AD7290006BE05 /* Debug */,
+				0E5151DC1F4AD7290006BE05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0E5151DD1F4AD7290006BE05 /* Build configuration list for PBXNativeTarget "PaversUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E5151DE1F4AD7290006BE05 /* Debug */,
+				0E5151DF1F4AD7290006BE05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		0E8965651F2C8D6B00A867E2 /* Build configuration list for PBXProject "Pavers" */ = {
 			isa = XCConfigurationList;

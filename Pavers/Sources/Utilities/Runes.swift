@@ -7,14 +7,14 @@ precedencegroup LeftApplyPrecedence {
 
 precedencegroup FunctionCompositionPrecedence {
   associativity: right
-  higherThan: LensSetPrecedence
+  higherThan: LeftApplyPrecedence
 }
 
 // MARK: Lens Precedence Group
 
 precedencegroup LensSetPrecedence {
   associativity: left
-  higherThan: LeftApplyPrecedence
+  higherThan: FunctionCompositionPrecedence
 }
 
 
