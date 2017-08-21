@@ -11,6 +11,11 @@ public protocol ResultProtocol {
 	var result: Result<Value, Error> { get }
 }
 
+/// Protocol used to constrain `tryMap` to `Result`s with compatible `Error`s.
+public protocol ErrorConvertible: Swift.Error {
+  static func error(from error: Swift.Error) -> Self
+}
+
 public extension Result {
 	/// Returns the value if self represents a success, `nil` otherwise.
 	public var value: Value? {
@@ -26,6 +31,10 @@ public extension Result {
 	public func map<U>(_ transform: (Value) -> U) -> Result<U, Error> {
 		return flatMap { .success(transform($0)) }
 	}
+
+  public static func <^> <T, U>(f: (T) -> U, a: Result<T, Error>) -> Result<U, Error> {
+    return a.map(f)
+  }
 
 	/// Returns the result of applying `transform` to `Success`es’ values, or re-wrapping `Failure`’s errors.
 	public func flatMap<U>(_ transform: (Value) -> Result<U, Error>) -> Result<U, Error> {
@@ -78,10 +87,7 @@ public extension Result {
 	}
 }
 
-/// Protocol used to constrain `tryMap` to `Result`s with compatible `Error`s.
-public protocol ErrorConvertible: Swift.Error {
-	static func error(from error: Swift.Error) -> Self
-}
+
 
 public extension Result where Error: ErrorConvertible {
 
@@ -131,7 +137,3 @@ extension Result {
 	}
 }
 
-// MARK: - migration support
-
-@available(*, unavailable, renamed: "ErrorConvertible")
-public protocol ErrorProtocolConvertible: ErrorConvertible {}

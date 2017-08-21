@@ -142,6 +142,15 @@ infix operator ||> : LeftApplyPrecedence
 infix operator ?|> : LeftApplyPrecedence
 
 
+/// Swap binary arguments of a function,
+/// i.e. `~f: (A, B)-> C := f': (B,A) -> C`
+prefix operator ~
+
+
+
+
+// MARK: Composition Operators
+
 /// Compose forward operator, i.e. `f >>> g := g(f(x))`, called `then`
 infix operator >>> : FunctionCompositionPrecedence
 
@@ -154,9 +163,6 @@ prefix operator >>>
 /// post-composition, i.e `f >>>`
 postfix operator >>>
 
-/// Swap binary arguments of a function, 
-/// i.e. `~f: (A, B)-> C := f': (B,A) -> C`
-prefix operator ~
 
 
 // MARK: Lens Operators
