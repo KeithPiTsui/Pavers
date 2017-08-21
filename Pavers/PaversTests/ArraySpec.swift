@@ -150,8 +150,8 @@ class ArraySpec: XCTestCase {
       let g: (Int) -> [Int] = pure <<< fb.getArrow
       let h: (Int) -> [Int] = pure <<< fc.getArrow
 
-      let lhs = (f >-> g) >-> h
-      let rhs = f >-> (g >-> h)
+      let lhs = (f >>> g) >>> h
+      let rhs = f >>> (g >>> h)
 
       return lhs(x) == rhs(x)
     }
@@ -162,8 +162,8 @@ class ArraySpec: XCTestCase {
       let g: (Int) -> [Int] = pure <<< fb.getArrow
       let h: (Int) -> [Int] = pure <<< fc.getArrow
 
-      let lhs = (f <-< g) <-< h
-      let rhs = f <-< (g <-< h)
+      let lhs = (f <<< g) <<< h
+      let rhs = f <<< (g <<< h)
 
       return lhs(x) == rhs(x)
     }

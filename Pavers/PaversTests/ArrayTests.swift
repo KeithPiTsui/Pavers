@@ -35,7 +35,7 @@ class ArrayTests: XCTestCase {
 
   func testSemigroupOperation() {
     XCTAssertEqual([1, 2, 3, 4], [1, 2].op([3, 4]))
-    XCTAssert([1, 2, 3, 4] == ([1, 2] <> [3, 4]))
+    XCTAssert([1, 2, 3, 4] == ([1, 2] >>> [3, 4]))
     XCTAssert([1, 2].op([3, 4].op([5, 6])) == [1, 2].op([3, 4]).op([5, 6]), "Associativity")
   }
 

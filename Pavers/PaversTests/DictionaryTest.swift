@@ -26,8 +26,8 @@ class DictionaryTests: XCTestCase {
 
   func test_TransformedKeys() {
     let xs = ["a": 1, "b": 2, "c": 3]
-    XCTAssertEqual(["_a": 1, "_b": 2, "_c": 3], xs.transformedKeys("_"<>))
-    XCTAssertEqual(["a_": 1, "b_": 2, "c_": 3], xs.transformedKeys(<>"_"))
+    XCTAssertEqual(["_a": 1, "_b": 2, "_c": 3], xs.transformedKeys("_">>>))
+    XCTAssertEqual(["a_": 1, "b_": 2, "c_": 3], xs.transformedKeys(>>>"_"))
   }
 
   func test_PrefixKeys() {

@@ -25,7 +25,7 @@ class StateSpec: XCTestCase {
 
       let f = curry(toString)
       let g = curry(getLength)
-      let h = f >-> g
+      let h = f >>> g
 
       let h0 = h(100000)
       let h1 = h0(0)

@@ -38,6 +38,6 @@ final class NonEmptyTests: XCTestCase {
   }
 
   func testArraySemigroup() {
-    XCTAssert(NonEmptyArray(1, 2, 3, 4) == (NonEmptyArray(1, 2) <> NonEmptyArray(3, 4)))
+    XCTAssert(NonEmptyArray(1, 2, 3, 4) == (NonEmptyArray(1, 2) >>> NonEmptyArray(3, 4)))
   }
 }

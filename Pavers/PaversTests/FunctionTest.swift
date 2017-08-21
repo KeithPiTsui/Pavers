@@ -42,8 +42,8 @@ class FunctionTest: XCTestCase {
     func square(_ x: Int) -> Int { return x * x }
     func incr(_ x: Int) -> Int { return x + 1 }
 
-    XCTAssertEqual(10, (square <> incr)(3))
-    XCTAssertEqual(16, (incr <> square)(3))
+    XCTAssertEqual(10, (square >>> incr)(3))
+    XCTAssertEqual(16, (incr >>> square)(3))
   }
 
   func testId() {
