@@ -77,18 +77,6 @@ public func <<< <A, B, C> (f: @escaping (B) -> C, g: @escaping (A) -> B) -> (A) 
   return { f(g($0)) }
 }
 
-/**
- Compose two endomorphisms in left-to-right order, i.e. (f <> g)(x) = g(f(x)) = x |> f |> g. Note that this
- operation is the monoid operation on the set of functions `A -> A`.
-
- - parameter f: A function.
- - parameter g: A function.
-
- - returns: A function that is the composition of `f` and `g`.
- */
-public func <> <A> (f: @escaping (A) -> A, g: @escaping (A) -> A) -> ((A) -> A) {
-  return f >>> g
-}
 
 /**
  The identity function on `A`.

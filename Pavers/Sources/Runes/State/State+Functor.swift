@@ -1,12 +1,3 @@
-//
-//  State+Functor.swift
-//  Runes
-//
-//  Created by Pi on 27/07/2017.
-//  Copyright © 2017 thoughtbot. All rights reserved.
-//
-
-
 public func <^><A, B, S>(_ f: @escaping (A) -> B, _ g: @escaping State<S,A>)
   -> State<S, B> {
     return { (s: S) -> (B, S) in

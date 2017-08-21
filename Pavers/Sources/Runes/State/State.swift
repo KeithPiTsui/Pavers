@@ -1,11 +1,3 @@
-//
-//  State.swift
-//  Runes
-//
-//  Created by Pi on 27/07/2017.
-//  Copyright © 2017 thoughtbot. All rights reserved.
-//
-
 public typealias State<S, A> = (S) -> (A, S)
 
 public enum NominalState<S, A> {

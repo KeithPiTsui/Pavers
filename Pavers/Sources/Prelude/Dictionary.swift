@@ -67,6 +67,6 @@ extension Dictionary where Key: Semigroup {
    - returns: A new dictionary.
    */
   public func prefixedKeys(_ prefix: Key) -> Dictionary {
-    return transformedKeys(prefix<>)
+    return transformedKeys(prefix>>>)
   }
 }

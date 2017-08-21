@@ -133,25 +133,6 @@ infix operator >>- : RunesMonadicPrecedenceLeft
 */
 infix operator -<< : RunesMonadicPrecedenceRight
 
-/**
-  compose two functions that produce results in a context,
-  from left to right, returning a result in that context
-
-  Expected function type: `(a -> m b) -> (b -> m c) -> a -> m c`
-  Haskell `infixr 1`
-*/
-infix operator >-> : RunesMonadicPrecedenceRight
-
-/**
-  compose two functions that produce results in a context,
-  from right to left, returning a result in that context
-
-  like `>->`, but with the arguments flipped
-
-  Expected function type: `(b -> m c) -> (a -> m b) -> a -> m c`
-  Haskell `infixr 1`
-*/
-infix operator <-< : RunesMonadicPrecedenceRight
 
 
 // MARK: Function Operators
@@ -165,31 +146,22 @@ infix operator ||> : LeftApplyPrecedence
 /// Infix, flipped version of fmap (for optionals), i.e. `x ?|> f := f <^> x`
 infix operator ?|> : LeftApplyPrecedence
 
-/// Composition, i.e. `f • g := f <<< g := f(g(x))`
-infix operator • : FunctionCompositionPrecedence
 
-/// Compose forward operator, i.e. `f >>> g := g(f(x))`
+/// Compose forward operator, i.e. `f >>> g := g(f(x))`, called `then`
 infix operator >>> : FunctionCompositionPrecedence
 
-/// Compose backward operator, i.e. `f <<< g := f(g(x))`
+/// Compose backward operator, i.e. `f <<< g := f(g(x))`, called `after`
 infix operator <<< : FunctionCompositionPrecedence
+
+/// pre-composition, i.e `>>> f`
+prefix operator >>>
+
+/// post-composition, i.e `f >>>`
+postfix operator >>>
 
 /// Swap binary arguments of a function, 
 /// i.e. `~f: (A, B)-> C := f': (B,A) -> C`
 prefix operator ~
-
-
-// MARK: Semigroup Operators
-
-/// Semigroup binary operation, i.e. `f <> g := f <<< g := f(g(x))`
-infix operator <> : FunctionCompositionPrecedence
-
-/// Semigroup operation partially applied on right
-prefix operator <>
-
-/// Semigroup operation partially applied on left
-postfix operator <>
-
 
 
 // MARK: Lens Operators
