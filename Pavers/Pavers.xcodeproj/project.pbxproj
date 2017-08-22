@@ -124,6 +124,8 @@
 		0E5152C21F4ADC570006BE05 /* TabBarItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152B21F4ADC570006BE05 /* TabBarItemStyles.swift */; };
 		0E5152C51F4ADD640006BE05 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152C41F4ADD640006BE05 /* UIColor.swift */; };
 		0E5152C71F4B26010006BE05 /* CAGradientLayerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5152C61F4B26010006BE05 /* CAGradientLayerLenses.swift */; };
+		0E78731D1F4BC4BA002600BE /* CAShapeLayerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78731B1F4BC444002600BE /* CAShapeLayerLenses.swift */; };
+		0E7873201F4BCA84002600BE /* CATransactionLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78731E1F4BCA31002600BE /* CATransactionLenses.swift */; };
 		0E89657C1F2C8D6B00A867E2 /* Pavers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E89656E1F2C8D6B00A867E2 /* Pavers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E8965E01F2C8E9500A867E2 /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8965B71F2C8E9500A867E2 /* Curry.swift */; };
 /* End PBXBuildFile section */
@@ -252,6 +254,8 @@
 		0E5152B21F4ADC570006BE05 /* TabBarItemStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemStyles.swift; sourceTree = "<group>"; };
 		0E5152C41F4ADD640006BE05 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0E5152C61F4B26010006BE05 /* CAGradientLayerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayerLenses.swift; sourceTree = "<group>"; };
+		0E78731B1F4BC444002600BE /* CAShapeLayerLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAShapeLayerLenses.swift; sourceTree = "<group>"; };
+		0E78731E1F4BCA31002600BE /* CATransactionLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransactionLenses.swift; sourceTree = "<group>"; };
 		0E89656B1F2C8D6B00A867E2 /* Pavers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pavers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E89656E1F2C8D6B00A867E2 /* Pavers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pavers.h; sourceTree = "<group>"; };
 		0E89656F1F2C8D6B00A867E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -421,7 +425,9 @@
 			isa = PBXGroup;
 			children = (
 				0E51523C1F4AD9E30006BE05 /* CALayerLenses.swift */,
+				0E78731E1F4BCA31002600BE /* CATransactionLenses.swift */,
 				0E5152C61F4B26010006BE05 /* CAGradientLayerLenses.swift */,
+				0E78731B1F4BC444002600BE /* CAShapeLayerLenses.swift */,
 				0E51523D1F4AD9E30006BE05 /* CGPointLenses.swift */,
 				0E51523E1F4AD9E30006BE05 /* CGRectLenses.swift */,
 				0E51523F1F4AD9E30006BE05 /* CGSizeLenses.swift */,
@@ -826,7 +832,9 @@
 				0E5152C21F4ADC570006BE05 /* TabBarItemStyles.swift in Sources */,
 				0E5152861F4AD9E30006BE05 /* UIViewLenses.swift in Sources */,
 				0E5152841F4AD9E30006BE05 /* UITraitEnvironment.swift in Sources */,
+				0E7873201F4BCA84002600BE /* CATransactionLenses.swift in Sources */,
 				0E5152761F4AD9E30006BE05 /* UINavigationBarLenses.swift in Sources */,
+				0E78731D1F4BC4BA002600BE /* CAShapeLayerLenses.swift in Sources */,
 				0E51527F1F4AD9E30006BE05 /* UITableViewControllerLenses.swift in Sources */,
 				0E5152B61F4ADC570006BE05 /* BaseStyles.swift in Sources */,
 				0E5152701F4AD9E30006BE05 /* UIBarItemLenses.swift in Sources */,
@@ -1212,6 +1220,7 @@
 				0E5151DC1F4AD7290006BE05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E5151DD1F4AD7290006BE05 /* Build configuration list for PBXNativeTarget "PaversUITests" */ = {
 			isa = XCConfigurationList;
@@ -1220,6 +1229,7 @@
 				0E5151DF1F4AD7290006BE05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E8965651F2C8D6B00A867E2 /* Build configuration list for PBXProject "Pavers" */ = {
 			isa = XCConfigurationList;

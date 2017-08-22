@@ -27,4 +27,13 @@ public extension UIColor {
     let b = components[2]
     return String(format: "%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
   }
+
+  public static var random: UIColor {
+    let r = CGFloat(arc4random()) / CGFloat(UInt32.max)
+    let g = CGFloat(arc4random()) / CGFloat(UInt32.max)
+    let b = CGFloat(arc4random()) / CGFloat(UInt32.max)
+
+    return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+
+  }
 }

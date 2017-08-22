@@ -4,6 +4,7 @@ import Pavers
 import PaversUI
 import UIKit
 import PlaygroundSupport
+import Foundation
 
 final class UIGradientView: UIView {
 
@@ -11,6 +12,22 @@ final class UIGradientView: UIView {
 
   override class var layerClass: Swift.AnyClass {
     return CAGradientLayer.self
+  }
+
+  override func action(for layer: CALayer, forKey event: String) -> CAAction? {
+    if event == "colors" {
+      print("Hit colors")
+      if let acts = layer.actions, let act = acts[event]  {
+        print("Hit colors with act in actions")
+        return act
+      }
+      if let style = layer.style, let act = style[event] {
+        print("Hit colors with act in style")
+        return act as? CAAction
+      }
+      return CAGradientLayer.defaultAction(forKey:event)
+    }
+    return super.action(for: layer, forKey: event)
   }
 }
 
@@ -48,27 +65,43 @@ extension Lens where Whole: UIGradientViewProtocol, Part == CAGradientLayer {
 }
 
 
-let colors = [UIColor.red.cgColor, UIColor.blue.cgColor, UIColor.yellow.cgColor]
+
+let colors = [UIColor.random.cgColor, UIColor.random.cgColor, UIColor.random.cgColor]
 let locations = [NSNumber(value: 0),NSNumber(value: 0.25),NSNumber(value: 0.5)]
 let sp = CGPoint(x: 0, y: 0)
 let ep = CGPoint(x: 1, y: 1)
 
 let gView = UIGradientView()
 
+
+
+//PlaygroundPage.current.liveView = gView
+// Set the device type and orientation.
+let (parent, _) = playgroundControllers(device: .phone5_5inch, orientation: .portrait)
+
+// Render the screen.
+let frame = parent.view.frame
+
 let gViewStyle =
-   UIGradientView.lens.gradientLayer.colors .~ colors
-  >>> UIGradientView.lens.gradientLayer.locations .~ locations
-  >>> UIGradientView.lens.gradientLayer.startPoint .~ sp
-  >>> UIGradientView.lens.gradientLayer.endPoint .~ ep
-  >>> UIGradientView.lens.frame .~ CGRect(x: 0, y: 0, width: 200, height: 200)
+  UIGradientView.lens.gradientLayer.colors .~ colors
+    >>> UIGradientView.lens.gradientLayer.locations .~ locations
+    >>> UIGradientView.lens.gradientLayer.startPoint .~ sp
+    >>> UIGradientView.lens.gradientLayer.endPoint .~ ep
+    >>> UIGradientView.lens.frame .~ frame
 
 gView |> gViewStyle
+
 
 PlaygroundPage.current.liveView = gView
 
 
+Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+  let colors = [UIColor.random.cgColor, UIColor.random.cgColor, UIColor.random.cgColor]
+  UIView.animate(withDuration: 2){
+    gView |> UIGradientView.lens.gradientLayer.colors .~ colors
+  }
 
-
+}
 
 
 
