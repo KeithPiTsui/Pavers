@@ -3,5 +3,6 @@
     <pages>
         <page name='CATransactionLenses'/>
         <page name='UIGradientView'/>
+        <page name='GitHotFrontPage'/>
     </pages>
 </playground>
