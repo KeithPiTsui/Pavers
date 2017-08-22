@@ -110,7 +110,7 @@ extension Array where Element: EitherType {
    - returns: A new array of left values.
    */
   func lefts() -> [Element.A] {
-    return Pavers.lefts(self)
+    return PaversFRP.lefts(self)
   }
 
   /**
@@ -119,6 +119,6 @@ extension Array where Element: EitherType {
    - returns: A new array of right values.
    */
   func rights() -> [Element.B] {
-    return Pavers.rights(self)
+    return PaversFRP.rights(self)
   }
 }

@@ -1,4 +1,4 @@
-public extension Dictionary where Value: Pavers.OptionalType {
+public extension Dictionary where Value: OptionalType {
 
   /**
    - returns: A new dictionary with `nil` values removed.
