@@ -1,5 +1,5 @@
 // swiftlint:disable type_name
-import Pavers
+import PaversFRP
 import UIKit
 
 public protocol UITabBarItemProtocol: UIBarItemProtocol {

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Pavers
+import PaversFRP
 
 typealias Counter = Int
 typealias LogState<A> = State<Counter, A>

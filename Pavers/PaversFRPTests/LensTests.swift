@@ -1,5 +1,5 @@
 import XCTest
-@testable import Pavers
+@testable import PaversFRP
 
 private let square: (Int) -> Int = { $0 * $0 }
 private let add: (Int) -> (Int) -> Int = { lhs in { lhs + $0 } }

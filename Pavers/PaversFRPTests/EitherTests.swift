@@ -1,5 +1,5 @@
 import XCTest
-import Pavers
+import PaversFRP
 
 final class EitherTests: XCTestCase {
 

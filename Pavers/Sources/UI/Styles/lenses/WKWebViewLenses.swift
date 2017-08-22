@@ -1,6 +1,6 @@
 #if os(iOS)
 // swiftlint:disable type_name
-import Pavers
+import PaversFRP
 import WebKit
 
 public protocol WKWebViewProtocol: UIViewProtocol {

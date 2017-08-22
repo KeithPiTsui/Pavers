@@ -1,9 +1,9 @@
 import XCTest
-@testable import Pavers
+@testable import PaversFRP
 
 final class UnitTests: XCTestCase {
 
   func testUnitEquality() {
-    XCTAssertEqual(Pavers.Unit(), Pavers.Unit())
+    XCTAssertEqual(PaversFRP.Unit(), PaversFRP.Unit())
   }
 }

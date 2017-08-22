@@ -1,5 +1,5 @@
 import XCTest
-@testable import Pavers
+@testable import PaversFRP
 
 final class TupleTests: XCTestCase {
 

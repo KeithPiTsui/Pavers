@@ -1,5 +1,5 @@
 import XCTest
-@testable import Pavers
+@testable import PaversFRP
 
 final class ComparatorTests: XCTestCase {
   func testIsOrdered() {
@@ -16,8 +16,8 @@ final class ComparatorTests: XCTestCase {
 }
 
 extension Int {
-  static var comparator: Pavers.Comparator<Int> {
-    return Pavers.Comparator<Int> { lhs, rhs in
+  static var comparator: PaversFRP.Comparator<Int> {
+    return PaversFRP.Comparator<Int> { lhs, rhs in
       lhs < rhs ? .lt
       : lhs == rhs ? .eq
       : .gt

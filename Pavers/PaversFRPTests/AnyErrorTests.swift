@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-import Pavers
+import PaversFRP
 
 final class AnyErrorTests: XCTestCase {
 	static var allTests: [(String, (AnyErrorTests) -> () throws -> Void)] {
@@ -8,9 +8,6 @@ final class AnyErrorTests: XCTestCase {
 	}
 
 	func testAnyError() {
-
-    
-
 		let error = Error.a
 		let anyErrorFromError = AnyError(error)
 		let anyErrorFromAnyError = AnyError(anyErrorFromError)

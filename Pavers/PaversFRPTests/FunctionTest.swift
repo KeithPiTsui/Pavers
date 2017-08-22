@@ -1,5 +1,5 @@
 import XCTest
-@testable import Pavers
+@testable import PaversFRP
 
 class FunctionTest: XCTestCase {
 

@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-import Pavers
+import PaversFRP
 
 final class NoErrorTests: XCTestCase {
 	static var allTests: [(String, (NoErrorTests) -> () throws -> Void)] {

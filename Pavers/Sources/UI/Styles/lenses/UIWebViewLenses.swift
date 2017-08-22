@@ -1,5 +1,5 @@
 #if os(iOS)
-import Pavers
+import PaversFRP
 import WebKit
 
 public protocol UIWebViewProtocol: UIViewProtocol {

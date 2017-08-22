@@ -1,4 +1,4 @@
-import Pavers
+import PaversFRP
 import UIKit
 
 public let tabBarDeselectedColor = UIColor.ksr_navy_500

@@ -1,4 +1,4 @@
-import Pavers
+import PaversFRP
 import UIKit
 
 public protocol UIViewProtocol: KSObjectProtocol, UITraitEnvironmentProtocol, LensObject {
