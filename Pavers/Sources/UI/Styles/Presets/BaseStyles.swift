@@ -11,6 +11,8 @@ public enum Styles {
   public static func gridHalf(_ count: Int) -> CGFloat {
     return grid(count) / 2.0
   }
+
+  public static let goldenRatio: CGFloat = 1.618
 }
 
 public func baseControllerStyle <VC: UIViewControllerProtocol> () -> ((VC) -> VC) {
@@ -58,7 +60,8 @@ public func baseTableViewCellStyle <TVC: UITableViewCellProtocol> () -> ((TVC) -
 
  - returns: A view transformer that rounds corners, sets background color, and sets border color.
  */
-public func cardStyle <V: UIViewProtocol> (cornerRadius radius: CGFloat = Styles.cornerRadius) -> ((V) -> V) {
+public func cardStyle <V: UIViewProtocol> (cornerRadius radius: CGFloat = Styles.cornerRadius)
+  -> ((V) -> V) {
 
   return roundedStyle(cornerRadius: radius)
     >>> V.lens.layer.borderColor .~ UIColor.ksr_grey_500.cgColor
@@ -70,7 +73,8 @@ public let containerViewBackgroundStyle =
   UIView.lens.backgroundColor .~ .ksr_grey_100
 
 public func dropShadowStyle <V: UIViewProtocol> (radius: CGFloat = 2.0,
-                                                 offset: CGSize = .init(width: 0, height: 1)) -> ((V) -> V) {
+                                                 offset: CGSize = .init(0, 1))
+  -> ((V) -> V) {
   return
     V.lens.layer.shadowColor .~ UIColor.ksr_dropShadow.cgColor
       >>> V.lens.layer.shadowOpacity .~ 1

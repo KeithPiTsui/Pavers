@@ -51,3 +51,24 @@ extension CGRect : VectorType {
     return CGRect.zero
   }
 }
+
+extension CGRect {
+  public init(_ x:CGFloat, _ y:CGFloat, _ w:CGFloat, _ h:CGFloat) {
+    self.init(x:x, y:y, width:w, height:h)
+  }
+}
+extension CGSize {
+  public init(_ width:CGFloat, _ height:CGFloat) {
+    self.init(width:width, height:height)
+  }
+}
+extension CGPoint {
+  public init(_ x:CGFloat, _ y:CGFloat) {
+    self.init(x:x, y:y)
+  }
+}
+extension CGVector {
+  public init (_ dx:CGFloat, _ dy:CGFloat) {
+    self.init(dx:dx, dy:dy)
+  }
+}

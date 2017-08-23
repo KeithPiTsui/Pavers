@@ -152,6 +152,7 @@
 		0E7873201F4BCA84002600BE /* CATransactionLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78731E1F4BCA31002600BE /* CATransactionLenses.swift */; };
 		0E7873231F4BF9F8002600BE /* UIGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7873221F4BF9F8002600BE /* UIGradientView.swift */; };
 		0E7873261F4BFAC2002600BE /* HitRepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7873251F4BFAC2002600BE /* HitRepositoriesTableViewController.swift */; };
+		0EF0B86A1F4D5D1900117C18 /* GradientViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF0B8691F4D5D1900117C18 /* GradientViewStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +330,7 @@
 		0E78731E1F4BCA31002600BE /* CATransactionLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransactionLenses.swift; sourceTree = "<group>"; };
 		0E7873221F4BF9F8002600BE /* UIGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
 		0E7873251F4BFAC2002600BE /* HitRepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitRepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		0EF0B8691F4D5D1900117C18 /* GradientViewStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -657,6 +659,7 @@
 			isa = PBXGroup;
 			children = (
 				0E5152A51F4ADC570006BE05 /* BarButtonItemStyles.swift */,
+				0EF0B8691F4D5D1900117C18 /* GradientViewStyles.swift */,
 				0E5152A61F4ADC570006BE05 /* BaseStyles.swift */,
 				0E5152A71F4ADC570006BE05 /* ButtonStyles.swift */,
 				0E5152A81F4ADC570006BE05 /* Colors.swift */,
@@ -1031,6 +1034,7 @@
 				0E51526A1F4AD9E30006BE05 /* NSMutableParagraphStyleLenses.swift in Sources */,
 				0E5152801F4AD9E30006BE05 /* UITableViewLenses.swift in Sources */,
 				0E51527A1F4AD9E30006BE05 /* UIScrollViewLenses.swift in Sources */,
+				0EF0B86A1F4D5D1900117C18 /* GradientViewStyles.swift in Sources */,
 				0E51527B1F4AD9E30006BE05 /* UIStackViewLenses.swift in Sources */,
 				0E51527E1F4AD9E30006BE05 /* UITableViewCellLenses.swift in Sources */,
 				0E5152751F4AD9E30006BE05 /* UILabelLenses.swift in Sources */,

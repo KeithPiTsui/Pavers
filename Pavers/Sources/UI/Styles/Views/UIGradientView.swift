@@ -12,13 +12,10 @@ public class UIGradientView: UIView {
   override public func action(for layer: CALayer, forKey event: String) -> CAAction? {
 
     if event == "colors" {
-      print("Hit colors")
       if let acts = layer.actions, let act = acts[event]  {
-        print("Hit colors with act in actions")
         return act
       }
       if let style = layer.style, let act = style[event] {
-        print("Hit colors with act in style")
         return act as? CAAction
       }
       return CAGradientLayer.defaultAction(forKey:event)
