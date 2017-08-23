@@ -21,6 +21,15 @@ public extension SignalProtocol {
   public func observeForControllerAction() -> Signal<Value, Error> {
     return self.signal.observe(on: QueueScheduler.main)
   }
+
+  /**
+   Transforms the signal into one that can perform actions on a background thread.
+
+   - returns: A new signal.
+   */
+  public func observeInBackground() -> Signal<Value, Error> {
+    return self.signal.observe(on: QueueScheduler())
+  }
 }
 
 public extension SignalProducerProtocol {
@@ -32,5 +41,14 @@ public extension SignalProducerProtocol {
    */
   public func observeForUI() -> SignalProducer<Value, Error> {
     return self.producer.observe(on: UIScheduler())
+  }
+
+  /**
+   Transforms the producer into one that observes values on a background thread.
+
+   - returns: A new producer.
+   */
+  public func observeInBackground() -> SignalProducer<Value, Error> {
+    return self.producer.observe(on: QueueScheduler())
   }
 }

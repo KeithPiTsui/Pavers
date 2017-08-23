@@ -1903,7 +1903,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PaversArgo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversArgo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1923,7 +1923,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PaversArgo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversArgo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2157,6 +2157,7 @@
 				0E3D75A41F4DC5E700FFD6C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E3D75A51F4DC5E700FFD6C3 /* Build configuration list for PBXNativeTarget "PaversArgoTests" */ = {
 			isa = XCConfigurationList;
@@ -2165,6 +2166,7 @@
 				0E3D75A71F4DC5E700FFD6C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E5151DA1F4AD7290006BE05 /* Build configuration list for PBXNativeTarget "PaversUI" */ = {
 			isa = XCConfigurationList;
