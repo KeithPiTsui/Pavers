@@ -33,7 +33,7 @@ extension NSObject {
 					let method = class_getInstanceMethod(subclass, selector)
 					let typeEncoding = method_getTypeEncoding(method)!
 
-					if method_getImplementation(method) == _objc_msgForward {
+					if method_getImplementation(method) == _rac_objc_msgForward {
 						let succeeds = class_addMethod(subclass, selector.interopAlias, imp_implementationWithBlock(body), typeEncoding)
 						precondition(succeeds, "RAC attempts to swizzle a selector that has message forwarding enabled with a runtime injected implementation. This is unsupported in the current version.")
 					} else {
