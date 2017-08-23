@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUINavigationItem {
   fileprivate static var title = 0
 }
 
@@ -11,7 +10,7 @@ public extension Rac where Object: UINavigationItem {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.title,
+        key: &AssociationsUINavigationItem.title,
         setter: { [weak object] in object?.title = $0 },
         getter: { [weak object] in object?.title ?? "" })
 

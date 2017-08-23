@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsNSObject {
   fileprivate static var accessibilityElementsHidden = 0
   fileprivate static var accessibilityHint = 1
   fileprivate static var accessibilityLabel = 2
@@ -16,7 +15,7 @@ public extension Rac where Object: NSObject {
     nonmutating set {
       let prop: MutableProperty<Bool> = lazyMutableProperty(
         object,
-        key: &Associations.accessibilityElementsHidden,
+        key: &AssociationsNSObject.accessibilityElementsHidden,
         setter: { [weak object] in object?.accessibilityElementsHidden = $0 },
         getter: { [weak object] in object?.accessibilityElementsHidden ?? false })
 
@@ -32,7 +31,7 @@ public extension Rac where Object: NSObject {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.accessibilityHint,
+        key: &AssociationsNSObject.accessibilityHint,
         setter: { [weak object] in object?.accessibilityHint = $0 },
         getter: { [weak object] in object?.accessibilityHint ?? "" })
 
@@ -48,7 +47,7 @@ public extension Rac where Object: NSObject {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.accessibilityLabel,
+        key: &AssociationsNSObject.accessibilityLabel,
         setter: { [weak object] in object?.accessibilityLabel = $0 },
         getter: { [weak object] in object?.accessibilityLabel ?? "" })
 
@@ -64,7 +63,7 @@ public extension Rac where Object: NSObject {
     nonmutating set {
       let prop: MutableProperty<UIAccessibilityTraits> = lazyMutableProperty(
         object,
-        key: &Associations.accessibilityTraits,
+        key: &AssociationsNSObject.accessibilityTraits,
         setter: { [weak object] in object?.accessibilityTraits = $0 },
         getter: { [weak object] in object?.accessibilityTraits ?? UIAccessibilityTraitNone })
 
@@ -80,7 +79,7 @@ public extension Rac where Object: NSObject {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.accessibilityValue,
+        key: &AssociationsNSObject.accessibilityValue,
         setter: { [weak object] in object?.accessibilityValue = $0 },
         getter: { [weak object] in object?.accessibilityValue ?? "" })
 
@@ -96,7 +95,7 @@ public extension Rac where Object: NSObject {
     nonmutating set {
       let prop: MutableProperty<Bool> = lazyMutableProperty(
         object,
-        key: &Associations.isAccessibilityElement,
+        key: &AssociationsNSObject.isAccessibilityElement,
         setter: { [weak object] in object?.isAccessibilityElement = $0 },
         getter: { [weak object] in object?.isAccessibilityElement ?? false })
 

@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsNSLayoutConstraint {
   fileprivate static var constant = 0
 }
 
@@ -11,7 +10,7 @@ public extension Rac where Object: NSLayoutConstraint {
     nonmutating set {
       let prop: MutableProperty<CGFloat> = lazyMutableProperty(
         object,
-        key: &Associations.constant,
+        key: &AssociationsNSLayoutConstraint.constant,
         setter: { [weak object] in object?.constant = $0 },
         getter: { [weak object] in object?.constant ?? 0.0 })
 

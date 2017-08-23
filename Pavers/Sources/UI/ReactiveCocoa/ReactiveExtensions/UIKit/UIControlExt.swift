@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUIControl {
   fileprivate static var enabled = 0
   fileprivate static var selected = 1
 }
@@ -10,7 +9,7 @@ private enum Associations {
 public extension Rac where Object: UIControl {
   public var enabled: Signal<Bool, NoError> {
     nonmutating set {
-      let prop: MutableProperty<Bool> = lazyMutableProperty(object, key: &Associations.enabled,
+      let prop: MutableProperty<Bool> = lazyMutableProperty(object, key: &AssociationsUIControl.enabled,
         setter: { [weak object] in object?.isEnabled = $0 },
         getter: { [weak object] in object?.isEnabled ?? true })
 
@@ -25,7 +24,7 @@ public extension Rac where Object: UIControl {
   public var selected: Signal<Bool, NoError> {
     nonmutating set {
       let prop: MutableProperty<Bool> = lazyMutableProperty(
-        object, key: &Associations.selected,
+        object, key: &AssociationsUIControl.selected,
         setter: { [weak object] in object?.isSelected = $0 },
         getter: { [weak object] in object?.isSelected ?? false })
 

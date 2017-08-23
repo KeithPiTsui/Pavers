@@ -1,5 +1,5 @@
 import Foundation
-import ReactiveSwift
+import PaversFRP
 
 /// Holds the `Lifetime` of the object.
 fileprivate let isSwizzledKey = AssociationKey<Bool>(default: false)

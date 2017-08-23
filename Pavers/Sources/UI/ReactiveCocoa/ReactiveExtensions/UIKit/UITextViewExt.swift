@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUITextView {
   fileprivate static var text = 0
 }
 
@@ -11,7 +10,7 @@ public extension Rac where Object: UITextView {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.text,
+        key: &AssociationsUITextView.text,
         setter: { [weak object] in object?.text = $0 },
         getter: { [weak object] in object?.text ?? "" })
 

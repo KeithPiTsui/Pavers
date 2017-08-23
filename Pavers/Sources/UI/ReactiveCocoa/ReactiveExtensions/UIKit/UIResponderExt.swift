@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUIResponder {
   fileprivate static var becomeFirstResponder = 0
   fileprivate static var firstResponder = 1
 }
@@ -12,7 +11,7 @@ public extension Rac where Object: UIResponder {
     nonmutating set {
       let prop: MutableProperty<()> = lazyMutableProperty(
         object,
-        key: &Associations.becomeFirstResponder,
+        key: &AssociationsUIResponder.becomeFirstResponder,
         setter: { [weak object] in
           object?.becomeFirstResponder()
         },
@@ -30,7 +29,7 @@ public extension Rac where Object: UIResponder {
     nonmutating set {
       let prop: MutableProperty<Bool> = lazyMutableProperty(
         object,
-        key: &Associations.firstResponder,
+        key: &AssociationsUIResponder.firstResponder,
         setter: { [weak object] in
           _ = $0 ? object?.becomeFirstResponder() : object?.resignFirstResponder()
         },

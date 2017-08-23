@@ -1,6 +1,5 @@
 import UIKit
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 @objc public protocol Reusable: class {
 	func prepareForReuse()

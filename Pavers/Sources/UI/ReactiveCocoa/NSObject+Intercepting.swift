@@ -1,6 +1,5 @@
 import Foundation
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 /// Whether the runtime subclass has already been prepared for method
 /// interception.
@@ -77,7 +76,7 @@ extension NSObject {
 			let subclassAssociations = Associations(subclass as AnyObject)
 
 			// FIXME: Compiler asks to handle a mysterious throw.
-			try! ReactiveCocoa.synchronized(subclass) {
+			try! PaversUI.synchronized(subclass) {
 				let isSwizzled = subclassAssociations.value(forKey: interceptedKey)
 
 				let signatureCache: SignatureCache
@@ -114,7 +113,7 @@ extension NSObject {
 				if !class_respondsToSelector(subclass, interopAlias) {
 					let immediateImpl = class_getImmediateMethod(subclass, selector)
 						.flatMap(method_getImplementation)
-						.flatMap { $0 != _rac_objc_msgForward ? $0 : nil }
+						.flatMap { $0 != _objc_msgForward ? $0 : nil }
 
 					if let impl = immediateImpl {
 						let succeeds = class_addMethod(subclass, interopAlias, impl, typeEncoding)
@@ -127,7 +126,7 @@ extension NSObject {
 			associations.setValue(state, forKey: stateKey)
 
 			// Start forwarding the messages of the selector.
-			_ = class_replaceMethod(subclass, selector, _rac_objc_msgForward, typeEncoding)
+			_ = class_replaceMethod(subclass, selector, _objc_msgForward, typeEncoding)
 
 			return state.signal
 		}
@@ -194,7 +193,7 @@ private func enableMessageForwarding(_ realClass: AnyClass, _ selectorCache: Sel
 						// invocation.
 						_ = class_replaceMethod(realClass, selector, nil, typeEncoding)
 						swizzle()
-						_ = class_replaceMethod(realClass, selector, _rac_objc_msgForward, typeEncoding)
+						_ = class_replaceMethod(realClass, selector, _objc_msgForward, typeEncoding)
 					}
 				} else {
 					swizzle()
@@ -204,7 +203,7 @@ private func enableMessageForwarding(_ realClass: AnyClass, _ selectorCache: Sel
 			return
 		}
 
-		if let impl = method_getImplementation(method), impl != _rac_objc_msgForward {
+		if let impl = method_getImplementation(method), impl != _objc_msgForward {
 			// The perceived class, or its ancestors, responds to the selector.
 			//
 			// The implementation is invoked through the selector alias, which

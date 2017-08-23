@@ -1,5 +1,4 @@
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 extension Action {
 	@available(*, unavailable, message:"Use the `CocoaAction` initializers instead.")

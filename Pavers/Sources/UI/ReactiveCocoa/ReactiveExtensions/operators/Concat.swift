@@ -1,5 +1,5 @@
 // swiftlint:disable line_length
-import ReactiveSwift
+import PaversFRP
 
 extension SignalProtocol {
 

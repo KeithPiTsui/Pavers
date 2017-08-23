@@ -1,6 +1,5 @@
 import UIKit
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 extension Reactive where Base: UISlider {
 

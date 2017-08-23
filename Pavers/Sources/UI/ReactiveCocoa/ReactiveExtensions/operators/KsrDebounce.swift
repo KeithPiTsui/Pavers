@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -15,7 +15,7 @@ public extension SignalProtocol {
     _ interval: @autoclosure @escaping () -> DispatchTimeInterval,
     on scheduler: @autoclosure @escaping () -> DateScheduler) -> Signal<Value, Error> {
 
-      return self.flatMap(.latest) { next in
+      return self.signal.flatMap(.latest) { next in
         SignalProducer(value: next).delay(interval().timeInterval, on: scheduler())
       }
   }
@@ -37,6 +37,6 @@ public extension SignalProducerProtocol {
     on scheduler: @autoclosure @escaping () -> DateScheduler)
     -> SignalProducer<Value, Error> {
 
-      return lift { $0.ksr_debounce(interval(), on: scheduler()) }
+      return self.producer.lift { $0.ksr_debounce(interval(), on: scheduler()) }
   }
 }

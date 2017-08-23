@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 extension SignalProtocol {
   /**
@@ -16,7 +16,7 @@ extension SignalProtocol {
   public func enumerated() -> Signal<(idx: Int, value: Value), Error> {
 
     let initial: (idx: Int, value: Value?) = (-1, nil)
-    return self
+    return self.signal
       .scan(initial) { accum, value in (accum.idx + 1, value) }
       .map { idx, value in (idx: idx, value: value!) }
   }

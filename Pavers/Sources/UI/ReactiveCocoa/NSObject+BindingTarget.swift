@@ -1,5 +1,5 @@
 import Foundation
-import ReactiveSwift
+import PaversFRP
 
 extension Reactive where Base: NSObjectProtocol {
 	/// Creates a binding target which uses the lifetime of the object, and 

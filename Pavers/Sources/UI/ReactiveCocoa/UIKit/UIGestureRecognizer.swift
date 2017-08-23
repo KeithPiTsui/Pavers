@@ -1,6 +1,5 @@
-import ReactiveSwift
+import PaversFRP
 import UIKit
-import enum Result.NoError
 
 extension Reactive where Base: UIGestureRecognizer {
 	/// Create a signal which sends a `next` event for each gesture event

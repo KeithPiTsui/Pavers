@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -14,7 +14,7 @@ public extension SignalProtocol {
     return Signal { observer in
       var accumulated: Value? = nil
 
-      return self.observe { event in
+      return self.signal.observe { event in
         observer.action(event.map { value in
           if let unwrapped = accumulated {
             let next = combine(unwrapped, value)

@@ -1,6 +1,5 @@
-import ReactiveSwift
+import PaversFRP
 import UIKit
-import enum Result.NoError
 
 private class TextViewDelegateProxy: DelegateProxy<UITextViewDelegate>, UITextViewDelegate {
 	@objc func textViewDidChangeSelection(_ textView: UITextView) {

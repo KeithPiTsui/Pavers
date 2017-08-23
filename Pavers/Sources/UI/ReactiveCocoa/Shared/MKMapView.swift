@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 import MapKit
 
 @available(tvOS 9.2, *)

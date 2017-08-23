@@ -1,6 +1,5 @@
 import Foundation
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 /// A target that accepts action messages.
 internal final class CocoaTarget<Value>: NSObject {

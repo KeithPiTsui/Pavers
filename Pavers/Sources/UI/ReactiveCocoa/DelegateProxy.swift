@@ -1,5 +1,4 @@
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 internal class DelegateProxy<Delegate: NSObjectProtocol>: NSObject {
 	internal weak var forwardee: Delegate? {

@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 internal extension Event {
   internal var isValue: Bool {

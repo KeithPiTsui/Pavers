@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -27,6 +27,6 @@ public extension SignalProducerProtocol {
    - returns: A new producer.
    */
   public func combinePrevious() -> SignalProducer<(Value, Value), Error> {
-    return lift { $0.combinePrevious() }
+    return self.producer.lift { $0.combinePrevious() }
   }
 }

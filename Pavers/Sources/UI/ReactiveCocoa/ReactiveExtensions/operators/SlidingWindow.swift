@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -32,6 +32,6 @@ public extension SignalProducerProtocol {
    - returns: A new producer.
    */
   public func slidingWindow (max: Int, min: Int) -> SignalProducer<[Value], Error> {
-    return lift { $0.slidingWindow(max: max, min: min) }
+    return self.producer.lift { $0.slidingWindow(max: max, min: min) }
   }
 }

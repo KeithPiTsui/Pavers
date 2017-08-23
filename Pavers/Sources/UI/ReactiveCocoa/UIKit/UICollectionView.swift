@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 import UIKit
 
 extension Reactive where Base: UICollectionView {

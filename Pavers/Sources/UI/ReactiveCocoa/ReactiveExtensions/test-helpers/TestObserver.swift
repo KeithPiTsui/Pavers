@@ -1,5 +1,5 @@
 import XCTest
-import ReactiveSwift
+import PaversFRP
 
 /**
  A `TestObserver` is a wrapper around an `Observer` that saves all events to an internal array so that

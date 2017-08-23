@@ -1,6 +1,5 @@
 import Foundation
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 extension Reactive where Base: NSObject {
 	/// Create a producer which sends the current value and all the subsequent

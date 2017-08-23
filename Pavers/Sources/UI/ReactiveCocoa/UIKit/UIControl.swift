@@ -1,6 +1,5 @@
-import ReactiveSwift
+import PaversFRP
 import UIKit
-import enum Result.NoError
 
 extension Reactive where Base: UIControl {
 	/// The current associated action of `self`, with its registered event mask

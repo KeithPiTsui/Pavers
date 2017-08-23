@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -15,7 +15,7 @@ public extension SignalProtocol {
                         on scheduler: @autoclosure @escaping () -> DateScheduler)
     -> Signal<Value, Error> {
 
-      return self.delay(interval().timeInterval, on: scheduler())
+      return self.signal.delay(interval().timeInterval, on: scheduler())
   }
 }
 
@@ -34,6 +34,6 @@ public extension SignalProducerProtocol {
                         on scheduler: @autoclosure @escaping () -> DateScheduler)
     -> SignalProducer<Value, Error> {
 
-      return self.delay(interval().timeInterval, on: scheduler())
+      return self.producer.delay(interval().timeInterval, on: scheduler())
   }
 }

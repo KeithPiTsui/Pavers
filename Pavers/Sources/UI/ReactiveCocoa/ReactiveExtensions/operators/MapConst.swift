@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -24,6 +24,6 @@ public extension SignalProducerProtocol {
    - returns: A new producer.
    */
   public func mapConst <U> (_ value: U) -> SignalProducer<U, Error> {
-    return lift { $0.mapConst(value) }
+    return self.producer.lift { $0.mapConst(value) }
   }
 }

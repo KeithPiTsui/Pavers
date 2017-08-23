@@ -1,5 +1,4 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -33,6 +32,6 @@ public extension SignalProducerProtocol {
    - returns: A new producer that will never error.
    */
   public func demoteErrors(replaceErrorWith value: Value? = nil) -> SignalProducer<Value, NoError> {
-    return self.lift { $0.demoteErrors(replaceErrorWith: value) }
+    return self.producer.lift { $0.demoteErrors(replaceErrorWith: value) }
   }
 }

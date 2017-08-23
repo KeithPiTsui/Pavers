@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 /// Whether the runtime subclass has already been swizzled.
 fileprivate let runtimeSubclassedKey = AssociationKey(default: false)
@@ -23,7 +23,7 @@ extension NSObject {
 	internal func swizzle(_ pairs: (Selector, Any)..., key hasSwizzledKey: AssociationKey<Bool>) {
 		let subclass: AnyClass = swizzleClass(self)
 
-		try! ReactiveCocoa.synchronized(subclass) {
+		try! PaversUI.synchronized(subclass) {
 			let subclassAssociations = Associations(subclass as AnyObject)
 
 			if !subclassAssociations.value(forKey: hasSwizzledKey) {
@@ -33,7 +33,7 @@ extension NSObject {
 					let method = class_getInstanceMethod(subclass, selector)
 					let typeEncoding = method_getTypeEncoding(method)!
 
-					if method_getImplementation(method) == _rac_objc_msgForward {
+					if method_getImplementation(method) == _objc_msgForward {
 						let succeeds = class_addMethod(subclass, selector.interopAlias, imp_implementationWithBlock(body), typeEncoding)
 						precondition(succeeds, "RAC attempts to swizzle a selector that has message forwarding enabled with a runtime injected implementation. This is unsupported in the current version.")
 					} else {

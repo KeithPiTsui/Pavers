@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol {
 
@@ -20,6 +20,6 @@ public extension SignalProducerProtocol {
    - returns: A new producer.
    */
   public func wrapInOptional() -> SignalProducer<Value?, Error> {
-    return lift { $0.wrapInOptional() }
+    return self.producer.lift { $0.wrapInOptional() }
   }
 }

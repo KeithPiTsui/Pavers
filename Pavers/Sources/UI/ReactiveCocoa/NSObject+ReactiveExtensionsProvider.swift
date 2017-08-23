@@ -1,4 +1,4 @@
 import Foundation
-import ReactiveSwift
+import PaversFRP
 
 extension NSObject: ReactiveExtensionsProvider {}

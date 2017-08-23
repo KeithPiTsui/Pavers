@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 /**
  Associates a key/`MutableProperty` pair to a host object.

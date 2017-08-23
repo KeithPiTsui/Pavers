@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUITextField {
   fileprivate static var text = 0
   fileprivate static var attributedPlaceholder = 0
 }
@@ -12,7 +11,7 @@ public extension Rac where Object: UITextField {
     nonmutating set {
       let prop: MutableProperty<NSAttributedString> = lazyMutableProperty(
         object,
-        key: &Associations.attributedPlaceholder,
+        key: &AssociationsUITextField.attributedPlaceholder,
         setter: { [weak object] in object?.attributedPlaceholder = $0 },
         getter: { [weak object] in object?.attributedPlaceholder ?? NSAttributedString(string: "") })
 
@@ -28,7 +27,7 @@ public extension Rac where Object: UITextField {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.text,
+        key: &AssociationsUITextField.text,
         setter: { [weak object] in object?.text = $0 },
         getter: { [weak object] in object?.text ?? "" })
 

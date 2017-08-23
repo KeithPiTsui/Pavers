@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUIButton {
   fileprivate static var title = 0
   fileprivate static var attributedTitle = 1
 }
@@ -12,7 +11,7 @@ public extension Rac where Object: UIButton {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.title,
+        key: &AssociationsUIButton.title,
         setter: { [weak object] in object?.setTitle($0, for: .normal) },
         getter: { [weak object] in object?.titleLabel?.text ?? "" })
 
@@ -28,7 +27,7 @@ public extension Rac where Object: UIButton {
     nonmutating set {
       let prop: MutableProperty<NSAttributedString> = lazyMutableProperty(
         object,
-        key: &Associations.attributedTitle,
+        key: &AssociationsUIButton.attributedTitle,
         setter: { [weak object] in object?.setAttributedTitle($0, for: .normal) },
         getter: { [weak object] in object?.titleLabel?.attributedText ?? NSAttributedString(string: "") })
 

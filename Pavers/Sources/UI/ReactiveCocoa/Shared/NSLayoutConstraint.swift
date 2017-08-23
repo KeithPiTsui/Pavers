@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 #if os(macOS)
 import AppKit

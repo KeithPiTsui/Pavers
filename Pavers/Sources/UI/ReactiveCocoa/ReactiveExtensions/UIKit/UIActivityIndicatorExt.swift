@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUIActivityIndicatorView {
   fileprivate static var animating = 0
 }
 
@@ -11,7 +10,7 @@ public extension Rac where Object: UIActivityIndicatorView {
     nonmutating set {
       let prop: MutableProperty<Bool> = lazyMutableProperty(
         object,
-        key: &Associations.animating,
+        key: &AssociationsUIActivityIndicatorView.animating,
         setter: { [weak object] in $0 ? object?.startAnimating() : object?.stopAnimating() },
         getter: { [weak object] in object?.isAnimating ?? false })
 

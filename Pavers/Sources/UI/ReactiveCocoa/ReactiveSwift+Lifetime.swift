@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 extension Signal {
 	/// Forward events from `self` until `object` deinitializes, at which point the

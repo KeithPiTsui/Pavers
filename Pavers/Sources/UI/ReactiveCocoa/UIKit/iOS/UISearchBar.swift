@@ -1,5 +1,4 @@
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 import UIKit
 
 private class SearchBarDelegateProxy: DelegateProxy<UISearchBarDelegate>, UISearchBarDelegate {

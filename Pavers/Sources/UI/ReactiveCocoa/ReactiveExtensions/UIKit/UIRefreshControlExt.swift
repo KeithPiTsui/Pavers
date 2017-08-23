@@ -1,9 +1,8 @@
 #if os(iOS)
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUIRefreshControl {
   fileprivate static var isRefreshing = 0
 }
 
@@ -12,7 +11,7 @@ public extension Rac where Object: UIRefreshControl {
     nonmutating set {
       let prop: MutableProperty<Bool> = lazyMutableProperty(
         object,
-        key: &Associations.isRefreshing,
+        key: &AssociationsUIRefreshControl.isRefreshing,
         setter: { [weak object] in $0 ? object?.beginRefreshing() : object?.endRefreshing() },
         getter: { [weak object] in object?.isRefreshing ?? false })
 

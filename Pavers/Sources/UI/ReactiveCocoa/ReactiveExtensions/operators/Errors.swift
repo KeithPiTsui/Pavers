@@ -1,5 +1,4 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 
 extension SignalProtocol where Value: EventProtocol, Error == NoError {
   /**
@@ -15,6 +14,6 @@ extension SignalProducerProtocol where Value: EventProtocol, Error == NoError {
    - returns: A producer of errors of `Error` events from a materialized signal.
    */
   public func errors() -> SignalProducer<Value.Error, NoError> {
-    return self.lift { $0.errors() }
+    return self.producer.lift { $0.errors() }
   }
 }

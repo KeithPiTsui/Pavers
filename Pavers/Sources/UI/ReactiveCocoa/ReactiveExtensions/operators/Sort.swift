@@ -1,4 +1,4 @@
-import ReactiveSwift
+import PaversFRP
 
 public extension SignalProtocol where Value: Sequence, Value.Iterator.Element: Comparable {
 
@@ -38,7 +38,7 @@ public extension SignalProducerProtocol where Value: Sequence, Value.Iterator.El
    - returns: The sorted producer.
    */
   func sort() -> SignalProducer<[Value.Iterator.Element], Error> {
-    return lift { $0.sort() }
+    return self.producer.lift { $0.sort() }
   }
 }
 
@@ -54,6 +54,6 @@ public extension SignalProducerProtocol where Value: Sequence {
   public func sort(_ isOrderedBefore: @escaping (Value.Iterator.Element, Value.Iterator.Element) -> Bool) ->
     SignalProducer<[Value.Iterator.Element], Error> {
 
-    return lift { $0.sort(isOrderedBefore) }
+    return self.producer.lift { $0.sort(isOrderedBefore) }
   }
 }

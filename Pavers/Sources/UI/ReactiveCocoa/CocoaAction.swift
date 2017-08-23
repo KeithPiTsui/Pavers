@@ -1,6 +1,5 @@
 import Foundation
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 /// CocoaAction wraps an `Action` for use by a UI control (such as `NSControl` or
 /// `UIControl`).

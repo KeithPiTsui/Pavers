@@ -1,8 +1,7 @@
-import ReactiveSwift
-import Result
+import PaversFRP
 import UIKit
 
-private enum Associations {
+private enum AssociationsUILabel {
   fileprivate static var attributedText = 0
   fileprivate static var font = 1
   fileprivate static var text = 2
@@ -14,7 +13,7 @@ public extension Rac where Object: UILabel {
     nonmutating set {
       let prop: MutableProperty<NSAttributedString> = lazyMutableProperty(
         object,
-        key: &Associations.attributedText,
+        key: &AssociationsUILabel.attributedText,
         setter: { [weak object] in object?.attributedText = $0 },
         getter: { [weak object] in object?.attributedText ?? .init(string: "") })
 
@@ -30,7 +29,7 @@ public extension Rac where Object: UILabel {
     nonmutating set {
       let prop: MutableProperty<String> = lazyMutableProperty(
         object,
-        key: &Associations.text,
+        key: &AssociationsUILabel.text,
         setter: { [weak object] in object?.text = $0 },
         getter: { [weak object] in object?.text ?? "" })
 
@@ -46,7 +45,7 @@ public extension Rac where Object: UILabel {
     nonmutating set {
       let prop: MutableProperty<UIFont> = lazyMutableProperty(
         object,
-        key: &Associations.font,
+        key: &AssociationsUILabel.font,
         setter: { [weak object] in object?.font = $0 },
         getter: { [weak object] in object?.font ?? .systemFont(ofSize: 12.0) })
 
@@ -62,7 +61,7 @@ public extension Rac where Object: UILabel {
     nonmutating set {
       let prop: MutableProperty<UIColor> = lazyMutableProperty(
         object,
-        key: &Associations.textColor,
+        key: &AssociationsUILabel.textColor,
         setter: { [weak object] in object?.textColor = $0 },
         getter: { [weak object] in object?.textColor ?? .black })
 

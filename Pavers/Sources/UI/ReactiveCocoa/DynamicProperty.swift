@@ -1,7 +1,5 @@
 import Foundation
-import ReactiveSwift
-import enum Result.NoError
-
+import PaversFRP
 /// Wraps a `dynamic` property, or one defined in Objective-C, using Key-Value
 /// Coding and Key-Value Observing.
 ///

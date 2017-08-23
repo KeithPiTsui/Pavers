@@ -1,5 +1,5 @@
 import XCTest
-import ReactiveSwift
+import PaversFRP
 
 // Assert equality between two doubly nested arrays of equatables.
 internal func XCTAssertEqual<T: Equatable>(_ expression1: @autoclosure () -> [[T]],

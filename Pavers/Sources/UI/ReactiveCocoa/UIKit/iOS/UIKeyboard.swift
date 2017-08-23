@@ -1,6 +1,5 @@
 import UIKit
-import ReactiveSwift
-import enum Result.NoError
+import PaversFRP
 
 /// The context of an upcoming change in the frame of the system keyboard.
 public struct KeyboardChangeContext {
