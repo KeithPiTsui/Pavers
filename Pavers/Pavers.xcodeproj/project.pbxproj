@@ -1088,15 +1088,11 @@
 		0E51523A1F4AD9E30006BE05 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				0EE3E7EC1F544A41008F30B4 /* Helpers */,
 				0E7873241F4BFAC2002600BE /* ViewControllers */,
 				0E7873211F4BF9F8002600BE /* Views */,
 				0E5152A31F4ADC570006BE05 /* Presets */,
 				0E51523B1F4AD9E30006BE05 /* lenses */,
-				0E5152601F4AD9E30006BE05 /* UIButton+StyleHelper.swift */,
-				0E5152C41F4ADD640006BE05 /* UIColor+StyleHelper.swift */,
-				0E5152621F4AD9E30006BE05 /* UIEdgeInsets+StyleHelper.swift */,
-				0E5152631F4AD9E30006BE05 /* UIImage+StyleHelper.swift */,
-				0E5152641F4AD9E30006BE05 /* UITraitCollection+StyleHelper.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -1220,6 +1216,18 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0EE3E7EC1F544A41008F30B4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0E5152601F4AD9E30006BE05 /* UIButton+StyleHelper.swift */,
+				0E5152C41F4ADD640006BE05 /* UIColor+StyleHelper.swift */,
+				0E5152621F4AD9E30006BE05 /* UIEdgeInsets+StyleHelper.swift */,
+				0E5152631F4AD9E30006BE05 /* UIImage+StyleHelper.swift */,
+				0E5152641F4AD9E30006BE05 /* UITraitCollection+StyleHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		0EEF27E01F4DA0FA001EF8C5 /* helpers */ = {

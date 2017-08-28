@@ -12,7 +12,11 @@ extension NSObject {
 
   private static let instanceNameKey = "instanceName" as StaticString
 
+  public class var superclassName: String? {return self.superclass()?.description()}
+
   public class var className: String {return self.description()}
+
+  public var superclassName: String? {return type(of: self).superclassName }
 
   public var className: String { return type(of: self).className }
 
@@ -34,7 +38,7 @@ extension NSObject {
     return String(format: "%p", self.memoryAddress)
   }
 
-  public var objectID: String {
+  public var identification: String {
     return "\(self.instanceName):\(self.memoryAddressStr)"
   }
 }

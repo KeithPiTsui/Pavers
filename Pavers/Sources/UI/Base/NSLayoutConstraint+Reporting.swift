@@ -13,7 +13,7 @@ import PaversFRP
 extension NSLayoutConstraint {
   public var equation: String {
 
-    let fstViewName = self.fisrtView.objectID
+    let fstViewName = self.fisrtView.identification
     let fstAttr = self.firstAttribute.stringValue
     let fstStr = "\(fstViewName).\(fstAttr)"
 
@@ -21,7 +21,7 @@ extension NSLayoutConstraint {
 
     guard let sndView = self.secondView else { return "\(fstStr) \(relStr) \(self.constant)" }
 
-    let sndViewName = sndView.objectID
+    let sndViewName = sndView.identification
     let sndAttr = self.secondAttribute.stringValue
     let sndStr = "\(sndViewName).\(sndAttr)"
 
@@ -38,7 +38,7 @@ extension NSLayoutConstraint {
 
   open override var description: String {
     let active = self.isActive ? "Active" : "Inactive"
-    return "<\(self.objectID) \(self.equation) (\(active))>"
+    return "<\(self.identification) \(self.equation) (\(active))>"
   }
 
 }
