@@ -1,4 +1,4 @@
-import Pavers
+import PaversFRP
 import PaversUI
 import UIKit
 import PlaygroundSupport
@@ -10,4 +10,4 @@ import PlaygroundSupport
 //  >>> CATransaction.classLens.value(forKey: "myName") .~ "Keith"
 
 
-let view = UIView
+let view = UIView()
