@@ -64,9 +64,9 @@ extension NSLayoutConstraint {
 }
 
 extension NSLayoutConstraint {
-  public var stringValue: String {
+  public var equation: String {
 
-    let fstViewName = self.fisrtView.description
+    let fstViewName = self.fisrtView.objectID
     let fstAttr = self.firstAttribute.stringValue
     let fstStr = "\(fstViewName).\(fstAttr)"
 
@@ -74,27 +74,55 @@ extension NSLayoutConstraint {
 
     guard let sndView = self.secondView else { return "\(fstStr) \(relStr) \(self.constant)" }
 
-    let sndViewName = sndView.description
-    let sndAttr = self.secondAttribute
+    let sndViewName = sndView.objectID
+    let sndAttr = self.secondAttribute.stringValue
     let sndStr = "\(sndViewName).\(sndAttr)"
 
     let rhsVariablePart = self.multiplier == 1
       ? sndStr
       : "\(sndStr) * \(self.multiplier)"
 
-    let constantString = "\(self.constant.sign) \(self.constant.abs())"
+    let constantString = "\((self.constant.sign as NumericSign).symbol) \(self.constant.abs())"
 
     let rhs = self.constant == 0 ? rhsVariablePart : "\(rhsVariablePart) \(constantString)"
 
     return "\(fstStr) \(relStr) \(rhs)"
   }
+
+  open override var description: String {
+    let active = self.isActive ? "Active" : "Inactive"
+    return "<\(self.objectID) \(self.equation) (\(active))>"
+  }
+
 }
 
 
 
 extension NSLayoutAttribute {
   public var stringValue: String {
-    return "\(self)"
+    switch self {
+    case .left: return "left"
+    case .right: return "right"
+    case .top: return "top"
+    case .bottom: return "bottom"
+    case .leading: return "leading"
+    case .trailing: return "trailing"
+    case .width: return "width"
+    case .height: return "height"
+    case .centerX: return "centerX"
+    case .centerY: return "centerY"
+    case .lastBaseline: return "lastBaseline"
+    case .firstBaseline: return "firstBaseline"
+    case .leftMargin: return "leftMargin"
+    case .rightMargin: return "rightMargin"
+    case .topMargin: return "topMargin"
+    case .bottomMargin: return "bottomMargin"
+    case .leadingMargin: return "leadingMargin"
+    case .trailingMargin: return "trailingMargin"
+    case .centerXWithinMargins: return "centerXWithinMargins"
+    case .centerYWithinMargins: return "centerYWithinMargins"
+    case .notAnAttribute: return "notAnAttribute"
+    }
   }
 }
 
@@ -113,20 +141,29 @@ extension NSLayoutRelation {
 
 extension NSObject {
 
-  private static let nametagKey = AssociationKey<String>("nametag" as StaticString)
+  private static let nametagKey = "nametag" as StaticString
 
   public var nametag: String {
     get {
-      return self.associations.value(forKey: NSObject.nametagKey)
+      let defaultName = type(of: self).description()
+      let key = AssociationKey<String>(NSObject.nametagKey, default: defaultName)
+      return self.associations.value(forKey: key)
     }
     set {
-      self.associations.setValue(newValue, forKey: NSObject.nametagKey)
+      self.associations.setValue(newValue, forKey: AssociationKey<String>(NSObject.nametagKey))
     }
   }
 
-  public var objectIdentifier: String {
-    var xxx = self
-    return withUnsafePointer(to: &xxx) { "\(type(of: self).description):\($0)" }
+  public var memoryAddress: UInt {
+    return unsafeBitCast(self, to: UInt.self)
+  }
+
+  public var memoryAddressStr: String {
+    return String(format: "%p", self.memoryAddress)
+  }
+
+  public var objectID: String {
+    return "\(self.nametag):\(self.memoryAddressStr)"
   }
 }
 

@@ -36,10 +36,28 @@ extension NumericType where Self: Comparable {
     return self == Self.zero()
   }
 
-  public var sign: String {
-    if self.isPositive { return "+" }
-    else if self.isNegative { return "-" }
-    else {return ""}
+  public var sign: NumericSign {
+    if self.isNegative { return .minus }
+    else if self.isPositive { return .plus }
+    else {return .none}
   }
-
 }
+
+public enum NumericSign: String {
+  case plus
+  case minus
+  case none
+}
+
+extension NumericSign {
+  public var symbol: String {
+    switch self {
+    case .plus: return "+"
+    case .minus: return "-"
+    case .none: return ""
+    }
+  }
+}
+
+
+
