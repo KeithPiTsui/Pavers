@@ -23,4 +23,23 @@ extension NumericType where Self: Comparable {
     }
     return self
   }
+
+  public var isPositive: Bool {
+    return self > Self.zero()
+  }
+
+  public var isNegative: Bool {
+    return self < Self.zero()
+  }
+
+  public var isZero: Bool {
+    return self == Self.zero()
+  }
+
+  public var sign: String {
+    if self.isPositive { return "+" }
+    else if self.isNegative { return "-" }
+    else {return ""}
+  }
+
 }

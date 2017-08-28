@@ -82,6 +82,11 @@ public extension LensHolder where Object: UIViewProtocol {
       )
   }
 
+  public func contentStrethinessResistancePriorityForAxis(_ axis: UILayoutConstraintAxis)
+    -> Lens<Object, UILayoutPriority> {
+      return self.contentHuggingPriorityForAxis(axis)
+  }
+
   public var contentMode: Lens<Object, UIViewContentMode> {
     return Lens(
       view: { $0.contentMode },

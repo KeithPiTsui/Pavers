@@ -22,3 +22,12 @@ extension Reactive where Base: UIView {
 		return makeBindingTarget { $0.backgroundColor = $1 }
 	}
 }
+
+
+extension UIView {
+  public func constraints(named: String, matching view: UIView) -> [NSLayoutConstraint] {
+    return self.constraints.filter {
+      $0.nametag == named
+      && ($0.firstItem === view || $0.secondItem === view)}
+  }
+}
