@@ -15,3 +15,15 @@ extension UIView {
         && ($0.firstItem === view || $0.secondItem === view)}
   }
 }
+
+// MARK: - Layout Report
+extension UIView {
+
+  public var layoutReport: String {
+    var report = ""
+
+
+    return report
+  }
+
+}
