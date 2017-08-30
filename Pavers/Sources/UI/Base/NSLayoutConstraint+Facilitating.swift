@@ -55,8 +55,24 @@ extension NSLayoutConstraint {
   }
 }
 
+extension NSLayoutConstraint {
+  public func remove() {
+    NSLayoutConstraint.deactivate([self])
+  }
+}
 
 
+extension NSLayoutConstraint {
+  public func refers(to view: UIView) -> Bool {
+    if self.firstItem === view {
+      return true
+    } else if self.secondItem === view {
+      return true
+    } else {
+      return false
+    }
+  }
+}
 
 
 

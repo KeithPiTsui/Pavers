@@ -80,15 +80,15 @@ public func |> ( vcc: VisualConstraintCollector,
     return vcc.accumulate(f)
 }
 
-public func >>> (f: @escaping (VisualConstraintParameter) -> [NSLayoutConstraint],
-                 g: @escaping (VisualConstraintParameter) -> [NSLayoutConstraint] )
-  -> (VisualConstraintParameter) -> [NSLayoutConstraint] {
-    return { f($0) + g($0) }
-}
-
-
-//public func >>> <T, G: Semigroup> (f: @escaping (T) -> G, g: @escaping (T) -> G) -> (T) -> G {
-//  return { f($0) >>> g($0) }
+//public func >>> (f: @escaping (VisualConstraintParameter) -> [NSLayoutConstraint],
+//                 g: @escaping (VisualConstraintParameter) -> [NSLayoutConstraint] )
+//  -> (VisualConstraintParameter) -> [NSLayoutConstraint] {
+//    return { f($0) + g($0) }
 //}
+
+
+public func >>> <T, G: Semigroup> (f: @escaping (T) -> G, g: @escaping (T) -> G) -> (T) -> G {
+  return { f($0) >>> g($0) }
+}
 
 
