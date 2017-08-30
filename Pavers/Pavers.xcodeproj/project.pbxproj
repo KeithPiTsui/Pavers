@@ -192,6 +192,7 @@
 		0E3D75D51F4DC61D00FFD6C3 /* StandardTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3D75C21F4DC61D00FFD6C3 /* StandardTypes.swift */; };
 		0E43A5241F5413D4007C8E20 /* NSLayoutConstraint+Facilitating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43A5231F5413D4007C8E20 /* NSLayoutConstraint+Facilitating.swift */; };
 		0E43A5261F54145D007C8E20 /* UIView+Reporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43A5251F54145D007C8E20 /* UIView+Reporting.swift */; };
+		0E4DAE191F5650A3001D230E /* NSLayoutConstraint+Composible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4DAE181F5650A3001D230E /* NSLayoutConstraint+Composible.swift */; };
 		0E5151D21F4AD7280006BE05 /* PaversUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5151C91F4AD7280006BE05 /* PaversUI.framework */; };
 		0E5151D71F4AD7290006BE05 /* PaversUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5151D61F4AD7290006BE05 /* PaversUITests.swift */; };
 		0E5151D91F4AD7290006BE05 /* PaversUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5151CB1F4AD7280006BE05 /* PaversUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -510,6 +511,7 @@
 		0E43A5231F5413D4007C8E20 /* NSLayoutConstraint+Facilitating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Facilitating.swift"; sourceTree = "<group>"; };
 		0E43A5251F54145D007C8E20 /* UIView+Reporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Reporting.swift"; sourceTree = "<group>"; };
 		0E43A52A1F541740007C8E20 /* Pavers.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Pavers.playground; sourceTree = "<group>"; };
+		0E4DAE181F5650A3001D230E /* NSLayoutConstraint+Composible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Composible.swift"; sourceTree = "<group>"; };
 		0E5151C91F4AD7280006BE05 /* PaversUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E5151CB1F4AD7280006BE05 /* PaversUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversUI.h; sourceTree = "<group>"; };
 		0E5151CC1F4AD7280006BE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1050,6 +1052,7 @@
 			isa = PBXGroup;
 			children = (
 				0E43A5231F5413D4007C8E20 /* NSLayoutConstraint+Facilitating.swift */,
+				0E4DAE181F5650A3001D230E /* NSLayoutConstraint+Composible.swift */,
 				0EE3E7EA1F544742008F30B4 /* NSLayoutConstraint+Reporting.swift */,
 				0EE3E7E81F544643008F30B4 /* NSObject+Naming.swift */,
 				0E43A5251F54145D007C8E20 /* UIView+Reporting.swift */,
@@ -1741,6 +1744,7 @@
 				0E51526F1F4AD9E30006BE05 /* UIBarButtonItemLenses.swift in Sources */,
 				0E3D74AF1F4DBB6B00FFD6C3 /* UISearchBar.swift in Sources */,
 				0E51526A1F4AD9E30006BE05 /* NSMutableParagraphStyleLenses.swift in Sources */,
+				0E4DAE191F5650A3001D230E /* NSLayoutConstraint+Composible.swift in Sources */,
 				0E3D74BA1F4DBB6B00FFD6C3 /* UIControl+Reactive.swift in Sources */,
 				0E5152801F4AD9E30006BE05 /* UITableViewLenses.swift in Sources */,
 				0E51527A1F4AD9E30006BE05 /* UIScrollViewLenses.swift in Sources */,

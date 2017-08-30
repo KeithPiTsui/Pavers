@@ -4,5 +4,6 @@
         <page name='CATransactionLenses'/>
         <page name='UIGradientView'/>
         <page name='GitHotFrontPage'/>
+        <page name='VisualConstraintCollector'/>
     </pages>
 </playground>

@@ -30,11 +30,11 @@ extension NSLayoutConstraint {
 
 // MARK: - falsify translate autoresizing into constraints
 extension NSLayoutConstraint {
-  public func preconstraint(view: ViewClass) {
+  public static func preconstraint(view: ViewClass) {
     view.translatesAutoresizingMaskIntoConstraints = false
   }
 
-  public func preconstraint(views: [ViewClass]) {
+  public static func preconstraint(views: [ViewClass]) {
     views.forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
     }

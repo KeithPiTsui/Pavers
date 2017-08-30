@@ -23,3 +23,26 @@ print(view.layoutReport)
 //let cvLens = UIView.lens.contentCompressionResistancePriorityForAxis(.vertical).view
 //
 //let hhP = view |> hhLens
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
