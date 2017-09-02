@@ -248,6 +248,7 @@
 		0E7873201F4BCA84002600BE /* CATransactionLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78731E1F4BCA31002600BE /* CATransactionLenses.swift */; };
 		0E7873231F4BF9F8002600BE /* UIGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7873221F4BF9F8002600BE /* UIGradientView.swift */; };
 		0E7873261F4BFAC2002600BE /* HitRepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7873251F4BFAC2002600BE /* HitRepositoriesTableViewController.swift */; };
+		0E7E04D31F5A823B00B70C50 /* CGAffineTranslation+Composible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E04D21F5A823B00B70C50 /* CGAffineTranslation+Composible.swift */; };
 		0EE3E7E91F544643008F30B4 /* NSObject+Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE3E7E81F544643008F30B4 /* NSObject+Naming.swift */; };
 		0EE3E7EB1F544742008F30B4 /* NSLayoutConstraint+Reporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE3E7EA1F544742008F30B4 /* NSLayoutConstraint+Reporting.swift */; };
 		0EEF27FF1F4DA0FA001EF8C5 /* DispatchTimeInterval-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27E11F4DA0FA001EF8C5 /* DispatchTimeInterval-Extensions.swift */; };
@@ -571,6 +572,7 @@
 		0E78731E1F4BCA31002600BE /* CATransactionLenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransactionLenses.swift; sourceTree = "<group>"; };
 		0E7873221F4BF9F8002600BE /* UIGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
 		0E7873251F4BFAC2002600BE /* HitRepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitRepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		0E7E04D21F5A823B00B70C50 /* CGAffineTranslation+Composible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGAffineTranslation+Composible.swift"; sourceTree = "<group>"; };
 		0EE3E7E81F544643008F30B4 /* NSObject+Naming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Naming.swift"; sourceTree = "<group>"; };
 		0EE3E7EA1F544742008F30B4 /* NSLayoutConstraint+Reporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Reporting.swift"; sourceTree = "<group>"; };
 		0EEF27E11F4DA0FA001EF8C5 /* DispatchTimeInterval-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTimeInterval-Extensions.swift"; sourceTree = "<group>"; };
@@ -1059,6 +1061,7 @@
 				0EE3E7E81F544643008F30B4 /* NSObject+Naming.swift */,
 				0E43A5251F54145D007C8E20 /* UIView+Reporting.swift */,
 				0E4DAE1A1F56911F001D230E /* UIView+Facilitating.swift */,
+				0E7E04D21F5A823B00B70C50 /* CGAffineTranslation+Composible.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1740,6 +1743,7 @@
 				0E51527F1F4AD9E30006BE05 /* UITableViewControllerLenses.swift in Sources */,
 				0E5152B61F4ADC570006BE05 /* BaseStyles.swift in Sources */,
 				0E3D74A91F4DBB6B00FFD6C3 /* UIFeedbackGenerator.swift in Sources */,
+				0E7E04D31F5A823B00B70C50 /* CGAffineTranslation+Composible.swift in Sources */,
 				0E5152701F4AD9E30006BE05 /* UIBarItemLenses.swift in Sources */,
 				0E5152811F4AD9E30006BE05 /* UITextFieldLenses.swift in Sources */,
 				0E5152821F4AD9E30006BE05 /* UITextInputTraitsLenses.swift in Sources */,
