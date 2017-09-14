@@ -11,9 +11,9 @@ import PaversFRP
 
 public struct VisualConstraintParameter {
   public let metrics: [String: CGFloat]?
-  public let views: [String: UIView]
+  public let views: [String: Any]
 
-  public init(metrics: [String: CGFloat]? = nil, views: [String: UIView]) {
+  public init(metrics: [String: CGFloat]? = nil, views: [String: Any]) {
     self.metrics = metrics
     self.views = views
   }
@@ -44,7 +44,7 @@ extension VisualConstraintCollector {
 
 
 extension VisualConstraintCollector {
-  public init(metrics: [String: CGFloat]? = nil, views: [String: UIView]) {
+  public init(metrics: [String: CGFloat]? = nil, views: [String: Any]) {
     let vcp = VisualConstraintParameter(metrics: metrics, views: views)
     self = VisualConstraintCollector(parameter: vcp)
   }
@@ -57,7 +57,7 @@ extension VisualConstraintCollector {
                                        constraintGenerator: self.constraintGenerator >>> f)
   }
   public func apply() {
-    let views = Array(self.parameter.views.values)
+    let views = Array(self.parameter.views.values).filter{ $0 is UIView } as! [UIView]
     NSLayoutConstraint.preconstraint(views: views)
     NSLayoutConstraint.activate(self.constraints)
   }
