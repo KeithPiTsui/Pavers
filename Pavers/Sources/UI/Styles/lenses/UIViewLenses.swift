@@ -16,7 +16,7 @@ public protocol UIViewProtocol: KSObjectProtocol, UITraitEnvironmentProtocol, Le
   var layoutMargins: UIEdgeInsets { get set }
   var preservesSuperviewLayoutMargins: Bool { get set }
   func removeConstraints(_ constraints: [NSLayoutConstraint])
-  var semanticContentAttribute: UISemanticContentAttribute { get set }
+//  var semanticContentAttribute: UISemanticContentAttribute { get set }
   func setContentCompressionResistancePriority(_ priority: UILayoutPriority,
                                                forAxis axis: UILayoutConstraintAxis)
   func setContentHuggingPriority(_ priority: UILayoutPriority,
@@ -129,12 +129,12 @@ public extension LensHolder where Object: UIViewProtocol {
     )
   }
 
-  public var semanticContentAttribute: Lens<Object, UISemanticContentAttribute> {
-    return Lens(
-      view: { $0.semanticContentAttribute },
-      set: { $1.semanticContentAttribute = $0; return $1; }
-    )
-  }
+//  public var semanticContentAttribute: Lens<Object, UISemanticContentAttribute> {
+//    return Lens(
+//      view: { $0.semanticContentAttribute },
+//      set: { $1.semanticContentAttribute = $0; return $1; }
+//    )
+//  }
 
   public var tag: Lens<Object, Int> {
     return Lens(
