@@ -204,6 +204,58 @@
 		535827911F9497C40089AD4A /* UIStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358275C1F94979A0089AD4A /* UIStepper.swift */; };
 		535827921F9497C40089AD4A /* UISwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358275D1F94979A0089AD4A /* UISwitch.swift */; };
 		535827951F949F790089AD4A /* PaversUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5151CB1F4AD7280006BE05 /* PaversUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		535827B21F94A7640089AD4A /* CGAffineTranslation+Composible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827AB1F94A7430089AD4A /* CGAffineTranslation+Composible.swift */; };
+		535827B31F94A7640089AD4A /* NSLayoutConstraint+Composible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827AC1F94A7430089AD4A /* NSLayoutConstraint+Composible.swift */; };
+		535827B41F94A7640089AD4A /* NSLayoutConstraint+Facilitating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827AD1F94A7430089AD4A /* NSLayoutConstraint+Facilitating.swift */; };
+		535827B51F94A7640089AD4A /* NSLayoutConstraint+Reporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827AE1F94A7430089AD4A /* NSLayoutConstraint+Reporting.swift */; };
+		535827B61F94A7640089AD4A /* NSObject+Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827AF1F94A7430089AD4A /* NSObject+Naming.swift */; };
+		535827B71F94A7640089AD4A /* UIView+Facilitating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827B01F94A7430089AD4A /* UIView+Facilitating.swift */; };
+		535827B81F94A7640089AD4A /* UIView+Reporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827B11F94A7430089AD4A /* UIView+Reporting.swift */; };
+		535827F51F94A7C60089AD4A /* CAGradientLayerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827BB1F94A7870089AD4A /* CAGradientLayerLenses.swift */; };
+		535827F61F94A7C60089AD4A /* CALayerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827BC1F94A7870089AD4A /* CALayerLenses.swift */; };
+		535827F71F94A7C60089AD4A /* CAShapeLayerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827BD1F94A7870089AD4A /* CAShapeLayerLenses.swift */; };
+		535827F81F94A7C60089AD4A /* CATransactionLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827BE1F94A7870089AD4A /* CATransactionLenses.swift */; };
+		535827F91F94A7C60089AD4A /* CGPointLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827BF1F94A7870089AD4A /* CGPointLenses.swift */; };
+		535827FA1F94A7C60089AD4A /* CGRectLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C01F94A7870089AD4A /* CGRectLenses.swift */; };
+		535827FB1F94A7C60089AD4A /* CGSizeLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C11F94A7870089AD4A /* CGSizeLenses.swift */; };
+		535827FC1F94A7C60089AD4A /* NSMutableParagraphStyleLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C21F94A7870089AD4A /* NSMutableParagraphStyleLenses.swift */; };
+		535827FD1F94A7C60089AD4A /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C31F94A7870089AD4A /* NSObject.swift */; };
+		535827FE1F94A7C60089AD4A /* NSTextContainerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C41F94A7870089AD4A /* NSTextContainerLenses.swift */; };
+		535827FF1F94A7C60089AD4A /* UIAccessibilityLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C51F94A7870089AD4A /* UIAccessibilityLenses.swift */; };
+		535828001F94A7C60089AD4A /* UIActivityIndicatorViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C61F94A7870089AD4A /* UIActivityIndicatorViewLenses.swift */; };
+		535828011F94A7C60089AD4A /* UIBarButtonItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C71F94A7870089AD4A /* UIBarButtonItemLenses.swift */; };
+		535828021F94A7C60089AD4A /* UIBarItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C81F94A7870089AD4A /* UIBarItemLenses.swift */; };
+		535828031F94A7C60089AD4A /* UIButtonLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827C91F94A7870089AD4A /* UIButtonLenses.swift */; };
+		535828041F94A7C60089AD4A /* UIControlLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827CA1F94A7870089AD4A /* UIControlLenses.swift */; };
+		535828051F94A7C60089AD4A /* UIEdgeInsetsLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827CB1F94A7870089AD4A /* UIEdgeInsetsLenses.swift */; };
+		535828061F94A7C60089AD4A /* UIImageViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827CC1F94A7870089AD4A /* UIImageViewLenses.swift */; };
+		535828071F94A7C60089AD4A /* UILabelLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827CD1F94A7870089AD4A /* UILabelLenses.swift */; };
+		535828081F94A7C60089AD4A /* UINavigationBarLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827CE1F94A7870089AD4A /* UINavigationBarLenses.swift */; };
+		535828091F94A7C60089AD4A /* UINavigationControllerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827CF1F94A7870089AD4A /* UINavigationControllerLenses.swift */; };
+		5358280A1F94A7C60089AD4A /* UINavigationItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D01F94A7870089AD4A /* UINavigationItemLenses.swift */; };
+		5358280B1F94A7C60089AD4A /* UIProgressViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D11F94A7870089AD4A /* UIProgressViewLenses.swift */; };
+		5358280C1F94A7C60089AD4A /* UIScrollViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D21F94A7870089AD4A /* UIScrollViewLenses.swift */; };
+		5358280D1F94A7C60089AD4A /* UIStackViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D31F94A7870089AD4A /* UIStackViewLenses.swift */; };
+		5358280E1F94A7C60089AD4A /* UITabBarItemLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D41F94A7870089AD4A /* UITabBarItemLenses.swift */; };
+		5358280F1F94A7C60089AD4A /* UITabBarLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D51F94A7870089AD4A /* UITabBarLenses.swift */; };
+		535828101F94A7C60089AD4A /* UITableViewCellLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D61F94A7870089AD4A /* UITableViewCellLenses.swift */; };
+		535828111F94A7C60089AD4A /* UITableViewControllerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D71F94A7870089AD4A /* UITableViewControllerLenses.swift */; };
+		535828121F94A7C60089AD4A /* UITableViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D81F94A7870089AD4A /* UITableViewLenses.swift */; };
+		535828131F94A7C60089AD4A /* UITextFieldLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827D91F94A7870089AD4A /* UITextFieldLenses.swift */; };
+		535828141F94A7C60089AD4A /* UITextInputTraitsLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827DA1F94A7870089AD4A /* UITextInputTraitsLenses.swift */; };
+		535828151F94A7C60089AD4A /* UITextViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827DB1F94A7870089AD4A /* UITextViewLenses.swift */; };
+		535828161F94A7C60089AD4A /* UITraitEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827DC1F94A7870089AD4A /* UITraitEnvironment.swift */; };
+		535828171F94A7C60089AD4A /* UIViewControllerLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827DD1F94A7870089AD4A /* UIViewControllerLenses.swift */; };
+		535828181F94A7C60089AD4A /* UIViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827DE1F94A7870089AD4A /* UIViewLenses.swift */; };
+		535828191F94A7C60089AD4A /* UIWebViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827DF1F94A7870089AD4A /* UIWebViewLenses.swift */; };
+		5358281A1F94A7C60089AD4A /* WKWebViewLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E01F94A7870089AD4A /* WKWebViewLenses.swift */; };
+		5358281B1F94A7CD0089AD4A /* UIButton+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E91F94A7870089AD4A /* UIButton+StyleHelper.swift */; };
+		5358281D1F94A7CD0089AD4A /* UIColor+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827EB1F94A7870089AD4A /* UIColor+StyleHelper.swift */; };
+		5358281E1F94A7CD0089AD4A /* UIEdgeInsets+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827EC1F94A7870089AD4A /* UIEdgeInsets+StyleHelper.swift */; };
+		5358281F1F94A7CD0089AD4A /* UIImage+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827ED1F94A7870089AD4A /* UIImage+StyleHelper.swift */; };
+		535828201F94A7CD0089AD4A /* UITraitCollection+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */; };
+		535828221F94A7D50089AD4A /* HitRepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */; };
+		535828231F94A7D80089AD4A /* UIGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827F31F94A7870089AD4A /* UIGradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -452,6 +504,65 @@
 		5358276F1F94979A0089AD4A /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		535827701F94979A0089AD4A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		535827721F94979A0089AD4A /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		535827AB1F94A7430089AD4A /* CGAffineTranslation+Composible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTranslation+Composible.swift"; sourceTree = "<group>"; };
+		535827AC1F94A7430089AD4A /* NSLayoutConstraint+Composible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Composible.swift"; sourceTree = "<group>"; };
+		535827AD1F94A7430089AD4A /* NSLayoutConstraint+Facilitating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Facilitating.swift"; sourceTree = "<group>"; };
+		535827AE1F94A7430089AD4A /* NSLayoutConstraint+Reporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Reporting.swift"; sourceTree = "<group>"; };
+		535827AF1F94A7430089AD4A /* NSObject+Naming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Naming.swift"; sourceTree = "<group>"; };
+		535827B01F94A7430089AD4A /* UIView+Facilitating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Facilitating.swift"; sourceTree = "<group>"; };
+		535827B11F94A7430089AD4A /* UIView+Reporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Reporting.swift"; sourceTree = "<group>"; };
+		535827BB1F94A7870089AD4A /* CAGradientLayerLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerLenses.swift; sourceTree = "<group>"; };
+		535827BC1F94A7870089AD4A /* CALayerLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerLenses.swift; sourceTree = "<group>"; };
+		535827BD1F94A7870089AD4A /* CAShapeLayerLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShapeLayerLenses.swift; sourceTree = "<group>"; };
+		535827BE1F94A7870089AD4A /* CATransactionLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransactionLenses.swift; sourceTree = "<group>"; };
+		535827BF1F94A7870089AD4A /* CGPointLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointLenses.swift; sourceTree = "<group>"; };
+		535827C01F94A7870089AD4A /* CGRectLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectLenses.swift; sourceTree = "<group>"; };
+		535827C11F94A7870089AD4A /* CGSizeLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeLenses.swift; sourceTree = "<group>"; };
+		535827C21F94A7870089AD4A /* NSMutableParagraphStyleLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableParagraphStyleLenses.swift; sourceTree = "<group>"; };
+		535827C31F94A7870089AD4A /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		535827C41F94A7870089AD4A /* NSTextContainerLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextContainerLenses.swift; sourceTree = "<group>"; };
+		535827C51F94A7870089AD4A /* UIAccessibilityLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAccessibilityLenses.swift; sourceTree = "<group>"; };
+		535827C61F94A7870089AD4A /* UIActivityIndicatorViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewLenses.swift; sourceTree = "<group>"; };
+		535827C71F94A7870089AD4A /* UIBarButtonItemLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemLenses.swift; sourceTree = "<group>"; };
+		535827C81F94A7870089AD4A /* UIBarItemLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarItemLenses.swift; sourceTree = "<group>"; };
+		535827C91F94A7870089AD4A /* UIButtonLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonLenses.swift; sourceTree = "<group>"; };
+		535827CA1F94A7870089AD4A /* UIControlLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlLenses.swift; sourceTree = "<group>"; };
+		535827CB1F94A7870089AD4A /* UIEdgeInsetsLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsLenses.swift; sourceTree = "<group>"; };
+		535827CC1F94A7870089AD4A /* UIImageViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewLenses.swift; sourceTree = "<group>"; };
+		535827CD1F94A7870089AD4A /* UILabelLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelLenses.swift; sourceTree = "<group>"; };
+		535827CE1F94A7870089AD4A /* UINavigationBarLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarLenses.swift; sourceTree = "<group>"; };
+		535827CF1F94A7870089AD4A /* UINavigationControllerLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerLenses.swift; sourceTree = "<group>"; };
+		535827D01F94A7870089AD4A /* UINavigationItemLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemLenses.swift; sourceTree = "<group>"; };
+		535827D11F94A7870089AD4A /* UIProgressViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressViewLenses.swift; sourceTree = "<group>"; };
+		535827D21F94A7870089AD4A /* UIScrollViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewLenses.swift; sourceTree = "<group>"; };
+		535827D31F94A7870089AD4A /* UIStackViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewLenses.swift; sourceTree = "<group>"; };
+		535827D41F94A7870089AD4A /* UITabBarItemLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarItemLenses.swift; sourceTree = "<group>"; };
+		535827D51F94A7870089AD4A /* UITabBarLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarLenses.swift; sourceTree = "<group>"; };
+		535827D61F94A7870089AD4A /* UITableViewCellLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellLenses.swift; sourceTree = "<group>"; };
+		535827D71F94A7870089AD4A /* UITableViewControllerLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerLenses.swift; sourceTree = "<group>"; };
+		535827D81F94A7870089AD4A /* UITableViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewLenses.swift; sourceTree = "<group>"; };
+		535827D91F94A7870089AD4A /* UITextFieldLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldLenses.swift; sourceTree = "<group>"; };
+		535827DA1F94A7870089AD4A /* UITextInputTraitsLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextInputTraitsLenses.swift; sourceTree = "<group>"; };
+		535827DB1F94A7870089AD4A /* UITextViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewLenses.swift; sourceTree = "<group>"; };
+		535827DC1F94A7870089AD4A /* UITraitEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitEnvironment.swift; sourceTree = "<group>"; };
+		535827DD1F94A7870089AD4A /* UIViewControllerLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerLenses.swift; sourceTree = "<group>"; };
+		535827DE1F94A7870089AD4A /* UIViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewLenses.swift; sourceTree = "<group>"; };
+		535827DF1F94A7870089AD4A /* UIWebViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewLenses.swift; sourceTree = "<group>"; };
+		535827E01F94A7870089AD4A /* WKWebViewLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewLenses.swift; sourceTree = "<group>"; };
+		535827E21F94A7870089AD4A /* BarButtonItemStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItemStyles.swift; sourceTree = "<group>"; };
+		535827E31F94A7870089AD4A /* BaseStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStyles.swift; sourceTree = "<group>"; };
+		535827E41F94A7870089AD4A /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		535827E51F94A7870089AD4A /* GradientViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewStyles.swift; sourceTree = "<group>"; };
+		535827E61F94A7870089AD4A /* TabBarItemStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemStyles.swift; sourceTree = "<group>"; };
+		535827E71F94A7870089AD4A /* UIColorStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorStyles.swift; sourceTree = "<group>"; };
+		535827E81F94A7870089AD4A /* UIFontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontStyles.swift; sourceTree = "<group>"; };
+		535827E91F94A7870089AD4A /* UIButton+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+StyleHelper.swift"; sourceTree = "<group>"; };
+		535827EB1F94A7870089AD4A /* UIColor+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+StyleHelper.swift"; sourceTree = "<group>"; };
+		535827EC1F94A7870089AD4A /* UIEdgeInsets+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+StyleHelper.swift"; sourceTree = "<group>"; };
+		535827ED1F94A7870089AD4A /* UIImage+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+StyleHelper.swift"; sourceTree = "<group>"; };
+		535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+StyleHelper.swift"; sourceTree = "<group>"; };
+		535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitRepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		535827F31F94A7870089AD4A /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -900,6 +1011,8 @@
 		535826C81F9494EE0089AD4A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				535827B91F94A7870089AD4A /* Styles */,
+				535827AA1F94A7430089AD4A /* Base */,
 				535827241F94970F0089AD4A /* ReactiveCocoa */,
 			);
 			name = UI;
@@ -989,6 +1102,113 @@
 				535827721F94979A0089AD4A /* NSLayoutConstraint.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		535827AA1F94A7430089AD4A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				535827AB1F94A7430089AD4A /* CGAffineTranslation+Composible.swift */,
+				535827AC1F94A7430089AD4A /* NSLayoutConstraint+Composible.swift */,
+				535827AD1F94A7430089AD4A /* NSLayoutConstraint+Facilitating.swift */,
+				535827AE1F94A7430089AD4A /* NSLayoutConstraint+Reporting.swift */,
+				535827AF1F94A7430089AD4A /* NSObject+Naming.swift */,
+				535827B01F94A7430089AD4A /* UIView+Facilitating.swift */,
+				535827B11F94A7430089AD4A /* UIView+Reporting.swift */,
+			);
+			name = Base;
+			path = Sources/UI/Base;
+			sourceTree = SOURCE_ROOT;
+		};
+		535827B91F94A7870089AD4A /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				535827BA1F94A7870089AD4A /* lenses */,
+				535827E11F94A7870089AD4A /* Presets */,
+				535827E91F94A7870089AD4A /* UIButton+StyleHelper.swift */,
+				535827EB1F94A7870089AD4A /* UIColor+StyleHelper.swift */,
+				535827EC1F94A7870089AD4A /* UIEdgeInsets+StyleHelper.swift */,
+				535827ED1F94A7870089AD4A /* UIImage+StyleHelper.swift */,
+				535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */,
+				535827F01F94A7870089AD4A /* ViewControllers */,
+				535827F21F94A7870089AD4A /* Views */,
+			);
+			name = Styles;
+			path = Sources/UI/Styles;
+			sourceTree = SOURCE_ROOT;
+		};
+		535827BA1F94A7870089AD4A /* lenses */ = {
+			isa = PBXGroup;
+			children = (
+				535827BB1F94A7870089AD4A /* CAGradientLayerLenses.swift */,
+				535827BC1F94A7870089AD4A /* CALayerLenses.swift */,
+				535827BD1F94A7870089AD4A /* CAShapeLayerLenses.swift */,
+				535827BE1F94A7870089AD4A /* CATransactionLenses.swift */,
+				535827BF1F94A7870089AD4A /* CGPointLenses.swift */,
+				535827C01F94A7870089AD4A /* CGRectLenses.swift */,
+				535827C11F94A7870089AD4A /* CGSizeLenses.swift */,
+				535827C21F94A7870089AD4A /* NSMutableParagraphStyleLenses.swift */,
+				535827C31F94A7870089AD4A /* NSObject.swift */,
+				535827C41F94A7870089AD4A /* NSTextContainerLenses.swift */,
+				535827C51F94A7870089AD4A /* UIAccessibilityLenses.swift */,
+				535827C61F94A7870089AD4A /* UIActivityIndicatorViewLenses.swift */,
+				535827C71F94A7870089AD4A /* UIBarButtonItemLenses.swift */,
+				535827C81F94A7870089AD4A /* UIBarItemLenses.swift */,
+				535827C91F94A7870089AD4A /* UIButtonLenses.swift */,
+				535827CA1F94A7870089AD4A /* UIControlLenses.swift */,
+				535827CB1F94A7870089AD4A /* UIEdgeInsetsLenses.swift */,
+				535827CC1F94A7870089AD4A /* UIImageViewLenses.swift */,
+				535827CD1F94A7870089AD4A /* UILabelLenses.swift */,
+				535827CE1F94A7870089AD4A /* UINavigationBarLenses.swift */,
+				535827CF1F94A7870089AD4A /* UINavigationControllerLenses.swift */,
+				535827D01F94A7870089AD4A /* UINavigationItemLenses.swift */,
+				535827D11F94A7870089AD4A /* UIProgressViewLenses.swift */,
+				535827D21F94A7870089AD4A /* UIScrollViewLenses.swift */,
+				535827D31F94A7870089AD4A /* UIStackViewLenses.swift */,
+				535827D41F94A7870089AD4A /* UITabBarItemLenses.swift */,
+				535827D51F94A7870089AD4A /* UITabBarLenses.swift */,
+				535827D61F94A7870089AD4A /* UITableViewCellLenses.swift */,
+				535827D71F94A7870089AD4A /* UITableViewControllerLenses.swift */,
+				535827D81F94A7870089AD4A /* UITableViewLenses.swift */,
+				535827D91F94A7870089AD4A /* UITextFieldLenses.swift */,
+				535827DA1F94A7870089AD4A /* UITextInputTraitsLenses.swift */,
+				535827DB1F94A7870089AD4A /* UITextViewLenses.swift */,
+				535827DC1F94A7870089AD4A /* UITraitEnvironment.swift */,
+				535827DD1F94A7870089AD4A /* UIViewControllerLenses.swift */,
+				535827DE1F94A7870089AD4A /* UIViewLenses.swift */,
+				535827DF1F94A7870089AD4A /* UIWebViewLenses.swift */,
+				535827E01F94A7870089AD4A /* WKWebViewLenses.swift */,
+			);
+			path = lenses;
+			sourceTree = "<group>";
+		};
+		535827E11F94A7870089AD4A /* Presets */ = {
+			isa = PBXGroup;
+			children = (
+				535827E21F94A7870089AD4A /* BarButtonItemStyles.swift */,
+				535827E31F94A7870089AD4A /* BaseStyles.swift */,
+				535827E41F94A7870089AD4A /* ButtonStyles.swift */,
+				535827E51F94A7870089AD4A /* GradientViewStyles.swift */,
+				535827E61F94A7870089AD4A /* TabBarItemStyles.swift */,
+				535827E71F94A7870089AD4A /* UIColorStyles.swift */,
+				535827E81F94A7870089AD4A /* UIFontStyles.swift */,
+			);
+			path = Presets;
+			sourceTree = "<group>";
+		};
+		535827F01F94A7870089AD4A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		535827F21F94A7870089AD4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				535827F31F94A7870089AD4A /* UIGradientView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1410,6 +1630,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535828221F94A7D50089AD4A /* HitRepositoriesTableViewController.swift in Sources */,
+				535827F51F94A7C60089AD4A /* CAGradientLayerLenses.swift in Sources */,
+				535827F61F94A7C60089AD4A /* CALayerLenses.swift in Sources */,
+				535827F71F94A7C60089AD4A /* CAShapeLayerLenses.swift in Sources */,
+				535828231F94A7D80089AD4A /* UIGradientView.swift in Sources */,
+				5358281B1F94A7CD0089AD4A /* UIButton+StyleHelper.swift in Sources */,
+				5358281D1F94A7CD0089AD4A /* UIColor+StyleHelper.swift in Sources */,
+				5358281E1F94A7CD0089AD4A /* UIEdgeInsets+StyleHelper.swift in Sources */,
+				5358281F1F94A7CD0089AD4A /* UIImage+StyleHelper.swift in Sources */,
+				535828201F94A7CD0089AD4A /* UITraitCollection+StyleHelper.swift in Sources */,
+				535827F81F94A7C60089AD4A /* CATransactionLenses.swift in Sources */,
+				535827F91F94A7C60089AD4A /* CGPointLenses.swift in Sources */,
+				535827FA1F94A7C60089AD4A /* CGRectLenses.swift in Sources */,
+				535827FB1F94A7C60089AD4A /* CGSizeLenses.swift in Sources */,
+				535827FC1F94A7C60089AD4A /* NSMutableParagraphStyleLenses.swift in Sources */,
+				535827FD1F94A7C60089AD4A /* NSObject.swift in Sources */,
+				535827FE1F94A7C60089AD4A /* NSTextContainerLenses.swift in Sources */,
+				535827FF1F94A7C60089AD4A /* UIAccessibilityLenses.swift in Sources */,
+				535828001F94A7C60089AD4A /* UIActivityIndicatorViewLenses.swift in Sources */,
+				535828011F94A7C60089AD4A /* UIBarButtonItemLenses.swift in Sources */,
+				535828021F94A7C60089AD4A /* UIBarItemLenses.swift in Sources */,
+				535828031F94A7C60089AD4A /* UIButtonLenses.swift in Sources */,
+				535828041F94A7C60089AD4A /* UIControlLenses.swift in Sources */,
+				535828051F94A7C60089AD4A /* UIEdgeInsetsLenses.swift in Sources */,
+				535828061F94A7C60089AD4A /* UIImageViewLenses.swift in Sources */,
+				535828071F94A7C60089AD4A /* UILabelLenses.swift in Sources */,
+				535828081F94A7C60089AD4A /* UINavigationBarLenses.swift in Sources */,
+				535828091F94A7C60089AD4A /* UINavigationControllerLenses.swift in Sources */,
+				5358280A1F94A7C60089AD4A /* UINavigationItemLenses.swift in Sources */,
+				5358280B1F94A7C60089AD4A /* UIProgressViewLenses.swift in Sources */,
+				5358280C1F94A7C60089AD4A /* UIScrollViewLenses.swift in Sources */,
+				5358280D1F94A7C60089AD4A /* UIStackViewLenses.swift in Sources */,
+				5358280E1F94A7C60089AD4A /* UITabBarItemLenses.swift in Sources */,
+				5358280F1F94A7C60089AD4A /* UITabBarLenses.swift in Sources */,
+				535828101F94A7C60089AD4A /* UITableViewCellLenses.swift in Sources */,
+				535828111F94A7C60089AD4A /* UITableViewControllerLenses.swift in Sources */,
+				535828121F94A7C60089AD4A /* UITableViewLenses.swift in Sources */,
+				535828131F94A7C60089AD4A /* UITextFieldLenses.swift in Sources */,
+				535828141F94A7C60089AD4A /* UITextInputTraitsLenses.swift in Sources */,
+				535828151F94A7C60089AD4A /* UITextViewLenses.swift in Sources */,
+				535828161F94A7C60089AD4A /* UITraitEnvironment.swift in Sources */,
+				535828171F94A7C60089AD4A /* UIViewControllerLenses.swift in Sources */,
+				535828181F94A7C60089AD4A /* UIViewLenses.swift in Sources */,
+				535828191F94A7C60089AD4A /* UIWebViewLenses.swift in Sources */,
+				5358281A1F94A7C60089AD4A /* WKWebViewLenses.swift in Sources */,
+				535827B21F94A7640089AD4A /* CGAffineTranslation+Composible.swift in Sources */,
+				535827B31F94A7640089AD4A /* NSLayoutConstraint+Composible.swift in Sources */,
+				535827B41F94A7640089AD4A /* NSLayoutConstraint+Facilitating.swift in Sources */,
+				535827B51F94A7640089AD4A /* NSLayoutConstraint+Reporting.swift in Sources */,
+				535827B61F94A7640089AD4A /* NSObject+Naming.swift in Sources */,
+				535827B71F94A7640089AD4A /* UIView+Facilitating.swift in Sources */,
+				535827B81F94A7640089AD4A /* UIView+Reporting.swift in Sources */,
 				5358273B1F9497560089AD4A /* CocoaAction.swift in Sources */,
 				5358273C1F9497560089AD4A /* CocoaTarget.swift in Sources */,
 				5358273D1F9497560089AD4A /* DelegateProxy.swift in Sources */,
