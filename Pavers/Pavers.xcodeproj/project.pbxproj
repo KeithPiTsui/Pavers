@@ -256,6 +256,13 @@
 		535828201F94A7CD0089AD4A /* UITraitCollection+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */; };
 		535828221F94A7D50089AD4A /* HitRepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */; };
 		535828231F94A7D80089AD4A /* UIGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827F31F94A7870089AD4A /* UIGradientView.swift */; };
+		535828241F94AEE40089AD4A /* BarButtonItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E21F94A7870089AD4A /* BarButtonItemStyles.swift */; };
+		535828251F94AF280089AD4A /* UIColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E71F94A7870089AD4A /* UIColorStyles.swift */; };
+		535828261F94AF340089AD4A /* UIFontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E81F94A7870089AD4A /* UIFontStyles.swift */; };
+		535828271F94AF6C0089AD4A /* BaseStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E31F94A7870089AD4A /* BaseStyles.swift */; };
+		535828281F94AF6C0089AD4A /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E41F94A7870089AD4A /* ButtonStyles.swift */; };
+		535828291F94AF6C0089AD4A /* GradientViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E51F94A7870089AD4A /* GradientViewStyles.swift */; };
+		5358282A1F94AF6C0089AD4A /* TabBarItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E61F94A7870089AD4A /* TabBarItemStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1630,6 +1637,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535828271F94AF6C0089AD4A /* BaseStyles.swift in Sources */,
+				535828281F94AF6C0089AD4A /* ButtonStyles.swift in Sources */,
+				535828291F94AF6C0089AD4A /* GradientViewStyles.swift in Sources */,
+				5358282A1F94AF6C0089AD4A /* TabBarItemStyles.swift in Sources */,
+				535828251F94AF280089AD4A /* UIColorStyles.swift in Sources */,
+				535828261F94AF340089AD4A /* UIFontStyles.swift in Sources */,
+				535828241F94AEE40089AD4A /* BarButtonItemStyles.swift in Sources */,
 				535828221F94A7D50089AD4A /* HitRepositoriesTableViewController.swift in Sources */,
 				535827F51F94A7C60089AD4A /* CAGradientLayerLenses.swift in Sources */,
 				535827F61F94A7C60089AD4A /* CALayerLenses.swift in Sources */,
