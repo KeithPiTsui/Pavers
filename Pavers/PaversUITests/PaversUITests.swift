@@ -2,7 +2,7 @@
 //  PaversUITests.swift
 //  PaversUITests
 //
-//  Created by Pi on 21/08/2017.
+//  Created by Keith on 16/10/2017.
 //  Copyright © 2017 Keith. All rights reserved.
 //
 
@@ -24,14 +24,6 @@ class PaversUITests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-      let v = UIView()
-      v.nametag = "v"
-      let c = NSLayoutConstraint(item: v, attribute: .bottom, relatedBy: .equal, toItem: v, attribute: .top, multiplier: 3, constant: 2.23)
-
-      XCTAssert(c.description == "<NSLayoutConstraint:\(c.memoryAddressStr) v:\(v.memoryAddressStr).bottom == v:\(v.memoryAddressStr).top * 3.0 + 2.23 (Inactive)>")
-
-      //print(v)
-//      print(c)
     }
     
     func testPerformanceExample() {

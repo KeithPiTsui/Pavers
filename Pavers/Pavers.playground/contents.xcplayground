@@ -6,5 +6,7 @@
         <page name='GitHotFrontPage'/>
         <page name='VisualConstraintCollector'/>
         <page name='Curry'/>
+        <page name='Class and Subtype existentials'/>
+        <page name='String'/>
     </pages>
 </playground>
