@@ -8,5 +8,7 @@
         <page name='Curry'/>
         <page name='Class and Subtype existentials'/>
         <page name='String'/>
+        <page name='ButtonStyles'/>
+        <page name='UIFontStyles'/>
     </pages>
 </playground>

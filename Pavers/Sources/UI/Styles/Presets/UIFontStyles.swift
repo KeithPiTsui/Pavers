@@ -38,7 +38,11 @@ extension UIFont {
 
     return UIFont(descriptor: monospacedDescriptor, size: 0.0)
   }
-
+  
+  public static func ksr_qw(size: CGFloat = 24) -> UIFont {
+    return UIFont.systemFont(ofSize: size)
+  }
+  
   /// regular, 17pt font, 22pt leading, -24pt tracking
   public static func ksr_body(size: CGFloat? = nil) -> UIFont {
     return .preferredFont(style: .body, size: size)
