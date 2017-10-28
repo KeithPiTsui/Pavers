@@ -10,5 +10,6 @@
         <page name='String'/>
         <page name='ButtonStyles'/>
         <page name='UIFontStyles'/>
+        <page name='Timer'/>
     </pages>
 </playground>

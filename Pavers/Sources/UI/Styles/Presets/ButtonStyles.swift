@@ -3,15 +3,15 @@ import UIKit
 
 public let baseButtonStyle =
   roundedStyle(cornerRadius: 2)
-    >>> UIButton.lens.titleLabel.font %~~ { _, button in
-      button.traitCollection.verticalSizeClass == .compact
-        ? .ksr_callout(size: 12)
-        : .ksr_callout(size: 14)
-    }
+//    >>> UIButton.lens.titleLabel.font %~~ { _, button in
+//      button.traitCollection.verticalSizeClass == .compact
+//        ? .ksr_callout(size: 9)
+//        : .ksr_callout(size: 10)
+//    }
     >>> UIButton.lens.contentEdgeInsets %~~ { _, button in
       button.traitCollection.verticalSizeClass == .compact
-        ? .init(topBottom: 10.0, leftRight: 12.0)
-        : .init(topBottom: 13.0, leftRight: 16.0)
+        ? .init(topBottom: 5, leftRight: 6)
+        : .init(topBottom: 6.5, leftRight: 8)
     }
     >>> UIButton.lens.adjustsImageWhenDisabled .~ false
     >>> UIButton.lens.adjustsImageWhenHighlighted .~ false
@@ -63,17 +63,7 @@ public let greenButtonStyle = _greenButtonStyle
     >>> UIButton.lens.layer.borderColor .~ UIColor.ksr_green_700.cgColor
     >>> UIButton.lens.layer.borderWidth .~ 1.0
 
-fileprivate let _orangeRedButtonStyle = baseButtonStyle
-  >>> UIButton.lens.titleColor(forState: .normal) .~ .white
-  >>> UIButton.lens.backgroundColor(forState: .normal) .~ .ksr_orange_red_100
-  >>> UIButton.lens.titleColor(forState: .highlighted) .~ .init(white: 1.0, alpha: 0.5)
-  >>> UIButton.lens.backgroundColor(forState: .highlighted) .~ .ksr_orange_red_100
-  >>> UIButton.lens.titleColor(forState: .disabled) .~ .white
-  >>> UIButton.lens.backgroundColor(forState: .disabled) .~ UIColor.ksr_orange_red_100.withAlphaComponent(0.5)
 
-public let orangeRedButtonStyle = _orangeRedButtonStyle
-  >>> UIButton.lens.layer.borderColor .~ UIColor.ksr_orange_red_100.cgColor
-  >>> UIButton.lens.layer.borderWidth .~ 1.0
 
 
 fileprivate let _lightNavyButtonStyle = baseButtonStyle
