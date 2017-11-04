@@ -148,6 +148,7 @@
 		0EEF28191F4DA0FA001EF8C5 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FC1F4DA0FA001EF8C5 /* Values.swift */; };
 		0EEF281A1F4DA0FA001EF8C5 /* WithLatestFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */; };
 		0EEF281B1F4DA0FA001EF8C5 /* WrapInOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */; };
+		53176CE51FAC25E0007ECE9C /* ValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */; };
 		535826D81F9495B00089AD4A /* PaversUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535826CF1F9495B00089AD4A /* PaversUI.framework */; };
 		535826E61F9495EB0089AD4A /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
 		5358273B1F9497560089AD4A /* CocoaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827341F9497330089AD4A /* CocoaAction.swift */; };
@@ -456,6 +457,7 @@
 		0EEF27FC1F4DA0FA001EF8C5 /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithLatestFrom.swift; sourceTree = "<group>"; };
 		0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapInOptional.swift; sourceTree = "<group>"; };
+		53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueExtensions.swift; sourceTree = "<group>"; };
 		535826CF1F9495B00089AD4A /* PaversUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		535826D71F9495B00089AD4A /* PaversUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		535827251F9497300089AD4A /* ObjC+RuntimeSubclassing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjC+RuntimeSubclassing.swift"; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 			children = (
 				0E1D07561F4C71D500D9CB38 /* Value+NumericType.swift */,
 				0E1D07571F4C71D500D9CB38 /* Value+VectorType.swift */,
+				53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */,
 			);
 			path = Value;
 			sourceTree = "<group>";
@@ -1366,7 +1369,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Keith;
 				TargetAttributes = {
 					0E1D070A1F4C71A900D9CB38 = {
@@ -1547,6 +1550,7 @@
 				0E1D07971F4C71D500D9CB38 /* String.swift in Sources */,
 				0E1D078D1F4C71D500D9CB38 /* Optional+Applicative.swift in Sources */,
 				0E1D07891F4C71D500D9CB38 /* Lens.swift in Sources */,
+				53176CE51FAC25E0007ECE9C /* ValueExtensions.swift in Sources */,
 				0E1D07A61F4C71D500D9CB38 /* Flatten.swift in Sources */,
 				0E1D079F1F4C71D500D9CB38 /* Action.swift in Sources */,
 				0EEF280E1F4DA0FA001EF8C5 /* MapConst.swift in Sources */,
@@ -1803,6 +1807,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1825,6 +1830,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1872,6 +1878,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversArgo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1894,6 +1901,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversArgo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2051,6 +2059,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2061,6 +2070,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2077,6 +2088,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2087,6 +2099,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

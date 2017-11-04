@@ -1,3 +1,5 @@
+import CoreGraphics
+
 extension CGFloat : VectorType {
   public typealias Scalar = CGFloat
 

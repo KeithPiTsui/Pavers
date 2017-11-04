@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0910"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0E5151C81F4AD7280006BE05"
+               BlueprintIdentifier = "535826CE1F9495B00089AD4A"
                BuildableName = "PaversUI.framework"
                BlueprintName = "PaversUI"
                ReferencedContainer = "container:Pavers.xcodeproj">
@@ -33,7 +33,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0E5151D01F4AD7280006BE05"
+               BlueprintIdentifier = "535826D61F9495B00089AD4A"
                BuildableName = "PaversUITests.xctest"
                BlueprintName = "PaversUITests"
                ReferencedContainer = "container:Pavers.xcodeproj">
@@ -43,7 +43,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0E5151C81F4AD7280006BE05"
+            BlueprintIdentifier = "535826CE1F9495B00089AD4A"
             BuildableName = "PaversUI.framework"
             BlueprintName = "PaversUI"
             ReferencedContainer = "container:Pavers.xcodeproj">
@@ -66,7 +66,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0E5151C81F4AD7280006BE05"
+            BlueprintIdentifier = "535826CE1F9495B00089AD4A"
             BuildableName = "PaversUI.framework"
             BlueprintName = "PaversUI"
             ReferencedContainer = "container:Pavers.xcodeproj">
@@ -84,7 +84,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0E5151C81F4AD7280006BE05"
+            BlueprintIdentifier = "535826CE1F9495B00089AD4A"
             BuildableName = "PaversUI.framework"
             BlueprintName = "PaversUI"
             ReferencedContainer = "container:Pavers.xcodeproj">
