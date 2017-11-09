@@ -11,5 +11,6 @@
         <page name='ButtonStyles'/>
         <page name='UIFontStyles'/>
         <page name='Timer'/>
+        <page name='DispatchOnce'/>
     </pages>
 </playground>

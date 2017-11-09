@@ -337,5 +337,5 @@ extension ResultTests {
 #endif
 
 import Foundation
-import Pavers
+import PaversFRP
 import XCTest
