@@ -264,6 +264,7 @@
 		535828281F94AF6C0089AD4A /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E41F94A7870089AD4A /* ButtonStyles.swift */; };
 		535828291F94AF6C0089AD4A /* GradientViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E51F94A7870089AD4A /* GradientViewStyles.swift */; };
 		5358282A1F94AF6C0089AD4A /* TabBarItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E61F94A7870089AD4A /* TabBarItemStyles.swift */; };
+		53825AC71FB6D26E002DBEBC /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825AC61FB6D26D002DBEBC /* UIStackView.swift */; };
 		53A0C1681FB424AA001C9A24 /* OptionalComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */; };
 		53A0C16A1FB42502001C9A24 /* Swizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1691FB42502001C9A24 /* Swizzler.swift */; };
 		53A0C1851FB425CF001C9A24 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */; };
@@ -606,6 +607,7 @@
 		535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+StyleHelper.swift"; sourceTree = "<group>"; };
 		535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitRepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		535827F31F94A7870089AD4A /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
+		53825AC61FB6D26D002DBEBC /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalComparison.swift; sourceTree = "<group>"; };
 		53A0C1691FB42502001C9A24 /* Swizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzler.swift; sourceTree = "<group>"; };
 		53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
@@ -1172,6 +1174,7 @@
 				535827591F94979A0089AD4A /* UISearchBar.swift */,
 				5358275A1F94979A0089AD4A /* UISelection​Feedback​Generator.swift */,
 				5358275B1F94979A0089AD4A /* UISlider.swift */,
+				53825AC61FB6D26D002DBEBC /* UIStackView.swift */,
 				5358275C1F94979A0089AD4A /* UIStepper.swift */,
 				5358275D1F94979A0089AD4A /* UISwitch.swift */,
 			);
@@ -1845,6 +1848,7 @@
 				5358280F1F94A7C60089AD4A /* UITabBarLenses.swift in Sources */,
 				535828101F94A7C60089AD4A /* UITableViewCellLenses.swift in Sources */,
 				535828111F94A7C60089AD4A /* UITableViewControllerLenses.swift in Sources */,
+				53825AC71FB6D26E002DBEBC /* UIStackView.swift in Sources */,
 				535828121F94A7C60089AD4A /* UITableViewLenses.swift in Sources */,
 				535828131F94A7C60089AD4A /* UITextFieldLenses.swift in Sources */,
 				535828141F94A7C60089AD4A /* UITextInputTraitsLenses.swift in Sources */,
@@ -1966,6 +1970,7 @@
 		0E1D071D1F4C71AA00D9CB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -1989,6 +1994,7 @@
 		0E1D071E1F4C71AA00D9CB38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -2037,6 +2043,7 @@
 		0E3D75A31F4DC5E700FFD6C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -2060,6 +2067,7 @@
 		0E3D75A41F4DC5E700FFD6C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -2225,6 +2233,7 @@
 		535826E11F9495B00089AD4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -2254,6 +2263,7 @@
 		535826E21F9495B00089AD4A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;

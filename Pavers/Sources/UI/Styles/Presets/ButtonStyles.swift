@@ -3,11 +3,11 @@ import UIKit
 
 public let baseButtonStyle =
   roundedStyle(cornerRadius: 2)
-//    >>> UIButton.lens.titleLabel.font %~~ { _, button in
-//      button.traitCollection.verticalSizeClass == .compact
-//        ? .ksr_callout(size: 9)
-//        : .ksr_callout(size: 10)
-//    }
+    >>> UIButton.lens.titleLabel.font %~~ { _, button in
+      button.traitCollection.verticalSizeClass == .compact
+        ? .ksr_callout(size: 9)
+        : .ksr_callout(size: 10)
+    }
     >>> UIButton.lens.contentEdgeInsets %~~ { _, button in
       button.traitCollection.verticalSizeClass == .compact
         ? .init(topBottom: 5, leftRight: 6)
