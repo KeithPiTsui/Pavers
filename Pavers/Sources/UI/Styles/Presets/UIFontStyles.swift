@@ -39,10 +39,6 @@ extension UIFont {
     return UIFont(descriptor: monospacedDescriptor, size: 0.0)
   }
   
-  public static func ksr_qw(size: CGFloat = 24) -> UIFont {
-    return UIFont.systemFont(ofSize: size)
-  }
-  
   /// regular, 17pt font, 22pt leading, -24pt tracking
   public static func ksr_body(size: CGFloat? = nil) -> UIFont {
     return .preferredFont(style: .body, size: size)
@@ -99,15 +95,11 @@ extension UIFont {
     let defaultSize: CGFloat
     switch style {
     case UIFontTextStyle.body:         defaultSize = 17
-//    case UIFontTextStyle.callout:      defaultSize = 16
     case UIFontTextStyle.caption1:     defaultSize = 12
     case UIFontTextStyle.caption2:     defaultSize = 11
     case UIFontTextStyle.footnote:     defaultSize = 13
     case UIFontTextStyle.headline:     defaultSize = 17
     case UIFontTextStyle.subheadline:  defaultSize = 15
-//    case UIFontTextStyle.title1:       defaultSize = 28
-//    case UIFontTextStyle.title2:       defaultSize = 22
-//    case UIFontTextStyle.title3:       defaultSize = 20
     default:                           defaultSize = 17
     }
 
