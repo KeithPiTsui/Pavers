@@ -13,11 +13,11 @@ public func <*> <A, B> (_ lhs: Parser<(A)->B>, _ rhs: Parser<A>) -> Parser<B> {
 
 public func *> <A, B> (lhs: Parser<A>, rhs: Parser<B>)
   -> Parser<B> {
-  return (curry({_, y in y}) <^> lhs <*> rhs)!
+  return curry({_, y in y}) <^> lhs <*> rhs
 }
 
 public func <* <A, B> (lhs: Parser<A>, rhs: Parser<B>)
   -> Parser<A> {
-    return (curry({x, _ in x}) <^> lhs <*> rhs)!
+    return curry({x, _ in x}) <^> lhs <*> rhs
 }
 

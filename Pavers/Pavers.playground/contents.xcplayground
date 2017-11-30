@@ -13,5 +13,6 @@
         <page name='Timer'/>
         <page name='DispatchOnce'/>
         <page name='Parsec'/>
+        <page name='ParsecArithmatic'/>
     </pages>
 </playground>
