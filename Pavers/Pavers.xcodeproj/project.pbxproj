@@ -155,6 +155,10 @@
 		5343B5EF1FCFF4B500B0BD76 /* ParserGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */; };
 		5343B5F01FCFF4B500B0BD76 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5ED1FCFF4B500B0BD76 /* Helper.swift */; };
 		5343B5F11FCFF4B500B0BD76 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5EE1FCFF4B500B0BD76 /* Parser.swift */; };
+		5343B5F21FCFF55B00B0BD76 /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
+		5343B5F61FCFF5C400B0BD76 /* Parser+Functor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5F51FCFF5C400B0BD76 /* Parser+Functor.swift */; };
+		5343B5F81FCFF6C000B0BD76 /* Parser+Applicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5F71FCFF6C000B0BD76 /* Parser+Applicable.swift */; };
+		5343B5FA1FCFFEDB00B0BD76 /* Parser+Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5F91FCFFEDB00B0BD76 /* Parser+Alternative.swift */; };
 		535826D81F9495B00089AD4A /* PaversUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535826CF1F9495B00089AD4A /* PaversUI.framework */; };
 		535826E61F9495EB0089AD4A /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
 		5358273B1F9497560089AD4A /* CocoaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827341F9497330089AD4A /* CocoaAction.swift */; };
@@ -336,6 +340,13 @@
 			remoteGlobalIDString = 5343B5D31FCFF44400B0BD76;
 			remoteInfo = PaversParsec;
 		};
+		5343B5F31FCFF56000B0BD76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
+			remoteInfo = PaversFRP;
+		};
 		535826D91F9495B00089AD4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
@@ -471,7 +482,6 @@
 		0E3D75C01F4DC61D00FFD6C3 /* DecodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
 		0E3D75C11F4DC61D00FFD6C3 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		0E3D75C21F4DC61D00FFD6C3 /* StandardTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTypes.swift; sourceTree = "<group>"; };
-		0E43A52A1F541740007C8E20 /* Pavers.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Pavers.playground; sourceTree = "<group>"; };
 		0E5151CB1F4AD7280006BE05 /* PaversUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversUI.h; sourceTree = "<group>"; };
 		0E5151CC1F4AD7280006BE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5151D61F4AD7290006BE05 /* PaversUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversUITests.swift; sourceTree = "<group>"; };
@@ -515,6 +525,9 @@
 		5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserGenerator.swift; sourceTree = "<group>"; };
 		5343B5ED1FCFF4B500B0BD76 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5343B5EE1FCFF4B500B0BD76 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		5343B5F51FCFF5C400B0BD76 /* Parser+Functor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Functor.swift"; sourceTree = "<group>"; };
+		5343B5F71FCFF6C000B0BD76 /* Parser+Applicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Applicable.swift"; sourceTree = "<group>"; };
+		5343B5F91FCFFEDB00B0BD76 /* Parser+Alternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Alternative.swift"; sourceTree = "<group>"; };
 		535826CF1F9495B00089AD4A /* PaversUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		535826D71F9495B00089AD4A /* PaversUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		535827251F9497300089AD4A /* ObjC+RuntimeSubclassing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjC+RuntimeSubclassing.swift"; sourceTree = "<group>"; };
@@ -701,6 +714,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5343B5F21FCFF55B00B0BD76 /* PaversFRP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,7 +1056,6 @@
 			isa = PBXGroup;
 			children = (
 				0E89660D1F2C90A000A867E2 /* Frameworks */,
-				0E43A52A1F541740007C8E20 /* Pavers.playground */,
 				0E3D75921F4DC5E700FFD6C3 /* PaversArgo */,
 				0E3D759D1F4DC5E700FFD6C3 /* PaversArgoTests */,
 				0E1D070C1F4C71A900D9CB38 /* PaversFRP */,
@@ -1146,7 +1159,10 @@
 			children = (
 				5343B5ED1FCFF4B500B0BD76 /* Helper.swift */,
 				5343B5EE1FCFF4B500B0BD76 /* Parser.swift */,
+				5343B5F51FCFF5C400B0BD76 /* Parser+Functor.swift */,
 				5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */,
+				5343B5F71FCFF6C000B0BD76 /* Parser+Applicable.swift */,
+				5343B5F91FCFFEDB00B0BD76 /* Parser+Alternative.swift */,
 			);
 			path = Parsec;
 			sourceTree = "<group>";
@@ -1554,6 +1570,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5343B5F41FCFF56000B0BD76 /* PBXTargetDependency */,
 			);
 			name = PaversParsec;
 			productName = PaversParsec;
@@ -1940,8 +1957,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5343B5F61FCFF5C400B0BD76 /* Parser+Functor.swift in Sources */,
+				5343B5F81FCFF6C000B0BD76 /* Parser+Applicable.swift in Sources */,
 				5343B5EF1FCFF4B500B0BD76 /* ParserGenerator.swift in Sources */,
 				5343B5F01FCFF4B500B0BD76 /* Helper.swift in Sources */,
+				5343B5FA1FCFFEDB00B0BD76 /* Parser+Alternative.swift in Sources */,
 				5343B5F11FCFF4B500B0BD76 /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2116,6 +2136,11 @@
 			target = 5343B5D31FCFF44400B0BD76 /* PaversParsec */;
 			targetProxy = 5343B5E71FCFF48A00B0BD76 /* PBXContainerItemProxy */;
 		};
+		5343B5F41FCFF56000B0BD76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
+			targetProxy = 5343B5F31FCFF56000B0BD76 /* PBXContainerItemProxy */;
+		};
 		535826DA1F9495B00089AD4A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 535826CE1F9495B00089AD4A /* PaversUI */;
@@ -2144,7 +2169,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2168,7 +2193,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
