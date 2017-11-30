@@ -3,17 +3,22 @@ import PaversParsec
 
 let digit = character { CharacterSet.decimalDigits.contains($0)}
 
-let integer = digit.many.map {Int(String($0))!}
+let decimals = digit.many
+let decimalPoint = character{$0 == "."}
 
-let multiplication1 = curry({$0 * ($1 ?? 1)})
-  <^> integer
-  <*> (character{$0 == "*"} *> integer).optional
-
-multiplication1.run("2*12")
+let fp = (decimals >>> (decimalPoint >>> decimals).optional).map { (args) -> Double in
+  let (first, second) = args
+  var values: [Character] = first
+  if let s = second {
+    values += [s.0] + s.1
+  }
+  let str = String(values)
+  return Double(str)!
+}
 
 let multiplication = curry({$0 * ($1 ?? 1)})
-  <^> integer
-  <*> (character{$0 == "*"} *> integer).optional
+  <^> fp
+  <*> (character{$0 == "*"} *> fp).optional
 
 let division = curry({ $0 / ($1 ?? 1) })
   <^> multiplication
@@ -29,6 +34,5 @@ let minus = curry({ $0 - ($1 ?? 0) })
 
 let expression = minus
 
-expression.run("2*3+4*6/2-10")
-multiplication.run("2")
+expression.run("2.4*2.1/3+1-10/2+5")
 
