@@ -7,12 +7,24 @@
 		<key>PaversArgo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>2</integer>
 		</dict>
 		<key>PaversFRP.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>PaversParsec.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>PaversParsecTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>PaversUI.xcscheme_^#shared#^_</key>
 		<dict>
@@ -48,6 +60,11 @@
 			<true/>
 		</dict>
 		<key>0E5151D01F4AD7280006BE05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5343B5E01FCFF48A00B0BD76</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -12,5 +12,6 @@
         <page name='UIFontStyles'/>
         <page name='Timer'/>
         <page name='DispatchOnce'/>
+        <page name='Parsec'/>
     </pages>
 </playground>
