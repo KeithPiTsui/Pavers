@@ -18,20 +18,27 @@ extension Parser {
   }
   
   /// a parser which will match input string in zero or one or more than one times.
-  public var zeroOrMany: Parser<[Result]> {
-    return Parser<[Result]> { input in
+  public var zeroOrMany: () -> Parser<[Result]> {
+    return {Parser<[Result]> {
       var result: [Result] = []
-      var remainder = input
+      var remainder = $0
       while let (element, newRemainder) = self.run(remainder) {
         result.append(element)
         remainder = newRemainder
       }
       return (result, remainder)
+      }
     }
   }
   
   /// a parser which will match input string in one or more than one times.
-  public var many: Parser<[Result]> {
-    return curry({[$0] + $1}) <^> self <*> self.zeroOrMany
+  public var many: () -> Parser<[Result]> {
+    return curry({[$0] + $1}) <^> {self} <*> self.zeroOrMany
   }
 }
+
+
+
+
+
+

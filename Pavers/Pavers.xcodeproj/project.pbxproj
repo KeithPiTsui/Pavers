@@ -149,6 +149,7 @@
 		0EEF281A1F4DA0FA001EF8C5 /* WithLatestFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */; };
 		0EEF281B1F4DA0FA001EF8C5 /* WrapInOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */; };
 		53176CE51FAC25E0007ECE9C /* ValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */; };
+		531D6CD21FD102A500BC84A2 /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D6CD11FD102A500BC84A2 /* Arithmetic.swift */; };
 		5343B5D81FCFF44400B0BD76 /* PaversParsec.h in Headers */ = {isa = PBXBuildFile; fileRef = 5343B5D61FCFF44400B0BD76 /* PaversParsec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5343B5E41FCFF48A00B0BD76 /* PaversParsecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5E31FCFF48A00B0BD76 /* PaversParsecTests.swift */; };
 		5343B5E61FCFF48A00B0BD76 /* PaversParsec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */; };
@@ -518,6 +519,7 @@
 		0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithLatestFrom.swift; sourceTree = "<group>"; };
 		0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapInOptional.swift; sourceTree = "<group>"; };
 		53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueExtensions.swift; sourceTree = "<group>"; };
+		531D6CD11FD102A500BC84A2 /* Arithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arithmetic.swift; sourceTree = "<group>"; };
 		5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversParsec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5343B5D61FCFF44400B0BD76 /* PaversParsec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversParsec.h; sourceTree = "<group>"; };
 		5343B5D71FCFF44400B0BD76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1149,6 +1151,29 @@
 			path = operators;
 			sourceTree = "<group>";
 		};
+		531D6CCF1FD1027500BC84A2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5343B5ED1FCFF4B500B0BD76 /* Helper.swift */,
+				5343B5EE1FCFF4B500B0BD76 /* Parser.swift */,
+				5343B5F91FCFFEDB00B0BD76 /* Parser+Alternative.swift */,
+				5343B5F71FCFF6C000B0BD76 /* Parser+Applicable.swift */,
+				5343B5F51FCFF5C400B0BD76 /* Parser+Functor.swift */,
+				5343B5FB1FD0204100B0BD76 /* Parser+Many.swift */,
+				5343B5FD1FD0208400B0BD76 /* Parser+Optional.swift */,
+				5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		531D6CD01FD1028000BC84A2 /* Arithmetic */ = {
+			isa = PBXGroup;
+			children = (
+				531D6CD11FD102A500BC84A2 /* Arithmetic.swift */,
+			);
+			path = Arithmetic;
+			sourceTree = "<group>";
+		};
 		5343B5D51FCFF44400B0BD76 /* PaversParsec */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,14 +1186,8 @@
 		5343B5DC1FCFF45F00B0BD76 /* Parsec */ = {
 			isa = PBXGroup;
 			children = (
-				5343B5ED1FCFF4B500B0BD76 /* Helper.swift */,
-				5343B5EE1FCFF4B500B0BD76 /* Parser.swift */,
-				5343B5F91FCFFEDB00B0BD76 /* Parser+Alternative.swift */,
-				5343B5F71FCFF6C000B0BD76 /* Parser+Applicable.swift */,
-				5343B5F51FCFF5C400B0BD76 /* Parser+Functor.swift */,
-				5343B5FB1FD0204100B0BD76 /* Parser+Many.swift */,
-				5343B5FD1FD0208400B0BD76 /* Parser+Optional.swift */,
-				5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */,
+				531D6CD01FD1028000BC84A2 /* Arithmetic */,
+				531D6CCF1FD1027500BC84A2 /* Core */,
 			);
 			path = Parsec;
 			sourceTree = "<group>";
@@ -1963,6 +1982,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531D6CD21FD102A500BC84A2 /* Arithmetic.swift in Sources */,
 				5343B5FC1FD0204100B0BD76 /* Parser+Many.swift in Sources */,
 				5343B5F61FCFF5C400B0BD76 /* Parser+Functor.swift in Sources */,
 				5343B5F81FCFF6C000B0BD76 /* Parser+Applicable.swift in Sources */,
@@ -2177,7 +2197,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2201,7 +2221,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
