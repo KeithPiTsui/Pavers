@@ -12,7 +12,9 @@ extension Parser {
   }
 }
 
-public func >>> <A, B> (lhs: @escaping () -> Parser<A>, rhs: @escaping () -> Parser<B>) -> () -> Parser<(A, B)> {
+public func >>> <A, B> (lhs: @escaping () -> Parser<A>,
+                        rhs: @escaping () -> Parser<B>)
+  -> () -> Parser<(A, B)> {
   return {
     Parser<(A, B)> {
       print("\(#function)\($0)")
@@ -25,7 +27,8 @@ public func >>> <A, B> (lhs: @escaping () -> Parser<A>, rhs: @escaping () -> Par
   }
 }
 
-public func <^> <A, B> (_ transform: @escaping (A) -> B, _ rhs: @escaping () -> Parser<A>)
+public func <^> <A, B> (_ transform: @escaping (A) -> B,
+                        _ rhs: @escaping () -> Parser<A>)
   -> () -> Parser<B> {
     return {
       Parser<B> {

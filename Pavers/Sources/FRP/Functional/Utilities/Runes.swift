@@ -109,8 +109,6 @@ infix operator <|> : RunesAlternativePrecedence
 
 
 
-
-
 // MARK: Monad Functor Operators
 /**
   map a function over a value with context and flatten the result
