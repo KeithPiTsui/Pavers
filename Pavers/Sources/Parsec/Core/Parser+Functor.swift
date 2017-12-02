@@ -1,17 +1,5 @@
 import PaversFRP
 
-extension Parser {
-  func map <T> (_ transform: @escaping (Result) -> T)
-    -> () -> Parser<T> {
-      return {
-        Parser<T> {
-          guard let (result, remainder) = self.run($0) else { return nil }
-          return (transform(result), remainder)
-        }
-      }
-  }
-}
-
 public func >>> <A, B> (lhs: @escaping () -> Parser<A>,
                         rhs: @escaping () -> Parser<B>)
   -> () -> Parser<(A, B)> {
