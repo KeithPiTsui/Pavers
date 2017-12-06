@@ -7,54 +7,54 @@ import PaversFRP
 //    Function = functionIdentifier [ '(' ParameterList ')' ].
 //    ParameterList = Expression { ',' | Expression } | Null.
 
-let muls = {character{$0 == "*"}}
-let divs = {character{$0 == "/"}}
-let adds = {character{$0 == "+"}}
-let mins = {character{$0 == "-"}}
-let leftParenthesis = {character{$0 == "("}}
-let rightParenthesis = {character{$0 == ")"}}
+let muls = character{$0 == "*"}
+let divs = character{$0 == "/"}
+let adds = character{$0 == "+"}
+let mins = character{$0 == "-"}
+let leftParenthesis = character{$0 == "("}
+let rightParenthesis = character{$0 == ")"}
 let div_mul = divs .|. muls
 let add_min = adds .|. mins
 
 let digit = character(CharacterSet.decimalDigits.contains)
 
-let decimals = digit.many
+let decimals = digit.+
 let decimalPoint = character{$0 == "."}
 
 func number()
-  -> () -> Parser<Double> {
-    let a = decimals >>> ({decimalPoint} >>> decimals).?
-    let f: ([Character], (Character, [Character])?) -> Double
-      = { (first, second) -> Double in
-        var values: [Character] = first
-        if let s = second { values += [s.0] + s.1 }
-        return Double(String(values))! }
-    return f <^> a
+    -> () -> Parser<Double> {
+        return {(
+            { (first, second) -> Double in
+                var values: [Character] = first
+                if let s = second { values += [s.0] + s.1 }
+                return Double(String(values))!
+                }
+                <^> (decimals >>> (decimalPoint >>> decimals).?)
+            )()}
 }
 
 func term()
   -> () -> Parser<Double> {
-    let aFactor = factor()
-  return curry({ $1.reduce($0) { (acc, opNumber) in
+    return {(curry({ $1.reduce($0) { (acc, opNumber) in
     let op = opNumber.0
     let num = opNumber.1
     if op == "*" {return acc * num}
     else if op == "/" {return acc / num}
     else {fatalError("operator error within mul&div:\(op)")}}})
-    <^> aFactor
-    <*> (div_mul >>> aFactor).*
+    <^> factor()
+        <*> (div_mul >>> factor()).*)()}
 }
 
 func expression()
   -> () -> Parser<Double> {
-  return curry({ $1.reduce($0) { (acc, opNumber) in
+    return {(curry({ $1.reduce($0) { (acc, opNumber) in
     let op = opNumber.0
     let num = opNumber.1
     if op == "+" {return acc + num}
     else if op == "-" {return acc - num}
     else {fatalError("operator error within mul&div:\(op)")}}})
     <^> term()
-    <*> (add_min >>> term()).*
+        <*> (add_min >>> term()).*)()}
 }
 
 func subExpression()
@@ -66,7 +66,7 @@ func subExpression()
 func factor()
   -> () -> Parser<Double> {
   print("\(#function)")
-  return number() .|. subExpression()
+    return {(number() .|. subExpression())()}
 }
 
 public let arithmetic = expression()
