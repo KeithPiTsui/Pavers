@@ -11,8 +11,8 @@ public typealias ParserClosure<Result, Input: Collection>
 public typealias UserParser<Result, Input: Collection, UserInfo>
   = (State<Input, UserInfo>) -> Consumed<Result, Input, UserInfo>
 
-public typealias UserParserClosure<a, Input: Collection, UserInfo>
-  = () -> (State<Input, UserInfo>) -> Consumed<a, Input, UserInfo>
+public typealias UserParserClosure<Result, Input: Collection, UserInfo>
+  = () -> (State<Input, UserInfo>) -> Consumed<Result, Input, UserInfo>
 
 public enum Consumed<Result, Input: Collection, UserInfo> {
   case consumed(Lazy<Reply<Result, Input, UserInfo>>)

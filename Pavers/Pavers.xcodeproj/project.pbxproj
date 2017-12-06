@@ -320,6 +320,7 @@
 		53CEF4231FD7D1B200F4046B /* StringParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CEF41B1FD7D1B100F4046B /* StringParser.swift */; };
 		53CEF4241FD7D1B200F4046B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CEF41C1FD7D1B100F4046B /* Error.swift */; };
 		53CEF4251FD7D1B200F4046B /* SourcePos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CEF41D1FD7D1B100F4046B /* SourcePos.swift */; };
+		53CEF4271FD8075800F4046B /* Parser+Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CEF4261FD8075800F4046B /* Parser+Monad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -699,6 +700,7 @@
 		53CEF41B1FD7D1B100F4046B /* StringParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringParser.swift; sourceTree = "<group>"; };
 		53CEF41C1FD7D1B100F4046B /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		53CEF41D1FD7D1B100F4046B /* SourcePos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePos.swift; sourceTree = "<group>"; };
+		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1176,6 +1178,7 @@
 				5343B5F71FCFF6C000B0BD76 /* Parser+Applicable.swift */,
 				5343B5F51FCFF5C400B0BD76 /* Parser+Functor.swift */,
 				5343B5FB1FD0204100B0BD76 /* Parser+Many.swift */,
+				53CEF4261FD8075800F4046B /* Parser+Monad.swift */,
 				5343B5FD1FD0208400B0BD76 /* Parser+Optional.swift */,
 				5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */,
 			);
@@ -2015,6 +2018,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53CEF4241FD7D1B200F4046B /* Error.swift in Sources */,
+				53CEF4271FD8075800F4046B /* Parser+Monad.swift in Sources */,
 				53CEF4211FD7D1B200F4046B /* Combinator.swift in Sources */,
 				531D6CD21FD102A500BC84A2 /* Arithmetic.swift in Sources */,
 				5343B5FC1FD0204100B0BD76 /* Parser+Many.swift in Sources */,

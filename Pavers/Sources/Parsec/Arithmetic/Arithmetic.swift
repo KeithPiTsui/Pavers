@@ -1,12 +1,16 @@
 import PaversFRP
 
 //    Expression = ['-'] Term { ( '+' | '-' ) Term }.
-//    Term = number | { ( '*' | '/' ) number }.
-//    Term1 = Factor | { ( powerroot | power ) Factor | production | percentage }.
+//    Term = Subterm | { ( '*' | '/' ) Subterm }.
+//    Subterm = Factor | { ( powerroot | power ) Factor | production | percentage }.
 //    Factor = number | preanser | '(' Expression ')' | Function | variable .
 //    Function = functionIdentifier [ '(' ParameterList ')' ].
 //    ParameterList = Expression { ',' | Expression } | Null.
 
+let pwrs = character{$0 == "<"}
+let pows = character{$0 == "^"}
+let ftrs = character{$0 == "!"}
+let pcts = character{$0 == "%"}
 let muls = character{$0 == "*"}
 let divs = character{$0 == "/"}
 let adds = character{$0 == "+"}
@@ -41,8 +45,8 @@ func term()
     if op == "*" {return acc * num}
     else if op == "/" {return acc / num}
     else {fatalError("operator error within mul&div:\(op)")}}})
-    <^> factor()
-        <*> (div_mul >>> factor()).*)()}
+    <^> subterm()
+        <*> (div_mul >>> subterm()).*)()}
 }
 
 func expression()
@@ -59,14 +63,44 @@ func expression()
 
 func subExpression()
   -> () -> Parser<Double> {
-  print("\(#function)")
     return {(leftParenthesis *> expression() <* rightParenthesis)()}
 }
 
+func percent() -> () -> Parser<Double> {
+  return {({(n, _) in n / 100} <^> (factor() >>> pcts))()}
+}
+
+func factorial() -> () -> Parser<Double> {
+  return {({(n, _) in Double(Int(n))} <^> (factor() >>> ftrs))()}
+}
+
+//    Subterm = Factor | { ( powerroot | power ) Factor | production | percentage }.
+func subterm()
+  -> () -> Parser<Double> {
+    let x = factor() >>> (pcts .|. ftrs).?
+    let f = {(n: Double, op: Character?) -> Double in
+      if op == "%" {return n / 100}
+      else if op == "!" {return Double(Int(n))}
+      else {return n}
+    }
+    
+    let y = factor() >>> ((pows .|. pwrs) >>> factor()).?
+    let g = { (n: Double, opNum: (Character, Double)?) -> Double in
+      if let (op, num) = opNum {
+        if op == "^" {return pow(n, num)}
+        else if op == "<" {return pow(num, 1/n)}
+        else {fatalError("no corresponding symbol")}
+      } else {
+        return n
+      }
+    }
+    return (g <^> y) .|. (f <^> x)
+}
+
+//    Factor = number | '(' Expression ')' | Function | variable | preanser.
 func factor()
   -> () -> Parser<Double> {
-  print("\(#function)")
-    return {(number() .|. subExpression())()}
+    return {(subExpression() .|. number())()}
 }
 
 public let arithmetic = expression()

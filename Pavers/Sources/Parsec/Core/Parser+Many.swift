@@ -1,4 +1,5 @@
 import PaversFRP
+
 extension Parser {
   /// a parser which will match input string in specific times
     public static func times(_ c: Int, of parser: @escaping () -> Parser<Result>)
@@ -21,7 +22,7 @@ extension Parser {
 }
 
 
-postfix operator .*
+
 /// a parser which will match input string in zero or one or more than one times.
 postfix func .* <A> (_ a: @escaping () -> Parser<A>)
   -> () -> Parser<[A]> {
@@ -37,7 +38,7 @@ postfix func .* <A> (_ a: @escaping () -> Parser<A>)
     }
 }
 
-postfix operator .+
+
 /// a parser which will match input string in one or more than one times.
 postfix func .+ <A> (_ a: @escaping () -> Parser<A>)
   -> () -> Parser<[A]> {

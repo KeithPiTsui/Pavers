@@ -66,9 +66,6 @@ infix operator <^> : RunesApplicativePrecedence
 
 
 
-
-
-
 // MARK: Applicative Functor Operators
 /**
   apply a function with context to a value with context
@@ -105,7 +102,7 @@ infix operator *> : RunesApplicativeSequencePrecedence
   Haskell `infixl 3`
 */
 infix operator <|> : RunesAlternativePrecedence
-
+infix operator .|. : RunesAlternativePrecedence
 
 
 
@@ -162,6 +159,17 @@ prefix operator >>>
 postfix operator >>>
 
 
+
+
+/// optional operator
+/// i.e. `a: A := a.? : A?`
+postfix operator .?
+
+/// zero or many
+postfix operator .*
+
+/// one or more
+postfix operator .+
 
 // MARK: Lens Operators
 

@@ -1,5 +1,6 @@
 import PaversFRP
 
+/// Applicable
 public func <*> <A, B> (_ lhs: @escaping () -> Parser<(A)->B>,
                         _ rhs:@escaping () -> Parser<A>)
   -> () -> Parser<B> {
