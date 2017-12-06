@@ -2,7 +2,6 @@ import PaversFRP
 
 //    Expression = ['-'] Term { ( '+' | '-' ) Term }.
 //    Term = number | { ( '*' | '/' ) number }.
-
 //    Term1 = Factor | { ( powerroot | power ) Factor | production | percentage }.
 //    Factor = number | preanser | '(' Expression ')' | Function | variable .
 //    Function = functionIdentifier [ '(' ParameterList ')' ].
