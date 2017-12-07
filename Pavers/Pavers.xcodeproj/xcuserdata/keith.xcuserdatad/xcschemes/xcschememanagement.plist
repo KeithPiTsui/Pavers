@@ -7,7 +7,7 @@
 		<key>PaversArgo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>4</integer>
 		</dict>
 		<key>PaversFRP.xcscheme_^#shared#^_</key>
 		<dict>
@@ -17,14 +17,14 @@
 		<key>PaversParsec.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>27</integer>
 		</dict>
 		<key>PaversParsecTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
 		</dict>
 		<key>PaversUI.xcscheme_^#shared#^_</key>
 		<dict>

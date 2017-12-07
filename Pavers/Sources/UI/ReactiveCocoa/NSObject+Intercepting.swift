@@ -78,7 +78,7 @@ extension NSObject {
 			let subclassAssociations = Associations(subclass as AnyObject)
 
 			// FIXME: Compiler asks to handle a mysterious throw.
-			try! PaversUI.synchronized(subclass) {
+			PaversUI.synchronized(subclass) {
 				let isSwizzled = subclassAssociations.value(forKey: interceptedKey)
 
 				let signatureCache: SignatureCache
