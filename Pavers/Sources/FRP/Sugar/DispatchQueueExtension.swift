@@ -9,23 +9,19 @@
 import Foundation
 
 public extension DispatchQueue {
-  private static var onceTokens = [UInt]()
-  private static var internalQueue = DispatchQueue(label: "dispatchqueue.once")
-
-  private static var token: UInt = 0
-  public static var uniqueToken: UInt {
-    return internalQueue.sync{
-      token += 1
-      return token
-    }
-  }
+  private static var onceToken = [String]()
   
-  /// token must be unqiue
-  public static func once(token: UInt, closure: ()->Void) {
-    internalQueue.sync {
-      guard onceTokens.contains(token) == false else { return }
-      onceTokens.append(token)
-      closure()
-    }
+  /**
+   Executes a block of code, associated with a unique token, only once.  The code is thread safe and will
+   only execute the code once even in the presence of multithreaded calls.
+   
+   - parameter token: A unique reverse DNS style name such as com.vectorform.<name> or a GUID
+   - parameter block: Block to execute once
+   */
+  public static func once(token: String, block:()->Void) {
+    objc_sync_enter(self); defer { objc_sync_exit(self) }
+    guard onceToken.contains(token) == false else { return }
+    onceToken.append(token)
+    block()
   }
 }

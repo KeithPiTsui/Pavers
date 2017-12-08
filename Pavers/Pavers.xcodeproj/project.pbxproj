@@ -278,6 +278,8 @@
 		535828291F94AF6C0089AD4A /* GradientViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E51F94A7870089AD4A /* GradientViewStyles.swift */; };
 		5358282A1F94AF6C0089AD4A /* TabBarItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E61F94A7870089AD4A /* TabBarItemStyles.swift */; };
 		53825AC71FB6D26E002DBEBC /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825AC61FB6D26D002DBEBC /* UIStackView.swift */; };
+		538357EC1FDA364300F3F238 /* BundleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B71FB42926001C9A24 /* BundleType.swift */; };
+		538358101FDA3E1300F3F238 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383580F1FDA3E1300F3F238 /* Reachability.swift */; };
 		53A0C1681FB424AA001C9A24 /* OptionalComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */; };
 		53A0C16A1FB42502001C9A24 /* Swizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1691FB42502001C9A24 /* Swizzler.swift */; };
 		53A0C1851FB425CF001C9A24 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */; };
@@ -296,7 +298,6 @@
 		53A0C1BF1FB42926001C9A24 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B41FB42926001C9A24 /* UIView+Frame.swift */; };
 		53A0C1C01FB42926001C9A24 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B51FB42926001C9A24 /* Screen.swift */; };
 		53A0C1C11FB42926001C9A24 /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B61FB42926001C9A24 /* UIView+AddSubviews.swift */; };
-		53A0C1C21FB42926001C9A24 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B71FB42926001C9A24 /* Application.swift */; };
 		53A0C1C31FB42926001C9A24 /* UIDevice+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B81FB42926001C9A24 /* UIDevice+Model.swift */; };
 		53A0C1C41FB42926001C9A24 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B91FB42926001C9A24 /* Constraint.swift */; };
 		53A0C1C91FB42AE8001C9A24 /* UIColor+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1C71FB42AE8001C9A24 /* UIColor+Hue.swift */; };
@@ -658,6 +659,7 @@
 		535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitRepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		535827F31F94A7870089AD4A /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
 		53825AC61FB6D26D002DBEBC /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		5383580F1FDA3E1300F3F238 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalComparison.swift; sourceTree = "<group>"; };
 		53A0C1691FB42502001C9A24 /* Swizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzler.swift; sourceTree = "<group>"; };
 		53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
@@ -676,7 +678,7 @@
 		53A0C1B41FB42926001C9A24 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		53A0C1B51FB42926001C9A24 /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		53A0C1B61FB42926001C9A24 /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
-		53A0C1B71FB42926001C9A24 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		53A0C1B71FB42926001C9A24 /* BundleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleType.swift; sourceTree = "<group>"; };
 		53A0C1B81FB42926001C9A24 /* UIDevice+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Model.swift"; sourceTree = "<group>"; };
 		53A0C1B91FB42926001C9A24 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 		53A0C1C71FB42AE8001C9A24 /* UIColor+Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hue.swift"; sourceTree = "<group>"; };
@@ -1430,17 +1432,16 @@
 		53A0C1AE1FB42926001C9A24 /* Sugar */ = {
 			isa = PBXGroup;
 			children = (
-				53A0C1AF1FB42926001C9A24 /* Utilities.swift */,
-				53A0C1B01FB42926001C9A24 /* Simulator.swift */,
-				53A0C1B11FB42926001C9A24 /* UIImage+RenderingMode.swift */,
-				53A0C1B21FB42926001C9A24 /* UIImage+Extension.swift */,
-				53A0C1B31FB42926001C9A24 /* UIView+Optimize.swift */,
-				53A0C1B41FB42926001C9A24 /* UIView+Frame.swift */,
-				53A0C1B51FB42926001C9A24 /* Screen.swift */,
-				53A0C1B61FB42926001C9A24 /* UIView+AddSubviews.swift */,
-				53A0C1B71FB42926001C9A24 /* Application.swift */,
-				53A0C1B81FB42926001C9A24 /* UIDevice+Model.swift */,
 				53A0C1B91FB42926001C9A24 /* Constraint.swift */,
+				53A0C1B51FB42926001C9A24 /* Screen.swift */,
+				53A0C1B01FB42926001C9A24 /* Simulator.swift */,
+				53A0C1B81FB42926001C9A24 /* UIDevice+Model.swift */,
+				53A0C1B21FB42926001C9A24 /* UIImage+Extension.swift */,
+				53A0C1B11FB42926001C9A24 /* UIImage+RenderingMode.swift */,
+				53A0C1B61FB42926001C9A24 /* UIView+AddSubviews.swift */,
+				53A0C1B41FB42926001C9A24 /* UIView+Frame.swift */,
+				53A0C1B31FB42926001C9A24 /* UIView+Optimize.swift */,
+				53A0C1AF1FB42926001C9A24 /* Utilities.swift */,
 			);
 			name = Sugar;
 			path = Sources/UI/Sugar;
@@ -1476,10 +1477,12 @@
 			isa = PBXGroup;
 			children = (
 				53A0C1881FB426CF001C9A24 /* Array+Queueable.swift */,
+				53A0C1B71FB42926001C9A24 /* BundleType.swift */,
 				53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */,
 				53A0C1981FB427F3001C9A24 /* Double+DateTime.swift */,
 				53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */,
 				53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */,
+				5383580F1FDA3E1300F3F238 /* Reachability.swift */,
 				53A0C1921FB427C3001C9A24 /* SequenceType+Extensions.swift */,
 				53A0C1861FB42651001C9A24 /* String+CoreFoundation.swift */,
 				53A0C18A1FB42736001C9A24 /* String+Empty.swift */,
@@ -1868,6 +1871,7 @@
 				0E1D07AE1F4C71D500D9CB38 /* ResultExtensions.swift in Sources */,
 				0E1D079E1F4C71D500D9CB38 /* Runes.swift in Sources */,
 				53A0C1991FB427F4001C9A24 /* Double+DateTime.swift in Sources */,
+				538358101FDA3E1300F3F238 /* Reachability.swift in Sources */,
 				0E1D07931F4C71D500D9CB38 /* Set.swift in Sources */,
 				0E1D07811F4C71D500D9CB38 /* Comparator.swift in Sources */,
 				0E1D07B31F4C71D500D9CB38 /* ValidatingProperty.swift in Sources */,
@@ -1901,6 +1905,7 @@
 				0E1D07A71F4C71D500D9CB38 /* FoundationExtensions.swift in Sources */,
 				0EEF28171F4DA0FA001EF8C5 /* TakeWhen.swift in Sources */,
 				0E1D07881F4C71D500D9CB38 /* Function.swift in Sources */,
+				538357EC1FDA364300F3F238 /* BundleType.swift in Sources */,
 				0E1D07941F4C71D500D9CB38 /* State+Functor.swift in Sources */,
 				0EEF28121F4DA0FA001EF8C5 /* Scan.swift in Sources */,
 				53A0C16A1FB42502001C9A24 /* Swizzler.swift in Sources */,
@@ -2050,7 +2055,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53A0C1C21FB42926001C9A24 /* Application.swift in Sources */,
 				535828271F94AF6C0089AD4A /* BaseStyles.swift in Sources */,
 				535828281F94AF6C0089AD4A /* ButtonStyles.swift in Sources */,
 				535828291F94AF6C0089AD4A /* GradientViewStyles.swift in Sources */,
@@ -2492,6 +2496,7 @@
 		5343B5D91FCFF44400B0BD76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -2505,7 +2510,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PaversParsec/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversParsec;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2519,6 +2524,7 @@
 		5343B5DA1FCFF44400B0BD76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -2532,7 +2538,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PaversParsec/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversParsec;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2584,6 +2590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -2614,6 +2621,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;

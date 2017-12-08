@@ -152,7 +152,18 @@ public func absurb<A>(e: Empty) -> A {
 }
 
 
+/**
+ A function that returns unit no matter takes what parameter.
+ 
+ - parameter x: any element of any type
+ 
+ - returns: unit.
+ */
+public func unit<X>(_ x: X) -> () { return () }
 
+public func falseness<X>(_ x: X) -> Bool { return false }
+
+public func trueness<X>(_ x: X) -> Bool { return true }
 
 
 
