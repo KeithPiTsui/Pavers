@@ -6,7 +6,8 @@
 //  Copyright © 2017 Keith. All rights reserved.
 //
 
-public struct ParserInput {
-  public let source: String
-  public let cursor: Int
+
+public struct ParserInput<Source: Collection> {
+  public let source: Source
+  public let cursor: Source.Index
 }

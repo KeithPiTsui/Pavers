@@ -24,9 +24,9 @@ extension Parser {
 
 
 /// a parser which will match input string in zero or one or more than one times.
-postfix func .* <A> (_ a: @escaping () -> Parser<A>)
-  -> () -> Parser<[A]> {
-    return {Parser<[A]> {
+postfix func .* <C, A> (_ a: @escaping () -> Parser<C, A>)
+  -> () -> Parser<C, [A]> {
+    return {Parser<C, [A]> {
       var result: [A] = []
       var remainder = $0
       var outputCursor = $0.cursor
@@ -35,7 +35,7 @@ postfix func .* <A> (_ a: @escaping () -> Parser<A>)
         result.append(element.result)
         remainder = ParserInput.init(source: element.source, cursor: element.outputCursor)
       }
-      return .success(ParserResult<[A]>.init(result: result,
+      return .success(ParserResult<C, [A]>.init(result: result,
                                            source: $0.source,
                                            inputCursor: $0.cursor,
                                            outputCursor: outputCursor))
@@ -45,8 +45,8 @@ postfix func .* <A> (_ a: @escaping () -> Parser<A>)
 
 
 /// a parser which will match input string in one or more than one times.
-postfix func .+ <A> (_ a: @escaping () -> Parser<A>)
-  -> () -> Parser<[A]> {
+postfix func .+ <C, A> (_ a: @escaping () -> Parser<C, A>)
+  -> () -> Parser<C, [A]> {
     return {(curry({[$0] + $1}) <^> a <*> a.*)()}
 }
 

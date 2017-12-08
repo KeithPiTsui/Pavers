@@ -26,7 +26,7 @@ let decimals = digit.+
 let decimalPoint = character{$0 == "."}
 
 func number()
-    -> () -> Parser<Double> {
+    -> () -> Parser<String, Double> {
         return {(
             { (first, second) -> Double in
                 var values: [Character] = first
@@ -38,7 +38,7 @@ func number()
 }
 
 func term()
-  -> () -> Parser<Double> {
+  -> () -> Parser<String, Double> {
     return {(curry({ $1.reduce($0) { (acc, opNumber) in
     let op = opNumber.0
     let num = opNumber.1
@@ -50,7 +50,7 @@ func term()
 }
 
 func expression()
-  -> () -> Parser<Double> {
+  -> () -> Parser<String, Double> {
     return {(curry({ $1.reduce($0) { (acc, opNumber) in
     let op = opNumber.0
     let num = opNumber.1
@@ -62,21 +62,21 @@ func expression()
 }
 
 func subExpression()
-  -> () -> Parser<Double> {
+  -> () -> Parser<String, Double> {
     return {(leftParenthesis *> expression() <* rightParenthesis)()}
 }
 
-func percent() -> () -> Parser<Double> {
+func percent() -> () -> Parser<String, Double> {
   return {({(n, _) in n / 100} <^> (factor() >>> pcts))()}
 }
 
-func factorial() -> () -> Parser<Double> {
+func factorial() -> () -> Parser<String, Double> {
   return {({(n, _) in Double(Int(n))} <^> (factor() >>> ftrs))()}
 }
 
 //    Subterm = Factor | { ( powerroot | power ) Factor | production | percentage }.
 func subterm()
-  -> () -> Parser<Double> {
+  -> () -> Parser<String, Double> {
     let x = factor() >>> (pcts .|. ftrs).?
     let f = {(n: Double, op: Character?) -> Double in
       if op == "%" {return n / 100}
@@ -99,7 +99,7 @@ func subterm()
 
 //    Factor = number | '(' Expression ')' | Function | variable | preanser.
 func factor()
-  -> () -> Parser<Double> {
+  -> () -> Parser<String, Double> {
     return {(subExpression() .|. number())()}
 }
 

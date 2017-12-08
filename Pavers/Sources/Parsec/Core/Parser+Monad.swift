@@ -19,10 +19,10 @@ import PaversFRP
  
  - returns: A value of type `Parser<U>`
  */
-public func >>- <T, U>(a: @escaping () -> Parser<T>,
-                       f: @escaping (T) -> Parser<U>)
-  -> () -> Parser<U> {
-    return {Parser<U> {
+public func >>- <C, T, U>(a: @escaping () -> Parser<C, T>,
+                       f: @escaping (T) -> Parser<C, U>)
+  -> () -> Parser<C, U> {
+    return {Parser<C, U> {
       guard case .success(let result) = a().run($0)
         else {return .failure(ParserError.init(code: 0, message: ""))}
       return f(result.result).run(ParserInput.init(source: $0.source, cursor: result.outputCursor))
@@ -41,9 +41,9 @@ public func >>- <T, U>(a: @escaping () -> Parser<T>,
  
  - returns: A value of type `Parser<U>`
  */
-public func -<< <T, U>(f: @escaping (T) -> Parser<U>,
-                       a: @escaping () -> Parser<T>)
-  -> () -> Parser<U> {
+public func -<< <C, T, U>(f: @escaping (T) -> Parser<C, U>,
+                       a: @escaping () -> Parser<C, T>)
+  -> () -> Parser<C, U> {
   return a >>- f
 }
 
@@ -60,9 +60,9 @@ public func -<< <T, U>(f: @escaping (T) -> Parser<U>,
  
  - returns: A function from type `T` to type `Parser<V>`
  */
-public func >>> <T, U, V>(f: @escaping (T) -> Parser<U>,
-                          g: @escaping (U) -> Parser<V>)
-  -> (T) -> Parser<V> {
+public func >>> <C, T, U, V>(f: @escaping (T) -> Parser<C, U>,
+                          g: @escaping (U) -> Parser<C, V>)
+  -> (T) -> Parser<C, V> {
     return { x in ({f(x)} >>- g)() }
 }
 
@@ -79,8 +79,8 @@ public func >>> <T, U, V>(f: @escaping (T) -> Parser<U>,
  
  - returns: A function from type `T` to type `Parser<V>`
  */
-public func <<< <T, U, V>(f: @escaping (U) -> Parser<V>,
-                          g: @escaping (T) -> Parser<U>)
-  -> (T) -> Parser<V> {
+public func <<< <C, T, U, V>(f: @escaping (U) -> Parser<C, V>,
+                          g: @escaping (T) -> Parser<C, U>)
+  -> (T) -> Parser<C, V> {
   return g >>> f
 }

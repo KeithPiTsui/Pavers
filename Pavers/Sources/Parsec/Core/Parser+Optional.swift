@@ -1,15 +1,15 @@
 import PaversFRP
 
-postfix func .? <A> (_ a: @escaping () -> Parser<A>)
-  -> () -> Parser<A?> {
-    return {Parser<A?> {
+postfix func .? <C, A> (_ a: @escaping () -> Parser<C, A>)
+  -> () -> Parser<C, A?> {
+    return {Parser<C, A?> {
       
       guard case .success(let result) = a().run($0)
-        else {return .success(ParserResult<A?>.init(result: nil,
+        else {return .success(ParserResult<C, A?>.init(result: nil,
                                                     source: $0.source,
                                                     inputCursor: $0.cursor,
                                                     outputCursor: $0.cursor))}
-      return .success(ParserResult<A?>.init(result: result.result,
+      return .success(ParserResult<C, A?>.init(result: result.result,
                                             source: $0.source,
                                             inputCursor: $0.cursor,
                                             outputCursor: result.outputCursor))

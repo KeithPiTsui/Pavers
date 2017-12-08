@@ -7,22 +7,22 @@
 //
 import PaversFRP
 
-public struct ParserResult<Result> {
+public struct ParserResult<Source: Collection, Result> {
   public let result: Result
-  public let source: String
-  public let inputCursor: Int
-  public let outputCursor: Int
+  public let source: Source
+  public let inputCursor: Source.Index
+  public let outputCursor: Source.Index
 }
 
 extension ParserResult {
-  public var remainder: ParserInput {
+  public var remainder: ParserInput<Source> {
     return ParserInput.init(source: self.source, cursor: self.outputCursor)
   }
 }
 
 extension ParserResult {
-  public func map<A>(_ f: (Result) -> A ) -> ParserResult<A> {
-    return ParserResult<A>.init(result: f(self.result),
+  public func map<A>(_ f: (Result) -> A ) -> ParserResult<Source, A> {
+    return ParserResult<Source, A>.init(result: f(self.result),
                                 source: self.source,
                                 inputCursor: self.inputCursor,
                                 outputCursor: self.outputCursor)
