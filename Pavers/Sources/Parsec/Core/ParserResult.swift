@@ -5,6 +5,7 @@
 //  Created by Keith on 08/12/2017.
 //  Copyright © 2017 Keith. All rights reserved.
 //
+import PaversFRP
 
 public struct ParserResult<Result> {
   public let result: Result
@@ -18,3 +19,13 @@ extension ParserResult {
     return ParserInput.init(source: self.source, cursor: self.outputCursor)
   }
 }
+
+extension ParserResult {
+  public func map<A>(_ f: (Result) -> A ) -> ParserResult<A> {
+    return ParserResult<A>.init(result: f(self.result),
+                                source: self.source,
+                                inputCursor: self.inputCursor,
+                                outputCursor: self.outputCursor)
+  }
+}
+

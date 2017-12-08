@@ -24,10 +24,7 @@ public func <^> <A, B> (_ transform: @escaping (A) -> B,
       Parser<B> {
         guard case .success(let result) = rhs().run($0)
           else {return .failure(ParserError.init(code: 0, message: ""))}
-        return .success(ParserResult<B>.init(result: transform(result.result),
-                                                  source: $0.source,
-                                                  inputCursor: $0.cursor,
-                                                  outputCursor: result.outputCursor))
+        return .success(result.map(transform))
       }
     }
 }
