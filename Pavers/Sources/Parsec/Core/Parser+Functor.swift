@@ -5,9 +5,14 @@ public func >>> <A, B> (lhs: @escaping () -> Parser<A>,
   -> () -> Parser<(A, B)> {
   return {
     Parser<(A, B)> {
-      guard let (result, remainder) = lhs().run($0) else { return nil }
-      guard let (resultA, remainderA) = rhs().run(remainder) else { return nil }
-      return ((result, resultA), remainderA)
+      guard case .success(let resultA) = lhs().run($0)
+        else {return .failure(ParserError.init(code: 0, message: ""))}
+      guard case .success(let resultB) = rhs().run(resultA.remainder)
+        else {return .failure(ParserError.init(code: 0, message: ""))}
+      return .success(ParserResult<(A, B)>.init(result: (resultA.result, resultB.result),
+                                                source: $0.source,
+                                                inputCursor: $0.cursor,
+                                                outputCursor: resultB.outputCursor))
     }
   }
 }
@@ -17,8 +22,12 @@ public func <^> <A, B> (_ transform: @escaping (A) -> B,
   -> () -> Parser<B> {
     return {
       Parser<B> {
-        guard let (result, remainder) = rhs().run($0) else { return nil }
-        return (transform(result), remainder)
+        guard case .success(let result) = rhs().run($0)
+          else {return .failure(ParserError.init(code: 0, message: ""))}
+        return .success(ParserResult<B>.init(result: transform(result.result),
+                                                  source: $0.source,
+                                                  inputCursor: $0.cursor,
+                                                  outputCursor: result.outputCursor))
       }
     }
 }

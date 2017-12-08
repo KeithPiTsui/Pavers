@@ -22,9 +22,10 @@ import PaversFRP
 public func >>- <T, U>(a: @escaping () -> Parser<T>,
                        f: @escaping (T) -> Parser<U>)
   -> () -> Parser<U> {
-    return {Parser<U> { input in
-    guard let (result, remainder) = a().run(input) else {return nil}
-    return f(result).run(remainder)
+    return {Parser<U> {
+      guard case .success(let result) = a().run($0)
+        else {return .failure(ParserError.init(code: 0, message: ""))}
+      return f(result.result).run(ParserInput.init(source: $0.source, cursor: result.outputCursor))
       }}
 }
 

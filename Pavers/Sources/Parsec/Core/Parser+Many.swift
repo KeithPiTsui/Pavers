@@ -2,23 +2,23 @@ import PaversFRP
 
 extension Parser {
   /// a parser which will match input string in specific times
-    public static func times(_ c: Int, of parser: @escaping () -> Parser<Result>)
-        -> () -> Parser<[Result]> {
-    return {Parser<[Result]> { input in
-      var result: [Result] = []
-      var remainder = input
-      var successes = 0
-      while let (element, newRemainder) = parser().run(remainder),
-        successes < c {
-          result.append(element)
-          remainder = newRemainder
-          successes += 1
-      }
-      guard successes == c else { return nil }
-      return (result, remainder)
-      }
-    }
-  }
+//    public static func times(_ c: Int, of parser: @escaping () -> Parser<Result>)
+//        -> () -> Parser<[Result]> {
+//    return {Parser<[Result]> { input in
+//      var result: [Result] = []
+//      var remainder = input
+//      var successes = 0
+//      while let (element, newRemainder) = parser().run(remainder),
+//        successes < c {
+//          result.append(element)
+//          remainder = newRemainder
+//          successes += 1
+//      }
+//      guard successes == c else { return nil }
+//      return (result, remainder)
+//      }
+//    }
+//  }
 }
 
 
@@ -29,11 +29,16 @@ postfix func .* <A> (_ a: @escaping () -> Parser<A>)
     return {Parser<[A]> {
       var result: [A] = []
       var remainder = $0
-      while let (element, newRemainder) = a().run(remainder) {
-        result.append(element)
-        remainder = newRemainder
+      var outputCursor = $0.cursor
+      while case let .success(element)  = a().run(remainder) {
+        outputCursor = element.outputCursor
+        result.append(element.result)
+        remainder = ParserInput.init(source: element.source, cursor: element.outputCursor)
       }
-      return (result, remainder)
+      return .success(ParserResult<[A]>.init(result: result,
+                                           source: $0.source,
+                                           inputCursor: $0.cursor,
+                                           outputCursor: outputCursor))
       }
     }
 }

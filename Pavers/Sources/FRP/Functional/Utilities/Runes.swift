@@ -171,6 +171,9 @@ postfix operator .*
 /// one or more
 postfix operator .+
 
+/// Parser nil collascing
+infix operator .?? : LensSetPrecedence
+
 // MARK: Lens Operators
 
 /// Lens view
