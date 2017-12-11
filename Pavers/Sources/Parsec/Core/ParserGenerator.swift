@@ -1,4 +1,6 @@
 
+import PaversFRP
+
 public func character(_ matching: @escaping (Character) -> Bool)
   -> () -> Parser<String, Character> {
     return { Parser<String, Character>(parse: { (input) in
@@ -21,3 +23,15 @@ public func character(_ matching: @escaping (Character) -> Bool)
     })
     }
 }
+
+public func string(_ matching: String)
+  -> () -> Parser<String, String> {
+    
+    let f: (Character) -> () -> Parser<String, [Character]>
+      = { c in {Array.init(arrayLiteral: $0)} <^> character{$0 == c}}
+    return {String.init($0)}
+      <^> matching
+        .map(f)
+        .reduce({Parser<String, [Character]>.null()}, >>>)
+}
+

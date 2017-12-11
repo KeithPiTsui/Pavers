@@ -10,7 +10,17 @@ extension Parser {
   }
 }
 
-
+extension Parser where Value : Monoid {
+  public static func null() -> Parser<Source, Value> {
+    return Parser<Source, Value>(parse: { (input) in
+      return .success(ParserResult<Source, Value>.init(result: Value.identity(),
+                                                       source: input.source,
+                                                       inputCursor: input.cursor,
+                                                       outputCursor: input.cursor))
+      
+    })
+  }
+}
 
 
 

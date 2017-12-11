@@ -8,6 +8,8 @@ public extension Array where Element: OptionalType {
   }
 }
 
+
+
 public extension Array where Element: Semigroup {
   /**
    Combines all elements of the array with the semigroup operation.
@@ -18,6 +20,12 @@ public extension Array where Element: Semigroup {
    */
   public func sconcat(_ initial: Element) -> Element {
     return self.reduce(initial, >>>)
+  }
+}
+
+public extension Array where Element: Monoid {
+  public func sconcat() -> Element {
+    return self.reduce(Element.identity(), >>>)
   }
 }
 
@@ -99,6 +107,12 @@ public extension Array where Element: Equatable {
 extension Array: Semigroup {
   public func op(_ other: Array) -> Array {
     return self + other
+  }
+}
+
+extension Array: Monoid {
+  public static func identity () -> Array {
+    return []
   }
 }
 

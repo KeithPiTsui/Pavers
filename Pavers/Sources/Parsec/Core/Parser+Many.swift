@@ -2,23 +2,35 @@ import PaversFRP
 
 extension Parser {
   /// a parser which will match input string in specific times
-//    public static func times(_ c: Int, of parser: @escaping () -> Parser<Result>)
-//        -> () -> Parser<[Result]> {
-//    return {Parser<[Result]> { input in
-//      var result: [Result] = []
-//      var remainder = input
-//      var successes = 0
-//      while let (element, newRemainder) = parser().run(remainder),
-//        successes < c {
-//          result.append(element)
-//          remainder = newRemainder
-//          successes += 1
-//      }
-//      guard successes == c else { return nil }
-//      return (result, remainder)
-//      }
-//    }
-//  }
+    public func times(_ c: Int)
+        -> () -> Parser<Source, [Value]> {
+    return self.times(c, c)
+  }
+  
+  public func times(_ min: Int, _ max: Int)
+    -> () -> Parser<Source, [Value]> {
+      return {Parser<Source, [Value]> { input in
+        var result: [Value] = []
+        var remainder = input
+        var outputCursor = input.cursor
+        var counter = 0
+        while case let .success(element)  = self.run(remainder) {
+          counter += 1
+          outputCursor = element.outputCursor
+          result.append(element.result)
+          remainder = ParserInput.init(source: element.source, cursor: element.outputCursor)
+        }
+        if counter >= min && counter <= max {
+          return .success(ParserResult<Source, [Value]>.init(result: result,
+                                                             source: input.source,
+                                                             inputCursor: input.cursor,
+                                                             outputCursor: outputCursor))}
+        else {
+          return .failure(ParserError.init(code: 0, message: ""))
+        }
+        }
+      }
+  }
 }
 
 
