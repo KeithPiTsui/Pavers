@@ -1,11 +1,6 @@
 import PaversFRP
 
 extension Parser {
-  /// a parser which will match input string in specific times
-    public func times(_ c: Int)
-        -> () -> Parser<Source, [Value]> {
-    return self.times(c, c)
-  }
   
   public func times(_ min: Int, _ max: Int)
     -> () -> Parser<Source, [Value]> {
@@ -30,6 +25,11 @@ extension Parser {
         }
         }
       }
+  }
+  
+  public func times(_ c: Int)
+    -> () -> Parser<Source, [Value]> {
+      return self.times(c, c)
   }
 }
 

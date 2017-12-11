@@ -7,25 +7,10 @@ import PaversFRP
 //    Function = functionIdentifier [ '(' ParameterList ')' ].
 //    ParameterList = Expression { ',' | Expression } | Null.
 
-
-
-let pwrs = character{$0 == "<"}
-let pows = character{$0 == "^"}
-let ftrs = character{$0 == "!"}
-let pcts = character{$0 == "%"}
-let muls = character{$0 == "*"}
-let divs = character{$0 == "/"}
-let adds = character{$0 == "+"}
-let mins = character{$0 == "-"}
-let leftParenthesis = character{$0 == "("}
-let rightParenthesis = character{$0 == ")"}
 let div_mul = divs .|. muls
 let add_min = adds .|. mins
-
-let digit = character(CharacterSet.decimalDigits.contains)
-
 let decimals = digit.+
-let decimalPoint = character{$0 == "."}
+
 
 func number()
     -> () -> Parser<String, Double> {

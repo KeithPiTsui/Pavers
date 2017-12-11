@@ -13,8 +13,8 @@ class PaversParsecTests: XCTestCase {
   
     func testExample() {
 //        let x = arithmetic().run("(1+2*3/(5-5*(2.5-1)+3))*2+(1-2)-1")
-      let expression = "2<4"
-      let x = arithmetic().run(ParserInput.init(source: expression, cursor: expression.startIndex))
+      let expression = "1.5E-10"
+      let x = num().run(ParserInput.init(source: expression, cursor: expression.startIndex))
       print(x)
     }
     
