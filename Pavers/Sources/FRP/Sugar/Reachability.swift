@@ -27,7 +27,7 @@ private let reachabilityProperty: MutableProperty<Reachability> = {
   return MutableProperty(reachability(forFlags: reachabilityFlags))
 }()
 
-private let queue = DispatchQueue(label: "com.kickstarter.reachability", attributes: [])
+private let queue = DispatchQueue(label: "com.keith.pi.tsui.reachability", attributes: [])
 
 private func networkReachability() -> SCNetworkReachability? {
   var zeroAddress = sockaddr_in()
