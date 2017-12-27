@@ -897,6 +897,10 @@ extension Signal {
 		return Signal.combineLatest(self, other)
 	}
 
+  public func tick() -> Signal<Value, Error> {
+   return self.delay(0.001, on: QueueScheduler.main)
+  }
+  
 	/// Delay `value` and `completed` events by the given interval, forwarding
 	/// them on the given scheduler.
 	///
@@ -1645,6 +1649,14 @@ extension Signal {
 		return Signal.zip(self, other)
 	}
 
+  public func sync<U>(with other: Signal<U, Error>) -> Signal<(Value, U), Error> {
+    return Signal.zip(self, other)
+  }
+  
+  public func sync<U>(on other: Signal<U, Error>) -> Signal<Value, Error> {
+    return Signal.zip(self, other).map(first)
+  }
+  
 	/// Forward the latest value on `scheduler` after at least `interval`
 	/// seconds have passed since *the returned signal* last sent a value.
 	///

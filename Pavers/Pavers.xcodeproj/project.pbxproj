@@ -972,8 +972,6 @@
 		0E1D075B1F4C71D500D9CB38 /* Reactive */ = {
 			isa = PBXGroup;
 			children = (
-				0EEF27E01F4DA0FA001EF8C5 /* helpers */,
-				0EEF27E41F4DA0FA001EF8C5 /* operators */,
 				0E1D075C1F4C71D500D9CB38 /* Action.swift */,
 				0E1D075D1F4C71D500D9CB38 /* Atomic.swift */,
 				0E1D075E1F4C71D500D9CB38 /* Bag.swift */,
@@ -995,6 +993,8 @@
 				0E1D076E1F4C71D500D9CB38 /* SignalProducer.swift */,
 				0E1D076F1F4C71D500D9CB38 /* UnidirectionalBinding.swift */,
 				0E1D07701F4C71D500D9CB38 /* ValidatingProperty.swift */,
+				0EEF27E01F4DA0FA001EF8C5 /* helpers */,
+				0EEF27E41F4DA0FA001EF8C5 /* operators */,
 			);
 			path = Reactive;
 			sourceTree = "<group>";
