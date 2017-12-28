@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>PaversCrypto.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>PaversFRP.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,12 +27,12 @@
 		<key>PaversObjc.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>8</integer>
 		</dict>
 		<key>PaversParsec.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>9</integer>
 		</dict>
 		<key>PaversParsecTests.xcscheme</key>
 		<dict>
