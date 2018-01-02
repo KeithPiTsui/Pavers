@@ -289,6 +289,7 @@
 		538358141FDA749600F3F238 /* ParserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538358131FDA749600F3F238 /* ParserInput.swift */; };
 		538358161FDA74C200F3F238 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538358151FDA74C200F3F238 /* ParserError.swift */; };
 		538358181FDA74ED00F3F238 /* ParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538358171FDA74ED00F3F238 /* ParserResult.swift */; };
+		538F7F5D1FFB61C200806E84 /* DateFormat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F7F5C1FFB61C100806E84 /* DateFormat+Extension.swift */; };
 		53A0C1681FB424AA001C9A24 /* OptionalComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */; };
 		53A0C16A1FB42502001C9A24 /* Swizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1691FB42502001C9A24 /* Swizzler.swift */; };
 		53A0C1851FB425CF001C9A24 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */; };
@@ -753,6 +754,7 @@
 		538358131FDA749600F3F238 /* ParserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserInput.swift; sourceTree = "<group>"; };
 		538358151FDA74C200F3F238 /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
 		538358171FDA74ED00F3F238 /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
+		538F7F5C1FFB61C100806E84 /* DateFormat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormat+Extension.swift"; sourceTree = "<group>"; };
 		53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalComparison.swift; sourceTree = "<group>"; };
 		53A0C1691FB42502001C9A24 /* Swizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzler.swift; sourceTree = "<group>"; };
 		53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
@@ -1716,6 +1718,7 @@
 				53A0C1B71FB42926001C9A24 /* BundleType.swift */,
 				53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */,
 				53A0C1981FB427F3001C9A24 /* Double+DateTime.swift */,
+				538F7F5C1FFB61C100806E84 /* DateFormat+Extension.swift */,
 				53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */,
 				53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */,
 				5383580F1FDA3E1300F3F238 /* Reachability.swift */,
@@ -2332,6 +2335,7 @@
 				0E1D07A41F4C71D500D9CB38 /* Event.swift in Sources */,
 				0EEF28061F4DA0FA001EF8C5 /* DemoteErrors.swift in Sources */,
 				0E1D07761F4C71D500D9CB38 /* OptionalType.swift in Sources */,
+				538F7F5D1FFB61C200806E84 /* DateFormat+Extension.swift in Sources */,
 				0E1D07911F4C71D500D9CB38 /* Ordering.swift in Sources */,
 				0E1D07AE1F4C71D500D9CB38 /* ResultExtensions.swift in Sources */,
 				0E1D079E1F4C71D500D9CB38 /* Runes.swift in Sources */,
@@ -2805,7 +2809,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2829,7 +2833,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

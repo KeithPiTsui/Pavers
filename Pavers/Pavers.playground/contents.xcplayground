@@ -16,5 +16,6 @@
         <page name='ParsecArithmetic'/>
         <page name='ParsecArithmetic2'/>
         <page name='ParsecArithmetic3'/>
+        <page name='Date'/>
     </pages>
 </playground>

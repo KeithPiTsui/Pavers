@@ -8,7 +8,7 @@ public extension Date {
                          retrieval: (DateComponents) -> Int) -> Int {
     let calendar = Calendar.current
     let components = (calendar as NSCalendar).components(unit, from: self)
-
+    
     return retrieval(components)
   }
   
@@ -54,3 +54,37 @@ public extension Date {
     }
   }
 }
+
+public extension Date {
+  
+  public static let shortFormat: DateFormat = ""
+  public static let mediumFormat: DateFormat = ""
+  public static let longFormat: DateFormat = ""
+  public static let fullFormat: DateFormat = ""
+  
+  public func to(_ format: DateFormat) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = format
+    return formatter.string(from: self)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

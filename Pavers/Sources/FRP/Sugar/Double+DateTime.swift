@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Double {
+public extension TimeInterval {
 
   var second: TimeInterval {
     return self

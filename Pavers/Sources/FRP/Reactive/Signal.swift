@@ -1324,6 +1324,12 @@ extension Signal {
 			return disposable
 		}
 	}
+  
+  public func split(on trigger: Signal<(), NoError>) -> (front: Signal<Value, Error>, tail: Signal<Value, Error>) {
+    let f = self.take(until: trigger)
+    let t = self.skip(until: trigger)
+    return (f, t)
+  }
 
 	/// Forward events from `self` with history: values of the returned signal
 	/// are a tuples whose first member is the previous value and whose second member
