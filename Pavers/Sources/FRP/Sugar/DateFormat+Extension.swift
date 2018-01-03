@@ -10,6 +10,55 @@ import Foundation
 
 public typealias DateFormat = String
 
+public extension DateFormat {
+  public static let yyyy =
+    DateFormatComponent.calendarYear.rawValue
+      + DateFormatComponent.calendarYear.rawValue
+      + DateFormatComponent.calendarYear.rawValue
+      + DateFormatComponent.calendarYear.rawValue
+  
+  public static let mm =
+    DateFormatComponent.monthNumber.rawValue
+      + DateFormatComponent.monthNumber.rawValue
+  
+  public static let dd =
+    DateFormatComponent.dayOfMonth.rawValue
+      + DateFormatComponent.dayOfMonth.rawValue
+  
+  public static let h24 =
+    DateFormatComponent.hour24.rawValue
+    + DateFormatComponent.hour24.rawValue
+  
+  public static let mi =
+    DateFormatComponent.minute.rawValue
+    + DateFormatComponent.minute.rawValue
+  
+  public static let ss =
+    DateFormatComponent.second.rawValue
+    + DateFormatComponent.second.rawValue
+  
+  public static let ms =
+    DateFormatComponent.fractionalSecond.rawValue
+    + DateFormatComponent.fractionalSecond.rawValue
+    + DateFormatComponent.fractionalSecond.rawValue
+  
+  public static let yyyymmdd = "\(yyyy)\(mm)\(dd)"
+  
+  public static let yyyy_mm_dd = "\(yyyy)-\(mm)-\(dd)"
+  
+  public static let h24miss = "\(h24)\(mi)\(ss)"
+  
+  public static let h24_mi_ss = "\(h24):\(mi):\(ss)"
+  
+  public static let h24_mi_ss_ms = "\(h24):\(mi):\(ss).\(ms)"
+  
+  public static let yyyymmddh24miss = "\(yyyymmdd)\(h24miss)"
+  
+  public static let yyyy_mm_dd_h24_mi_ss = "\(yyyy_mm_dd) \(h24_mi_ss)"
+  
+  public static let yyyy_mm_dd_h24_mi_ss_ms = "\(yyyy_mm_dd) \(h24_mi_ss_ms)"
+}
+
 public enum DateFormatComponent: DateFormat {
   /**
    Calendar year (numeric).
@@ -371,7 +420,105 @@ public enum DateFormatComponent: DateFormat {
    */
   case timeZoneISO8601 = "Z"
   
+  /**
+   GMT format
+   
+   O  GMT-8  The short localized GMT format.
+   
+   OOOO  GMT-08:00  The long localized GMT format.
+   */
+  case GTM = "O"
   
+  /**
+   The short generic non-location format. Where that is unavailable, falls back to the generic location format ("VVVV"), then the short localized GMT format as the final fallback.
+   
+   v  PT
+   
+   The long generic non-location format. Where that is unavailable, falls back to generic location format ("VVVV").
+   
+   vvvv  Pacific Time
+   */
+  case pacificTime = "v"
+  
+  /**
+   V  uslax  The short time zone ID. Where that is unavailable, the special short time zone ID unk (Unknown Zone) is used.
+   
+   Note: This specifier was originally used for a variant of the short specific non-location format, but it was deprecated in the later version of this specification. In CLDR 23, the definition of the specifier was changed to designate a short time zone ID.
+   VV  America/Los_Angeles  The long time zone ID.
+   
+   VVV  Los Angeles  The exemplar city (location) for the time zone. Where that is unavailable, the localized exemplar city name for the special zone Etc/Unknown is used as the fallback (for example, "Unknown City").
+   
+   VVVV  Los Angeles Time  The generic location format. Where that is unavailable, falls back to the long localized GMT format ("OOOO"; Note: Fallback is only necessary with a GMT-style Time Zone ID, like Etc/GMT-830.)
+   
+   This is especially useful when presenting possible timezone choices for user selection, since the naming is more uniform than the "v" format.
+   */
+  case timeZoneID = "V"
+  
+  /**
+   X  -08
+   
+   +0530
+   
+   Z  The ISO8601 basic format with hours field and optional minutes field. The ISO8601 UTC indicator "Z" is used when local time offset is 0. (The same as x, plus "Z".)
+   
+   XX  -0800
+   
+   Z  The ISO8601 basic format with hours and minutes fields. The ISO8601 UTC indicator "Z" is used when local time offset is 0. (The same as xx, plus "Z".)
+   
+   XXX  -08:00
+   
+   Z  The ISO8601 extended format with hours and minutes fields. The ISO8601 UTC indicator "Z" is used when local time offset is 0. (The same as xxx, plus "Z".)
+   
+   XXXX  -0800
+   
+   -075258
+   
+   Z  The ISO8601 basic format with hours, minutes and optional seconds fields. The ISO8601 UTC indicator "Z" is used when local time offset is 0. (The same as xxxx, plus "Z".)
+   
+   Note: The seconds field is not supported by the ISO8601 specification.
+   
+   XXXXX  -08:00
+   
+   -07:52:58
+   
+   Z  The ISO8601 extended format with hours, minutes and optional seconds fields. The ISO8601 UTC indicator "Z" is used when local time offset is 0. (The same as xxxxx, plus "Z".)
+   
+   Note: The seconds field is not supported by the ISO8601 specification.
+   */
+  case ISO8601UTC_XandZ = "X"
+  
+  /**
+   x  -08
+   
+   +0530
+   
+   +00  The ISO8601 basic format with hours field and optional minutes field. (The same as X, minus "Z".)
+   
+   xx  -0800
+   
+   +0000  The ISO8601 basic format with hours and minutes fields. (The same as XX, minus "Z".)
+   
+   xxx  -08:00
+   
+   +00:00  The ISO8601 extended format with hours and minutes fields. (The same as XXX, minus "Z".)
+   
+   xxxx  -0800
+   
+   -075258
+   
+   +0000  The ISO8601 basic format with hours, minutes and optional seconds fields. (The same as XXXX, minus "Z".)
+   
+   Note: The seconds field is not supported by the ISO8601 specification.
+   
+   xxxxx  -08:00
+   
+   -07:52:58
+   
+   +00:00  The ISO8601 extended format with hours, minutes and optional seconds fields. (The same as XXXXX, minus "Z".)
+   
+   Note: The seconds field is not supported by the ISO8601 specification.
+   */
+  case ISO8601UTC_XdivZ = "x"
   
 }
 

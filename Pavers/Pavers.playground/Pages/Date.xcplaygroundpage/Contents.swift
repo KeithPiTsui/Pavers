@@ -4,11 +4,10 @@ import Foundation
 import PaversFRP
 
 
-let date = Date().addingTimeInterval(-TimeInterval.day * 2)
-let format = "yyyyMMdd"
-let dateFormatter = DateFormatter()
-dateFormatter.dateFormat = format
-dateFormatter.string(from: date)
+let date = Date().addingTimeInterval(Double(-1).day * 3)
 
+date.to(.yyyy_mm_dd_h24_mi_ss)
+date.to(.yyyymmddh24miss)
+date.to(.yyyy_mm_dd_h24_mi_ss_ms)
 
 //: [Next](@next)

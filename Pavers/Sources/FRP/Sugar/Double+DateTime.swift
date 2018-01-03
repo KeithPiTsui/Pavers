@@ -22,11 +22,11 @@ public extension TimeInterval {
     return day * 7
   }
 
-  var month: TimeInterval {
+  var month30: TimeInterval {
     return day * 30
   }
 
-  var year: TimeInterval {
+  var year365: TimeInterval {
     return day * 365
   }
 
