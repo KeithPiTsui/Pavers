@@ -56,12 +56,6 @@ public extension Date {
 }
 
 public extension Date {
-  
-  public static let shortFormat: DateFormat = ""
-  public static let mediumFormat: DateFormat = ""
-  public static let longFormat: DateFormat = ""
-  public static let fullFormat: DateFormat = ""
-  
   public func to(_ format: DateFormat) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = format
@@ -69,6 +63,13 @@ public extension Date {
   }
 }
 
+public extension String {
+  public func to(_ format: DateFormat) -> Date? {
+    let formatter = DateFormatter()
+    formatter.dateFormat = format
+    return formatter.date(from: self)
+  }
+}
 
 
 
