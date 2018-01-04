@@ -24,3 +24,4 @@ let rightParenthesis = character{$0 == ")"}
 let digit = character(CharacterSet.decimalDigits.contains)
 let digitOne = character{$0 == "1"}
 let decimalPoint = character{$0 == "."}
+let whitespace = character(CharacterSet.whitespacesAndNewlines.contains)

@@ -17,5 +17,6 @@
         <page name='ParsecArithmetic2'/>
         <page name='ParsecArithmetic3'/>
         <page name='Date'/>
+        <page name='ParsecJSON'/>
     </pages>
 </playground>

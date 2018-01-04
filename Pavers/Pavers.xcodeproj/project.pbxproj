@@ -283,6 +283,8 @@
 		535863731FDE5AF700623395 /* SymbolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535863681FDE554600623395 /* SymbolTable.swift */; };
 		535863761FDE73AF00623395 /* CommonRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535863751FDE73AF00623395 /* CommonRegularExpression.swift */; };
 		535863781FDE747A00623395 /* PrimitiveParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535863771FDE747A00623395 /* PrimitiveParsers.swift */; };
+		537CB4871FFDC3D8001FEAC7 /* JSONType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537CB4861FFDC3D8001FEAC7 /* JSONType.swift */; };
+		537CB4891FFDF232001FEAC7 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 537CB4881FFDF232001FEAC7 /* test.json */; };
 		53825AC71FB6D26E002DBEBC /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825AC61FB6D26D002DBEBC /* UIStackView.swift */; };
 		538357EC1FDA364300F3F238 /* BundleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B71FB42926001C9A24 /* BundleType.swift */; };
 		538358101FDA3E1300F3F238 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383580F1FDA3E1300F3F238 /* Reachability.swift */; };
@@ -749,6 +751,8 @@
 		5358636A1FDE55A800623395 /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
 		535863751FDE73AF00623395 /* CommonRegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRegularExpression.swift; sourceTree = "<group>"; };
 		535863771FDE747A00623395 /* PrimitiveParsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveParsers.swift; sourceTree = "<group>"; };
+		537CB4861FFDC3D8001FEAC7 /* JSONType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONType.swift; sourceTree = "<group>"; };
+		537CB4881FFDF232001FEAC7 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		53825AC61FB6D26D002DBEBC /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		5383580F1FDA3E1300F3F238 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		538358131FDA749600F3F238 /* ParserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserInput.swift; sourceTree = "<group>"; };
@@ -1407,10 +1411,11 @@
 		5343B5DC1FCFF45F00B0BD76 /* Parsec */ = {
 			isa = PBXGroup;
 			children = (
+				531D6CD01FD1028000BC84A2 /* Arithmetic */,
 				535863741FDE739200623395 /* CommonRegularExpression */,
 				5358636F1FDE5ACB00623395 /* COOL */,
-				531D6CD01FD1028000BC84A2 /* Arithmetic */,
 				531D6CCF1FD1027500BC84A2 /* Core */,
+				537CB4851FFDC367001FEAC7 /* JSON */,
 			);
 			path = Parsec;
 			sourceTree = "<group>";
@@ -1419,6 +1424,7 @@
 			isa = PBXGroup;
 			children = (
 				5343B5E31FCFF48A00B0BD76 /* PaversParsecTests.swift */,
+				537CB4881FFDF232001FEAC7 /* test.json */,
 				5343B5E51FCFF48A00B0BD76 /* Info.plist */,
 			);
 			path = PaversParsecTests;
@@ -1665,6 +1671,14 @@
 				535863751FDE73AF00623395 /* CommonRegularExpression.swift */,
 			);
 			path = CommonRegularExpression;
+			sourceTree = "<group>";
+		};
+		537CB4851FFDC367001FEAC7 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				537CB4861FFDC3D8001FEAC7 /* JSONType.swift */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		53A0C1AE1FB42926001C9A24 /* Sugar */ = {
@@ -2255,6 +2269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537CB4891FFDF232001FEAC7 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2496,6 +2511,7 @@
 				535863701FDE5AF700623395 /* LexcialAnalyzer.swift in Sources */,
 				535863711FDE5AF700623395 /* Keywords.swift in Sources */,
 				535863781FDE747A00623395 /* PrimitiveParsers.swift in Sources */,
+				537CB4871FFDC3D8001FEAC7 /* JSONType.swift in Sources */,
 				5343B5FC1FD0204100B0BD76 /* Parser+Many.swift in Sources */,
 				535863761FDE73AF00623395 /* CommonRegularExpression.swift in Sources */,
 				5343B5F61FCFF5C400B0BD76 /* Parser+Functor.swift in Sources */,
