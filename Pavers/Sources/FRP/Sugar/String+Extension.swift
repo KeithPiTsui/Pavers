@@ -32,27 +32,3 @@ public extension String {
     return NSLocalizedString(self, comment: "")
   }
 }
-
-
-public extension String {
-  public func removing(_ charset: CharacterSet) -> String {
-    return components(separatedBy: charset).joined()
-  }
-  
-  public func removingWhitespaces() -> String {
-    return removing(.whitespaces)
-  }
-  
-  public func removingWhitespacesAndNewlines() -> String {
-    return removing(.whitespacesAndNewlines)
-  }
-}
-
-
-
-
-
-
-
-
-

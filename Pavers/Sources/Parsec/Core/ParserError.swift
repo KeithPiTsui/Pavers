@@ -9,4 +9,6 @@
 public struct ParserError: Error {
   public let code: Int
   public let message: String
+  
+  public static let empty: ParserError = ParserError.init(code: -1, message: "It is an empty parser")
 }

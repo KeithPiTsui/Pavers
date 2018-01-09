@@ -22,6 +22,24 @@ extension Parser where Value : Monoid {
   }
 }
 
+extension Parser {
+  public static func empty() -> Parser<Source, Value> {
+    return Parser<Source, Value>(parse: { (input) in
+      return .failure(ParserError.empty)
+    })
+  }
+}
+
+extension Parser where Value == () {
+  public func unit() -> Parser<Source, Value> {
+    return Parser<Source, Value>(parse: { (input) in
+      return .success(ParserResult<Source, Value>.init(result: (),
+                                                    source: input.source,
+                                                    inputCursor: input.cursor,
+                                                    outputCursor: input.cursor))
+    })
+  }
+}
 
 
 

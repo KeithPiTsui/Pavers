@@ -29,9 +29,3 @@ extension ParserResult {
   }
 }
 
-extension ParserResult {
-  public func erase() -> ParserResult<Source, Any> {
-    return self.map { $0 as Any }
-  }
-}
-
