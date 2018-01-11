@@ -149,6 +149,7 @@
 		0EEF281A1F4DA0FA001EF8C5 /* WithLatestFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */; };
 		0EEF281B1F4DA0FA001EF8C5 /* WrapInOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */; };
 		53176CE51FAC25E0007ECE9C /* ValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */; };
+		531ADA3C200761E90081BC43 /* Curry2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531ADA3B200761E90081BC43 /* Curry2.swift */; };
 		531D6CD21FD102A500BC84A2 /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D6CD11FD102A500BC84A2 /* Arithmetic.swift */; };
 		5343B5D81FCFF44400B0BD76 /* PaversParsec.h in Headers */ = {isa = PBXBuildFile; fileRef = 5343B5D61FCFF44400B0BD76 /* PaversParsec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5343B5E41FCFF48A00B0BD76 /* PaversParsecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5E31FCFF48A00B0BD76 /* PaversParsecTests.swift */; };
@@ -610,6 +611,7 @@
 		0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithLatestFrom.swift; sourceTree = "<group>"; };
 		0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapInOptional.swift; sourceTree = "<group>"; };
 		53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueExtensions.swift; sourceTree = "<group>"; };
+		531ADA3B200761E90081BC43 /* Curry2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry2.swift; sourceTree = "<group>"; };
 		531D6CD11FD102A500BC84A2 /* Arithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arithmetic.swift; sourceTree = "<group>"; };
 		5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversParsec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5343B5D61FCFF44400B0BD76 /* PaversParsec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversParsec.h; sourceTree = "<group>"; };
@@ -1127,6 +1129,7 @@
 			isa = PBXGroup;
 			children = (
 				0E1D07591F4C71D500D9CB38 /* Curry.swift */,
+				531ADA3B200761E90081BC43 /* Curry2.swift */,
 				0E1D075A1F4C71D500D9CB38 /* Runes.swift */,
 			);
 			path = Utilities;
@@ -2365,6 +2368,7 @@
 				0E1D079C1F4C71D500D9CB38 /* Value+VectorType.swift in Sources */,
 				0EEF280D1F4DA0FA001EF8C5 /* KsrDelay.swift in Sources */,
 				0E1D07861F4C71D500D9CB38 /* NoError.swift in Sources */,
+				531ADA3C200761E90081BC43 /* Curry2.swift in Sources */,
 				0E1D078E1F4C71D500D9CB38 /* Optional+Functor.swift in Sources */,
 				0E1D07AF1F4C71D500D9CB38 /* Scheduler.swift in Sources */,
 				0EEF28041F4DA0FA001EF8C5 /* Concat.swift in Sources */,
