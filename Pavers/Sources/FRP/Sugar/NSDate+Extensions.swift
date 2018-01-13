@@ -4,6 +4,10 @@ import Foundation
 
 public extension Date {
   
+  public static var tomorrow: Date {return TimeInterval(1).day.later }
+  public static var now: Date { return TimeInterval(0).day.ago }
+  public static var yesterday: Date { return TimeInterval(1).day.ago }
+  
   public func components(_ unit: NSCalendar.Unit,
                          retrieval: (DateComponents) -> Int) -> Int {
     let calendar = Calendar.current

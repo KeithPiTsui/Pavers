@@ -34,7 +34,7 @@ public extension TimeInterval {
     return Date(timeIntervalSinceNow: -self)
   }
 
-  var future: Date {
+  var later: Date {
     return Date(timeIntervalSinceNow: self)
   }
 }
