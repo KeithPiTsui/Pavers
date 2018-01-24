@@ -13,50 +13,60 @@ public protocol NSBundleType {
 }
 
 extension NSBundleType {
-  public func getString(_ keys: String ...) -> String {
+  public func getString(_ keys: String ...) -> String? {
     for key in keys {
       if let value = self.infoDictionary?[key] as? String {
         return value
       }
     }
-    return "Unknown"
+    return nil
   }
   
-  public var identifier: String {
+  public var identifier: String? {
     return self.getString("CFBundleIdentifier")
   }
   
-  public var name: String {
+  public var name: String? {
     return self.getString("CFBundleDisplayName", "CFBundleName")
   }
   
-  public var shortVersionString: String {
+  public var shortVersionString: String? {
     return self.getString("CFBundleShortVersionString")
   }
   
-  public var version: String {
+  public var version: String? {
     return self.getString("CFBundleVersion")
   }
   
-  public var build: String {
+  public var build: String? {
     return self.getString("CFBundleVersion")
   }
   
-  public var executable: String {
+  public var executable: String? {
     return self.getString("CFBundleExecutable")
   }
+
+  public var urlTypes: [[String: AnyObject]]? {
+    return self.infoDictionary?["CFBundleURLTypes"] as? [[String: AnyObject]]
+  }
   
-  public var schemes: [String] {
-    guard let urlTypes = self.infoDictionary?["CFBundleURLTypes"] as? [AnyObject],
-      let urlType = urlTypes.first as? [String : AnyObject],
+  public func urlType(named: String) -> [String: AnyObject]? {
+    guard let urlType = self.urlTypes?.findFirst({ ($0["CFBundleURLName"] as? String) == named })
+    else { return nil }
+    return urlType
+  }
+  
+  public var schemes: [String]? {
+    guard let urlTypes = self.urlTypes,
+      let urlType = urlTypes.first,
       let urlSchemes = urlType["CFBundleURLSchemes"] as? [String]
-      else { return [] }
+      else { return nil }
     
     return urlSchemes
   }
   
   public var mainScheme: String? {
-    return self.schemes.first
+    return self.schemes?.first
   }
 }
 
