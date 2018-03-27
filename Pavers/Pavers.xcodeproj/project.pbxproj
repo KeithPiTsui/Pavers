@@ -269,7 +269,6 @@
 		5358281E1F94A7CD0089AD4A /* UIEdgeInsets+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827EC1F94A7870089AD4A /* UIEdgeInsets+StyleHelper.swift */; };
 		5358281F1F94A7CD0089AD4A /* UIImage+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827ED1F94A7870089AD4A /* UIImage+StyleHelper.swift */; };
 		535828201F94A7CD0089AD4A /* UITraitCollection+StyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */; };
-		535828221F94A7D50089AD4A /* HitRepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */; };
 		535828231F94A7D80089AD4A /* UIGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827F31F94A7870089AD4A /* UIGradientView.swift */; };
 		535828241F94AEE40089AD4A /* BarButtonItemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E21F94A7870089AD4A /* BarButtonItemStyles.swift */; };
 		535828251F94AF280089AD4A /* UIColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827E71F94A7870089AD4A /* UIColorStyles.swift */; };
@@ -739,7 +738,6 @@
 		535827EC1F94A7870089AD4A /* UIEdgeInsets+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+StyleHelper.swift"; sourceTree = "<group>"; };
 		535827ED1F94A7870089AD4A /* UIImage+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+StyleHelper.swift"; sourceTree = "<group>"; };
 		535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+StyleHelper.swift"; sourceTree = "<group>"; };
-		535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitRepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		535827F31F94A7870089AD4A /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
 		5358634B1FDE539F00623395 /* PaversCOOL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversCOOL.h; sourceTree = "<group>"; };
 		5358634C1FDE539F00623395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1551,7 +1549,6 @@
 				535827EC1F94A7870089AD4A /* UIEdgeInsets+StyleHelper.swift */,
 				535827ED1F94A7870089AD4A /* UIImage+StyleHelper.swift */,
 				535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */,
-				535827F01F94A7870089AD4A /* ViewControllers */,
 				535827F21F94A7870089AD4A /* Views */,
 			);
 			name = Styles;
@@ -1615,14 +1612,6 @@
 				535827E81F94A7870089AD4A /* UIFontStyles.swift */,
 			);
 			path = Presets;
-			sourceTree = "<group>";
-		};
-		535827F01F94A7870089AD4A /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				535827F11F94A7870089AD4A /* HitRepositoriesTableViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		535827F21F94A7870089AD4A /* Views */ = {
@@ -2536,7 +2525,6 @@
 				535828251F94AF280089AD4A /* UIColorStyles.swift in Sources */,
 				535828261F94AF340089AD4A /* UIFontStyles.swift in Sources */,
 				535828241F94AEE40089AD4A /* BarButtonItemStyles.swift in Sources */,
-				535828221F94A7D50089AD4A /* HitRepositoriesTableViewController.swift in Sources */,
 				535827F51F94A7C60089AD4A /* CAGradientLayerLenses.swift in Sources */,
 				535827F61F94A7C60089AD4A /* CALayerLenses.swift in Sources */,
 				535827F71F94A7C60089AD4A /* CAShapeLayerLenses.swift in Sources */,
@@ -2809,6 +2797,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = PaversFRP/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2833,6 +2823,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = PaversFRP/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2882,6 +2874,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = PaversArgo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2906,6 +2900,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = PaversArgo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3158,18 +3154,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = PaversUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3189,18 +3187,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = PaversUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
