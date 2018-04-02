@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E1D07141F4C71AA00D9CB38 /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
-		0E1D07191F4C71AA00D9CB38 /* PaversFRPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07181F4C71AA00D9CB38 /* PaversFRPTests.swift */; };
 		0E1D071B1F4C71AA00D9CB38 /* PaversFRP.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E1D070D1F4C71A900D9CB38 /* PaversFRP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E1D07711F4C71D500D9CB38 /* EitherType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07251F4C71D400D9CB38 /* EitherType.swift */; };
 		0E1D07721F4C71D500D9CB38 /* LensObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07261F4C71D400D9CB38 /* LensObject.swift */; };
@@ -77,28 +75,6 @@
 		0E1D07B11F4C71D500D9CB38 /* SignalProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D076E1F4C71D500D9CB38 /* SignalProducer.swift */; };
 		0E1D07B21F4C71D500D9CB38 /* UnidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D076F1F4C71D500D9CB38 /* UnidirectionalBinding.swift */; };
 		0E1D07B31F4C71D500D9CB38 /* ValidatingProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07701F4C71D500D9CB38 /* ValidatingProperty.swift */; };
-		0E1D07DF1F4C7A2600D9CB38 /* AnyErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07C91F4C7A2600D9CB38 /* AnyErrorTests.swift */; };
-		0E1D07E11F4C7A2600D9CB38 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07CB1F4C7A2600D9CB38 /* ArrayTests.swift */; };
-		0E1D07E21F4C7A2600D9CB38 /* BooleanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07CC1F4C7A2600D9CB38 /* BooleanTests.swift */; };
-		0E1D07E31F4C7A2600D9CB38 /* ComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07CD1F4C7A2600D9CB38 /* ComparableTests.swift */; };
-		0E1D07E41F4C7A2600D9CB38 /* ComparatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07CE1F4C7A2600D9CB38 /* ComparatorTests.swift */; };
-		0E1D07E51F4C7A2600D9CB38 /* DictionaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07CF1F4C7A2600D9CB38 /* DictionaryTest.swift */; };
-		0E1D07E61F4C7A2600D9CB38 /* EitherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D01F4C7A2600D9CB38 /* EitherTests.swift */; };
-		0E1D07E71F4C7A2600D9CB38 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D11F4C7A2600D9CB38 /* Functions.swift */; };
-		0E1D07E81F4C7A2600D9CB38 /* FunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D21F4C7A2600D9CB38 /* FunctionTest.swift */; };
-		0E1D07E91F4C7A2600D9CB38 /* LensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D31F4C7A2600D9CB38 /* LensTests.swift */; };
-		0E1D07EA1F4C7A2600D9CB38 /* NoErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D41F4C7A2600D9CB38 /* NoErrorTests.swift */; };
-		0E1D07EB1F4C7A2600D9CB38 /* NonEmptyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D51F4C7A2600D9CB38 /* NonEmptyTests.swift */; };
-		0E1D07ED1F4C7A2600D9CB38 /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D71F4C7A2600D9CB38 /* OptionalTests.swift */; };
-		0E1D07EE1F4C7A2600D9CB38 /* OrderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D81F4C7A2600D9CB38 /* OrderingTests.swift */; };
-		0E1D07EF1F4C7A2600D9CB38 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07D91F4C7A2600D9CB38 /* ResultTests.swift */; };
-		0E1D07F01F4C7A2600D9CB38 /* StateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07DA1F4C7A2600D9CB38 /* StateSpec.swift */; };
-		0E1D07F11F4C7A2600D9CB38 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07DB1F4C7A2600D9CB38 /* StringTests.swift */; };
-		0E1D07F21F4C7A2600D9CB38 /* TupleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07DC1F4C7A2600D9CB38 /* TupleTests.swift */; };
-		0E1D07F31F4C7A2600D9CB38 /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07DD1F4C7A2600D9CB38 /* UnitTests.swift */; };
-		0E1D07F41F4C7A2600D9CB38 /* VectorTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D07DE1F4C7A2600D9CB38 /* VectorTypeTest.swift */; };
-		0E3D759A1F4DC5E700FFD6C3 /* PaversArgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3D75911F4DC5E600FFD6C3 /* PaversArgo.framework */; };
-		0E3D759F1F4DC5E700FFD6C3 /* PaversArgoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3D759E1F4DC5E700FFD6C3 /* PaversArgoTests.swift */; };
 		0E3D75A11F4DC5E700FFD6C3 /* PaversArgo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E3D75931F4DC5E700FFD6C3 /* PaversArgo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E3D75C31F4DC61D00FFD6C3 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3D75AC1F4DC61D00FFD6C3 /* Dictionary.swift */; };
 		0E3D75C41F4DC61D00FFD6C3 /* NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3D75AD1F4DC61D00FFD6C3 /* NSNumber.swift */; };
@@ -152,8 +128,6 @@
 		531ADA3C200761E90081BC43 /* Curry2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531ADA3B200761E90081BC43 /* Curry2.swift */; };
 		531D6CD21FD102A500BC84A2 /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D6CD11FD102A500BC84A2 /* Arithmetic.swift */; };
 		5343B5D81FCFF44400B0BD76 /* PaversParsec.h in Headers */ = {isa = PBXBuildFile; fileRef = 5343B5D61FCFF44400B0BD76 /* PaversParsec.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5343B5E41FCFF48A00B0BD76 /* PaversParsecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5E31FCFF48A00B0BD76 /* PaversParsecTests.swift */; };
-		5343B5E61FCFF48A00B0BD76 /* PaversParsec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */; };
 		5343B5EF1FCFF4B500B0BD76 /* ParserGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */; };
 		5343B5F01FCFF4B500B0BD76 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5ED1FCFF4B500B0BD76 /* Helper.swift */; };
 		5343B5F11FCFF4B500B0BD76 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5EE1FCFF4B500B0BD76 /* Parser.swift */; };
@@ -163,7 +137,6 @@
 		5343B5FA1FCFFEDB00B0BD76 /* Parser+Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5F91FCFFEDB00B0BD76 /* Parser+Alternative.swift */; };
 		5343B5FC1FD0204100B0BD76 /* Parser+Many.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5FB1FD0204100B0BD76 /* Parser+Many.swift */; };
 		5343B5FE1FD0208400B0BD76 /* Parser+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5FD1FD0208400B0BD76 /* Parser+Optional.swift */; };
-		535826D81F9495B00089AD4A /* PaversUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535826CF1F9495B00089AD4A /* PaversUI.framework */; };
 		535826E61F9495EB0089AD4A /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
 		5358273B1F9497560089AD4A /* CocoaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827341F9497330089AD4A /* CocoaAction.swift */; };
 		5358273C1F9497560089AD4A /* CocoaTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827311F9497320089AD4A /* CocoaTarget.swift */; };
@@ -328,8 +301,6 @@
 		53E932731FE224260049B8AD /* RuntimeModification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932701FE224250049B8AD /* RuntimeModification.swift */; };
 		53E932741FE224260049B8AD /* RuntimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932711FE224260049B8AD /* RuntimeClass.swift */; };
 		53E932751FE224260049B8AD /* ObjectiveClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932721FE224260049B8AD /* ObjectiveClass.swift */; };
-		53FE25B21FF4B5CF00B6CDE1 /* PaversCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FE25A91FF4B5CF00B6CDE1 /* PaversCrypto.framework */; };
-		53FE25B71FF4B5CF00B6CDE1 /* PaversCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE25B61FF4B5CF00B6CDE1 /* PaversCryptoTests.swift */; };
 		53FE25B91FF4B5CF00B6CDE1 /* PaversCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 53FE25AB1FF4B5CF00B6CDE1 /* PaversCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53FE26051FF4B5EE00B6CDE1 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE25C11FF4B5EE00B6CDE1 /* Array+Extensions.swift */; };
 		53FE26061FF4B5EE00B6CDE1 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE25C21FF4B5EE00B6CDE1 /* AES.swift */; };
@@ -399,33 +370,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0E1D07151F4C71AA00D9CB38 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
-			remoteInfo = PaversFRP;
-		};
-		0E3D759B1F4DC5E700FFD6C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0E3D75901F4DC5E600FFD6C3;
-			remoteInfo = PaversArgo;
-		};
 		0E3D75A81F4DC5F300FFD6C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
 			remoteInfo = PaversFRP;
-		};
-		5343B5E71FCFF48A00B0BD76 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5343B5D31FCFF44400B0BD76;
-			remoteInfo = PaversParsec;
 		};
 		5343B5F31FCFF56000B0BD76 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -434,13 +384,6 @@
 			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
 			remoteInfo = PaversFRP;
 		};
-		535826D91F9495B00089AD4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 535826CE1F9495B00089AD4A;
-			remoteInfo = PaversUI;
-		};
 		535827931F949F630089AD4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
@@ -448,22 +391,12 @@
 			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
 			remoteInfo = PaversFRP;
 		};
-		53FE25B31FF4B5CF00B6CDE1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 53FE25A81FF4B5CF00B6CDE1;
-			remoteInfo = PaversCrypto;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversFRP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1D070D1F4C71A900D9CB38 /* PaversFRP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversFRP.h; sourceTree = "<group>"; };
 		0E1D070E1F4C71A900D9CB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E1D07131F4C71AA00D9CB38 /* PaversFRPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversFRPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E1D07181F4C71AA00D9CB38 /* PaversFRPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversFRPTests.swift; sourceTree = "<group>"; };
-		0E1D071A1F4C71AA00D9CB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E1D07251F4C71D400D9CB38 /* EitherType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EitherType.swift; sourceTree = "<group>"; };
 		0E1D07261F4C71D400D9CB38 /* LensObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensObject.swift; sourceTree = "<group>"; };
 		0E1D07271F4C71D400D9CB38 /* Monoid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monoid.swift; sourceTree = "<group>"; };
@@ -531,32 +464,9 @@
 		0E1D076E1F4C71D500D9CB38 /* SignalProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalProducer.swift; sourceTree = "<group>"; };
 		0E1D076F1F4C71D500D9CB38 /* UnidirectionalBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnidirectionalBinding.swift; sourceTree = "<group>"; };
 		0E1D07701F4C71D500D9CB38 /* ValidatingProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatingProperty.swift; sourceTree = "<group>"; };
-		0E1D07C91F4C7A2600D9CB38 /* AnyErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyErrorTests.swift; sourceTree = "<group>"; };
-		0E1D07CB1F4C7A2600D9CB38 /* ArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
-		0E1D07CC1F4C7A2600D9CB38 /* BooleanTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanTests.swift; sourceTree = "<group>"; };
-		0E1D07CD1F4C7A2600D9CB38 /* ComparableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparableTests.swift; sourceTree = "<group>"; };
-		0E1D07CE1F4C7A2600D9CB38 /* ComparatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparatorTests.swift; sourceTree = "<group>"; };
-		0E1D07CF1F4C7A2600D9CB38 /* DictionaryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTest.swift; sourceTree = "<group>"; };
-		0E1D07D01F4C7A2600D9CB38 /* EitherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EitherTests.swift; sourceTree = "<group>"; };
-		0E1D07D11F4C7A2600D9CB38 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		0E1D07D21F4C7A2600D9CB38 /* FunctionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionTest.swift; sourceTree = "<group>"; };
-		0E1D07D31F4C7A2600D9CB38 /* LensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensTests.swift; sourceTree = "<group>"; };
-		0E1D07D41F4C7A2600D9CB38 /* NoErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoErrorTests.swift; sourceTree = "<group>"; };
-		0E1D07D51F4C7A2600D9CB38 /* NonEmptyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonEmptyTests.swift; sourceTree = "<group>"; };
-		0E1D07D71F4C7A2600D9CB38 /* OptionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
-		0E1D07D81F4C7A2600D9CB38 /* OrderingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderingTests.swift; sourceTree = "<group>"; };
-		0E1D07D91F4C7A2600D9CB38 /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
-		0E1D07DA1F4C7A2600D9CB38 /* StateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateSpec.swift; sourceTree = "<group>"; };
-		0E1D07DB1F4C7A2600D9CB38 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
-		0E1D07DC1F4C7A2600D9CB38 /* TupleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleTests.swift; sourceTree = "<group>"; };
-		0E1D07DD1F4C7A2600D9CB38 /* UnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
-		0E1D07DE1F4C7A2600D9CB38 /* VectorTypeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTypeTest.swift; sourceTree = "<group>"; };
 		0E3D75911F4DC5E600FFD6C3 /* PaversArgo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversArgo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3D75931F4DC5E700FFD6C3 /* PaversArgo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversArgo.h; sourceTree = "<group>"; };
 		0E3D75941F4DC5E700FFD6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E3D75991F4DC5E700FFD6C3 /* PaversArgoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversArgoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E3D759E1F4DC5E700FFD6C3 /* PaversArgoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversArgoTests.swift; sourceTree = "<group>"; };
-		0E3D75A01F4DC5E700FFD6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E3D75AC1F4DC61D00FFD6C3 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		0E3D75AD1F4DC61D00FFD6C3 /* NSNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumber.swift; sourceTree = "<group>"; };
 		0E3D75AE1F4DC61D00FFD6C3 /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
@@ -578,8 +488,6 @@
 		0E3D75C21F4DC61D00FFD6C3 /* StandardTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTypes.swift; sourceTree = "<group>"; };
 		0E5151CB1F4AD7280006BE05 /* PaversUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversUI.h; sourceTree = "<group>"; };
 		0E5151CC1F4AD7280006BE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E5151D61F4AD7290006BE05 /* PaversUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversUITests.swift; sourceTree = "<group>"; };
-		0E5151D81F4AD7290006BE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EEF27E11F4DA0FA001EF8C5 /* DispatchTimeInterval-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTimeInterval-Extensions.swift"; sourceTree = "<group>"; };
 		0EEF27E21F4DA0FA001EF8C5 /* LazyAssociatedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyAssociatedProperty.swift; sourceTree = "<group>"; };
 		0EEF27E31F4DA0FA001EF8C5 /* LazyMutableProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMutableProperty.swift; sourceTree = "<group>"; };
@@ -615,9 +523,6 @@
 		5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversParsec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5343B5D61FCFF44400B0BD76 /* PaversParsec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversParsec.h; sourceTree = "<group>"; };
 		5343B5D71FCFF44400B0BD76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5343B5E11FCFF48A00B0BD76 /* PaversParsecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversParsecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5343B5E31FCFF48A00B0BD76 /* PaversParsecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversParsecTests.swift; sourceTree = "<group>"; };
-		5343B5E51FCFF48A00B0BD76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5343B5EC1FCFF4B400B0BD76 /* ParserGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserGenerator.swift; sourceTree = "<group>"; };
 		5343B5ED1FCFF4B500B0BD76 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5343B5EE1FCFF4B500B0BD76 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -627,7 +532,6 @@
 		5343B5FB1FD0204100B0BD76 /* Parser+Many.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Many.swift"; sourceTree = "<group>"; };
 		5343B5FD1FD0208400B0BD76 /* Parser+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Optional.swift"; sourceTree = "<group>"; };
 		535826CF1F9495B00089AD4A /* PaversUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		535826D71F9495B00089AD4A /* PaversUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		535827251F9497300089AD4A /* ObjC+RuntimeSubclassing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjC+RuntimeSubclassing.swift"; sourceTree = "<group>"; };
 		535827261F9497300089AD4A /* ObjC+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjC+Messages.swift"; sourceTree = "<group>"; };
 		535827271F9497310089AD4A /* NSObject+Lifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Lifetime.swift"; sourceTree = "<group>"; };
@@ -739,10 +643,6 @@
 		535827ED1F94A7870089AD4A /* UIImage+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+StyleHelper.swift"; sourceTree = "<group>"; };
 		535827EE1F94A7870089AD4A /* UITraitCollection+StyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+StyleHelper.swift"; sourceTree = "<group>"; };
 		535827F31F94A7870089AD4A /* UIGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGradientView.swift; sourceTree = "<group>"; };
-		5358634B1FDE539F00623395 /* PaversCOOL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversCOOL.h; sourceTree = "<group>"; };
-		5358634C1FDE539F00623395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		535863561FDE539F00623395 /* PaversCOOLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversCOOLTests.swift; sourceTree = "<group>"; };
-		535863581FDE539F00623395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		535863641FDE53D900623395 /* LexcialAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexcialAnalyzer.swift; sourceTree = "<group>"; };
 		535863661FDE542700623395 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		535863681FDE554600623395 /* SymbolTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTable.swift; sourceTree = "<group>"; };
@@ -799,9 +699,6 @@
 		53FE25A91FF4B5CF00B6CDE1 /* PaversCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FE25AB1FF4B5CF00B6CDE1 /* PaversCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversCrypto.h; sourceTree = "<group>"; };
 		53FE25AC1FF4B5CF00B6CDE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53FE25B11FF4B5CF00B6CDE1 /* PaversCryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaversCryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		53FE25B61FF4B5CF00B6CDE1 /* PaversCryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaversCryptoTests.swift; sourceTree = "<group>"; };
-		53FE25B81FF4B5CF00B6CDE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53FE25C11FF4B5EE00B6CDE1 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		53FE25C21FF4B5EE00B6CDE1 /* AES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
 		53FE25C31FF4B5EE00B6CDE1 /* UInt64+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt64+Extension.swift"; sourceTree = "<group>"; };
@@ -877,26 +774,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E1D07101F4C71A900D9CB38 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E1D07141F4C71AA00D9CB38 /* PaversFRP.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0E3D758D1F4DC5E600FFD6C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E3D75961F4DC5E700FFD6C3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E3D759A1F4DC5E700FFD6C3 /* PaversArgo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,27 +789,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5343B5DE1FCFF48A00B0BD76 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5343B5E61FCFF48A00B0BD76 /* PaversParsec.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		535826CB1F9495B00089AD4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				535826E61F9495EB0089AD4A /* PaversFRP.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		535826D41F9495B00089AD4A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				535826D81F9495B00089AD4A /* PaversUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,14 +811,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		53FE25AE1FF4B5CF00B6CDE1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				53FE25B21FF4B5CF00B6CDE1 /* PaversCrypto.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -964,35 +821,6 @@
 				0E1D070E1F4C71A900D9CB38 /* Info.plist */,
 			);
 			path = PaversFRP;
-			sourceTree = "<group>";
-		};
-		0E1D07171F4C71AA00D9CB38 /* PaversFRPTests */ = {
-			isa = PBXGroup;
-			children = (
-				0E1D07C91F4C7A2600D9CB38 /* AnyErrorTests.swift */,
-				0E1D07CB1F4C7A2600D9CB38 /* ArrayTests.swift */,
-				0E1D07CC1F4C7A2600D9CB38 /* BooleanTests.swift */,
-				0E1D07CD1F4C7A2600D9CB38 /* ComparableTests.swift */,
-				0E1D07CE1F4C7A2600D9CB38 /* ComparatorTests.swift */,
-				0E1D07CF1F4C7A2600D9CB38 /* DictionaryTest.swift */,
-				0E1D07D01F4C7A2600D9CB38 /* EitherTests.swift */,
-				0E1D07D11F4C7A2600D9CB38 /* Functions.swift */,
-				0E1D07D21F4C7A2600D9CB38 /* FunctionTest.swift */,
-				0E1D07D31F4C7A2600D9CB38 /* LensTests.swift */,
-				0E1D07D41F4C7A2600D9CB38 /* NoErrorTests.swift */,
-				0E1D07D51F4C7A2600D9CB38 /* NonEmptyTests.swift */,
-				0E1D07D71F4C7A2600D9CB38 /* OptionalTests.swift */,
-				0E1D07D81F4C7A2600D9CB38 /* OrderingTests.swift */,
-				0E1D07D91F4C7A2600D9CB38 /* ResultTests.swift */,
-				0E1D07DA1F4C7A2600D9CB38 /* StateSpec.swift */,
-				0E1D07DB1F4C7A2600D9CB38 /* StringTests.swift */,
-				0E1D07DC1F4C7A2600D9CB38 /* TupleTests.swift */,
-				0E1D07DD1F4C7A2600D9CB38 /* UnitTests.swift */,
-				0E1D07DE1F4C7A2600D9CB38 /* VectorTypeTest.swift */,
-				0E1D07181F4C71AA00D9CB38 /* PaversFRPTests.swift */,
-				0E1D071A1F4C71AA00D9CB38 /* Info.plist */,
-			);
-			path = PaversFRPTests;
 			sourceTree = "<group>";
 		};
 		0E1D07221F4C71D400D9CB38 /* FRP */ = {
@@ -1172,15 +1000,6 @@
 			path = PaversArgo;
 			sourceTree = "<group>";
 		};
-		0E3D759D1F4DC5E700FFD6C3 /* PaversArgoTests */ = {
-			isa = PBXGroup;
-			children = (
-				0E3D759E1F4DC5E700FFD6C3 /* PaversArgoTests.swift */,
-				0E3D75A01F4DC5E700FFD6C3 /* Info.plist */,
-			);
-			path = PaversArgoTests;
-			sourceTree = "<group>";
-		};
 		0E3D75AA1F4DC61D00FFD6C3 /* Argo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1256,32 +1075,16 @@
 			path = PaversUI;
 			sourceTree = "<group>";
 		};
-		0E5151D51F4AD7290006BE05 /* PaversUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0E5151D61F4AD7290006BE05 /* PaversUITests.swift */,
-				0E5151D81F4AD7290006BE05 /* Info.plist */,
-			);
-			path = PaversUITests;
-			sourceTree = "<group>";
-		};
 		0E8965611F2C8D6B00A867E2 = {
 			isa = PBXGroup;
 			children = (
-				5358634A1FDE539E00623395 /* PaversCOOL */,
-				535863551FDE539F00623395 /* PaversCOOLTests */,
 				53E932681FE223F80049B8AD /* PaversObjc */,
 				53FE25AA1FF4B5CF00B6CDE1 /* PaversCrypto */,
-				53FE25B51FF4B5CF00B6CDE1 /* PaversCryptoTests */,
 				0E89660D1F2C90A000A867E2 /* Frameworks */,
 				0E3D75921F4DC5E700FFD6C3 /* PaversArgo */,
-				0E3D759D1F4DC5E700FFD6C3 /* PaversArgoTests */,
 				0E1D070C1F4C71A900D9CB38 /* PaversFRP */,
-				0E1D07171F4C71AA00D9CB38 /* PaversFRPTests */,
 				5343B5D51FCFF44400B0BD76 /* PaversParsec */,
-				5343B5E21FCFF48A00B0BD76 /* PaversParsecTests */,
 				0E5151CA1F4AD7280006BE05 /* PaversUI */,
-				0E5151D51F4AD7290006BE05 /* PaversUITests */,
 				0E89656C1F2C8D6B00A867E2 /* Products */,
 				0E8965851F2C8E9500A867E2 /* Sources */,
 			);
@@ -1291,16 +1094,11 @@
 			isa = PBXGroup;
 			children = (
 				0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */,
-				0E1D07131F4C71AA00D9CB38 /* PaversFRPTests.xctest */,
 				0E3D75911F4DC5E600FFD6C3 /* PaversArgo.framework */,
-				0E3D75991F4DC5E700FFD6C3 /* PaversArgoTests.xctest */,
 				535826CF1F9495B00089AD4A /* PaversUI.framework */,
-				535826D71F9495B00089AD4A /* PaversUITests.xctest */,
 				5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */,
-				5343B5E11FCFF48A00B0BD76 /* PaversParsecTests.xctest */,
 				53E932671FE223F80049B8AD /* PaversObjc.framework */,
 				53FE25A91FF4B5CF00B6CDE1 /* PaversCrypto.framework */,
-				53FE25B11FF4B5CF00B6CDE1 /* PaversCryptoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1414,15 +1212,6 @@
 				531D6CCF1FD1027500BC84A2 /* Core */,
 			);
 			path = Parsec;
-			sourceTree = "<group>";
-		};
-		5343B5E21FCFF48A00B0BD76 /* PaversParsecTests */ = {
-			isa = PBXGroup;
-			children = (
-				5343B5E31FCFF48A00B0BD76 /* PaversParsecTests.swift */,
-				5343B5E51FCFF48A00B0BD76 /* Info.plist */,
-			);
-			path = PaversParsecTests;
 			sourceTree = "<group>";
 		};
 		535826C81F9494EE0089AD4A /* UI */ = {
@@ -1622,24 +1411,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		5358634A1FDE539E00623395 /* PaversCOOL */ = {
-			isa = PBXGroup;
-			children = (
-				5358634B1FDE539F00623395 /* PaversCOOL.h */,
-				5358634C1FDE539F00623395 /* Info.plist */,
-			);
-			path = PaversCOOL;
-			sourceTree = "<group>";
-		};
-		535863551FDE539F00623395 /* PaversCOOLTests */ = {
-			isa = PBXGroup;
-			children = (
-				535863561FDE539F00623395 /* PaversCOOLTests.swift */,
-				535863581FDE539F00623395 /* Info.plist */,
-			);
-			path = PaversCOOLTests;
-			sourceTree = "<group>";
-		};
 		5358636F1FDE5ACB00623395 /* COOL */ = {
 			isa = PBXGroup;
 			children = (
@@ -1751,15 +1522,6 @@
 				53FE25AC1FF4B5CF00B6CDE1 /* Info.plist */,
 			);
 			path = PaversCrypto;
-			sourceTree = "<group>";
-		};
-		53FE25B51FF4B5CF00B6CDE1 /* PaversCryptoTests */ = {
-			isa = PBXGroup;
-			children = (
-				53FE25B61FF4B5CF00B6CDE1 /* PaversCryptoTests.swift */,
-				53FE25B81FF4B5CF00B6CDE1 /* Info.plist */,
-			);
-			path = PaversCryptoTests;
 			sourceTree = "<group>";
 		};
 		53FE25C01FF4B5EE00B6CDE1 /* CryptoSwift */ = {
@@ -1931,24 +1693,6 @@
 			productReference = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		0E1D07121F4C71A900D9CB38 /* PaversFRPTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E1D071F1F4C71AA00D9CB38 /* Build configuration list for PBXNativeTarget "PaversFRPTests" */;
-			buildPhases = (
-				0E1D070F1F4C71A900D9CB38 /* Sources */,
-				0E1D07101F4C71A900D9CB38 /* Frameworks */,
-				0E1D07111F4C71A900D9CB38 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0E1D07161F4C71AA00D9CB38 /* PBXTargetDependency */,
-			);
-			name = PaversFRPTests;
-			productName = PaversFRPTests;
-			productReference = 0E1D07131F4C71AA00D9CB38 /* PaversFRPTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		0E3D75901F4DC5E600FFD6C3 /* PaversArgo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E3D75A21F4DC5E700FFD6C3 /* Build configuration list for PBXNativeTarget "PaversArgo" */;
@@ -1967,24 +1711,6 @@
 			productName = PaversArgo;
 			productReference = 0E3D75911F4DC5E600FFD6C3 /* PaversArgo.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		0E3D75981F4DC5E700FFD6C3 /* PaversArgoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E3D75A51F4DC5E700FFD6C3 /* Build configuration list for PBXNativeTarget "PaversArgoTests" */;
-			buildPhases = (
-				0E3D75951F4DC5E700FFD6C3 /* Sources */,
-				0E3D75961F4DC5E700FFD6C3 /* Frameworks */,
-				0E3D75971F4DC5E700FFD6C3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0E3D759C1F4DC5E700FFD6C3 /* PBXTargetDependency */,
-			);
-			name = PaversArgoTests;
-			productName = PaversArgoTests;
-			productReference = 0E3D75991F4DC5E700FFD6C3 /* PaversArgoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5343B5D31FCFF44400B0BD76 /* PaversParsec */ = {
 			isa = PBXNativeTarget;
@@ -2005,24 +1731,6 @@
 			productReference = 5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5343B5E01FCFF48A00B0BD76 /* PaversParsecTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5343B5E91FCFF48A00B0BD76 /* Build configuration list for PBXNativeTarget "PaversParsecTests" */;
-			buildPhases = (
-				5343B5DD1FCFF48A00B0BD76 /* Sources */,
-				5343B5DE1FCFF48A00B0BD76 /* Frameworks */,
-				5343B5DF1FCFF48A00B0BD76 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5343B5E81FCFF48A00B0BD76 /* PBXTargetDependency */,
-			);
-			name = PaversParsecTests;
-			productName = PaversParsecTests;
-			productReference = 5343B5E11FCFF48A00B0BD76 /* PaversParsecTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		535826CE1F9495B00089AD4A /* PaversUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 535826E01F9495B00089AD4A /* Build configuration list for PBXNativeTarget "PaversUI" */;
@@ -2041,24 +1749,6 @@
 			productName = PaversUI;
 			productReference = 535826CF1F9495B00089AD4A /* PaversUI.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		535826D61F9495B00089AD4A /* PaversUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 535826E31F9495B00089AD4A /* Build configuration list for PBXNativeTarget "PaversUITests" */;
-			buildPhases = (
-				535826D31F9495B00089AD4A /* Sources */,
-				535826D41F9495B00089AD4A /* Frameworks */,
-				535826D51F9495B00089AD4A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				535826DA1F9495B00089AD4A /* PBXTargetDependency */,
-			);
-			name = PaversUITests;
-			productName = PaversUITests;
-			productReference = 535826D71F9495B00089AD4A /* PaversUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		53E932661FE223F80049B8AD /* PaversObjc */ = {
 			isa = PBXNativeTarget;
@@ -2096,24 +1786,6 @@
 			productReference = 53FE25A91FF4B5CF00B6CDE1 /* PaversCrypto.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		53FE25B01FF4B5CF00B6CDE1 /* PaversCryptoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 53FE25BF1FF4B5CF00B6CDE1 /* Build configuration list for PBXNativeTarget "PaversCryptoTests" */;
-			buildPhases = (
-				53FE25AD1FF4B5CF00B6CDE1 /* Sources */,
-				53FE25AE1FF4B5CF00B6CDE1 /* Frameworks */,
-				53FE25AF1FF4B5CF00B6CDE1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				53FE25B41FF4B5CF00B6CDE1 /* PBXTargetDependency */,
-			);
-			name = PaversCryptoTests;
-			productName = PaversCryptoTests;
-			productReference = 53FE25B11FF4B5CF00B6CDE1 /* PaversCryptoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2129,19 +1801,9 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
-					0E1D07121F4C71A900D9CB38 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 6T5NK4S24M;
-						ProvisioningStyle = Automatic;
-					};
 					0E3D75901F4DC5E600FFD6C3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					0E3D75981F4DC5E700FFD6C3 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 6T5NK4S24M;
 						ProvisioningStyle = Automatic;
 					};
 					5343B5D31FCFF44400B0BD76 = {
@@ -2149,17 +1811,9 @@
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
-					5343B5E01FCFF48A00B0BD76 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-					};
 					535826CE1F9495B00089AD4A = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					535826D61F9495B00089AD4A = {
-						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
 					53E932661FE223F80049B8AD = {
@@ -2169,11 +1823,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					53FE25A81FF4B5CF00B6CDE1 = {
-						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = N37D6JUD58;
-						ProvisioningStyle = Automatic;
-					};
-					53FE25B01FF4B5CF00B6CDE1 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = N37D6JUD58;
 						ProvisioningStyle = Automatic;
@@ -2193,29 +1842,17 @@
 			projectRoot = "";
 			targets = (
 				0E1D070A1F4C71A900D9CB38 /* PaversFRP */,
-				0E1D07121F4C71A900D9CB38 /* PaversFRPTests */,
 				0E3D75901F4DC5E600FFD6C3 /* PaversArgo */,
-				0E3D75981F4DC5E700FFD6C3 /* PaversArgoTests */,
 				535826CE1F9495B00089AD4A /* PaversUI */,
-				535826D61F9495B00089AD4A /* PaversUITests */,
 				5343B5D31FCFF44400B0BD76 /* PaversParsec */,
-				5343B5E01FCFF48A00B0BD76 /* PaversParsecTests */,
 				53E932661FE223F80049B8AD /* PaversObjc */,
 				53FE25A81FF4B5CF00B6CDE1 /* PaversCrypto */,
-				53FE25B01FF4B5CF00B6CDE1 /* PaversCryptoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0E1D07091F4C71A900D9CB38 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E1D07111F4C71A900D9CB38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2229,13 +1866,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E3D75971F4DC5E700FFD6C3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5343B5D21FCFF44400B0BD76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2243,21 +1873,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5343B5DF1FCFF48A00B0BD76 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		535826CD1F9495B00089AD4A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		535826D51F9495B00089AD4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2276,13 +1892,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				53FE26441FF4B5EE00B6CDE1 /* Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		53FE25AF1FF4B5CF00B6CDE1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2418,34 +2027,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E1D070F1F4C71A900D9CB38 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E1D07191F4C71AA00D9CB38 /* PaversFRPTests.swift in Sources */,
-				0E1D07E81F4C7A2600D9CB38 /* FunctionTest.swift in Sources */,
-				0E1D07E31F4C7A2600D9CB38 /* ComparableTests.swift in Sources */,
-				0E1D07E91F4C7A2600D9CB38 /* LensTests.swift in Sources */,
-				0E1D07E41F4C7A2600D9CB38 /* ComparatorTests.swift in Sources */,
-				0E1D07E71F4C7A2600D9CB38 /* Functions.swift in Sources */,
-				0E1D07F11F4C7A2600D9CB38 /* StringTests.swift in Sources */,
-				0E1D07E11F4C7A2600D9CB38 /* ArrayTests.swift in Sources */,
-				0E1D07ED1F4C7A2600D9CB38 /* OptionalTests.swift in Sources */,
-				0E1D07F31F4C7A2600D9CB38 /* UnitTests.swift in Sources */,
-				0E1D07F41F4C7A2600D9CB38 /* VectorTypeTest.swift in Sources */,
-				0E1D07F21F4C7A2600D9CB38 /* TupleTests.swift in Sources */,
-				0E1D07EB1F4C7A2600D9CB38 /* NonEmptyTests.swift in Sources */,
-				0E1D07DF1F4C7A2600D9CB38 /* AnyErrorTests.swift in Sources */,
-				0E1D07E51F4C7A2600D9CB38 /* DictionaryTest.swift in Sources */,
-				0E1D07EE1F4C7A2600D9CB38 /* OrderingTests.swift in Sources */,
-				0E1D07EF1F4C7A2600D9CB38 /* ResultTests.swift in Sources */,
-				0E1D07E61F4C7A2600D9CB38 /* EitherTests.swift in Sources */,
-				0E1D07EA1F4C7A2600D9CB38 /* NoErrorTests.swift in Sources */,
-				0E1D07E21F4C7A2600D9CB38 /* BooleanTests.swift in Sources */,
-				0E1D07F01F4C7A2600D9CB38 /* StateSpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0E3D758C1F4DC5E600FFD6C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2472,14 +2053,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E3D75951F4DC5E700FFD6C3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E3D759F1F4DC5E700FFD6C3 /* PaversArgoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5343B5CF1FCFF44400B0BD76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2503,14 +2076,6 @@
 				5343B5FE1FD0208400B0BD76 /* Parser+Optional.swift in Sources */,
 				538358141FDA749600F3F238 /* ParserInput.swift in Sources */,
 				5343B5F11FCFF4B500B0BD76 /* Parser.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5343B5DD1FCFF48A00B0BD76 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5343B5E41FCFF48A00B0BD76 /* PaversParsecTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2644,13 +2209,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		535826D31F9495B00089AD4A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		53E932621FE223F80049B8AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2732,56 +2290,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		53FE25AD1FF4B5CF00B6CDE1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				53FE25B71FF4B5CF00B6CDE1 /* PaversCryptoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0E1D07161F4C71AA00D9CB38 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
-			targetProxy = 0E1D07151F4C71AA00D9CB38 /* PBXContainerItemProxy */;
-		};
-		0E3D759C1F4DC5E700FFD6C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0E3D75901F4DC5E600FFD6C3 /* PaversArgo */;
-			targetProxy = 0E3D759B1F4DC5E700FFD6C3 /* PBXContainerItemProxy */;
-		};
 		0E3D75A91F4DC5F300FFD6C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
 			targetProxy = 0E3D75A81F4DC5F300FFD6C3 /* PBXContainerItemProxy */;
-		};
-		5343B5E81FCFF48A00B0BD76 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5343B5D31FCFF44400B0BD76 /* PaversParsec */;
-			targetProxy = 5343B5E71FCFF48A00B0BD76 /* PBXContainerItemProxy */;
 		};
 		5343B5F41FCFF56000B0BD76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
 			targetProxy = 5343B5F31FCFF56000B0BD76 /* PBXContainerItemProxy */;
 		};
-		535826DA1F9495B00089AD4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 535826CE1F9495B00089AD4A /* PaversUI */;
-			targetProxy = 535826D91F9495B00089AD4A /* PBXContainerItemProxy */;
-		};
 		535827941F949F630089AD4A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
 			targetProxy = 535827931F949F630089AD4A /* PBXContainerItemProxy */;
-		};
-		53FE25B41FF4B5CF00B6CDE1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 53FE25A81FF4B5CF00B6CDE1 /* PaversCrypto */;
-			targetProxy = 53FE25B31FF4B5CF00B6CDE1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2837,32 +2362,6 @@
 			};
 			name = Release;
 		};
-		0E1D07201F4C71AA00D9CB38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 6T5NK4S24M;
-				INFOPLIST_FILE = PaversFRPTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRPTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		0E1D07211F4C71AA00D9CB38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 6T5NK4S24M;
-				INFOPLIST_FILE = PaversFRPTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversFRPTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		0E3D75A31F4DC5E700FFD6C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2911,34 +2410,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		0E3D75A61F4DC5E700FFD6C3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 6T5NK4S24M;
-				INFOPLIST_FILE = PaversArgoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversArgoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		0E3D75A71F4DC5E700FFD6C3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 6T5NK4S24M;
-				INFOPLIST_FILE = PaversArgoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversArgoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -3116,44 +2587,6 @@
 			};
 			name = Release;
 		};
-		5343B5EA1FCFF48A00B0BD76 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = PaversParsecTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversParsecTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		5343B5EB1FCFF48A00B0BD76 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = PaversParsecTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversParsecTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		535826E11F9495B00089AD4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3213,44 +2646,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		535826E41F9495B00089AD4A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = PaversUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		535826E51F9495B00089AD4A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = PaversUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3361,46 +2756,6 @@
 			};
 			name = Release;
 		};
-		53FE25BC1FF4B5CF00B6CDE1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N37D6JUD58;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = PaversCryptoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversCryptoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		53FE25BD1FF4B5CF00B6CDE1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N37D6JUD58;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = PaversCryptoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Keith.Pi.Tsui.PaversCryptoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3413,29 +2768,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0E1D071F1F4C71AA00D9CB38 /* Build configuration list for PBXNativeTarget "PaversFRPTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E1D07201F4C71AA00D9CB38 /* Debug */,
-				0E1D07211F4C71AA00D9CB38 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		0E3D75A21F4DC5E700FFD6C3 /* Build configuration list for PBXNativeTarget "PaversArgo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E3D75A31F4DC5E700FFD6C3 /* Debug */,
 				0E3D75A41F4DC5E700FFD6C3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0E3D75A51F4DC5E700FFD6C3 /* Build configuration list for PBXNativeTarget "PaversArgoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E3D75A61F4DC5E700FFD6C3 /* Debug */,
-				0E3D75A71F4DC5E700FFD6C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3458,29 +2795,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5343B5E91FCFF48A00B0BD76 /* Build configuration list for PBXNativeTarget "PaversParsecTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5343B5EA1FCFF48A00B0BD76 /* Debug */,
-				5343B5EB1FCFF48A00B0BD76 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		535826E01F9495B00089AD4A /* Build configuration list for PBXNativeTarget "PaversUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				535826E11F9495B00089AD4A /* Debug */,
 				535826E21F9495B00089AD4A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		535826E31F9495B00089AD4A /* Build configuration list for PBXNativeTarget "PaversUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				535826E41F9495B00089AD4A /* Debug */,
-				535826E51F9495B00089AD4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3499,15 +2818,6 @@
 			buildConfigurations = (
 				53FE25BA1FF4B5CF00B6CDE1 /* Debug */,
 				53FE25BB1FF4B5CF00B6CDE1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		53FE25BF1FF4B5CF00B6CDE1 /* Build configuration list for PBXNativeTarget "PaversCryptoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				53FE25BC1FF4B5CF00B6CDE1 /* Debug */,
-				53FE25BD1FF4B5CF00B6CDE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
