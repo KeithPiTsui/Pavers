@@ -189,13 +189,13 @@ public final class ValidatingProperty<Value, ValidationError: Swift.Error>: Muta
 	///   - inner: The inner property which validated values are committed to.
 	///   - other: The property that `validator` depends on.
 	///   - validator: The closure to invoke for any proposed value to `self`.
-	public convenience init<U, E>(
-		_ inner: MutableProperty<Value>,
-		with other: ValidatingProperty<U, E>,
-		_ validator: @escaping (Value, U) -> Decision
-	) {
-		self.init(inner, with: other, validator)
-	}
+//  public convenience init<U, E>(
+//    _ inner: MutableProperty<Value>,
+//    with other: ValidatingProperty<U, E>,
+//    _ validator: @escaping (Value, U) -> Decision
+//  ) {
+//    self.init(inner, with: other, validator)
+//  }
 
 	/// Create a `ValidatingProperty` that validates mutations before
 	/// committing them.
