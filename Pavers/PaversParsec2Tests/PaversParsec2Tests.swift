@@ -27,9 +27,11 @@ class PaversParsec2Tests: XCTestCase {
     print(r)
     let r2 = arr.parse("[ 1, 2, \"123\", [ 1, 2, \"123\" ] ]")
     print(r2)
-    
-    //    let r1 = object.parse("{\"keith\":[1,2,\"123\"]}")
-    //    print(r1)
+    let ob = object()
+    let r3 = ob.parse("{\"keith\":[1,2,\"123\"]}")
+    print(r3)
+    let r4 = ob.parse("{\"keith\":[1,2,\"123\"], \"kk\": {\"keith\":[1,2,\"123\"]} }")
+    print(r4)
   }
   
   func testPerformanceExample() {

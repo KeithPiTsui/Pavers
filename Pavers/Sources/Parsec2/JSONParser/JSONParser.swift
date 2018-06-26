@@ -32,8 +32,8 @@ internal let plusOrMinus = plusSign <|> minusSign
 internal let decimalFactionPart = dicimalPoint >>> digits
 public let number =
   (plusOrMinus.?
-  >>> digits
-  >>> decimalFactionPart.?)
+    >>> digits
+    >>> decimalFactionPart.?)
     .fmap { (numberParts) -> Double in
       let sign = numberParts.0
       let decimalString = numberParts.1.0
@@ -84,7 +84,7 @@ internal let itemCommaList: () -> Parser<[Any]> =
 
 public let array: () -> Parser<[Any]> =
   fmap(squareBracketFront >>> whitespaces >>> itemCommaList.? >>> whitespaces >>> squareBracketBack) { (parts: (Character, ([Character]?, ([Any]?, ([Character]?, Character))))) -> [Any] in
-      return parts.1.1.0 ?? [] }
+    return parts.1.1.0 ?? [] }
 
 
 internal func anize<A> (_ a : @autoclosure () -> Parser<A>) -> Parser<Any> {
@@ -100,39 +100,44 @@ internal func anize<A> (_ a : @escaping () -> () -> Parser<A>) -> () -> Parser<A
 }
 
 /// Object
-//internal let bracketFront = char("{")
-//internal let bracketEnd = char("}")
-//internal let key = jstring
-//internal let colon = char(":")
-//internal let value: Parser<Any> =
-//  try_(anize(null))
-//  <|> try_(anize(number))
-//  <|> try_(anize(jstring))
-//  <|> try_(anize(bool))
-//  <|> try_(anize(array))
-//  <|> try_(anize(object))
-//
-//internal let keyValuePair = (key >>> whitespaces >>> colon >>> whitespaces >>> value)
-//  .fmap { (parts: (String, ([Character]?, (Character, ([Character]?, Any))))) -> (String, Any) in
-//    let k = parts.0
-//    let v = parts.1.1.1.1
-//    return (k, v)
-//}
-//
-//internal let kvCommaList: Parser<Dictionary<String, Any>> =
-//  (keyValuePair >>> whitespaces >>> many1(comma >>> whitespaces >>> keyValuePair).?)
-//  .fmap{ (parts: ((String, Any), ([Character]?, [(Character, ([Character]?, (String, Any)))]?))) -> [(String, Any)] in
-//    let first = parts.0
-//    if let rest = parts.1.1 {
-//      let restAnys = rest.map(second).map(second)
-//      return [first] + restAnys
-//    } else {
-//      return [first]
-//    }
-//  }.fmap(Dictionary.init)
-//
-//public let object: Parser<Dictionary<String, Any>> =
-//  (bracketFront >>> whitespaces >>> kvCommaList.? >>> whitespaces >>> bracketEnd)
-//    .fmap { (parts: (Character, ([Character]?, (Dictionary<String, Any>?, ([Character]?, Character))))) -> Dictionary<String, Any> in
-//    return parts.1.1.0 ?? [:]
-//}
+internal let bracketFront = char("{")
+internal let bracketEnd = char("}")
+internal let key = jstring
+internal let colon = char(":")
+internal let value: () -> Parser<Any> =
+  try_(anize(null))
+    <|> try_(anize(number))
+    <|> try_(anize(jstring))
+    <|> try_(anize(bool))
+    <|> try_(anize(array))
+    <|> try_(anize({object}))
+//internal let ob = try_(anize({object}))
+//internal let obv = value <|> ob
+
+internal let keyValuePair: () -> Parser<(String, Any)> =
+  fmap(key >>> whitespaces >>> colon >>> whitespaces >>> value){
+    (parts: (String, ([Character]?, (Character, ([Character]?, Any))))) -> (String, Any) in
+    let k = parts.0
+    let v = parts.1.1.1.1
+    return (k, v)
+}
+
+internal let kvCommaList: () -> Parser<Dictionary<String, Any>> =
+  fmap(keyValuePair >>> whitespaces >>> many1(comma >>> whitespaces >>> keyValuePair).?){
+    (parts: ((String, Any), ([Character]?, [(Character, ([Character]?, (String, Any)))]?))) -> Dictionary<String, Any> in
+    let first = parts.0
+    var result: [(String, Any)]
+    if let rest = parts.1.1 {
+      let restAnys = rest.map(second).map(second)
+      result = [first] + restAnys
+    } else {
+      result = [first]
+    }
+    return Dictionary.init(uniqueKeysWithValues: result)
+}
+
+public let object: () -> Parser<Dictionary<String, Any>> =
+  fmap(bracketFront >>> whitespaces >>> kvCommaList.? >>> whitespaces >>> bracketEnd){
+    (parts: (Character, ([Character]?, (Dictionary<String, Any>?, ([Character]?, Character))))) -> Dictionary<String, Any> in
+    return parts.1.1.0 ?? [:]
+}
