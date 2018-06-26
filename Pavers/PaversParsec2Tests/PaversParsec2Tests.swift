@@ -21,17 +21,21 @@ class PaversParsec2Tests: XCTestCase {
     super.tearDown()
   }
   
+  let json: String = """
+  {"code":"1",
+    "data":{
+  "a":"1511513956242234968",
+  "b":"alipay_sdk=alipay-sdk-php-20161101&app_id=2017072507893211&biz_content=%7B%22body%22%3A%22%E6%B8%B8%E6%88%8F%E5%B8%81%22%2C%22subject%22%3A+%22%E6%B8%B8%E6%88%8F%E5%B8%81%E5%85%85%E5%80%BC%22%2C%22out_trade_no%22%3A+%221511513956242234968%22%2C%22timeout_express%22%3A+%2230m%22%2C%22total_amount%22%3A+%220.01%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=UTF-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fwww.521qw.com%2Fsdk3.0%2Falipay%2Fnotify_url.php&sign_type=RSA2&timestamp=2017-11-24+16%3A59%3A16&version=1.0&sign=ZBjf%2BH3izhfHy64txhMH7fgVWZ7NKdwguMibqAwYBQTTrlzKmSBv9EcNXcPJfqKTntGf0FwGi8PTdz8hFWfQfn9o9NfRGZHGsTS%2FFlh4I%2B%2FJqtS6XSQj4dZS%2BX6aYAbCsrFGVc3o1ANvdXuPRJdkw7tLjssWSD09DMo%2FsQctIE0%3D"},
+  "msg":"abcsede"
+  }
+  """
+  
+  
   func testExample() {
-    let arr = array()
-    let r = arr.parse("[ 1, 2, \"123\" ]")
-    print(r)
-    let r2 = arr.parse("[ 1, 2, \"123\", [ 1, 2, \"123\" ] ]")
-    print(r2)
+    print(self.json)
     let ob = object()
-    let r3 = ob.parse("{\"keith\":[1,2,\"123\"]}")
-    print(r3)
-    let r4 = ob.parse("{\"keith\":[1,2,\"123\"], \"kk\": {\"keith\":[1,2,\"123\"]} }")
-    print(r4)
+    let r5 = ob.parse(ParserState.init(stringLiteral: self.json))
+    print(r5)
   }
   
   func testPerformanceExample() {

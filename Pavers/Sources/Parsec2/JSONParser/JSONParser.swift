@@ -49,7 +49,7 @@ public let number =
 }
 
 /// String Type
-internal let letter = satisfy(CharacterSet.alphanumerics.contains)
+internal let letter = satisfy{$0 != "\""}
 internal let letters = many1(letter)
 internal let doubleQuoate = char("\"")
 public let jstring = (doubleQuoate >>> letters.? >>> doubleQuoate)
@@ -111,8 +111,6 @@ internal let value: () -> Parser<Any> =
     <|> try_(anize(bool))
     <|> try_(anize(array))
     <|> try_(anize({object}))
-//internal let ob = try_(anize({object}))
-//internal let obv = value <|> ob
 
 internal let keyValuePair: () -> Parser<(String, Any)> =
   fmap(key >>> whitespaces >>> colon >>> whitespaces >>> value){
