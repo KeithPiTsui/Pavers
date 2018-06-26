@@ -15,3 +15,4 @@ public enum ParseResult<A> {
   case consumed (Reply<A>)
   case empty (Reply<A>)
 }
+

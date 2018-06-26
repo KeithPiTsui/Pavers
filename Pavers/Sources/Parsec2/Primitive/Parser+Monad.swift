@@ -8,12 +8,6 @@
 
 import PaversFRP
 
-
-public func pure<A> (_ a: A) -> Parser<A> {
-  return Parser{ .empty(.okay(a, $0,
-                              ParserMessage(position: $0.position, message: "", grammarProductions: [])))}
-}
-
 public func >>- <A, B> (_ a: Parser<A>, _ f: @escaping (A) -> Parser<B>) -> Parser<B> {
   return Parser{
     switch a.parse($0) {
@@ -33,4 +27,14 @@ public func >>- <A, B> (_ a: Parser<A>, _ f: @escaping (A) -> Parser<B>) -> Pars
       }
     }
   }
+}
+
+public func >>- <A, B> (_ a: Parser<A>, _ b: Parser<B>) -> Parser<B> {
+  return a >>- {_ in b}
+}
+
+
+/// m a -> m b -> m (a, b)
+public func >>> <A, B> (_ a: Parser<A>, _ b: Parser<B>) -> Parser<(A, B)> {
+  return a >>- {a in b >>- {b in pure((a, b))}}
 }
