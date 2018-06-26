@@ -54,6 +54,8 @@ precedencegroup RunesApplicativeSequencePrecedence {
 
 // MARK: -
 
+infix operator <?>: NilCoalescingPrecedence
+
 
 // MARK: Functor Operators
 /**
@@ -110,7 +112,8 @@ infix operator .|. : RunesAlternativePrecedence
 /**
   map a function over a value with context and flatten the result
 
-  Expected function type: `m a -> (a -> m b) -> m b`
+  Expected function type: `(Monad m) => m a -> (a -> m b) -> m b`
+  Expected function type: `(Monad m) => m a -> m b -> m b`
   Haskell `infixl 1`
 */
 infix operator >>- : RunesMonadicPrecedenceLeft
@@ -118,7 +121,8 @@ infix operator >>- : RunesMonadicPrecedenceLeft
 /**
   map a function over a value with context and flatten the result
 
-  Expected function type: `(a -> m b) -> m a -> m b`
+  Expected function type: `(Monad m) => (a -> m b) -> m a -> m b`
+  Expected function type: `(Monad m) => m b -> m a -> m b`
   Haskell `infixr 1`
 */
 infix operator -<< : RunesMonadicPrecedenceRight

@@ -23,7 +23,7 @@ public func |> <A, B> (x: A, f: (A) -> B) -> B {
   return f(x)
 }
 
-public func backwardPipe<A, B>() -> ((A) -> B, A) -> B {
+public func backwardPipe<A, B>() -> (@escaping (A) -> B, A) -> B {
   return ~(|>)
 }
 
