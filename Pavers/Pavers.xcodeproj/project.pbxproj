@@ -129,6 +129,16 @@
 		5343B5D81FCFF44400B0BD76 /* PaversParsec.h in Headers */ = {isa = PBXBuildFile; fileRef = 5343B5D61FCFF44400B0BD76 /* PaversParsec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5343B5F01FCFF4B500B0BD76 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5ED1FCFF4B500B0BD76 /* Helper.swift */; };
 		5343B5F21FCFF55B00B0BD76 /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
+		535027E820E1EFEF0043BFCE /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027E720E1EFEF0043BFCE /* ParserState.swift */; };
+		535027EA20E1F01E0043BFCE /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027E920E1F01E0043BFCE /* Parser.swift */; };
+		535027EC20E1F03D0043BFCE /* ParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027EB20E1F03D0043BFCE /* ParserResult.swift */; };
+		535027EE20E1F0590043BFCE /* ParserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027ED20E1F0590043BFCE /* ParserMessage.swift */; };
+		535027F020E1F0A70043BFCE /* Parser+Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027EF20E1F0A70043BFCE /* Parser+Alternative.swift */; };
+		535027F220E1F0CD0043BFCE /* Parser+Labeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027F120E1F0CD0043BFCE /* Parser+Labeling.swift */; };
+		535027F420E1F0F10043BFCE /* Parser+Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027F320E1F0F10043BFCE /* Parser+Monad.swift */; };
+		535027F620E1F1380043BFCE /* Parser+Many.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027F520E1F1380043BFCE /* Parser+Many.swift */; };
+		535027F820E1F15D0043BFCE /* Parser+Try.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027F720E1F15D0043BFCE /* Parser+Try.swift */; };
+		535027FA20E1F1800043BFCE /* Parser+Satisfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027F920E1F1800043BFCE /* Parser+Satisfy.swift */; };
 		535826E61F9495EB0089AD4A /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
 		5358273B1F9497560089AD4A /* CocoaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827341F9497330089AD4A /* CocoaAction.swift */; };
 		5358273C1F9497560089AD4A /* CocoaTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535827311F9497320089AD4A /* CocoaTarget.swift */; };
@@ -551,6 +561,16 @@
 		5343B5F91FCFFEDB00B0BD76 /* Parser+Alternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Alternative.swift"; sourceTree = "<group>"; };
 		5343B5FB1FD0204100B0BD76 /* Parser+Many.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Many.swift"; sourceTree = "<group>"; };
 		5343B5FD1FD0208400B0BD76 /* Parser+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Optional.swift"; sourceTree = "<group>"; };
+		535027E720E1EFEF0043BFCE /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
+		535027E920E1F01E0043BFCE /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		535027EB20E1F03D0043BFCE /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
+		535027ED20E1F0590043BFCE /* ParserMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserMessage.swift; sourceTree = "<group>"; };
+		535027EF20E1F0A70043BFCE /* Parser+Alternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Alternative.swift"; sourceTree = "<group>"; };
+		535027F120E1F0CD0043BFCE /* Parser+Labeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Labeling.swift"; sourceTree = "<group>"; };
+		535027F320E1F0F10043BFCE /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
+		535027F520E1F1380043BFCE /* Parser+Many.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Many.swift"; sourceTree = "<group>"; };
+		535027F720E1F15D0043BFCE /* Parser+Try.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Try.swift"; sourceTree = "<group>"; };
+		535027F920E1F1800043BFCE /* Parser+Satisfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Satisfy.swift"; sourceTree = "<group>"; };
 		535826CF1F9495B00089AD4A /* PaversUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		535827251F9497300089AD4A /* ObjC+RuntimeSubclassing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjC+RuntimeSubclassing.swift"; sourceTree = "<group>"; };
 		535827261F9497300089AD4A /* ObjC+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObjC+Messages.swift"; sourceTree = "<group>"; };
@@ -1509,6 +1529,7 @@
 		537565B320E0D37B0016AF17 /* Parsec2 */ = {
 			isa = PBXGroup;
 			children = (
+				537565BA20E0E44E0016AF17 /* CommonUseParsers.swift */,
 				537565B420E0D3A60016AF17 /* Primitive */,
 			);
 			path = Parsec2;
@@ -1517,8 +1538,17 @@
 		537565B420E0D3A60016AF17 /* Primitive */ = {
 			isa = PBXGroup;
 			children = (
+				535027E920E1F01E0043BFCE /* Parser.swift */,
+				535027EF20E1F0A70043BFCE /* Parser+Alternative.swift */,
+				535027F120E1F0CD0043BFCE /* Parser+Labeling.swift */,
+				535027F520E1F1380043BFCE /* Parser+Many.swift */,
+				535027F320E1F0F10043BFCE /* Parser+Monad.swift */,
+				535027F920E1F1800043BFCE /* Parser+Satisfy.swift */,
+				535027F720E1F15D0043BFCE /* Parser+Try.swift */,
+				535027ED20E1F0590043BFCE /* ParserMessage.swift */,
+				535027EB20E1F03D0043BFCE /* ParserResult.swift */,
+				535027E720E1EFEF0043BFCE /* ParserState.swift */,
 				537565B520E0D3A60016AF17 /* Primitives.swift */,
-				537565BA20E0E44E0016AF17 /* CommonUseParsers.swift */,
 			);
 			path = Primitive;
 			sourceTree = "<group>";
@@ -2379,7 +2409,17 @@
 			files = (
 				537565B620E0D3A60016AF17 /* Primitives.swift in Sources */,
 				537565BB20E0E44E0016AF17 /* CommonUseParsers.swift in Sources */,
+				535027F420E1F0F10043BFCE /* Parser+Monad.swift in Sources */,
+				535027F020E1F0A70043BFCE /* Parser+Alternative.swift in Sources */,
+				535027EA20E1F01E0043BFCE /* Parser.swift in Sources */,
+				535027EC20E1F03D0043BFCE /* ParserResult.swift in Sources */,
+				535027F620E1F1380043BFCE /* Parser+Many.swift in Sources */,
+				535027E820E1EFEF0043BFCE /* ParserState.swift in Sources */,
 				537565B920E0D3B70016AF17 /* Helper.swift in Sources */,
+				535027EE20E1F0590043BFCE /* ParserMessage.swift in Sources */,
+				535027FA20E1F1800043BFCE /* Parser+Satisfy.swift in Sources */,
+				535027F820E1F15D0043BFCE /* Parser+Try.swift in Sources */,
+				535027F220E1F0CD0043BFCE /* Parser+Labeling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

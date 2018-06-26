@@ -30,7 +30,10 @@ class PaversParsec2Tests: XCTestCase {
 //    print(r)
 //    let r = expr.parse("let let_expression")
 //    print(r)
-    print("xxx".startIndex)
+//    print("xxx".startIndex)
+    
+    let r = identifier.parse("abc@")
+    print(r)
     
     
   }

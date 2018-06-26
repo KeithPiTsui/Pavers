@@ -13,9 +13,14 @@ public func >>- <A, B> (_ a: Parser<A>, _ b: Parser<B>) -> Parser<B> {
 }
 
 
-internal let char = {satisfy(curry(==)($0))}
-internal let letter = satisfy(CharacterSet.alphanumerics.contains)
-internal let digit = satisfy(CharacterSet.decimalDigits.contains)
+internal let char =
+  {satisfy(curry(==)($0)) <?> "\($0)" }
+internal let letter =
+  satisfy(CharacterSet.alphanumerics.contains)
+  <?> "letter"
+internal let digit =
+  satisfy(CharacterSet.decimalDigits.contains)
+  <?> "digit"
 internal let whitespace = satisfy(CharacterSet.whitespacesAndNewlines.contains)
 internal let whitespaces = many1(whitespace)
 
@@ -26,11 +31,9 @@ internal func string<S: StringProtocol>(_ s: S) -> Parser<()> {
 }
 
 
-internal func many1<A> (_ a: Parser<A>) -> Parser<[A]> {
-  return a >>- { x in (many1(a) <|> pure([])) >>- {xs in pure([x] + xs)} }
-}
-
-internal let identifier = many1(letter <|> digit <|> char("_"))
+internal let identifier =
+  many1(letter <|> digit <|> char("_"))
+  <?> "identifier"
 
 internal let letExpr = string("let_expression")
 
