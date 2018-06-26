@@ -38,3 +38,16 @@ public func >>- <A, B> (_ a: Parser<A>, _ b: Parser<B>) -> Parser<B> {
 public func >>> <A, B> (_ a: Parser<A>, _ b: Parser<B>) -> Parser<(A, B)> {
   return a >>- {a in b >>- {b in pure((a, b))}}
 }
+
+public func >>> <A, B> (_ a: @escaping () -> Parser<A>, _ b:Parser<B>) -> () -> Parser<(A, B)> {
+  return {a() >>- {a in b >>- {b in pure((a, b))}}}
+}
+
+public func >>> <A, B> (_ a: Parser<A>, _ b: @escaping () -> Parser<B>) -> () -> Parser<(A, B)> {
+  return {a >>- {a in b() >>- {b in pure((a, b))}}}
+}
+
+
+public func >>> <A, B> (_ a: @escaping () -> Parser<A>, _ b: @escaping () -> Parser<B>) -> () -> Parser<(A, B)> {
+  return {a() >>- {a in b() >>- {b in pure((a, b))}}}
+}

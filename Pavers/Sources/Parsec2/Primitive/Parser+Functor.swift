@@ -14,3 +14,14 @@ extension Parser {
     return Parser<B>{ self.parse($0).fmap(f) }
   }
 }
+
+/// fmap :: (a -> b) -> f a -> f b
+public func fmap<A, B>
+  (_ fa: @escaping () -> Parser<A>, _ f: @escaping (A) -> B)
+  -> () -> Parser<B> {
+    return {
+      Parser<B> {
+        fa().parse($0).fmap(f)
+      }
+    }
+}

@@ -61,17 +61,18 @@ public let jstring = (doubleQuoate >>> letters.? >>> doubleQuoate)
 internal let squareBracketFront = char("[")
 internal let squareBracketBack = char("]")
 
-internal let item: Parser<Any> =
+internal let item: () -> Parser<Any> =
   try_(anize(null))
-  <|> try_(anize(number))
-  <|> try_(anize(jstring))
-  <|> try_(anize(bool))
-//  <|> try_(anize({array}))
+    <|> try_(anize(number))
+    <|> try_(anize(jstring))
+    <|> try_(anize(bool))
+    <|> try_(anize({array}))
 
 
 internal let comma = char(",")
-internal let itemCommaList = (item >>> whitespaces >>> many1(comma >>> whitespaces >>> item).?)
-  .fmap{ (parts: (Any, ([Character]?, [(Character, ([Character]?, Any))]?))) -> [Any] in
+internal let itemCommaList: () -> Parser<[Any]> =
+  fmap(item >>> whitespaces >>> many1(comma >>> whitespaces >>> item).?){
+    (parts: (Any, ([Character]?, [(Character, ([Character]?, Any))]?))) -> [Any] in
     let first = parts.0
     if let rest = parts.1.1 {
       let restAnys = rest.map(second).map(second)
@@ -81,9 +82,8 @@ internal let itemCommaList = (item >>> whitespaces >>> many1(comma >>> whitespac
     }
 }
 
-public let array: Parser<[Any]> =
-  (squareBracketFront >>> whitespaces >>> itemCommaList.? >>> whitespaces >>> squareBracketBack)
-    .fmap{ (parts: (Character, ([Character]?, ([Any]?, ([Character]?, Character))))) -> [Any] in
+public let array: () -> Parser<[Any]> =
+  fmap(squareBracketFront >>> whitespaces >>> itemCommaList.? >>> whitespaces >>> squareBracketBack) { (parts: (Character, ([Character]?, ([Any]?, ([Character]?, Character))))) -> [Any] in
       return parts.1.1.0 ?? [] }
 
 
@@ -91,40 +91,48 @@ internal func anize<A> (_ a : @autoclosure () -> Parser<A>) -> Parser<Any> {
   return a().fmap{ (x) -> Any in return x }
 }
 
+internal func anize<A> (_ a : @escaping () -> Parser<A>) -> () -> Parser<Any> {
+  return {a().fmap{ (x) -> Any in return x }}
+}
+
+internal func anize<A> (_ a : @escaping () -> () -> Parser<A>) -> () -> Parser<Any> {
+  return {a()().fmap{ (x) -> Any in return x }}
+}
+
 /// Object
-internal let bracketFront = char("{")
-internal let bracketEnd = char("}")
-internal let key = jstring
-internal let colon = char(":")
-internal let value =
-  try_(anize(null))
-  <|> try_(anize(number))
-  <|> try_(anize(jstring))
-  <|> try_(anize(bool))
-  <|> try_(anize(array))
-  <|> try_(anize(object))
-
-internal let keyValuePair = (key >>> whitespaces >>> colon >>> whitespaces >>> value)
-  .fmap { (parts: (String, ([Character]?, (Character, ([Character]?, Any))))) -> (String, Any) in
-    let k = parts.0
-    let v = parts.1.1.1.1
-    return (k, v)
-}
-
-internal let kvCommaList: Parser<Dictionary<String, Any>> =
-  (keyValuePair >>> whitespaces >>> many1(comma >>> whitespaces >>> keyValuePair).?)
-  .fmap{ (parts: ((String, Any), ([Character]?, [(Character, ([Character]?, (String, Any)))]?))) -> [(String, Any)] in
-    let first = parts.0
-    if let rest = parts.1.1 {
-      let restAnys = rest.map(second).map(second)
-      return [first] + restAnys
-    } else {
-      return [first]
-    }
-  }.fmap(Dictionary.init)
-
-public let object: Parser<Dictionary<String, Any>> =
-  (bracketFront >>> whitespaces >>> kvCommaList.? >>> whitespaces >>> bracketEnd)
-    .fmap { (parts: (Character, ([Character]?, (Dictionary<String, Any>?, ([Character]?, Character))))) -> Dictionary<String, Any> in
-    return parts.1.1.0 ?? [:]
-}
+//internal let bracketFront = char("{")
+//internal let bracketEnd = char("}")
+//internal let key = jstring
+//internal let colon = char(":")
+//internal let value: Parser<Any> =
+//  try_(anize(null))
+//  <|> try_(anize(number))
+//  <|> try_(anize(jstring))
+//  <|> try_(anize(bool))
+//  <|> try_(anize(array))
+//  <|> try_(anize(object))
+//
+//internal let keyValuePair = (key >>> whitespaces >>> colon >>> whitespaces >>> value)
+//  .fmap { (parts: (String, ([Character]?, (Character, ([Character]?, Any))))) -> (String, Any) in
+//    let k = parts.0
+//    let v = parts.1.1.1.1
+//    return (k, v)
+//}
+//
+//internal let kvCommaList: Parser<Dictionary<String, Any>> =
+//  (keyValuePair >>> whitespaces >>> many1(comma >>> whitespaces >>> keyValuePair).?)
+//  .fmap{ (parts: ((String, Any), ([Character]?, [(Character, ([Character]?, (String, Any)))]?))) -> [(String, Any)] in
+//    let first = parts.0
+//    if let rest = parts.1.1 {
+//      let restAnys = rest.map(second).map(second)
+//      return [first] + restAnys
+//    } else {
+//      return [first]
+//    }
+//  }.fmap(Dictionary.init)
+//
+//public let object: Parser<Dictionary<String, Any>> =
+//  (bracketFront >>> whitespaces >>> kvCommaList.? >>> whitespaces >>> bracketEnd)
+//    .fmap { (parts: (Character, ([Character]?, (Dictionary<String, Any>?, ([Character]?, Character))))) -> Dictionary<String, Any> in
+//    return parts.1.1.0 ?? [:]
+//}

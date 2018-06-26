@@ -16,3 +16,13 @@ postfix func .? <A> (_ a: Parser< A>)
   -> Parser<A?> {
     return optionalize(a)
 }
+
+
+public func optionalize<A>(_ a: @escaping () -> Parser<A>) -> () -> Parser<A?> {
+  return {try_(a().fmap(Optional.init)) <|> pure(nil)}
+}
+
+postfix func .? <A> (_ a: @escaping () -> Parser< A>)
+  -> () -> Parser<A?> {
+    return optionalize(a)
+}
