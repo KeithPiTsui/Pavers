@@ -319,6 +319,7 @@
 		53A0C1E21FB430D2001C9A24 /* GuitarBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1D91FB430D2001C9A24 /* GuitarBoolean.swift */; };
 		53A0C1E31FB430D2001C9A24 /* GuitarPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1DA1FB430D2001C9A24 /* GuitarPadding.swift */; };
 		53AA7DD01FB0772600D799A0 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */; };
+		53C1DC1C20E382F200E8F0F0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC1B20E382F200E8F0F0 /* Position.swift */; };
 		53E9326B1FE223F80049B8AD /* PaversObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E932691FE223F80049B8AD /* PaversObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53E932731FE224260049B8AD /* RuntimeModification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932701FE224250049B8AD /* RuntimeModification.swift */; };
 		53E932741FE224260049B8AD /* RuntimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932711FE224260049B8AD /* RuntimeClass.swift */; };
@@ -750,6 +751,7 @@
 		53A0C1D91FB430D2001C9A24 /* GuitarBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarBoolean.swift; sourceTree = "<group>"; };
 		53A0C1DA1FB430D2001C9A24 /* GuitarPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarPadding.swift; sourceTree = "<group>"; };
 		53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
+		53C1DC1B20E382F200E8F0F0 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 		53E932671FE223F80049B8AD /* PaversObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E932691FE223F80049B8AD /* PaversObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversObjc.h; sourceTree = "<group>"; };
@@ -1582,6 +1584,7 @@
 				535027EB20E1F03D0043BFCE /* ParserResult.swift */,
 				535027FF20E1F4080043BFCE /* ParserResult+Functor.swift */,
 				535027E720E1EFEF0043BFCE /* ParserState.swift */,
+				53C1DC1B20E382F200E8F0F0 /* Position.swift */,
 				537565B520E0D3A60016AF17 /* Primitives.swift */,
 			);
 			path = Primitive;
@@ -2459,6 +2462,7 @@
 				5350280020E1F4080043BFCE /* ParserResult+Functor.swift in Sources */,
 				535027F820E1F15D0043BFCE /* Parser+Try.swift in Sources */,
 				5350280820E20EC10043BFCE /* Parser+Optional.swift in Sources */,
+				53C1DC1C20E382F200E8F0F0 /* Position.swift in Sources */,
 				535027F220E1F0CD0043BFCE /* Parser+Labeling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2946,6 +2950,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = "debug-only";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2972,6 +2977,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.PaversParsec2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = "debug-only";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
