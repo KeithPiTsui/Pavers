@@ -324,6 +324,7 @@
 		53C1DC2B20E388F700E8F0F0 /* ParsecMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */; };
 		53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */; };
 		53C1DC3220E388F700E8F0F0 /* ParsecMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 53C1DC2420E388F700E8F0F0 /* ParsecMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E9326B1FE223F80049B8AD /* PaversObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E932691FE223F80049B8AD /* PaversObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53E932731FE224260049B8AD /* RuntimeModification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932701FE224250049B8AD /* RuntimeModification.swift */; };
 		53E932741FE224260049B8AD /* RuntimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932711FE224260049B8AD /* RuntimeClass.swift */; };
@@ -438,6 +439,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 53C1DC2120E388F700E8F0F0;
 			remoteInfo = ParsecMock;
+		};
+		53E6FC7C20E3C5F200DFE5E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
+			remoteInfo = PaversFRP;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -771,6 +779,7 @@
 		53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsecMockTests.swift; sourceTree = "<group>"; };
 		53C1DC3120E388F700E8F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
+		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E932671FE223F80049B8AD /* PaversObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E932691FE223F80049B8AD /* PaversObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversObjc.h; sourceTree = "<group>"; };
 		53E9326A1FE223F80049B8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -937,6 +946,7 @@
 		0E1D07221F4C71D400D9CB38 /* FRP */ = {
 			isa = PBXGroup;
 			children = (
+				53E6FC7920E3C5AF00DFE5E6 /* Extension */,
 				53A0C1D11FB430D2001C9A24 /* Guitar */,
 				53AA7DCE1FB0770700D799A0 /* Sugar */,
 				0E1D07231F4C71D400D9CB38 /* Functional */,
@@ -1720,6 +1730,14 @@
 			path = Parsec;
 			sourceTree = "<group>";
 		};
+		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		53E932681FE223F80049B8AD /* PaversObjc */ = {
 			isa = PBXGroup;
 			children = (
@@ -2039,6 +2057,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				53E6FC7D20E3C5F200DFE5E6 /* PBXTargetDependency */,
 			);
 			name = ParsecMock;
 			productName = ParsecMock;
@@ -2312,6 +2331,7 @@
 				0E1D07811F4C71D500D9CB38 /* Comparator.swift in Sources */,
 				0E1D07B31F4C71D500D9CB38 /* ValidatingProperty.swift in Sources */,
 				0E1D078A1F4C71D500D9CB38 /* LensHolder.swift in Sources */,
+				53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */,
 				0E1D07A91F4C71D500D9CB38 /* Lifetime.swift in Sources */,
 				0E1D077C1F4C71D500D9CB38 /* Array+Functor.swift in Sources */,
 				0E1D07AA1F4C71D500D9CB38 /* Observer.swift in Sources */,
@@ -2739,6 +2759,11 @@
 			isa = PBXTargetDependency;
 			target = 53C1DC2120E388F700E8F0F0 /* ParsecMock */;
 			targetProxy = 53C1DC2C20E388F700E8F0F0 /* PBXContainerItemProxy */;
+		};
+		53E6FC7D20E3C5F200DFE5E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
+			targetProxy = 53E6FC7C20E3C5F200DFE5E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

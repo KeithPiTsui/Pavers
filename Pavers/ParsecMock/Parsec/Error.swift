@@ -157,91 +157,44 @@ public func showErrorMessage(msgOr: String,
                              msgs: [Message]) -> String {
   guard !msgs.isEmpty else {return msgUnknown}
   
+  func clean(_ ss: [String]) -> [String] {
+    return Array(Set(ss.filter{!$0.isEmpty}))
+  }
   
-  let sysUnExpect = msgs.filter(curry((==))(Message.sysUnExpect("")))
-  let unExpect = msgs.filter(curry((==))(Message.unexpect("")))
-  let expect = msgs.filter(curry((==))(Message.expect("")))
+  func seperate(_ seperator: String, _ ss: [String]) -> String {
+    guard !ss.isEmpty else {return ""}
+    guard ss.count > 1 else { return ss[0]}
+    return ss.dropFirst().reduce(ss[0]) { (acc, s) in acc + seperator + s }
+  }
   
+  let commaSep = curry(seperate)(",")
   
-  return ""
+  func commasOr(_ ms: [String]) -> String {
+    guard !ms.isEmpty else {return ""}
+    guard  ms.count > 1 else { return ms[0] }
+    return commaSep( Array(ms.dropLast()) ) + " " + msgOr + " " + ms.last!
+  }
+  
+  /// String -> [Message] -> String
+  func showMany(pre: String, msgs: [Message]) -> String {
+    let ss = clean(msgs.map{$0.message})
+    guard !ss.isEmpty else {return ""}
+    if pre.isEmpty {return commasOr(ss)}
+    else {return pre + " " + commasOr(ss)}
+  }
+  
+  let (sysUnExpect, msgs1) = msgs.span(curry((==))(Message.sysUnExpect("")))
+  let (unExpect, msgs2) = msgs1.span(curry((==))(Message.unexpect("")))
+  let (expect, messages) = msgs2.span(curry((==))(Message.expect("")))
+  let showMessages = showMany(pre: "", msgs: messages)
+  let firstMsg  = sysUnExpect[0].message
+  let showExpect = showMany(pre: msgExpecting, msgs: expect)
+  let showUnExpect = showMany(pre: msgUnexpected, msgs: unExpect)
+  let showSysUnExpect = (!unExpect.isEmpty || sysUnExpect.isEmpty)
+    ? ""
+    : (firstMsg.isEmpty ? msgUnexpected + " " + msgEndOfInput : msgUnexpected + " " + firstMsg)
+  return clean([showSysUnExpect,showUnExpect,showExpect,showMessages])
+    .map{"\n" + $0}
+    .reduce("", +)
 }
-/// String -> [Message] -> String
-private func showMany(pre: String, msgs: [Message], _ msgOr: String) -> String {
-  let ss = clean(msgs.map{$0.message})
-  guard !ss.isEmpty else {return ""}
-  if pre.isEmpty {return commasOr(ss, msgOr)}
-  else {return pre + " " + commasOr(ss, msgOr)}
-}
-
-private func commasOr(_ ms: [String], _ msgOr: String) -> String {
-  guard !ms.isEmpty else {return ""}
-  guard  ms.count > 1 else { return ms[0] }
-  return commaSep( Array(ms.dropLast()) ) + " " + msgOr + " " + ms.last!
-}
-
-private let commaSep = curry(seperate)(",")
-
-private func seperate(_ seperator: String, _ ss: [String]) -> String {
-  guard !ss.isEmpty else {return ""}
-  guard ss.count > 1 else { return ss[0]}
-  return ss.dropFirst().reduce(ss[0]) { (acc, s) in acc + seperator + s }
-}
-
-private func clean(_ ss: [String]) -> [String] {
-  return Array(Set(ss.filter{!$0.isEmpty}))
-}
-
-
-/**
- --  TODO
- -- < The standard function for showing error messages. Formats a list of
- --    error messages in English. This function is used in the |Show|
- --    instance of |ParseError <#ParseError>|. The resulting string will be
- --    formatted like:
- --
- --    |unexpected /{The first UnExpect or a SysUnExpect message}/;
- --    expecting /{comma separated list of Expect messages}/;
- --    /{comma separated list of Message messages}/
- 
- showErrorMessages ::
- String -> String -> String -> String -> String -> [Message] -> String
- showErrorMessages msgOr msgUnknown msgExpecting msgUnExpected msgEndOfInput msgs
- | null msgs = msgUnknown
- | otherwise = concat $ map ("\n"++) $ clean $
- [showSysUnExpect,showUnExpect,showExpect,showMessages]
- where
- (sysUnExpect,msgs1) = span ((SysUnExpect "") ==) msgs
- (unExpect,msgs2)    = span ((UnExpect    "") ==) msgs1
- (expect,messages)   = span ((Expect      "") ==) msgs2
- 
- showExpect      = showMany msgExpecting expect
- showUnExpect    = showMany msgUnExpected unExpect
- showSysUnExpect | not (null unExpect) ||
- null sysUnExpect = ""
- | null firstMsg    = msgUnExpected ++ " " ++ msgEndOfInput
- | otherwise        = msgUnExpected ++ " " ++ firstMsg
- where
- firstMsg  = messageString (head sysUnExpect)
- 
- showMessages      = showMany "" messages
- 
- -- helpers
- showMany pre msgs3 = case clean (map messageString msgs3) of
- [] -> ""
- ms | null pre  -> commasOr ms
- | otherwise -> pre ++ " " ++ commasOr ms
- 
- commasOr []       = ""
- commasOr [m]      = m
- commasOr ms       = commaSep (init ms) ++ " " ++ msgOr ++ " " ++ last ms
- 
- commaSep          = separate ", " . clean
- 
- separate   _ []     = ""
- separate   _ [m]    = m
- separate sep (m:ms) = m ++ sep ++ separate sep ms
- 
- clean             = nub . filter (not . null)
- */
-
 
