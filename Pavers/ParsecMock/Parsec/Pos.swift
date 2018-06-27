@@ -18,6 +18,20 @@ public struct SourcePos {
   let column: Column
 }
 
+extension SourcePos: Equatable {}
+
+extension SourcePos: Comparable {
+  public static func < (lhs: SourcePos, rhs: SourcePos) -> Bool {
+    if lhs.sourceName != rhs.sourceName {
+      return lhs.sourceName < rhs.sourceName
+    } else if lhs.line != rhs.line {
+      return lhs.line < rhs.line
+    } else {
+      return lhs.column < rhs.column
+    }
+  }
+}
+
 extension SourcePos {
   /// Create a new 'SourcePos' with the given source name,
   /// and line number and column number set to 1, the upper left.

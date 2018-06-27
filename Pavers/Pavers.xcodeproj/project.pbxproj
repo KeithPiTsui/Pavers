@@ -318,7 +318,8 @@
 		53A0C1E11FB430D2001C9A24 /* GuitarCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1D81FB430D2001C9A24 /* GuitarCharacter.swift */; };
 		53A0C1E21FB430D2001C9A24 /* GuitarBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1D91FB430D2001C9A24 /* GuitarBoolean.swift */; };
 		53A0C1E31FB430D2001C9A24 /* GuitarPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1DA1FB430D2001C9A24 /* GuitarPadding.swift */; };
-		53A5C1FC20E389A000F00229 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A5C1FB20E389A000F00229 /* Position.swift */; };
+		53A5C1FC20E389A000F00229 /* Pos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A5C1FB20E389A000F00229 /* Pos.swift */; };
+		53A5C1FE20E38A9200F00229 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A5C1FD20E38A9200F00229 /* Error.swift */; };
 		53AA7DD01FB0772600D799A0 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */; };
 		53C1DC2B20E388F700E8F0F0 /* ParsecMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */; };
 		53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */; };
@@ -760,7 +761,8 @@
 		53A0C1D81FB430D2001C9A24 /* GuitarCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarCharacter.swift; sourceTree = "<group>"; };
 		53A0C1D91FB430D2001C9A24 /* GuitarBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarBoolean.swift; sourceTree = "<group>"; };
 		53A0C1DA1FB430D2001C9A24 /* GuitarPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarPadding.swift; sourceTree = "<group>"; };
-		53A5C1FB20E389A000F00229 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		53A5C1FB20E389A000F00229 /* Pos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pos.swift; sourceTree = "<group>"; };
+		53A5C1FD20E38A9200F00229 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 		53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParsecMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C1DC2420E388F700E8F0F0 /* ParsecMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParsecMock.h; sourceTree = "<group>"; };
@@ -1712,7 +1714,8 @@
 		53C1DC3920E3890B00E8F0F0 /* Parsec */ = {
 			isa = PBXGroup;
 			children = (
-				53A5C1FB20E389A000F00229 /* Position.swift */,
+				53A5C1FB20E389A000F00229 /* Pos.swift */,
+				53A5C1FD20E38A9200F00229 /* Error.swift */,
 			);
 			path = Parsec;
 			sourceTree = "<group>";
@@ -2610,7 +2613,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53A5C1FC20E389A000F00229 /* Position.swift in Sources */,
+				53A5C1FE20E38A9200F00229 /* Error.swift in Sources */,
+				53A5C1FC20E389A000F00229 /* Pos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
