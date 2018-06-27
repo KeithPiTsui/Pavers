@@ -318,8 +318,11 @@
 		53A0C1E11FB430D2001C9A24 /* GuitarCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1D81FB430D2001C9A24 /* GuitarCharacter.swift */; };
 		53A0C1E21FB430D2001C9A24 /* GuitarBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1D91FB430D2001C9A24 /* GuitarBoolean.swift */; };
 		53A0C1E31FB430D2001C9A24 /* GuitarPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1DA1FB430D2001C9A24 /* GuitarPadding.swift */; };
+		53A5C1FC20E389A000F00229 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A5C1FB20E389A000F00229 /* Position.swift */; };
 		53AA7DD01FB0772600D799A0 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */; };
-		53C1DC1C20E382F200E8F0F0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC1B20E382F200E8F0F0 /* Position.swift */; };
+		53C1DC2B20E388F700E8F0F0 /* ParsecMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */; };
+		53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */; };
+		53C1DC3220E388F700E8F0F0 /* ParsecMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 53C1DC2420E388F700E8F0F0 /* ParsecMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53E9326B1FE223F80049B8AD /* PaversObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E932691FE223F80049B8AD /* PaversObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53E932731FE224260049B8AD /* RuntimeModification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932701FE224250049B8AD /* RuntimeModification.swift */; };
 		53E932741FE224260049B8AD /* RuntimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932711FE224260049B8AD /* RuntimeClass.swift */; };
@@ -427,6 +430,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
 			remoteInfo = PaversFRP;
+		};
+		53C1DC2C20E388F700E8F0F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53C1DC2120E388F700E8F0F0;
+			remoteInfo = ParsecMock;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -750,8 +760,14 @@
 		53A0C1D81FB430D2001C9A24 /* GuitarCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarCharacter.swift; sourceTree = "<group>"; };
 		53A0C1D91FB430D2001C9A24 /* GuitarBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarBoolean.swift; sourceTree = "<group>"; };
 		53A0C1DA1FB430D2001C9A24 /* GuitarPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarPadding.swift; sourceTree = "<group>"; };
+		53A5C1FB20E389A000F00229 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
-		53C1DC1B20E382F200E8F0F0 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParsecMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C1DC2420E388F700E8F0F0 /* ParsecMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParsecMock.h; sourceTree = "<group>"; };
+		53C1DC2520E388F700E8F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53C1DC2A20E388F700E8F0F0 /* ParsecMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsecMockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsecMockTests.swift; sourceTree = "<group>"; };
+		53C1DC3120E388F700E8F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 		53E932671FE223F80049B8AD /* PaversObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E932691FE223F80049B8AD /* PaversObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversObjc.h; sourceTree = "<group>"; };
@@ -872,6 +888,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				537565A520E0D3650016AF17 /* PaversParsec2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C1DC1F20E388F700E8F0F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C1DC2720E388F700E8F0F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C1DC2B20E388F700E8F0F0 /* ParsecMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1160,6 +1191,8 @@
 				53FE25AA1FF4B5CF00B6CDE1 /* PaversCrypto */,
 				5375659D20E0D3650016AF17 /* PaversParsec2 */,
 				537565A820E0D3650016AF17 /* PaversParsec2Tests */,
+				53C1DC2320E388F700E8F0F0 /* ParsecMock */,
+				53C1DC2E20E388F700E8F0F0 /* ParsecMockTests */,
 				0E89660D1F2C90A000A867E2 /* Frameworks */,
 				0E3D75921F4DC5E700FFD6C3 /* PaversArgo */,
 				0E1D070C1F4C71A900D9CB38 /* PaversFRP */,
@@ -1181,6 +1214,8 @@
 				53FE25A91FF4B5CF00B6CDE1 /* PaversCrypto.framework */,
 				5375659C20E0D3650016AF17 /* PaversParsec2.framework */,
 				537565A420E0D3650016AF17 /* PaversParsec2Tests.xctest */,
+				53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */,
+				53C1DC2A20E388F700E8F0F0 /* ParsecMockTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1584,7 +1619,6 @@
 				535027EB20E1F03D0043BFCE /* ParserResult.swift */,
 				535027FF20E1F4080043BFCE /* ParserResult+Functor.swift */,
 				535027E720E1EFEF0043BFCE /* ParserState.swift */,
-				53C1DC1B20E382F200E8F0F0 /* Position.swift */,
 				537565B520E0D3A60016AF17 /* Primitives.swift */,
 			);
 			path = Primitive;
@@ -1654,6 +1688,33 @@
 				53A0C1691FB42502001C9A24 /* Swizzler.swift */,
 			);
 			path = Sugar;
+			sourceTree = "<group>";
+		};
+		53C1DC2320E388F700E8F0F0 /* ParsecMock */ = {
+			isa = PBXGroup;
+			children = (
+				53C1DC3920E3890B00E8F0F0 /* Parsec */,
+				53C1DC2420E388F700E8F0F0 /* ParsecMock.h */,
+				53C1DC2520E388F700E8F0F0 /* Info.plist */,
+			);
+			path = ParsecMock;
+			sourceTree = "<group>";
+		};
+		53C1DC2E20E388F700E8F0F0 /* ParsecMockTests */ = {
+			isa = PBXGroup;
+			children = (
+				53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */,
+				53C1DC3120E388F700E8F0F0 /* Info.plist */,
+			);
+			path = ParsecMockTests;
+			sourceTree = "<group>";
+		};
+		53C1DC3920E3890B00E8F0F0 /* Parsec */ = {
+			isa = PBXGroup;
+			children = (
+				53A5C1FB20E389A000F00229 /* Position.swift */,
+			);
+			path = Parsec;
 			sourceTree = "<group>";
 		};
 		53E932681FE223F80049B8AD /* PaversObjc */ = {
@@ -1824,6 +1885,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53C1DC1D20E388F700E8F0F0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C1DC3220E388F700E8F0F0 /* ParsecMock.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53E932641FE223F80049B8AD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1955,6 +2024,42 @@
 			productReference = 537565A420E0D3650016AF17 /* PaversParsec2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		53C1DC2120E388F700E8F0F0 /* ParsecMock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53C1DC3320E388F700E8F0F0 /* Build configuration list for PBXNativeTarget "ParsecMock" */;
+			buildPhases = (
+				53C1DC1D20E388F700E8F0F0 /* Headers */,
+				53C1DC1E20E388F700E8F0F0 /* Sources */,
+				53C1DC1F20E388F700E8F0F0 /* Frameworks */,
+				53C1DC2020E388F700E8F0F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParsecMock;
+			productName = ParsecMock;
+			productReference = 53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		53C1DC2920E388F700E8F0F0 /* ParsecMockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53C1DC3620E388F700E8F0F0 /* Build configuration list for PBXNativeTarget "ParsecMockTests" */;
+			buildPhases = (
+				53C1DC2620E388F700E8F0F0 /* Sources */,
+				53C1DC2720E388F700E8F0F0 /* Frameworks */,
+				53C1DC2820E388F700E8F0F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53C1DC2D20E388F700E8F0F0 /* PBXTargetDependency */,
+			);
+			name = ParsecMockTests;
+			productName = ParsecMockTests;
+			productReference = 53C1DC2A20E388F700E8F0F0 /* ParsecMockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		53E932661FE223F80049B8AD /* PaversObjc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53E9326E1FE223F80049B8AD /* Build configuration list for PBXNativeTarget "PaversObjc" */;
@@ -2031,6 +2136,17 @@
 						DevelopmentTeam = 5S4N5M3749;
 						ProvisioningStyle = Automatic;
 					};
+					53C1DC2120E388F700E8F0F0 = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = 5S4N5M3749;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
+					53C1DC2920E388F700E8F0F0 = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = 5S4N5M3749;
+						ProvisioningStyle = Automatic;
+					};
 					53E932661FE223F80049B8AD = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = N37D6JUD58;
@@ -2064,6 +2180,8 @@
 				53FE25A81FF4B5CF00B6CDE1 /* PaversCrypto */,
 				5375659B20E0D3650016AF17 /* PaversParsec2 */,
 				537565A320E0D3650016AF17 /* PaversParsec2Tests */,
+				53C1DC2120E388F700E8F0F0 /* ParsecMock */,
+				53C1DC2920E388F700E8F0F0 /* ParsecMockTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2105,6 +2223,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		537565A220E0D3650016AF17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C1DC2020E388F700E8F0F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C1DC2820E388F700E8F0F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2462,7 +2594,6 @@
 				5350280020E1F4080043BFCE /* ParserResult+Functor.swift in Sources */,
 				535027F820E1F15D0043BFCE /* Parser+Try.swift in Sources */,
 				5350280820E20EC10043BFCE /* Parser+Optional.swift in Sources */,
-				53C1DC1C20E382F200E8F0F0 /* Position.swift in Sources */,
 				535027F220E1F0CD0043BFCE /* Parser+Labeling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2472,6 +2603,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				537565AA20E0D3650016AF17 /* PaversParsec2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C1DC1E20E388F700E8F0F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53A5C1FC20E389A000F00229 /* Position.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53C1DC2620E388F700E8F0F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2583,6 +2730,11 @@
 			isa = PBXTargetDependency;
 			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
 			targetProxy = 537565B720E0D3AF0016AF17 /* PBXContainerItemProxy */;
+		};
+		53C1DC2D20E388F700E8F0F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53C1DC2120E388F700E8F0F0 /* ParsecMock */;
+			targetProxy = 53C1DC2C20E388F700E8F0F0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3027,6 +3179,105 @@
 			};
 			name = Release;
 		};
+		53C1DC3420E388F700E8F0F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecMock/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecMock;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53C1DC3520E388F700E8F0F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecMock/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecMock;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		53C1DC3720E388F700E8F0F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecMockTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecMockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53C1DC3820E388F700E8F0F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecMockTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecMockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		53E9326C1FE223F80049B8AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3194,6 +3445,24 @@
 			buildConfigurations = (
 				537565B120E0D3650016AF17 /* Debug */,
 				537565B220E0D3650016AF17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53C1DC3320E388F700E8F0F0 /* Build configuration list for PBXNativeTarget "ParsecMock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C1DC3420E388F700E8F0F0 /* Debug */,
+				53C1DC3520E388F700E8F0F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53C1DC3620E388F700E8F0F0 /* Build configuration list for PBXNativeTarget "ParsecMockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C1DC3720E388F700E8F0F0 /* Debug */,
+				53C1DC3820E388F700E8F0F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

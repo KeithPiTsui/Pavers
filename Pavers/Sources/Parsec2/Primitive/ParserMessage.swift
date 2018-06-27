@@ -30,3 +30,6 @@ internal func merge (_ a: ParserMessage, _ b: ParserMessage) -> ParserMessage {
                  message: a.message,
                  grammarProductions: a.grammarProductions + b.grammarProductions)
 }
+
+
+

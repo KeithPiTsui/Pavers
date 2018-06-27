@@ -8,11 +8,11 @@
 
 import PaversFRP
 
-//public func char(_ c: Character) -> Parser<Character> {
-//  return satisfy(curry(==)(c))
-//}
-//
-//public func string<S: StringProtocol>(_ s: S) -> Parser<String> {
-//  guard let c = s.first else {return pure("")}
-//  return char(c) >>- { c in string(s.dropFirst()) >>- { cs in pure([c] + cs) } }
-//}
+public func char(_ c: Character) -> Parser<Character> {
+  return satisfy(curry(==)(c))
+}
+
+public func string<S: StringProtocol>(_ s: S) -> Parser<String> {
+  guard let c = s.first else {return pure("")}
+  return char(c) >>- { c in string(s.dropFirst()) >>- { cs in pure([c] + cs) } }
+}
