@@ -31,11 +31,11 @@ public func sysUnExpectError<S, U, A>(_ msg: String, _ pos: SourcePos) -> Reply<
 
 public struct ParsecT<S, U, M, A, B> where M: Monad {
   public let unParser: (ParserState<S, U>)
-    -> ((A) -> (ParserState<S, U>) -> (ParserError) -> TypeAbstraction<M, B>)
-    -> ((ParserError) -> TypeAbstraction<M, B>)
-    -> ((A) -> (ParserState<S, U>) -> (ParserError) -> TypeAbstraction<M, B>)
-    -> ((ParserError) -> TypeAbstraction<M, B>)
-    -> TypeAbstraction<M, B>
+    -> ((A) -> (ParserState<S, U>) -> (ParserError) -> HKT_TypeParameter_Binder<M, B>)
+    -> ((ParserError) -> HKT_TypeParameter_Binder<M, B>)
+    -> ((A) -> (ParserState<S, U>) -> (ParserError) -> HKT_TypeParameter_Binder<M, B>)
+    -> ((ParserError) -> HKT_TypeParameter_Binder<M, B>)
+    -> HKT_TypeParameter_Binder<M, B>
 }
 
 //runParsecT :: Monad m => ParsecT s u m a -> State s u -> m (Consumed (m (Reply s u a)))
@@ -54,4 +54,4 @@ public struct ParsecT<S, U, M, A, B> where M: Monad {
 
 
 
-public typealias Parsec<S, U, A, B> = ParsecT<S, U, Identity<B>, A, B>
+//public typealias Parsec<S, U, A, B: ValueKeeper> = ParsecT<S, U, Identity<B>, A, B>
