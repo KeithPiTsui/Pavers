@@ -210,3 +210,30 @@ public func showErrorMessage(msgOr: String,
     .map{"\n" + $0}
     .reduce("", +)
 }
+
+
+//mergeErrorReply :: ParseError -> Reply s u a -> Reply s u a
+//mergeErrorReply err1 reply -- XXX where to put it?
+//= case reply of
+//Ok x state err2 -> Ok x state (mergeError err1 err2)
+//Error err2      -> Error (mergeError err1 err2)
+
+public func mergeErrorReply<S, U, A>(err1: ParserError, reply: Reply<S, U, A>) -> Reply<S, U, A> {
+  switch reply {
+  case let .ok(x, state, err2): return .ok(x, state, err1.merge(error: err2))
+  case let .error(err2): return .error(err1.merge(error: err2))
+  }
+}
+
+
+//addErrorMessage :: Message -> ParseError -> ParseError
+//addErrorMessage msg (ParseError pos msgs)
+//= ParseError pos (msg:msgs)
+
+public func addErrorMessage(msg: Message, e: ParserError) -> ParserError {
+  return ParserError(pos: e.pos, msgs: e.msgs + [msg])
+}
+
+public func addErrorMessage_(e: ParserError, msg: Message) -> ParserError {
+  return ParserError(pos: e.pos, msgs: e.msgs + [msg])
+}

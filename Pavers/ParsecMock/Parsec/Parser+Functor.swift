@@ -7,9 +7,8 @@
 //
 
 import PaversFRP
-//public struct Parser<S, U, A> {
-//  public let unParser: (ParserState<S, U>) -> ParserResult<Reply<S, U, A>>
-//}
+
+
 extension Parser {
   /// fmap :: (a -> b) -> f a -> f b
   public func fmap<B>(_ f: @escaping (A) -> B ) -> Parser<S, U, B>  {

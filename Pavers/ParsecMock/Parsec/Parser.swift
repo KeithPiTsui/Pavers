@@ -23,6 +23,73 @@ public struct Parser<S, U, A> {
 }
 
 
+//parserFail :: String -> ParsecT s u m a
+//parserFail msg
+//= ParsecT $ \s _ _ _ eerr ->
+//eerr $ newErrorMessage (Message msg) (statePos s)
+
+public func parserFail<S, U, A>(msg: String) -> Parser<S, U, A> {
+  return Parser{ state in
+    .empty(.error( ParserError(newErrorWith: Message.message(msg), pos: state.statePos) ))
+  }
+}
+
+//parserZero :: ParsecT s u m a
+//parserZero
+//= ParsecT $ \s _ _ _ eerr ->
+//eerr $ unknownError s
+
+public func parserZero<S, U, A> () -> Parser<S, U, A> {
+  return Parser{ state in
+    .empty(.error( ParserError(unknownErrorWith: state.statePos) ))
+  }
+}
+
+//parserPlus :: ParsecT s u m a -> ParsecT s u m a -> ParsecT s u m a
+//{-# INLINE parserPlus #-}
+//parserPlus m n
+//  = ParsecT $ \s cok cerr eok eerr ->
+//let
+//meerr err =
+//let
+//neok y s' err' = eok y s' (mergeError err err')
+//neerr err' = eerr $ mergeError err err'
+//in unParser n s cok cerr neok neerr
+//in unParser m s cok cerr eok meerr
+
+//public func parserPlus <S, U, A>
+//  (m: Parser<S, U, A>, n: Parser<S, U, A>)
+//  -> Parser<S, U, A> {
+//    return Parser<S, U, A> { state in
+//      let r1 = n.unParser(state)
+//      let r2 = m.unParser(state)
+//
+//
+//
+//      return r2
+//    }
+//}
+
+//labels :: ParsecT s u m a -> [String] -> ParsecT s u m a
+//labels p msgs =
+//ParsecT $ \s cok cerr eok eerr ->
+//let eok' x s' error = eok x s' $ if errorIsUnknown error
+//then error
+//else setExpectErrors error msgs
+//eerr' err = eerr $ setExpectErrors err msgs
+//
+//in unParser p s cok cerr eok' eerr'
+//
+//where
+//setExpectErrors err []         = setErrorMessage (Expect "") err
+//setExpectErrors err [msg]      = setErrorMessage (Expect msg) err
+//setExpectErrors err (msg:msgs)
+//= foldr (\msg' err' -> addErrorMessage (Expect msg') err')
+//(setErrorMessage (Expect msg) err) msgs
+
+
+
+
 //parserReturn :: a -> ParsecT s u m a
 //parserReturn x
 //= ParsecT $ \s _ _ eok _ ->
@@ -69,3 +136,49 @@ public struct Parser<S, U, A> {
 //
 //
 //}
+
+
+//lookAhead :: (Stream s m t) => ParsecT s u m a -> ParsecT s u m a
+//lookAhead p =
+//ParsecT $ \s _ cerr eok eerr -> do
+//let eok' a _ _ = eok a s (newErrorUnknown (statePos s))
+//unParser p s eok' cerr eok' eerr
+
+
+public func lookAhead<S, U, A>(p: Parser<S, U, A>) -> Parser<S, U, A> {
+  return Parser<S, U, A> { state in
+    switch p.unParser(state) {
+    case .consumed(let reply):
+      switch reply {
+      case let .ok(a, _, _):
+        return .empty(.ok(a, state, ParserError(unknownErrorWith: state.statePos)))
+      case let otherwise: return .consumed(otherwise)
+      }
+    case .empty(let reply):
+      switch reply {
+      case let .ok(a, _, _):
+        return .empty(.ok(a, state, ParserError(unknownErrorWith: state.statePos)))
+      case let otherwise: return .empty(otherwise)
+      }
+    }
+  }
+}
+
+
+//
+//manyAccum :: (a -> [a] -> [a])
+//-> ParsecT s u m a
+//-> ParsecT s u m [a]
+//manyAccum acc p =
+//ParsecT $ \s cok cerr eok _eerr ->
+//  [a] -> a -> State s u -> ParseError -> m b
+//let walk xs x s' _err =
+//unParser p s'
+//(seq xs $ walk $ acc x xs)  -- consumed-ok
+//cerr                        -- consumed-err
+//manyErr                     -- empty-ok
+//(\e -> cok (acc x xs) s' e) -- empty-err
+//  in unParser p s (walk []) cerr manyErr (\e -> eok [] s e)
+//
+//manyErr :: a
+//manyErr = error "Text.ParserCombinators.Parsec.Prim.many: combinator 'many' is applied to a parser that accepts an empty string."

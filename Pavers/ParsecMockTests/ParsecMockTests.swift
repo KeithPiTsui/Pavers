@@ -22,8 +22,13 @@ class ParsecMockTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      let l = "123".list
+      for _ in 1...3 {
+      for c in l {
+        print(c)
+      }
+      }
+      
     }
     
     func testPerformanceExample() {
