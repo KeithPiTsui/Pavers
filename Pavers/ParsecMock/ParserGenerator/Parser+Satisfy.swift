@@ -80,6 +80,30 @@ public func satisfy<U>(_ test: @escaping (Character) -> Bool)
     }
 }
 
+public func satisfy<S,U,A>(_ test: @escaping (A) -> Bool)
+  -> Parser<S, U, A> where S: ParserStream, S.Element == A {
+    return Parser{
+      let input = $0.stateInput
+      let pos = $0.statePos
+
+      guard let first = input.first() else {
+        return .empty(.error(
+          ParserError(newErrorWith: Message.message("end of input"), pos: pos)))
+      }
+      guard test(first) else {
+        return .empty(.error(
+          ParserError(newErrorWith: Message.message("\(first)"), pos: pos)))
+      }
+      let newPos = pos.incPos()
+      let newState = ParserState(stateInput: input.droppingFirst(),
+                                 statePos: newPos,
+                                 stateUser: $0.stateUser)
+      return ParserResult<Reply<S, U, A>>
+        .consumed(Reply<S, U, A>
+          .ok(first, newState, ParserError(newErrorWith: Message.message(""), pos: pos)))
+    }
+}
+
 public func char<U>(_ c: Character) -> Parser<String, U, Character> {
   return satisfy(curry(==)(c))
 }

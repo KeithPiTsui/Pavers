@@ -84,7 +84,6 @@ extension SourcePos {
     return s.reduce(self) { $0.update(PosBy: $1) }
   }
   
-  
   /// Update a source position given a character. If the character is a
   /// newline (\'\\n\') or carriage return (\'\\r\') the line number is
   /// incremented by 1. If the character is a tab (\'\t\') the column
@@ -106,6 +105,12 @@ extension SourcePos {
                        line: self.line,
                        column: self.column + 1)
     }
+  }
+  
+  func incPos() -> SourcePos {
+    return SourcePos(sourceName: self.sourceName,
+                     line: self.line,
+                     column: self.column + 1)
   }
 }
 
