@@ -149,6 +149,13 @@ extension ParserError {
   }
 }
 
+extension ParserError: Semigroup {
+  public func op(_ other: ParserError) -> ParserError {
+    return self.merge(error: other)
+  }
+}
+
+
 extension ParserError: CustomStringConvertible {
   public var description: String {
     return "\(self.pos): "

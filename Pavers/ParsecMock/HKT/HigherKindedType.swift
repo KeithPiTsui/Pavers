@@ -13,6 +13,7 @@ import PaversFRP
 public struct HKT_TypeParameter_Binder <HKTValueKeeper, HKTArgumentType> {
   let valueKeeper: HKTValueKeeper
 }
+public typealias HKT<F, A> = HKT_TypeParameter_Binder <F, A>
 
 /// A protocol all type constructors must conform to.
 /// * -> *
@@ -40,8 +41,6 @@ extension HKTConstructor {
 /// fmap :: (a -> b) -> f a -> f b
 public protocol Functor: HKTConstructor {
   typealias F = HKTValueKeeper
-  typealias HKT<F, A> = HKT_TypeParameter_Binder<F, A>
-  
   static func fmap<B>(f: (A) -> B, fa: HKT<F, A>) -> HKT<F, B>
 }
 
