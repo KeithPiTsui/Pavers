@@ -6,8 +6,6 @@
 //  Copyright © 2018 Keith. All rights reserved.
 //
 
-import Foundation
-
 //public func curry<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X>
 //  (_ function: @escaping (X, W, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U) -> V)
 //  -> (X) -> (W) -> (A) -> (B) -> (C) -> (D) -> (E) -> (F) -> (G) -> (H) -> (I) -> (J) -> (K) -> (L) -> (M) -> (N) -> (O) -> (P) -> (Q) -> (R) -> (S) -> (T) -> (U) -> V {

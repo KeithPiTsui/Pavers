@@ -130,7 +130,7 @@ class PaversParsec2Tests: XCTestCase {
   
   func testNSJSONSerialization() {
     self.measure {
-      for i in 1 ... 1 {
+      for _ in 1 ... 1 {
           _ = try? JSONSerialization.jsonObject(with: self.json.data(using: .utf8)!,
                                                           options:JSONSerialization.ReadingOptions(rawValue: 0))
       }
@@ -139,7 +139,7 @@ class PaversParsec2Tests: XCTestCase {
   
   func testParsecJSON() {
     self.measure {
-      for i in 1 ... 1 {
+      for _ in 1 ... 1 {
         _ = object().parse(ParserState.init(stringLiteral: self.json))
       }
     }

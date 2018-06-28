@@ -126,6 +126,9 @@
 		0EEF281B1F4DA0FA001EF8C5 /* WrapInOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */; };
 		53176CE51FAC25E0007ECE9C /* ValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */; };
 		531ADA3C200761E90081BC43 /* Curry2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531ADA3B200761E90081BC43 /* Curry2.swift */; };
+		531D50F220E47C5100028394 /* HigherKindedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D50F120E47C5100028394 /* HigherKindedType.swift */; };
+		531D50F420E47E3100028394 /* HKT+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D50F320E47E3100028394 /* HKT+Array.swift */; };
+		531D50F820E4837100028394 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D50F720E4837100028394 /* Identity.swift */; };
 		5343B5D81FCFF44400B0BD76 /* PaversParsec.h in Headers */ = {isa = PBXBuildFile; fileRef = 5343B5D61FCFF44400B0BD76 /* PaversParsec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5343B5F01FCFF4B500B0BD76 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343B5ED1FCFF4B500B0BD76 /* Helper.swift */; };
 		5343B5F21FCFF55B00B0BD76 /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
@@ -325,6 +328,9 @@
 		53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */; };
 		53C1DC3220E388F700E8F0F0 /* ParsecMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 53C1DC2420E388F700E8F0F0 /* ParsecMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
+		53E6FC7F20E3D00200DFE5E6 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* State.swift */; };
+		53E6FC8120E3D06300DFE5E6 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Primitive.swift */; };
+		53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */; };
 		53E9326B1FE223F80049B8AD /* PaversObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E932691FE223F80049B8AD /* PaversObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53E932731FE224260049B8AD /* RuntimeModification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932701FE224250049B8AD /* RuntimeModification.swift */; };
 		53E932741FE224260049B8AD /* RuntimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932711FE224260049B8AD /* RuntimeClass.swift */; };
@@ -575,6 +581,9 @@
 		0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapInOptional.swift; sourceTree = "<group>"; };
 		53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueExtensions.swift; sourceTree = "<group>"; };
 		531ADA3B200761E90081BC43 /* Curry2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry2.swift; sourceTree = "<group>"; };
+		531D50F120E47C5100028394 /* HigherKindedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherKindedType.swift; sourceTree = "<group>"; };
+		531D50F320E47E3100028394 /* HKT+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKT+Array.swift"; sourceTree = "<group>"; };
+		531D50F720E4837100028394 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		531D6CD11FD102A500BC84A2 /* Arithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arithmetic.swift; sourceTree = "<group>"; };
 		5343B5D41FCFF44400B0BD76 /* PaversParsec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversParsec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5343B5D61FCFF44400B0BD76 /* PaversParsec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversParsec.h; sourceTree = "<group>"; };
@@ -780,6 +789,9 @@
 		53C1DC3120E388F700E8F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		53E6FC7E20E3D00200DFE5E6 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		53E6FC8020E3D06300DFE5E6 /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
+		53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
 		53E932671FE223F80049B8AD /* PaversObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E932691FE223F80049B8AD /* PaversObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversObjc.h; sourceTree = "<group>"; };
 		53E9326A1FE223F80049B8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1726,6 +1738,12 @@
 			children = (
 				53A5C1FB20E389A000F00229 /* Pos.swift */,
 				53A5C1FD20E38A9200F00229 /* Error.swift */,
+				531D50F720E4837100028394 /* Identity.swift */,
+				53E6FC8020E3D06300DFE5E6 /* Primitive.swift */,
+				53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */,
+				53E6FC7E20E3D00200DFE5E6 /* State.swift */,
+				531D50F120E47C5100028394 /* HigherKindedType.swift */,
+				531D50F320E47E3100028394 /* HKT+Array.swift */,
 			);
 			path = Parsec;
 			sourceTree = "<group>";
@@ -2125,7 +2143,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Keith;
 				TargetAttributes = {
 					0E1D070A1F4C71A900D9CB38 = {
@@ -2635,6 +2653,12 @@
 			files = (
 				53A5C1FE20E38A9200F00229 /* Error.swift in Sources */,
 				53A5C1FC20E389A000F00229 /* Pos.swift in Sources */,
+				53E6FC7F20E3D00200DFE5E6 /* State.swift in Sources */,
+				531D50F820E4837100028394 /* Identity.swift in Sources */,
+				531D50F220E47C5100028394 /* HigherKindedType.swift in Sources */,
+				531D50F420E47E3100028394 /* HKT+Array.swift in Sources */,
+				53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */,
+				53E6FC8120E3D06300DFE5E6 /* Primitive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3114,7 +3138,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5S4N5M3749;
@@ -3143,7 +3167,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5S4N5M3749;
@@ -3215,7 +3239,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5S4N5M3749;
@@ -3244,7 +3268,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5S4N5M3749;

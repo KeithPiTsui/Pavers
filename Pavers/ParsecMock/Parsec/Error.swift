@@ -105,6 +105,12 @@ extension ParserError {
     self.msgs = []
   }
   
+  public init(newErrorWith msg: Message, pos: SourcePos) {
+    self.pos = pos
+    self.msgs = [msg]
+  }
+  
+  
   public func add(error: Message) -> ParserError {
     return ParserError(pos: self.pos, msgs: self.msgs + [error])
   }
@@ -197,4 +203,3 @@ public func showErrorMessage(msgOr: String,
     .map{"\n" + $0}
     .reduce("", +)
 }
-
