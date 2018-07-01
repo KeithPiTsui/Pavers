@@ -182,3 +182,4 @@ public func lookAhead<S, U, A>(p: Parser<S, U, A>) -> Parser<S, U, A> {
 //
 //manyErr :: a
 //manyErr = error "Text.ParserCombinators.Parsec.Prim.many: combinator 'many' is applied to a parser that accepts an empty string."
+

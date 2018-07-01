@@ -297,6 +297,9 @@
 		538357EC1FDA364300F3F238 /* BundleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1B71FB42926001C9A24 /* BundleType.swift */; };
 		538358101FDA3E1300F3F238 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5383580F1FDA3E1300F3F238 /* Reachability.swift */; };
 		538F7F5D1FFB61C200806E84 /* DateFormat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F7F5C1FFB61C100806E84 /* DateFormat+Extension.swift */; };
+		5390FE9320E6285F00D396EA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5390FE9220E6285F00D396EA /* Token.swift */; };
+		5390FE9520E6287900D396EA /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5390FE9420E6287900D396EA /* Tokens.swift */; };
+		5390FE9720E6288400D396EA /* TokenPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5390FE9620E6288400D396EA /* TokenPrimitive.swift */; };
 		53A0C1681FB424AA001C9A24 /* OptionalComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */; };
 		53A0C16A1FB42502001C9A24 /* Swizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1691FB42502001C9A24 /* Swizzler.swift */; };
 		53A0C1851FB425CF001C9A24 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */; };
@@ -332,6 +335,7 @@
 		53A5C1FC20E389A000F00229 /* SourcePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A5C1FB20E389A000F00229 /* SourcePosition.swift */; };
 		53A5C1FE20E38A9200F00229 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A5C1FD20E38A9200F00229 /* ParserError.swift */; };
 		53AA7DD01FB0772600D799A0 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */; };
+		53BA8CB020E90616000C7BF6 /* RunParsec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA8CAF20E90616000C7BF6 /* RunParsec.swift */; };
 		53C1DC2B20E388F700E8F0F0 /* ParsecMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */; };
 		53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */; };
 		53C1DC3220E388F700E8F0F0 /* ParsecMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 53C1DC2420E388F700E8F0F0 /* ParsecMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -761,6 +765,9 @@
 		538358151FDA74C200F3F238 /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
 		538358171FDA74ED00F3F238 /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
 		538F7F5C1FFB61C100806E84 /* DateFormat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormat+Extension.swift"; sourceTree = "<group>"; };
+		5390FE9220E6285F00D396EA /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		5390FE9420E6287900D396EA /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
+		5390FE9620E6288400D396EA /* TokenPrimitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenPrimitive.swift; sourceTree = "<group>"; };
 		53A0C1671FB424AA001C9A24 /* OptionalComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalComparison.swift; sourceTree = "<group>"; };
 		53A0C1691FB42502001C9A24 /* Swizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzler.swift; sourceTree = "<group>"; };
 		53A0C1841FB425CF001C9A24 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
@@ -797,6 +804,7 @@
 		53A5C1FB20E389A000F00229 /* SourcePosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePosition.swift; sourceTree = "<group>"; };
 		53A5C1FD20E38A9200F00229 /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
 		53AA7DCF1FB0772600D799A0 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
+		53BA8CAF20E90616000C7BF6 /* RunParsec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunParsec.swift; sourceTree = "<group>"; };
 		53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParsecMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C1DC2420E388F700E8F0F0 /* ParsecMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParsecMock.h; sourceTree = "<group>"; };
 		53C1DC2520E388F700E8F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1328,6 +1336,7 @@
 			isa = PBXGroup;
 			children = (
 				531D50F120E47C5100028394 /* HigherKindedType.swift */,
+				53BA8CAF20E90616000C7BF6 /* RunParsec.swift */,
 				531D50F320E47E3100028394 /* HKT+Array.swift */,
 				531D50F720E4837100028394 /* Identity.swift */,
 			);
@@ -1784,6 +1793,9 @@
 				53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */,
 				53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */,
 				53A5C1FB20E389A000F00229 /* SourcePosition.swift */,
+				5390FE9220E6285F00D396EA /* Token.swift */,
+				5390FE9620E6288400D396EA /* TokenPrimitive.swift */,
+				5390FE9420E6287900D396EA /* Tokens.swift */,
 			);
 			path = Parsec;
 			sourceTree = "<group>";
@@ -2691,6 +2703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53A5C1FE20E38A9200F00229 /* ParserError.swift in Sources */,
+				5390FE9520E6287900D396EA /* Tokens.swift in Sources */,
 				531D510320E4C0CC00028394 /* Parser+Optional.swift in Sources */,
 				531D510720E4C18E00028394 /* Parser+Monad.swift in Sources */,
 				531D50FD20E4BDDB00028394 /* Parser+Applicative.swift in Sources */,
@@ -2699,12 +2712,15 @@
 				531D510920E4C25600028394 /* Parser+Labeling.swift in Sources */,
 				53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */,
 				531D50F820E4837100028394 /* Identity.swift in Sources */,
+				53BA8CB020E90616000C7BF6 /* RunParsec.swift in Sources */,
+				5390FE9320E6285F00D396EA /* Token.swift in Sources */,
 				531D510520E4C14600028394 /* Parser+Many.swift in Sources */,
 				531D50F220E47C5100028394 /* HigherKindedType.swift in Sources */,
 				531D510B20E4C2E200028394 /* Parser+Satisfy.swift in Sources */,
 				531D50F420E47E3100028394 /* HKT+Array.swift in Sources */,
 				53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */,
 				531D50FF20E4BED900028394 /* Parser+Alternative.swift in Sources */,
+				5390FE9720E6288400D396EA /* TokenPrimitive.swift in Sources */,
 				531D510120E4C07D00028394 /* Parser+Try.swift in Sources */,
 				53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */,
 			);
