@@ -29,6 +29,4 @@ extension String: ParserStream {
   public func droppingFirst() -> String {
     return String(self.dropFirst())
   }
-  
-  
 }

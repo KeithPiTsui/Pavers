@@ -19,33 +19,33 @@ import Foundation
 //eok a s' err = return . Empty . return $ Ok a s' err
 //eerr err = return . Empty . return $ Error err
 
-public func runParsecT <S, U, A, M:Monad>
-  (_ p: Parser<S, U, A>, _ s: ParserState<S, U>, _ dummy: M) ->
-  HKT_TypeParameter_Binder<M.HKTValueKeeper, ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, Reply<S, U, A>>>> {
-    switch p.unParser(s) {
-    case .consumed(let reply):
-      switch reply {
-      case let .ok(x, s_, e):
-        let ok: Reply<S, U, A> = Reply<S, U, A>.ok(x, s_, e)
-
-        // mok: HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>
-        // M.A == Reply<S, U, A>
-        let mok = M.return(ok as! M.A)
-
-        // cok : ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>>
-        let cok = ParserResult.consumed(mok)
-
-        // mcok: HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>
-        // M.A = ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>>
-        let mcok = M.return(cok as! M.A)
-
-        // Error: Cannot convert
-        // HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>
-        // into
-        // HKT_TypeParameter_Binder<M.HKTValueKeeper, ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, Reply<S, U, A>>>>
-        return mcok
-      case let .error(e): fatalError("left to implement")
-      }
-    case .empty(let reply): fatalError("left to implement")
-    }
-}
+//public func runParsecT <S, U, A, M:Monad>
+//  (_ p: Parser<S, U, A>, _ s: ParserState<S, U>, _ dummy: M) ->
+//  HKT_TypeParameter_Binder<M.HKTValueKeeper, ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, Reply<S, U, A>>>> {
+//    switch p.unParser(s) {
+//    case .consumed(let reply):
+//      switch reply {
+//      case let .ok(x, s_, e):
+//        let ok: Reply<S, U, A> = Reply<S, U, A>.ok(x, s_, e)
+//
+//        // mok: HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>
+//        // M.A == Reply<S, U, A>
+//        let mok = M.return(ok as! M.A)
+//
+//        // cok : ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>>
+//        let cok = ParserResult.consumed(mok)
+//
+//        // mcok: HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>
+//        // M.A = ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>>
+//        let mcok = M.return(cok as! M.A)
+//
+//        // Error: Cannot convert
+//        // HKT_TypeParameter_Binder<M.HKTValueKeeper, M.A>
+//        // into
+//        // HKT_TypeParameter_Binder<M.HKTValueKeeper, ParserResult<HKT_TypeParameter_Binder<M.HKTValueKeeper, Reply<S, U, A>>>>
+//        return mcok
+//      case let .error(e): fatalError("left to implement")
+//      }
+//    case .empty(let reply): fatalError("left to implement")
+//    }
+//}

@@ -8,7 +8,7 @@
 
 import PaversFRP
 public func many1<S,U,A> (_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
-  return a >>- { x in (many1(a) <|> pure([])) >>- {xs in pure([x] + xs)} }
+  return a >>- { x in many(a) >>- {xs in pure([x] + xs)} }
 }
 
 public func many1<S, U, A> (_ a: @escaping () -> Parser<S, U, A>) -> () -> Parser<S, U, [A]> {
