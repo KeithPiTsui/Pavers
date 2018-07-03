@@ -297,40 +297,68 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     }
     
     func hexadecimal() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      return oneOf("xX".chars) >>- {_ in number(16, hexDigit())}
     }
     
     func octal() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      return oneOf("xX".chars) >>- {_ in number(16, octDigit())}
     }
     
     func number(_ base: Int, _ baseDigit: Parser<S, U, Character>) -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, [Character]> = many1(baseDigit)
+      func f(_ x: Int, _ d: Character) -> Int {
+        return base * x + Int("\(d)")!
+      }
+      return a >>- {(digits: [Character]) -> Parser<S, U, Int> in
+        let n = digits.reduce(0, f)
+        return pure(n)
+      }
     }
     
     func reservedOp(_ name: String) -> Parser<S, U, ()> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, String> = string(name)
+      let b = a >>- {_ in notFollowedBy(languageDef.opLetter) <?> "end of \(name)"}
+      return lexeme(try_(b))
     }
     
     func `operator`() -> Parser<S, U, [Character]> {
-      fatalError("Not implemented yet")
+      let a = oper() >>- {(name: [Character]) -> Parser<S, U, [Character]> in
+        isReservedOp(String(name)) ? unexpected("reserved operator \(name)") : pure(name) }
+      return lexeme(try_(a))
     }
     
     
     func oper() -> Parser<S, U, [Character]> {
-      fatalError("Not implemented yet")
+      return languageDef.opStart >>- { (c: Character) in
+        many(languageDef.opLetter) >>- { (cs: [Character]) in
+          return pure([c] + cs)
+        }
+      }
     }
     
     func isReservedOp(_ name: String) -> Bool {
-      fatalError("Not implemented yet")
+      return isReserved(languageDef.reservedOpNames.sorted(), name)
     }
     
     func reserved(_ name: String) -> Parser<S, U, ()> {
-      fatalError("Not implemented yet")
+      let a = caseString(name)
+      let b = a >>- {_ in
+        notFollowedBy(languageDef.identLetter) <?> "end of \(name)"
+      }
+      return lexeme(try_(b))
     }
     
     func caseString(_ name: String) -> Parser<S, U, String> {
-      fatalError("Not implemented yet")
+      guard !languageDef.caseSensitive else {return string(name)}
+      func walk(_ cs: [Character]) -> Parser<S, U, ()> {
+        guard let c = cs.first else {return pure(())}
+        return (caseChar(c) <?> name) >>- {_ in walk(Array(cs.dropFirst()))}
+      }
+      func caseChar(_ c: Character) -> Parser<S, U, Character> {
+        guard CharacterSet.letters.contains(c) else {return char(c)}
+        return char("\(c)".lowercased().chars[0]) <|> char("\(c)".uppercased().chars[0])
+      }
+      return walk(name.chars) >>- {_ in pure(name)}
     }
     
     func identifier() -> Parser<S, U, [Character]> {
