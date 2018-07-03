@@ -1433,19 +1433,19 @@
 		5357035220EA0D7200568D3F /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				5394D9F120EA0DBA00694145 /* Parser+Functor.swift */,
-				53A5C1FB20E389A000F00229 /* SourcePosition.swift */,
-				53A5C1FD20E38A9200F00229 /* ParserError.swift */,
 				53E6FC8020E3D06300DFE5E6 /* Parser.swift */,
 				531D50FE20E4BED900028394 /* Parser+Alternative.swift */,
 				531D50FC20E4BDDB00028394 /* Parser+Applicative.swift */,
+				5394D9F120EA0DBA00694145 /* Parser+Functor.swift */,
 				531D510820E4C25600028394 /* Parser+Labeling.swift */,
 				531D510420E4C14600028394 /* Parser+Many.swift */,
 				531D510620E4C18E00028394 /* Parser+Monad.swift */,
 				531D510220E4C0CC00028394 /* Parser+Optional.swift */,
 				531D510020E4C07D00028394 /* Parser+Try.swift */,
+				53A5C1FD20E38A9200F00229 /* ParserError.swift */,
 				53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */,
 				53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */,
+				53A5C1FB20E389A000F00229 /* SourcePosition.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";

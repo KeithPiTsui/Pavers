@@ -18,6 +18,28 @@ public func sysUnExpectError<S, U, A>(_ msg: String, _ pos: SourcePos) -> Reply<
                        pos: pos))
 }
 
+//parserFail :: String -> ParsecT s u m a
+//parserFail msg
+//= ParsecT $ \s _ _ _ eerr ->
+//eerr $ newErrorMessage (Message msg) (statePos s)
+public func parserFail<S, U, A>(_ msg: String) -> Parser<S, U, A> {
+  return Parser<S, U, A> { state in
+    return ParserResult.empty(Reply.error(ParserError(newErrorWith: Message.message(msg), pos: state.statePos)))
+  }
+}
+
+//unexpected :: (Stream s m t) => String -> ParsecT s u m a
+//unexpected msg
+//= ParsecT $ \s _ _ _ eerr ->
+//eerr $ newErrorMessage (UnExpect msg) (statePos s)
+public func unexpected<S, U, A> (_ msg: String) -> Parser<S, U, A> {
+  return Parser<S,U,A> { state in
+    return ParserResult.empty(Reply.error(ParserError.init(newErrorWith: Message.unexpect(msg), pos: state.statePos)))
+  }
+}
+
+
+
 public struct Parser<S, U, A> {
   public let unParser: (ParserState<S, U>) -> ParserResult<Reply<S, U, A>>
 }
