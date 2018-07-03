@@ -124,6 +124,7 @@
 		0EEF28191F4DA0FA001EF8C5 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FC1F4DA0FA001EF8C5 /* Values.swift */; };
 		0EEF281A1F4DA0FA001EF8C5 /* WithLatestFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */; };
 		0EEF281B1F4DA0FA001EF8C5 /* WrapInOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */; };
+		531118B620EB178900E11C2E /* MakeTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531118B520EB178900E11C2E /* MakeTokenParser.swift */; };
 		53176CE51FAC25E0007ECE9C /* ValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */; };
 		531ADA3C200761E90081BC43 /* Curry2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531ADA3B200761E90081BC43 /* Curry2.swift */; };
 		531D50F220E47C5100028394 /* HigherKindedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D50F120E47C5100028394 /* HigherKindedType.swift */; };
@@ -597,6 +598,7 @@
 		0EEF27FC1F4DA0FA001EF8C5 /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		0EEF27FD1F4DA0FA001EF8C5 /* WithLatestFrom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithLatestFrom.swift; sourceTree = "<group>"; };
 		0EEF27FE1F4DA0FA001EF8C5 /* WrapInOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapInOptional.swift; sourceTree = "<group>"; };
+		531118B520EB178900E11C2E /* MakeTokenParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTokenParser.swift; sourceTree = "<group>"; };
 		53176CE41FAC25E0007ECE9C /* ValueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueExtensions.swift; sourceTree = "<group>"; };
 		531ADA3B200761E90081BC43 /* Curry2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curry2.swift; sourceTree = "<group>"; };
 		531D50F120E47C5100028394 /* HigherKindedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigherKindedType.swift; sourceTree = "<group>"; };
@@ -1728,6 +1730,7 @@
 			isa = PBXGroup;
 			children = (
 				5390FE9220E6285F00D396EA /* Token.swift */,
+				531118B520EB178900E11C2E /* MakeTokenParser.swift */,
 				5357035020EA0D6D00568D3F /* GenTokenParser.swift */,
 				5390FE9620E6288400D396EA /* TokenPrimitive.swift */,
 				5390FE9420E6287900D396EA /* Tokens.swift */,
@@ -2754,6 +2757,7 @@
 				531D510B20E4C2E200028394 /* Parser+Satisfy.swift in Sources */,
 				531D50F420E47E3100028394 /* HKT+Array.swift in Sources */,
 				53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */,
+				531118B620EB178900E11C2E /* MakeTokenParser.swift in Sources */,
 				531D50FF20E4BED900028394 /* Parser+Alternative.swift in Sources */,
 				5394D9F820EA239800694145 /* CharacterSetExtension.swift in Sources */,
 				5390FE9720E6288400D396EA /* TokenPrimitive.swift in Sources */,

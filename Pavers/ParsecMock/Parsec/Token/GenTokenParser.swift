@@ -40,7 +40,7 @@ public struct GenTokenParser<S, U> {
   public let decimal: _Parser<Int>
   public let hexadecimal: _Parser<Int>
   public let octal: _Parser<Int>
-  public let symbol: _Parser<String>
+  public let symbol:(String) -> _Parser<String>
   public let lexeme: (_Parser<Any>) -> _Parser<Any>
   public let whiteSpace: _Parser<()>
   public let parens: (_Parser<Any>) -> _Parser<Any>
