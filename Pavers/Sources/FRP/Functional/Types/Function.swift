@@ -90,6 +90,10 @@ public func id <A> (_ x: A) -> A {
   return x
 }
 
+public func identity <A> (_ x: A) -> A {
+  return x
+}
+
 /**
  The identity morphism on `A`.
  See identity morphism as a mapping from object to arrow.

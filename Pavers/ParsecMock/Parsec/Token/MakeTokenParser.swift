@@ -97,44 +97,77 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     }
     
     func stringChar() -> Parser<S, U, Character?> {
-      fatalError("Not implemented yet")
+      return ((stringLetter() >>- {c in pure(c)}) <|> stringEscape()) <?> "String character"
     }
     
     func stringLetter() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      return satisfy{ (c: Character) -> Bool in
+        let m = c != "\"" && c != "\\"
+        let n = c.unicodeScalars.count == 1
+        let o = c.unicodeScalars.last! > UnicodeScalar(26)
+        return m && n && o
+      }
     }
     
     func stringEscape() -> Parser<S, U, Character?> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, Character?> = escapeGap() >>- {_ in pure(nil)}
+      let b: Parser<S, U, Character?> = escapeEmpty() >>- {_ in pure(nil)}
+      let c: Parser<S, U, Character?> = escapeCode() >>- {esc in pure(esc)}
+      return char("\\") >>- (a <|> b <|> c)
     }
     
     func escapeEmpty() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      return char("&")
     }
     
     func escapeGap() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      return (many1(space()) >>- char("\\")) <?> "end of string gap"
     }
     
     func escapeCode() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      return charEsc() <|> charNum() <|> charAscii() <|> charControl() <?> "escape code"
     }
     
     func charControl() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      return char("^") >>- {_ in upper() >>- { (code) -> Parser<S, U, Character> in
+        let a: Character = "A"
+        let c = Character.toEnum(code.fromEnum - a.fromEnum + 1)
+        return pure(c)
+        }}
     }
     
     
     func charNum() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      let a = char("o") >>- number(8, octDigit())
+      let b = char("x") >>- number(16, octDigit())
+      return (decimal() <|> a <|> b) >>- { code in
+        if code > 0x10FFFF {
+          return parserFail("invalid escape sequence")
+        } else {
+          return pure(Character.toEnum(code))
+        }
+      }
     }
     
     func charEsc() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      func parseEsc<B>(_ c: Character, _ code: B) -> Parser<S, U, B> {
+        return char(c) >>- {_ in pure(code)}
+      }
+      return choice(escMap().map(parseEsc))
     }
     
     func charAscii() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+      func parseAscii<B>(_ asc: String, _ code: B) -> Parser<S, U, B> {
+        let b: Parser<S, U, String> = string(asc)
+        let a: Parser<S, U, B> = b >>- (pure(code) as Parser<S, U, B>)
+        return try_( a )
+      }
+      let xs: [Parser<S, U, Character>] = asciiMap()
+        .map { (arg) -> (String, Character) in
+        let (cs, c) = arg
+        return (String.init(cs), c)}
+        .map(parseAscii)
+      return choice(xs)
     }
     
     func escMap() -> [(Character, Character)] {
@@ -144,91 +177,123 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     }
     
     func asciiMap() -> [([Character], Character)] {
-      fatalError("Not implemented yet")
+      let a  = ascii3codes() + ascii2codes()
+      let b = ascii3() + ascii2()
+      return zip(a, b).filter(trueness)
     }
     
     func ascii2codes() -> [[Character]] {
-      fatalError("Not implemented yet")
+      return ["BS","HT","LF","VT","FF","CR","SO","SI","EM",
+              "FS","GS","RS","US","SP"].map{$0.chars}
     }
     
     func ascii3codes() -> [[Character]] {
-      fatalError("Not implemented yet")
+      return ["NUL","SOH","STX","ETX","EOT","ENQ","ACK","BEL",
+       "DLE","DC1","DC2","DC3","DC4","NAK","SYN","ETB",
+       "CAN","SUB","ESC","DEL"].map{$0.chars}
     }
     
     func ascii2() -> [Character] {
-      fatalError("Not implemented yet")
+      return [8,9,10,11,12,13,14,15,
+              25,28,29,30,31,32].map{Character(UnicodeScalar($0))}
     }
     
     func ascii3() -> [Character] {
-      fatalError("Not implemented yet")
+      return [0,1,2,3,4,5,6,
+        7,16,17,18,19,20,21,
+        22,23,24,26,27,16].map{Character(UnicodeScalar($0))}
     }
     
     func naturalOrFloat() -> Parser<S, U, Either<Int, Double>> {
-      fatalError("Not implemented yet")
+      return lexeme(natFloat()) <?> "number"
     }
     
     func float() -> Parser<S, U, Double> {
-      fatalError("Not implemented yet")
+      return lexeme(floating()) <?> "float"
     }
     
     func integer() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      return lexeme(int()) <?> "integer"
     }
     
     func natural() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      return lexeme(nat()) <?> "natural"
     }
     
     func floating() -> Parser<S, U, Double> {
-      fatalError("Not implemented yet")
+      return decimal() >>- {n in fractExponent(n)}
     }
     
     func natFloat() -> Parser<S, U, Either<Int, Double>> {
-      fatalError("Not implemented yet")
+      return (char("0") >>- zeroNumFloat()) <|> decimalFloat()
     }
     
     func zeroNumFloat() -> Parser<S, U, Either<Int, Double>> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, Either<Int, Double>> =
+        (hexadecimal() <|> octal()) >>- {n in pure(Either.left(n))}
+      return a <|> decimalFloat() <|> fractFloat(0) <|> pure(Either.left(0))
     }
     
     func decimalFloat() -> Parser<S, U, Either<Int, Double>> {
-      fatalError("Not implemented yet")
+      return decimal() >>- {n in  option(Either.left(n), fractFloat(n)) }
     }
     
     func fractFloat<A, B, C>(_ a: A) -> Parser<S, U, Either<B, C>> {
-      fatalError("Not implemented yet")
+      return fractExponent(a) >>- {f in pure(Either.right(f))}
     }
     
     func fractExponent<A, B>(_ a: A) -> Parser<S, U, B> {
-      fatalError("Not implemented yet")
+      func readDouble(_ s: String) -> Parser<S, U, B> {
+        guard let f = Double(s) else {return parserZero()}
+        let r: Parser<S, U, Double> = pure(f)
+        return r as! Parser<S, U, B>
+      }
+      let a: Parser<S, U, B> = fraction() >>- {fract in
+        option("", exponent_().fmap{String($0)}) >>- {expo in
+          readDouble("\(a)\(fract)\(expo)")} }
+      let b: Parser<S, U, B> = exponent_() >>- {expo in
+        readDouble("\(a)\(expo)")
+      }
+      return a <|> b
     }
     
     func fraction() -> Parser<S, U, [Character]> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, Character> = char(".")
+      let b: Parser<S, U, [Character]> = many1(digit()) <?> "fraction"
+      return a >>- {_ in b >>- {ds in pure(["."] + ds)}}
     }
     
     func exponent_() -> Parser<S, U, [Character]> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, Character> = oneOf("eE".chars)
+      let b: Parser<S, U, Character> = oneOf("+-".chars)
+      let c: Parser<S, U, [Character]> = b.fmap{[$0]}
+      let d: Parser<S, U, [Character]> = c <|> pure([])
+      let e: Parser<S, U, Int> = decimal() <?> "exponent"
+      let f: Parser<S, U, [Character]> = a >>- {_ in d >>- {sign_ in e >>- {e_ in pure("e\(sign_)\(e_)".chars)}}}
+      return f <?> "exponent"
     }
     
     func `int`() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      return lexeme(sign()) >>- {f in nat() >>- {n in pure(f(n))}}
     }
     
     func sign() -> Parser<S, U, (Int) -> Int> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, (Int) -> Int> = char("-") >>- pure((-))
+      let b: Parser<S, U, (Int) -> Int> = char("-") >>- pure((+))
+      return a <|> b <|> pure(id)
     }
     
     func nat() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      return zeroNumber() <|> decimal()
     }
     
     func zeroNumber() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      let b: Parser<S, U, Int> = hexadecimal() <|> octal() <|> decimal() <|> pure(0)
+      return (char("0") >>- b) <?> ""
     }
     
     func decimal() -> Parser<S, U, Int> {
-      fatalError("Not implemented yet")
+      return number(10, digit())
     }
     
     func hexadecimal() -> Parser<S, U, Int> {

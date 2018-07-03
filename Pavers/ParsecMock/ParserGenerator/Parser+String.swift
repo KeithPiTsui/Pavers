@@ -11,7 +11,7 @@ import PaversFRP
 public typealias ParserS<A> = Parser<String, (), A>
 
 
-public func string<S, U>(_ s: S) -> Parser<S, U, String>
+public func string<S, U>(_ s: String) -> Parser<S, U, String>
   where S: ParserStream, S.Element == Character {
     guard let c = s.first() else {return pure("")}
     return char(c) >>- { c in string(s.droppingFirst()) >>- { cs in pure([c] + cs) } }
