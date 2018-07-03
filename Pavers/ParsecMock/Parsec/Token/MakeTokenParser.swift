@@ -362,44 +362,69 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     }
     
     func identifier() -> Parser<S, U, [Character]> {
-      fatalError("Not implemented yet")
+      let a  = ident() >>- {(name: [Character]) -> Parser<S, U, [Character]> in
+        isReservedName(String(name))
+          ? unexpected("reserved word \(name)")
+          : pure(name)
+      }
+      return lexeme(try_(a))
     }
     
-    func ident() -> Parser<S, U, Character> {
-      fatalError("Not implemented yet")
+    func ident() -> Parser<S, U, [Character]> {
+      let a = languageDef.identStart >>- { c in
+        many(languageDef.identLetter) >>- { cs in
+          pure([c] + cs)
+        }
+      }
+      return a <?> "identifier"
     }
     
     func isReservedName(_ name: String) -> Bool {
-      fatalError("Not implemented yet")
+      let caseName: String = languageDef.caseSensitive
+        ? name
+        : name.lowercased()
+      return isReserved(theReservedNames(), caseName)
     }
     
-    func isReserved<P>(_ names: [P], _ name: P) -> Bool {
-      fatalError("Not implemented yet")
+    func isReserved<P:Comparable>(_ names: [P], _ name: P) -> Bool{
+      func scan(_ rs: [P]) -> Bool {
+        guard let r = rs.first else {return false}
+        if r == name {return true}
+        else if r < name {return scan(Array(rs.dropFirst()))}
+        else {return false}
+      }
+      return scan(names)
     }
     
     func theReservedNames() -> [String] {
-      fatalError("Not implemented yet")
+      let reserved = languageDef.reservedNames
+      return languageDef.caseSensitive
+        ? reserved.sorted()
+        : reserved.map{$0.lowercased()}.sorted()
     }
     
     
     func symbol(_ name: String) -> Parser<S, U, String> {
-      fatalError("Not implemented yet")
+      return lexeme(string(name))
     }
     
     func lexeme<A>(_ p: Parser<S, U, A>) -> Parser<S, U, A> {
-      //      return p >>- {x in whitespace}
-      fatalError("Not implemented yet")
+      return p >>- {x in whiteSpace() >>- {_ in pure(x)}}
+
     }
     
     func whiteSpace() -> Parser<S, U, ()> {
       let noLine = languageDef.commentLine.isEmpty
       let noMulti = languageDef.commentStart.isEmpty
       if noLine && noMulti {
-        skipMany(simpleSpace() <?> "")
+        return skipMany(simpleSpace() <?> "")
       } else if noLine {
-        skipMany(simpleSpace() <|> multiLineComment() <?> "")
+        return skipMany(simpleSpace() <|> multiLineComment() <?> "")
+      } else if noMulti {
+        return skipMany(simpleSpace() <|> oneLineComment() <?> "")
+      } else {
+        return skipMany(simpleSpace() <|> oneLineComment() <|> multiLineComment() <?> "")
       }
-      fatalError("Not implemented yet")
     }
     func simpleSpace() -> Parser<S, U, ()> {
       let space: Parser<S, U, Character> = satisfy(CharacterSet.whitespaces.contains)
@@ -407,23 +432,38 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     }
     
     func oneLineComment() -> Parser<S, U, ()> {
-      fatalError("Not implemented yet")
+      let a: Parser<S, U, String> = try_(string(languageDef.commentLine))
+      let b: Parser<S, U, Character> = satisfy{$0 != "\n"}
+      return a >>- {_ in skipMany(b) >>- {_ in pure(())}}
     }
     
     func multiLineComment() -> Parser<S, U, ()> {
-      fatalError("Not implemented yet")
+      return try_(string(languageDef.commentStart)) >>- {_ in inComment()}
     }
     
     func inComment() -> Parser<S, U, ()> {
-      fatalError("Not implemented yet")
+      return languageDef.nestedComments
+        ? inCommentMulti()
+        : inCommentSingle()
     }
     
     func inCommentMulti() -> Parser<S, U, ()> {
-      fatalError("Not implemented yet")
+      let startEnd =
+        Array(Set( (languageDef.commentEnd + languageDef.commentStart).chars))
+      let a: Parser<S, U, ()> = try_(string(languageDef.commentEnd)) >>- {_ in pure(())}
+      let b: Parser<S, U, ()> = multiLineComment() >>- inCommentMulti()
+      let c: Parser<S, U, ()> = skipMany1( noneOf(startEnd)) >>- inCommentMulti()
+      let d: Parser<S, U, ()> = oneOf(startEnd) >>- inCommentMulti()
+      return (a <|> b <|> c <|> d) <?> "end of comment"
     }
     
     func inCommentSingle() -> Parser<S, U, ()> {
-      fatalError("Not implemented yet")
+      let startEnd =
+        Array(Set( (languageDef.commentEnd + languageDef.commentStart).chars))
+      let a: Parser<S, U, ()> = try_(string(languageDef.commentEnd)) >>- {_ in pure(())}
+      let c: Parser<S, U, ()> = skipMany1( noneOf(startEnd)) >>- inCommentSingle()
+      let d: Parser<S, U, ()> = oneOf(startEnd) >>- inCommentSingle()
+      return (a <|> c <|> d) <?> "end of comment"
     }
     
     
