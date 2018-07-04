@@ -351,6 +351,7 @@
 		53C4334520EC6C99002B2F40 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334420EC6C99002B2F40 /* Languages.swift */; };
 		53C4334820EC7179002B2F40 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334720EC7179002B2F40 /* Expression.swift */; };
 		53C4334A20EC8E05002B2F40 /* ParserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334920EC8E05002B2F40 /* ParserStream.swift */; };
+		53C4334C20EC961B002B2F40 /* Parser+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334B20EC961B002B2F40 /* Parser+Error.swift */; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */; };
 		53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Parser.swift */; };
@@ -834,6 +835,7 @@
 		53C4334420EC6C99002B2F40 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		53C4334720EC7179002B2F40 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		53C4334920EC8E05002B2F40 /* ParserStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserStream.swift; sourceTree = "<group>"; };
+		53C4334B20EC961B002B2F40 /* Parser+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Error.swift"; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
@@ -1370,6 +1372,7 @@
 			isa = PBXGroup;
 			children = (
 				531D510A20E4C2E200028394 /* Parser+Satisfy.swift */,
+				53C4334B20EC961B002B2F40 /* Parser+Error.swift */,
 				5357034E20EA0BF900568D3F /* Parser+String.swift */,
 				532F5B9120EA3C0B0099272D /* Parser+Combinator.swift */,
 				5394D9F420EA1A7800694145 /* Parser+Char.swift */,
@@ -1455,9 +1458,9 @@
 				531D510220E4C0CC00028394 /* Parser+Optional.swift */,
 				531D510020E4C07D00028394 /* Parser+Try.swift */,
 				53A5C1FD20E38A9200F00229 /* ParserError.swift */,
-				53C4334920EC8E05002B2F40 /* ParserStream.swift */,
 				53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */,
 				53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */,
+				53C4334920EC8E05002B2F40 /* ParserStream.swift */,
 				53A5C1FB20E389A000F00229 /* SourcePosition.swift */,
 			);
 			path = Parser;
@@ -1818,11 +1821,10 @@
 		53C1DC2320E388F700E8F0F0 /* ParsecMock */ = {
 			isa = PBXGroup;
 			children = (
-				531D510C20E4C2F500028394 /* ParserGenerator */,
+				53C4334D20EC9636002B2F40 /* SupportingFiles */,
 				531D50F920E4BA9800028394 /* HKT */,
 				53C1DC3920E3890B00E8F0F0 /* Parsec */,
-				53C1DC2420E388F700E8F0F0 /* ParsecMock.h */,
-				53C1DC2520E388F700E8F0F0 /* Info.plist */,
+				531D510C20E4C2F500028394 /* ParserGenerator */,
 			);
 			path = ParsecMock;
 			sourceTree = "<group>";
@@ -1841,8 +1843,8 @@
 			children = (
 				53C4334620EC716A002B2F40 /* Expression */,
 				53C4334320EC6C7E002B2F40 /* Language */,
-				5394D9F320EA0DC100694145 /* Token */,
 				5357035220EA0D7200568D3F /* Parser */,
+				5394D9F320EA0DC100694145 /* Token */,
 			);
 			path = Parsec;
 			sourceTree = "<group>";
@@ -1861,6 +1863,15 @@
 				53C4334720EC7179002B2F40 /* Expression.swift */,
 			);
 			path = Expression;
+			sourceTree = "<group>";
+		};
+		53C4334D20EC9636002B2F40 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				53C1DC2520E388F700E8F0F0 /* Info.plist */,
+				53C1DC2420E388F700E8F0F0 /* ParsecMock.h */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
@@ -2769,6 +2780,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53A5C1FE20E38A9200F00229 /* ParserError.swift in Sources */,
+				53C4334C20EC961B002B2F40 /* Parser+Error.swift in Sources */,
 				5390FE9520E6287900D396EA /* Tokens.swift in Sources */,
 				531118BA20EB4C7100E11C2E /* StringExtension.swift in Sources */,
 				5394D9F520EA1A7800694145 /* Parser+Char.swift in Sources */,
@@ -3389,7 +3401,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ParsecMock/Info.plist;
+				INFOPLIST_FILE = ParsecMock/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3418,7 +3430,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ParsecMock/Info.plist;
+				INFOPLIST_FILE = ParsecMock/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

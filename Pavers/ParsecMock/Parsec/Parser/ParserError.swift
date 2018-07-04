@@ -243,3 +243,13 @@ public func addErrorMessage_(e: ParserError, msg: Message) -> ParserError {
 public func unexpectError(s: String, pos: SourcePos) -> ParserError {
   return ParserError.init(newErrorWith: Message.sysUnExpect(s), pos: pos)
 }
+
+public func unknownError<S, U>(_ s: ParserState<S, U>) -> ParserError {
+  return ParserError(unknownErrorWith: s.statePos)
+}
+
+public func sysUnExpectError<S, U, A>(_ msg: String, _ pos: SourcePos) -> Reply<S, U, A> {
+  return Reply<S, U, A>
+    .error(ParserError(newErrorWith: Message.sysUnExpect(msg),
+                       pos: pos))
+}
