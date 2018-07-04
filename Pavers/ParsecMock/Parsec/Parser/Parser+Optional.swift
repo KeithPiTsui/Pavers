@@ -8,8 +8,19 @@
 
 import PaversFRP
 
+
+public func optionalize<S, U, A>(_ a: @escaping LazyParser<S, U, A>) -> LazyParser<S, U, A?> {
+  return {try_(a().fmap(Optional.init)) <|> pure(nil)}
+}
+
+postfix func .? <S,U,A> (_ a: @escaping LazyParser<S,U,A>)
+  -> LazyParser<S,U,A?> {
+    return optionalize(a)
+}
+
+
 public func optionalize<S, U, A>(_ a: Parser<S, U, A>) -> Parser<S, U, A?> {
-  return try_(a.fmap(Optional.init)) <|> pure(nil)
+  return optionalize({a})()
 }
 
 postfix func .? <S,U,A> (_ a: Parser<S,U,A>)
@@ -18,12 +29,5 @@ postfix func .? <S,U,A> (_ a: Parser<S,U,A>)
 }
 
 
-public func optionalize<S, U, A>(_ a: @escaping () -> Parser<S, U, A>) -> () -> Parser<S, U, A?> {
-  return {try_(a().fmap(Optional.init)) <|> pure(nil)}
-}
 
-postfix func .? <S,U,A> (_ a: @escaping () -> Parser<S,U,A>)
-  -> () -> Parser<S,U,A?> {
-    return optionalize(a)
-}
 

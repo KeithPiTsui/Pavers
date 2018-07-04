@@ -138,10 +138,7 @@ class PaversParsec2Tests: XCTestCase {
   }
   
   func testParsecJSON() {
-    self.measure {
-      for _ in 1 ... 1 {
-        _ = object().parse(ParserState.init(stringLiteral: self.json))
-      }
-    }
+    let r = object().parse(ParserState.init(stringLiteral: self.json))
+    print(r)
   }
 }

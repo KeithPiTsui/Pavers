@@ -158,15 +158,15 @@ extension ParserError: Semigroup {
 
 extension ParserError: CustomStringConvertible {
   public var description: String {
-    return "\(self.pos): "
+    return "\(self.pos): \(showErrorMessage(msgs:self.msgs))"
   }
 }
 
-public func showErrorMessage(msgOr: String,
-                             msgUnknown: String,
-                             msgExpecting: String,
-                             msgUnexpected: String,
-                             msgEndOfInput: String,
+public func showErrorMessage(msgOr: String = "msgOr",
+                             msgUnknown: String = "msgUnknown",
+                             msgExpecting: String = "msgExpecting",
+                             msgUnexpected: String = "msgUnexpected",
+                             msgEndOfInput: String = "msgEndOfInput",
                              msgs: [Message]) -> String {
   guard !msgs.isEmpty else {return msgUnknown}
   

@@ -8,6 +8,7 @@
 
 import PaversFRP
 
+/// one or more, a+
 public func manyAccum<S, U, A>(_ acc: @escaping ([A], A) -> [A], _ p : @escaping LazyParser<S, U, A>)
   -> LazyParser<S, U, [A]> {
     return p >>- {x in
@@ -15,30 +16,35 @@ public func manyAccum<S, U, A>(_ acc: @escaping ([A], A) -> [A], _ p : @escaping
         pure(acc(xs, x)) as LazyParser<S, U, [A]> }}
 }
 
-public func manyAccum<S, U, A>(acc: @escaping ([A], A) -> [A], p : Parser<S, U, A>) -> Parser<S, U, [A]> {
-  return p >>- { x in (manyAccum(acc: acc, p: p) <|> pure([])) >>- {xs in pure(acc(xs, x))} }
+public func manyAccum<S, U, A>(_ acc: @escaping ([A], A) -> [A], _ p : Parser<S, U, A>) -> Parser<S, U, [A]> {
+  return manyAccum(acc, {p})()
+}
+
+
+/// zero or more, a* = empty | a+
+public func many<S,U,A> (_ a: @escaping LazyParser<S,U,A>) -> LazyParser<S,U,[A]> {
+  return (pure([]) as LazyParser<S,U,[A]>) <|> manyAccum({ [$1] + $0}, a) 
 }
 
 public func many<S,U,A> (_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
-  return manyAccum(acc: { $0 + [$1]}, p: a)
+  return many({a})()
+}
+
+
+/// one or more, a+
+public func many1<S,U,A> (_ a: @escaping LazyParser<S,U,A>) -> LazyParser<S,U,[A]> {
+  return manyAccum({ [$1] + $0}, a)
 }
 
 public func many1<S,U,A> (_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
-  return a >>- { x in many(a) >>- {xs in pure([x] + xs)} }
+  return many1({a})()
 }
 
-public func many1<S, U, A> (_ a: @escaping () -> Parser<S, U, A>) -> () -> Parser<S, U, [A]> {
-  return { () -> Parser<S, U, [A]> in
-    a() >>- {(x:A) -> Parser<S, U, [A]> in
-      (many1(a)() <|> (pure([]) as Parser<S, U, [A]>)) >>- {
-        (xs: [A]) -> Parser<S, U, [A]> in
-        pure([x] + xs)
-      }
-    }
-  }
+public func skipMany<S,U,A>(_ p: @escaping LazyParser<S, U, A>) -> LazyParser<S, U, ()> {
+  return fmap(many(p), {_ in ()})
 }
 
 public func skipMany<S,U,A>(_ p: Parser<S, U, A>) -> Parser<S, U, ()> {
-  return many(p).fmap{_ in ()}
+  return skipMany({p})()
 }
 

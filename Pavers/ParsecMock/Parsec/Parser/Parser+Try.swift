@@ -6,19 +6,7 @@
 //  Copyright © 2018 Keith. All rights reserved.
 //
 
-public func try_ <S, U, A> (_ a: Parser<S, U, A>) -> Parser<S, U, A> {
-  return Parser {
-    switch a.unParser($0) {
-    case .consumed(.error(let e)):
-      return .empty(.error(e))
-    case let otherwise:
-      return otherwise
-    }
-  }
-}
-
-
-public func try_ <S, U, A> (_ a: @escaping () -> Parser<S, U, A>) -> () -> Parser<S, U, A> {
+public func try_ <S, U, A> (_ a: @escaping LazyParser<S, U, A>) -> LazyParser<S, U, A> {
   return {Parser {
     switch a().unParser($0) {
     case .consumed(.error(let e)):
@@ -28,3 +16,10 @@ public func try_ <S, U, A> (_ a: @escaping () -> Parser<S, U, A>) -> () -> Parse
     }
     }}
 }
+
+public func try_ <S, U, A> (_ a: Parser<S, U, A>) -> Parser<S, U, A> {
+  return try_({a})()
+}
+
+
+
