@@ -8,6 +8,8 @@
 
 import PaversFRP
 
+public typealias LanguageDef<U> = GenLanguageDef<String, U>
+
 public struct GenLanguageDef<S, U> {
   public let commentStart: String
   public let commentEnd: String
