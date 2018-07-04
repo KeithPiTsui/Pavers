@@ -45,7 +45,7 @@ public func satisfy<S,U,A>(_ test: @escaping (A) -> Bool)
           ParserError(newErrorWith: Message.message("\(first)"), pos: pos)))
       }
       let newPos = pos.incPos()
-      let newState = ParserState(stateInput: input.droppingFirst(),
+      let newState = ParserState(stateInput: input.tail(),
                                  statePos: newPos,
                                  stateUser: $0.stateUser)
       return ParserResult<Reply<S, U, A>>

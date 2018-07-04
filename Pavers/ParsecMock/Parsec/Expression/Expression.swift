@@ -22,6 +22,42 @@ public enum Operator<S, U, A> {
 
 public typealias OperatorTable<S, U, A> = [[Operator<S, U, A>]]
 
+/**
+ -----------------------------------------------------------
+ -- Convert an OperatorTable and basic term parser into
+ -- a full fledged expression parser
+ -----------------------------------------------------------
+ 
+ -- | @buildExpressionParser table term@ builds an expression parser for
+ -- terms @term@ with operators from @table@, taking the associativity
+ -- and precedence specified in @table@ into account. Prefix and postfix
+ -- operators of the same precedence can only occur once (i.e. @--2@ is
+ -- not allowed if @-@ is prefix negate). Prefix and postfix operators
+ -- of the same precedence associate to the left (i.e. if @++@ is
+ -- postfix increment, than @-2++@ equals @-1@, not @-3@).
+ --
+ -- The @buildExpressionParser@ takes care of all the complexity
+ -- involved in building expression parser. Here is an example of an
+ -- expression parser that handles prefix signs, postfix increment and
+ -- basic arithmetic.
+ --
+ -- >  expr    = buildExpressionParser table term
+ -- >          <?> "expression"
+ -- >
+ -- >  term    =  parens expr
+ -- >          <|> natural
+ -- >          <?> "simple expression"
+ -- >
+ -- >  table   = [ [prefix "-" negate, prefix "+" id ]
+ -- >            , [postfix "++" (+1)]
+ -- >            , [binary "*" (*) AssocLeft, binary "/" (div) AssocLeft ]
+ -- >            , [binary "+" (+) AssocLeft, binary "-" (-)   AssocLeft ]
+ -- >            ]
+ -- >
+ -- >  binary  name fun assoc = Infix (do{ reservedOp name; return fun }) assoc
+ -- >  prefix  name fun       = Prefix (do{ reservedOp name; return fun })
+ -- >  postfix name fun       = Postfix (do{ reservedOp name; return fun })
+ */
 
 //buildExpressionParser :: (Stream s m t)
 //=> OperatorTable s u m a
@@ -32,7 +68,7 @@ public func buildExpressionParser<S, U, A>
   (_ operators: OperatorTable<S, U, A>, _ simplerExpr: Parser<S, U, A>)
   -> Parser<S, U, A> {
     
-    func makeParser(_ term: Parser<S,U,A>, _ ops: [Operator<S, U, A>]) -> Parser<S,U,A> {  
+    func makeParser(_ term: Parser<S,U,A>, _ ops: [Operator<S, U, A>]) -> Parser<S,U,A> {
       func splitOp(_ assoc: ([Parser<S, U, (A) -> (A) -> A>],
         [Parser<S, U, (A) -> (A) -> A>],
         [Parser<S, U, (A) -> (A) -> A>],

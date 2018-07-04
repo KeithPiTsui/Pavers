@@ -350,6 +350,7 @@
 		53C1DC3220E388F700E8F0F0 /* ParsecMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 53C1DC2420E388F700E8F0F0 /* ParsecMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53C4334520EC6C99002B2F40 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334420EC6C99002B2F40 /* Languages.swift */; };
 		53C4334820EC7179002B2F40 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334720EC7179002B2F40 /* Expression.swift */; };
+		53C4334A20EC8E05002B2F40 /* ParserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334920EC8E05002B2F40 /* ParserStream.swift */; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */; };
 		53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Parser.swift */; };
@@ -832,6 +833,7 @@
 		53C1DC3120E388F700E8F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53C4334420EC6C99002B2F40 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		53C4334720EC7179002B2F40 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		53C4334920EC8E05002B2F40 /* ParserStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserStream.swift; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
@@ -1453,6 +1455,7 @@
 				531D510220E4C0CC00028394 /* Parser+Optional.swift */,
 				531D510020E4C07D00028394 /* Parser+Try.swift */,
 				53A5C1FD20E38A9200F00229 /* ParserError.swift */,
+				53C4334920EC8E05002B2F40 /* ParserStream.swift */,
 				53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */,
 				53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */,
 				53A5C1FB20E389A000F00229 /* SourcePosition.swift */,
@@ -2784,6 +2787,7 @@
 				5390FE9320E6285F00D396EA /* Token.swift in Sources */,
 				531D510520E4C14600028394 /* Parser+Many.swift in Sources */,
 				531D50F220E47C5100028394 /* HigherKindedType.swift in Sources */,
+				53C4334A20EC8E05002B2F40 /* ParserStream.swift in Sources */,
 				531D510B20E4C2E200028394 /* Parser+Satisfy.swift in Sources */,
 				531D50F420E47E3100028394 /* HKT+Array.swift in Sources */,
 				53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */,

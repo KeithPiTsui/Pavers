@@ -59,16 +59,3 @@ public struct GenTokenParser<S, U> {
   public let commaSep: (_Parser<Any>) -> _Parser<[Any]>
   public let commaSep1: (_Parser<Any>) -> _Parser<[Any]>
 }
-
-
-
-//makeTokenParser :: (Stream s m Char)
-//=> GenLanguageDef s u m -> GenTokenParser s u m
-//makeTokenParser languageDef
-//public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
-//  -> GenTokenParser<S, U> {
-//    
-//    
-//    fatalError("not implemented yet")
-//}
-

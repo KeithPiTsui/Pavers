@@ -48,7 +48,7 @@ public func tokens <S, U, T>
       
       func walk(_ ts: [T], _ rs: S) -> ParserResult<Reply<S, U, [T]>> {
         guard let t = ts.first else {return ok(rs)}
-        let sr = uncons(s: rs)
+        let sr = uncons(rs)
         switch sr {
         case .none: return ParserResult.consumed(Reply.error(errEof))
         case .some(let (x, xs)):
@@ -65,7 +65,7 @@ public func tokens <S, U, T>
             tts, s_, ParserError(unknownErrorWith: pos_)))
       }
       
-      let sr = uncons(s: state.stateInput)
+      let sr = uncons(state.stateInput)
       switch sr {
       case .none: return ParserResult.empty(Reply.error(errEof))
       case .some(let (x, xs)):

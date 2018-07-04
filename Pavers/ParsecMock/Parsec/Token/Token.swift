@@ -14,7 +14,7 @@ public func token<T, S, U, A>(
   test: @escaping (T) -> A?)
   -> Parser<S, U, A> where S: ParserStream, S.Element == T{
     func nextPos(pos: SourcePos, tok: T, ts: S) -> SourcePos {
-      switch uncons(s: ts) {
+      switch uncons(ts) {
       case .none: return tokpos(tok)
       case .some(let (tok_, _)): return tokpos(tok_)
       }

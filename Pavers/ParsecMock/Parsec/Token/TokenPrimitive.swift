@@ -42,20 +42,13 @@ public func tokenPrimEx<T, S, U, A>(
     return tokenPrimEx__(showToken: showToken, nextPos: nextPos, nextState: ns, test: test)
 }
 
-public func uncons<S, T>(s: S) -> (T, S)?
-  where S: ParserStream, S.Element == T {
-  guard let x = s.first() else {return nil}
-  return (x, s.droppingFirst())
-}
-
-
 public func tokenPrimEx_<T, S, U, A>(
   showToken: @escaping (T) -> String,
   nextPos: @escaping (SourcePos) -> (T) -> (S) -> SourcePos,
   test: @escaping (T) -> A?)
   -> Parser<S, U, A> where S: ParserStream, S.Element == T {
     return Parser<S, U, A> { state in
-      let r = uncons(s: state.stateInput)
+      let r = uncons(state.stateInput)
       switch r {
       case .none: return
         ParserResult<Reply<S, U, A>>.empty(
@@ -86,7 +79,7 @@ public func tokenPrimEx__<T, S, U, A>(
   test: @escaping (T) -> A?)
   -> Parser<S, U, A> where S: ParserStream, S.Element == T {
     return Parser<S, U, A> { state in
-      let r = uncons(s: state.stateInput)
+      let r = uncons(state.stateInput)
       switch r {
       case .none: return
         ParserResult<Reply<S, U, A>>.empty(
