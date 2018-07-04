@@ -19,30 +19,60 @@ import PaversFRP
 //    eok [] s $ unknownError s
 //tokens showTokens nextposs tts@(tok:toks)
 //= ParsecT $ \(State input pos u) cok cerr _eok eerr ->
-//let
-//errEof = (setErrorMessage (Expect (showTokens tts))
-//  (newErrorMessage (SysUnExpect "") pos))
-//
-//errExpect x = (setErrorMessage (Expect (showTokens tts))
-//  (newErrorMessage (SysUnExpect (showTokens [x])) pos))
-//
-//walk []     rs = ok rs
-//walk (t:ts) rs = do
-//sr <- uncons rs
-//case sr of
-//Nothing                 -> cerr $ errEof
-//Just (x,xs) | t == x    -> walk ts xs
-//| otherwise -> cerr $ errExpect x
-//
-//ok rs = let pos' = nextposs pos tts
-//s' = State rs pos' u
-//in cok tts s' (newErrorUnknown pos')
-//in do
-//sr <- uncons input
-//case sr of
-//Nothing         -> eerr $ errEof
-//Just (x,xs)
-//| tok == x  -> walk toks xs
-//| otherwise -> eerr $ errExpect x
+
+
+public func tokens <S, U, T>
+  (_ showTokens: @escaping ([T]) -> String,
+   _ nextPoss: @escaping (SourcePos) -> ([T]) -> SourcePos,
+   _ tts:[T])
+  -> Parser<S, U, [T]>
+  where S: ParserStream, T: Equatable, S.Element == T{
+    guard let t = tts.first else {
+      return Parser<S, U, [T]> { state in
+        ParserResult.empty(Reply.ok([], state, unknownError(state)))
+      }
+    }
+    return Parser<S, U, [T]> { state in
+      let _errEof = ParserError(newErrorWith: Message.sysUnExpect(""),
+                                pos: state.statePos)
+      let _errEofMsg = Message.expect(showTokens(tts))
+      let  errEof = _errEof.set(errorMessages: [_errEofMsg])
+      
+      func errExpect(_ x: T) -> ParserError {
+        let _err = ParserError(newErrorWith: Message.sysUnExpect(showTokens([x])),
+                               pos: state.statePos)
+        let _errMsg = Message.expect(showTokens(tts))
+        let  err = _err.set(errorMessages: [_errMsg])
+        return err
+      }
+      
+      func walk(_ ts: [T], _ rs: S) -> ParserResult<Reply<S, U, [T]>> {
+        guard let t = ts.first else {return ok(rs)}
+        let sr = uncons(s: rs)
+        switch sr {
+        case .none: return ParserResult.consumed(Reply.error(errEof))
+        case .some(let (x, xs)):
+          if t == x {return walk(Array(ts.dropFirst()), xs)}
+          else { return ParserResult.consumed(Reply.error(errExpect(x)))}
+        }
+      }
+      
+      func ok(_ rs: S) -> ParserResult<Reply<S, U, [T]>> {
+        let pos_ = nextPoss(state.statePos)(tts)
+        let s_ = ParserState(stateInput: rs, statePos: pos_, stateUser: state.stateUser)
+        return ParserResult.consumed(
+          Reply.ok(
+            tts, s_, ParserError(unknownErrorWith: pos_)))
+      }
+      
+      let sr = uncons(s: state.stateInput)
+      switch sr {
+      case .none: return ParserResult.empty(Reply.error(errEof))
+      case .some(let (x, xs)):
+        if t == x {return walk(Array(tts.dropFirst()), xs)}
+        else { return ParserResult.consumed(Reply.error(errExpect(x)))}
+      }
+    }
+}
 
 
