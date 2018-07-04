@@ -349,6 +349,7 @@
 		53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */; };
 		53C1DC3220E388F700E8F0F0 /* ParsecMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 53C1DC2420E388F700E8F0F0 /* ParsecMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53C4334520EC6C99002B2F40 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334420EC6C99002B2F40 /* Languages.swift */; };
+		53C4334820EC7179002B2F40 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334720EC7179002B2F40 /* Expression.swift */; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */; };
 		53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Parser.swift */; };
@@ -830,6 +831,7 @@
 		53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsecMockTests.swift; sourceTree = "<group>"; };
 		53C1DC3120E388F700E8F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53C4334420EC6C99002B2F40 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		53C4334720EC7179002B2F40 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
@@ -1834,6 +1836,7 @@
 		53C1DC3920E3890B00E8F0F0 /* Parsec */ = {
 			isa = PBXGroup;
 			children = (
+				53C4334620EC716A002B2F40 /* Expression */,
 				53C4334320EC6C7E002B2F40 /* Language */,
 				5394D9F320EA0DC100694145 /* Token */,
 				5357035220EA0D7200568D3F /* Parser */,
@@ -1847,6 +1850,14 @@
 				53C4334420EC6C99002B2F40 /* Languages.swift */,
 			);
 			path = Language;
+			sourceTree = "<group>";
+		};
+		53C4334620EC716A002B2F40 /* Expression */ = {
+			isa = PBXGroup;
+			children = (
+				53C4334720EC7179002B2F40 /* Expression.swift */,
+			);
+			path = Expression;
 			sourceTree = "<group>";
 		};
 		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
@@ -2781,6 +2792,7 @@
 				5394D9F820EA239800694145 /* CharacterSetExtension.swift in Sources */,
 				5390FE9720E6288400D396EA /* TokenPrimitive.swift in Sources */,
 				531D510120E4C07D00028394 /* Parser+Try.swift in Sources */,
+				53C4334820EC7179002B2F40 /* Expression.swift in Sources */,
 				5394D9F620EA1CBD00694145 /* Helper.swift in Sources */,
 				53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */,
 				53C4334520EC6C99002B2F40 /* Languages.swift in Sources */,
