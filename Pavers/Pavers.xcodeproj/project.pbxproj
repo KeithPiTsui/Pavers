@@ -352,6 +352,7 @@
 		53C4334820EC7179002B2F40 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334720EC7179002B2F40 /* Expression.swift */; };
 		53C4334A20EC8E05002B2F40 /* ParserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334920EC8E05002B2F40 /* ParserStream.swift */; };
 		53C4334C20EC961B002B2F40 /* Parser+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334B20EC961B002B2F40 /* Parser+Error.swift */; };
+		53C4335020EC983B002B2F40 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334F20EC983B002B2F40 /* JSONParser.swift */; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */; };
 		53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Parser.swift */; };
@@ -836,6 +837,7 @@
 		53C4334720EC7179002B2F40 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		53C4334920EC8E05002B2F40 /* ParserStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserStream.swift; sourceTree = "<group>"; };
 		53C4334B20EC961B002B2F40 /* Parser+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Error.swift"; sourceTree = "<group>"; };
+		53C4334F20EC983B002B2F40 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
@@ -1821,6 +1823,7 @@
 		53C1DC2320E388F700E8F0F0 /* ParsecMock */ = {
 			isa = PBXGroup;
 			children = (
+				53C4334E20EC983B002B2F40 /* JSONParser */,
 				53C4334D20EC9636002B2F40 /* SupportingFiles */,
 				531D50F920E4BA9800028394 /* HKT */,
 				53C1DC3920E3890B00E8F0F0 /* Parsec */,
@@ -1872,6 +1875,14 @@
 				53C1DC2420E388F700E8F0F0 /* ParsecMock.h */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		53C4334E20EC983B002B2F40 /* JSONParser */ = {
+			isa = PBXGroup;
+			children = (
+				53C4334F20EC983B002B2F40 /* JSONParser.swift */,
+			);
+			path = JSONParser;
 			sourceTree = "<group>";
 		};
 		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
@@ -2795,6 +2806,7 @@
 				5357035120EA0D6D00568D3F /* GenTokenParser.swift in Sources */,
 				531D50F820E4837100028394 /* Identity.swift in Sources */,
 				53BA8CB020E90616000C7BF6 /* RunParsec.swift in Sources */,
+				53C4335020EC983B002B2F40 /* JSONParser.swift in Sources */,
 				5357034F20EA0BF900568D3F /* Parser+String.swift in Sources */,
 				5390FE9320E6285F00D396EA /* Token.swift in Sources */,
 				531D510520E4C14600028394 /* Parser+Many.swift in Sources */,

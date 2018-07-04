@@ -94,6 +94,10 @@ public func identity <A> (_ x: A) -> A {
   return x
 }
 
+public func terminal<A>(_ x: A) -> () {
+  return ()
+}
+
 /**
  The identity morphism on `A`.
  See identity morphism as a mapping from object to arrow.

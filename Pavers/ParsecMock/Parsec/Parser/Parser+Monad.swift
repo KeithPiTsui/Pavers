@@ -47,3 +47,6 @@ public func >>> <S, U, A, B> (_ a: Parser<S, U, A>, _ b: @escaping () -> Parser<
   return {a >>- {a in b() >>- {b in pure((a, b))}}}
 }
 
+public func >>> <S, U, A, B> (_ a: @escaping () -> Parser<S, U, A>, _ b: @escaping () -> Parser<S, U, B>) -> () -> Parser<S, U, (A, B)> {
+  return {a() >>- {a in b() >>- {b in pure((a, b))}}}
+}
