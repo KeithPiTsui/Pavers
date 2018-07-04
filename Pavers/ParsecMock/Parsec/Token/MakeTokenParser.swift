@@ -373,7 +373,7 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     func ident() -> Parser<S, U, [Character]> {
       let a = languageDef.identStart >>- { c in
         many(languageDef.identLetter) >>- { cs in
-          pure([c] + cs)
+          pure([c] + cs) as Parser<S, U, [Character]>
         }
       }
       return a <?> "identifier"
@@ -448,8 +448,7 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     }
     
     func inCommentMulti() -> Parser<S, U, ()> {
-      let startEnd =
-        Array(Set( (languageDef.commentEnd + languageDef.commentStart).chars))
+      let startEnd = Array(Set( (languageDef.commentEnd + languageDef.commentStart).chars))
       let a: Parser<S, U, ()> = try_(string(languageDef.commentEnd)) >>- {_ in pure(())}
       let b: Parser<S, U, ()> = multiLineComment() >>- inCommentMulti()
       let c: Parser<S, U, ()> = skipMany1( noneOf(startEnd)) >>- inCommentMulti()
@@ -458,8 +457,7 @@ public func makeTokenParser<S, U>(_ languageDef: GenLanguageDef<S, U>)
     }
     
     func inCommentSingle() -> Parser<S, U, ()> {
-      let startEnd =
-        Array(Set( (languageDef.commentEnd + languageDef.commentStart).chars))
+      let startEnd = Array(Set( (languageDef.commentEnd + languageDef.commentStart).chars))
       let a: Parser<S, U, ()> = try_(string(languageDef.commentEnd)) >>- {_ in pure(())}
       let c: Parser<S, U, ()> = skipMany1( noneOf(startEnd)) >>- inCommentSingle()
       let d: Parser<S, U, ()> = oneOf(startEnd) >>- inCommentSingle()

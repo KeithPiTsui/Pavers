@@ -18,7 +18,7 @@ extension Parser {
 
 /// fmap :: (a -> b) -> f a -> f b
 public func fmap<S, U, A, B>
-  (_ fa: @escaping () -> Parser<S, U, A>, _ f: @escaping (A) -> B)
-  -> () -> Parser<S, U, B> {
+  (_ fa: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> B)
+  -> LazyParser<S, U, B> {
     return { Parser<S, U, B> { fa().unParser($0).fmap{ $0.fmap(f) } } }
 }

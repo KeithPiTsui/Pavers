@@ -8,25 +8,60 @@
 
 import PaversFRP
 
-public func >>- <S, U, A, B> (_ a: Parser<S, U, A>, _ f: @escaping (A) -> Parser<S, U, B>) -> Parser<S, U, B> {
-  return Parser{
-    switch a.unParser($0) {
-    case .consumed (let reply):
-      switch reply {
-      case .error(let e): return .consumed(.error(e))
-      case let .ok(x, input, _):
-        switch f(x).unParser(input) {
-        case .consumed(let r): return .consumed(r)
-        case .empty(let r): return .consumed(r)
+/// m a -> (a -> m b) -> m b
+public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> LazyParser<S, U, B>)
+  -> LazyParser<S, U, B> {
+    return {Parser{
+      switch a().unParser($0) {
+      case .consumed (let reply):
+        switch reply {
+        case .error(let e): return .consumed(.error(e))
+        case let .ok(x, input, _):
+          switch f(x)().unParser(input) {
+          case .consumed(let r): return .consumed(r)
+          case .empty(let r): return .consumed(r)
+          }
+        }
+      case .empty(let reply):
+        switch reply {
+        case .error(let e): return .empty(.error(e))
+        case let .ok(x, input, _): return f(x)().unParser(input)
         }
       }
-    case .empty(let reply):
-      switch reply {
-      case .error(let e): return .empty(.error(e))
-      case let .ok(x, input, _): return f(x).unParser(input)
-      }
-    }
-  }
+      }}
+}
+
+public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> Parser<S, U, B>)
+  -> LazyParser<S, U, B> {
+    return a >>- {a in {f(a)}}
+}
+
+public func >>- <S, U, A, B> (_ a: Parser<S, U, A>, _ f: @escaping (A) -> LazyParser<S, U, B>)
+  -> LazyParser<S, U, B> {
+    return {a} >>- f
+}
+
+
+public func >>- <S, U, A, B> (_ a: Parser<S, U, A>, _ f: @escaping (A) -> Parser<S, U, B>) -> Parser<S, U, B> {
+  return ({a} >>- f)()
+}
+
+
+/// m a -> m b -> m b
+public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ b: @escaping LazyParser<S, U, B>)
+  -> LazyParser<S, U, B> {
+    return a >>- {_ in b}
+}
+
+
+public func >>- <S, U, A, B> (_ a: Parser<S, U, A>, _ b: @escaping LazyParser<S, U, B>)
+  -> LazyParser<S, U, B> {
+    return a >>- {_ in b}
+}
+
+public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ b: Parser<S, U, B>)
+  -> LazyParser<S, U, B> {
+    return a >>- {_ in b}
 }
 
 public func >>- <S, U, A, B> (_ a: Parser<S, U, A>, _ b: Parser<S, U, B>) -> Parser<S, U, B> {
@@ -35,18 +70,23 @@ public func >>- <S, U, A, B> (_ a: Parser<S, U, A>, _ b: Parser<S, U, B>) -> Par
 
 
 /// m a -> m b -> m (a, b)
-public func >>> <S, U, A, B> (_ a: Parser<S, U, A>, _ b: Parser<S, U, B>) -> Parser<S, U, (A, B)> {
-  return a >>- {a in b >>- {b in pure((a, b))}}
+public func >>> <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ b: @escaping LazyParser<S, U, B>)
+  -> LazyParser<S, U, (A, B)> {
+    return {a() >>- {a in b() >>- {b in pure((a, b))}}}
 }
 
-public func >>> <S, U, A, B> (_ a: @escaping () -> Parser<S, U, A>, _ b:Parser<S, U, B>) -> () -> Parser<S, U, (A, B)> {
-  return {a() >>- {a in b >>- {b in pure((a, b))}}}
+public func >>> <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ b:Parser<S, U, B>)
+  -> LazyParser<S, U, (A, B)> {
+    return a >>> {b}
 }
 
-public func >>> <S, U, A, B> (_ a: Parser<S, U, A>, _ b: @escaping () -> Parser<S, U, B>) -> () -> Parser<S, U, (A, B)> {
-  return {a >>- {a in b() >>- {b in pure((a, b))}}}
+public func >>> <S, U, A, B> (_ a: Parser<S, U, A>, _ b: @escaping LazyParser<S, U, B>)
+  -> LazyParser<S, U, (A, B)> {
+    return {a} >>> b
 }
 
-public func >>> <S, U, A, B> (_ a: @escaping () -> Parser<S, U, A>, _ b: @escaping () -> Parser<S, U, B>) -> () -> Parser<S, U, (A, B)> {
-  return {a() >>- {a in b() >>- {b in pure((a, b))}}}
+public func >>> <S, U, A, B> (_ a: Parser<S, U, A>, _ b: Parser<S, U, B>)
+  -> Parser<S, U, (A, B)> {
+    return ({a} >>> {b})()
 }
+

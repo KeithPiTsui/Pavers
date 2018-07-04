@@ -427,6 +427,7 @@
 		53FE26431FF4B5EE00B6CDE1 /* ChaCha20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE26021FF4B5EE00B6CDE1 /* ChaCha20.swift */; };
 		53FE26441FF4B5EE00B6CDE1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FE26031FF4B5EE00B6CDE1 /* Info.plist */; };
 		53FE26451FF4B5EE00B6CDE1 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE26041FF4B5EE00B6CDE1 /* Array+Extension.swift */; };
+		53FE72D020ECA2C7005AA0E5 /* Parser+Lookahead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE72CF20ECA2C7005AA0E5 /* Parser+Lookahead.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -917,6 +918,7 @@
 		53FE26021FF4B5EE00B6CDE1 /* ChaCha20.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChaCha20.swift; sourceTree = "<group>"; };
 		53FE26031FF4B5EE00B6CDE1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53FE26041FF4B5EE00B6CDE1 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		53FE72CF20ECA2C7005AA0E5 /* Parser+Lookahead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Lookahead.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1455,6 +1457,7 @@
 				531D50FC20E4BDDB00028394 /* Parser+Applicative.swift */,
 				5394D9F120EA0DBA00694145 /* Parser+Functor.swift */,
 				531D510820E4C25600028394 /* Parser+Labeling.swift */,
+				53FE72CF20ECA2C7005AA0E5 /* Parser+Lookahead.swift */,
 				531D510420E4C14600028394 /* Parser+Many.swift */,
 				531D510620E4C18E00028394 /* Parser+Monad.swift */,
 				531D510220E4C0CC00028394 /* Parser+Optional.swift */,
@@ -2355,9 +2358,9 @@
 				0E1D070A1F4C71A900D9CB38 /* PaversFRP */,
 				0E3D75901F4DC5E600FFD6C3 /* PaversArgo */,
 				535826CE1F9495B00089AD4A /* PaversUI */,
-				5343B5D31FCFF44400B0BD76 /* PaversParsec */,
 				53E932661FE223F80049B8AD /* PaversObjc */,
 				53FE25A81FF4B5CF00B6CDE1 /* PaversCrypto */,
+				5343B5D31FCFF44400B0BD76 /* PaversParsec */,
 				5375659B20E0D3650016AF17 /* PaversParsec2 */,
 				537565A320E0D3650016AF17 /* PaversParsec2Tests */,
 				53C1DC2120E388F700E8F0F0 /* ParsecMock */,
@@ -2823,6 +2826,7 @@
 				53C4334820EC7179002B2F40 /* Expression.swift in Sources */,
 				5394D9F620EA1CBD00694145 /* Helper.swift in Sources */,
 				53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */,
+				53FE72D020ECA2C7005AA0E5 /* Parser+Lookahead.swift in Sources */,
 				53C4334520EC6C99002B2F40 /* Languages.swift in Sources */,
 				5394D9F220EA0DBA00694145 /* Parser+Functor.swift in Sources */,
 			);
