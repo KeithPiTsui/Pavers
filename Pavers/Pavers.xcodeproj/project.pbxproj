@@ -1449,7 +1449,7 @@
 			path = ParserGenerator;
 			sourceTree = "<group>";
 		};
-		5357035220EA0D7200568D3F /* Parser */ = {
+		5357035220EA0D7200568D3F /* Primitives */ = {
 			isa = PBXGroup;
 			children = (
 				53E6FC8020E3D06300DFE5E6 /* Parser.swift */,
@@ -1468,7 +1468,7 @@
 				53C4334920EC8E05002B2F40 /* ParserStream.swift */,
 				53A5C1FB20E389A000F00229 /* SourcePosition.swift */,
 			);
-			path = Parser;
+			path = Primitives;
 			sourceTree = "<group>";
 		};
 		535826C81F9494EE0089AD4A /* UI */ = {
@@ -1826,11 +1826,10 @@
 		53C1DC2320E388F700E8F0F0 /* ParsecMock */ = {
 			isa = PBXGroup;
 			children = (
-				53C4334E20EC983B002B2F40 /* JSONParser */,
-				53C4334D20EC9636002B2F40 /* SupportingFiles */,
+				53E00AD020EDBB85009B64EC /* Parsers */,
+				53E00ACF20EDBB41009B64EC /* Parsec */,
 				531D50F920E4BA9800028394 /* HKT */,
-				53C1DC3920E3890B00E8F0F0 /* Parsec */,
-				531D510C20E4C2F500028394 /* ParserGenerator */,
+				53C4334D20EC9636002B2F40 /* SupportingFiles */,
 			);
 			path = ParsecMock;
 			sourceTree = "<group>";
@@ -1842,17 +1841,6 @@
 				53C1DC3120E388F700E8F0F0 /* Info.plist */,
 			);
 			path = ParsecMockTests;
-			sourceTree = "<group>";
-		};
-		53C1DC3920E3890B00E8F0F0 /* Parsec */ = {
-			isa = PBXGroup;
-			children = (
-				53C4334620EC716A002B2F40 /* Expression */,
-				53C4334320EC6C7E002B2F40 /* Language */,
-				5357035220EA0D7200568D3F /* Parser */,
-				5394D9F320EA0DC100694145 /* Token */,
-			);
-			path = Parsec;
 			sourceTree = "<group>";
 		};
 		53C4334320EC6C7E002B2F40 /* Language */ = {
@@ -1886,6 +1874,26 @@
 				53C4334F20EC983B002B2F40 /* JSONParser.swift */,
 			);
 			path = JSONParser;
+			sourceTree = "<group>";
+		};
+		53E00ACF20EDBB41009B64EC /* Parsec */ = {
+			isa = PBXGroup;
+			children = (
+				53C4334620EC716A002B2F40 /* Expression */,
+				53C4334320EC6C7E002B2F40 /* Language */,
+				531D510C20E4C2F500028394 /* ParserGenerator */,
+				5357035220EA0D7200568D3F /* Primitives */,
+				5394D9F320EA0DC100694145 /* Token */,
+			);
+			path = Parsec;
+			sourceTree = "<group>";
+		};
+		53E00AD020EDBB85009B64EC /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				53C4334E20EC983B002B2F40 /* JSONParser */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
