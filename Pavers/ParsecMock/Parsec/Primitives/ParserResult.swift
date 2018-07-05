@@ -57,12 +57,12 @@ extension ParserResult: CustomStringConvertible {
     case .consumed(let a):
       return """
       ParserResult: Consumed
-      \(a)
+      \(a())
       """
     case .empty(let a):
       return """
       ParserResult: Empty (Not consumed any input)
-      \(a)
+      \(a())
       """
     }
   }

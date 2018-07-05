@@ -28,6 +28,7 @@ class ParsecMockTests: XCTestCase {
   "node_id": "MDEwOlJlcG9zaXRvcnk5ODcxOTMzOQ==",
   "name": "Pavers",
   "full_name": "KeithPiTsui/Pavers",
+  "kk":[1,2,3],
   "owner": {
     "login": "KeithPiTsui",
     "id": 12403137
@@ -140,21 +141,17 @@ class ParsecMockTests: XCTestCase {
   }
   """
   
-  let parserStateString = ParserState<String, ()>(stateInput: "\"KeithTsui\"",
-                                            statePos: SourcePos(sourceName: "RawString", line: 1, column: 1),
-                                            stateUser: ())
-  let parserStateObject = ParserState<String, ()>(stateInput: ParsecMockTests.json2,
-                                                  statePos: SourcePos(sourceName: "RawString", line: 1, column: 1),
-                                                  stateUser: ())
-  let parserStateJSON = ParserState<String, ()>(stateInput: ParsecMockTests.json,
-                                                  statePos: SourcePos(sourceName: "RawString", line: 1, column: 1),
-                                                  stateUser: ())
-  func testExample() {
+  let parserStateString = ParserStateS("[1,2,3,\"123\",[1,2,3,\"123\"],4,5,{\"Keith\":\"Tsui\"}, 1, 2]")
+  let parserStateObject = ParserStateS(ParsecMockTests.json2)
+  let parserStateJSON = ParserStateS(ParsecMockTests.json)
+  let parserStateTrue = ParserStateS("false")
+  func testJSON() {
     let r =
 //      JSON.array().unParser(self.parserStateString)
 //    JSON.jstring.unParser(self.parserState)
-          JSON.object().unParser(self.parserStateObject)
-    
+          JSON.object().unParser(self.parserStateJSON)
+//      JSON.array().unParser(self.parserStateString)
+//    JSON.bool.unParser(self.parserStateTrue)
     print("\(r)")
     
     switch r {

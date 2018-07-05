@@ -18,5 +18,6 @@
         <page name='ParsecArithmetic3'/>
         <page name='Date'/>
         <page name='ParsecMockChar'/>
+        <page name='ParsecMockMany'/>
     </pages>
 </playground>

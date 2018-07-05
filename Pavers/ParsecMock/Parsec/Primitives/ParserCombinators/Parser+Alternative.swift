@@ -19,8 +19,10 @@ public func <|> <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b: @escaping La
     return {Parser { state in
       switch a().unParser(state) {
       case .consumed(let r): return .consumed(r)
+        
       case .empty(let r):
         switch r() {
+        
         case .error(let e1):
           switch b().unParser(state) {
           case .consumed(let r): return .consumed(r)
@@ -43,6 +45,7 @@ public func <|> <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b: @escaping La
               return .empty({.ok(x, s, e1.op(e2))})
             }
           }
+          
         }
       }
       }

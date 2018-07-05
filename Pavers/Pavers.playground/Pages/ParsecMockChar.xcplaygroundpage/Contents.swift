@@ -9,6 +9,8 @@ let a: ParserS<Character> = satisfy(CharacterSet.alphanumerics.contains)
 let emptyInput = ParserStateS("")
 print(a.unParser(emptyInput))
 
+print()
+
 /// parse with a valid string, should return consumed ok with cursor moved next
 let validInput = ParserStateS("a###")
 print(a.unParser(validInput))
@@ -19,5 +21,6 @@ print()
 let invalidInput = ParserStateS("###")
 print(a.unParser(invalidInput))
 
+print()
 
 //: [Next](@next)

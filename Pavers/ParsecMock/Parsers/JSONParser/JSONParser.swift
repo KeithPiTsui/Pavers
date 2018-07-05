@@ -13,13 +13,18 @@ public enum JSON {
   internal static let whitespace: ParserS<Character> = satisfy(CharacterSet.whitespacesAndNewlines.contains) <?> "whitespace"
   internal static let whitespaces = many(whitespace) <?> "whitespaces"
   
+  
+  
   /// Null Type
   public static let null: ParserS<()> = string("null").fmap(terminal) <?> "null"
+  
+  
   
   /// Bool Type
   internal static let bTrue: ParserS<String> = string("true") <?> "true"
   internal static let bFalse: ParserS<String> = string("false") <?> "false"
-  public static let bool = (bTrue <|> bFalse).fmap{ $0 == "true" ? true : false } <?> "bool"
+  public static let bool: ParserS<Bool> = (bTrue <|> bFalse).fmap{ $0 == "true" ? true : false } <?> "bool"
+  
   
   
   /// Number Type
@@ -48,6 +53,9 @@ public enum JSON {
         return result
   } <?> "number"
   
+  
+  
+  
   /// String Type
   internal static let letter: ParserS<Character> = satisfy{$0 != "\""}  <?> "letter"
   internal static let letters = many1(letter)  <?> "letters"
@@ -56,6 +64,10 @@ public enum JSON {
     .fmap { stringParts -> String in
       return String.init(stringParts.1.0 ?? [])
   }  <?> "jstring"
+  
+  
+  
+  
   
   /// Array Type
   internal static let squareBracketFront: ParserS<Character> = char("[")  <?> "squareBracketFront"
@@ -66,7 +78,9 @@ public enum JSON {
       <|> try_(anize(number))
       <|> try_(anize(jstring))
       <|> try_(anize(bool))
-      <|> try_(anize({array}))) <?> "item"
+      <|> try_(anize({array}))
+      <|> try_(anize({object}))
+      ) <?> "item"
   
   
   internal static let comma: ParserS<Character> = char(",")  <?> "comma"
@@ -83,7 +97,8 @@ public enum JSON {
   }  <?> "itemCommaList"
   
   public static let array: () -> ParserS<[Any]> =
-    fmap(squareBracketFront >>> whitespaces >>> itemCommaList.? >>> whitespaces >>> squareBracketBack) { (parts: (Character, ([Character]?, ([Any]?, ([Character]?, Character))))) -> [Any] in
+    fmap(squareBracketFront >>> whitespaces >>> itemCommaList.? >>> whitespaces >>> squareBracketBack) {
+      (parts: (Character, ([Character]?, ([Any]?, ([Character]?, Character))))) -> [Any] in
       return parts.1.1.0 ?? [] } <?> "array"
   
   
@@ -99,18 +114,16 @@ public enum JSON {
     return {a()().fmap{ (x) -> Any in return x }}
   }
   
-  /// Object
+  
+  
+  
+  
+  /// Object {"key": value , "key": value ... }
   internal static let bracketFront: ParserS<Character> = char("{") <?> "bracketFront"
   internal static let bracketEnd: ParserS<Character> = char("}") <?> "bracketEnd"
   internal static let key = jstring <?> "key"
   internal static let colon: ParserS<Character> = char(":") <?> "colon"
-  internal static let value: () -> ParserS<Any> =
-    (try_(anize(null))
-      <|> try_(anize(number))
-      <|> try_(anize(jstring))
-      <|> try_(anize(bool))
-      <|> try_(anize(array))
-      <|> try_(anize({object}))) <?> "value"
+  internal static let value: () -> ParserS<Any> = item
   
   internal static let keyValuePair: () -> ParserS<(String, Any)> =
     fmap(key >>> whitespaces >>> colon >>> whitespaces >>> value){

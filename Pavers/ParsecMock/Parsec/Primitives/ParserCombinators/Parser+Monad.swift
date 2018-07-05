@@ -29,12 +29,14 @@ public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping
     return {Parser{
       switch a().unParser($0) {
       case .consumed (let reply):
-        switch reply() {
-        case .error(let e): return .consumed({.error(e)})
-        case let .ok(x, input, _):
-          switch f(x)().unParser(input) {
-          case .consumed(let r): return .consumed(r)
-          case .empty(let r): return .consumed(r)
+        return .consumed {
+          switch reply() {
+          case .error(let e): return .error(e)
+          case let .ok(x, input, _):
+            switch f(x)().unParser(input) {
+            case .consumed(let r): return r()
+            case .empty(let r): return r()
+            }
           }
         }
       case .empty(let reply):
@@ -43,7 +45,8 @@ public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping
         case let .ok(x, input, _): return f(x)().unParser(input)
         }
       }
-      }}
+      }
+    }
 }
 
 public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> Parser<S, U, B>)
