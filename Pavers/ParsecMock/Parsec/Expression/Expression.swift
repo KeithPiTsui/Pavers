@@ -103,7 +103,7 @@ public func buildExpressionParser<S, U, A>
       func ambiguous(_ assoc: String, _ op: Parser<S, U, (A) -> (A) -> A>)
         -> Parser<S, U, A> {
           let a: Parser<S, U, A>
-            = op >>- {_ in parserFail(msg: "ambiguous use of a \(assoc) associative operator")}
+            = op >>- {_ in parserFail("ambiguous use of a \(assoc) associative operator")}
           return  try_(a)
       }
       

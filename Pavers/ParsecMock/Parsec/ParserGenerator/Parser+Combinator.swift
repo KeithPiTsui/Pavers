@@ -219,7 +219,7 @@ public func parserTrace<S,U>(_ s: String) -> Parser<S, U, ()>
     let pt = b >>- { (x) -> Parser<S, U, ()> in
       let d: Parser<S, U, ()> = try_(eof())
       let c: Parser<S, U, ()> = trace("s: \(x)", d)
-      return c >>- parserFail("\(x)")
+      return c >>- (parserFail("\(x)") as Parser<S, U, ()>)
     }
     return pt <|> pure(())
 }
@@ -232,7 +232,7 @@ public func parserTrace<S,U>(_ s: String) -> Parser<S, U, ()>
 public func parserTraced<S, U>(_ s: String, _ p: Parser<S, U, Any>) -> Parser<S, U, Any>
   where S: ParserStream, S.Element == Any {
     let a: Parser<S, U, ()> = parserTrace(s)
-    let b = p <|> trace("\(s) backtracked", (parserFail(s)))
+    let b = p <|> trace("\(s) backtracked", (parserFail(s) as Parser<S, U, Any>))
     return a >>- b
 }
 

@@ -8,18 +8,18 @@
 
 import PaversFRP
 
-private func testChar<U>(c: Character) -> Parser<String, U, Character> {
-  func showChar(x: Character) -> String {
-    return "'\(x)'"
-  }
-  func charTest(x: Character) -> Character? {
-    return x == c ? x : nil
-  }
-  func nextPos(pos: SourcePos, x: Character, xs: String) -> SourcePos {
-    return pos.update(PosBy: x)
-  }
-  return tokenPrim(showToken: showChar, nextPos: curry(nextPos), test: charTest)
-}
+//private func testChar<U>(c: Character) -> Parser<String, U, Character> {
+//  func showChar(x: Character) -> String {
+//    return "'\(x)'"
+//  }
+//  func charTest(x: Character) -> Character? {
+//    return x == c ? x : nil
+//  }
+//  func nextPos(pos: SourcePos, x: Character, xs: String) -> SourcePos {
+//    return pos.update(PosBy: x)
+//  }
+//  return tokenPrim(showToken: showChar, nextPos: curry(nextPos), test: charTest)
+//}
 
 
 public func tokenPrim<T, S, U, A>(

@@ -7,7 +7,7 @@
 //
 
 public func pure<S, U, A> (_ a: A) -> LazyParser<S, U, A>{
-  return {Parser<S, U, A>{ .empty(.ok(a, $0, ParserError(pos: $0.statePos, msgs: [])))}}
+  return parserReturn(a)
 }
 
 public func pure<S, U, A> (_ a: A) -> Parser<S, U, A> {

@@ -117,7 +117,7 @@ extension SourcePos {
 extension SourcePos: CustomStringConvertible {
   public var description: String {
     return """
-    "\(self.sourceName)" (line \(self.line)) column \(self.column))
+    {file: \(self.sourceName), line: \(self.line), column: \(self.column)}
     """
   }
 }

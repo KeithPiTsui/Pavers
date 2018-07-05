@@ -36,3 +36,42 @@ extension ParserResult {
     }
   }
 }
+
+extension ParserResult: CustomStringConvertible {
+  public var description: String {
+    switch self {
+    case .consumed(let a):
+      return """
+      ParserResult: Consumed
+      \(a)
+      """
+    case .empty(let a):
+      return """
+      ParserResult: Empty (Not consumed any input)
+      \(a)
+      """
+    }
+  }
+}
+
+extension Reply: CustomStringConvertible {
+  public var description: String {
+    switch self {
+    case let .ok(a, state, e):
+      return """
+      Parse OK
+      Got: \(a):\(type(of: a))
+      NextState:
+      \(state)
+      Message:
+      \(e)
+      """
+    case let .error(e):
+      return """
+      Parse Failed
+      Message:
+      \(e)
+      """
+    }
+  }
+}

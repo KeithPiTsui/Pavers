@@ -8,12 +8,15 @@
 
 import PaversFRP
 
-public typealias ParserS<A> = Parser<String, (), A>
+public func string<S, U>(_ s: String) -> LazyParser<S, U, String>
+  where S: ParserStream, S.Element == Character {
+    return {tokens({"\($0)"},
+                  {pos in {cs in pos.update(PosBy: String(cs))}},
+                  s.chars)
+      .fmap{String($0)}}
+}
 
 public func string<S, U>(_ s: String) -> Parser<S, U, String>
   where S: ParserStream, S.Element == Character {
-    return tokens({"\($0)"},
-                  {pos in {cs in pos.update(PosBy: String(cs))}},
-                  s.chars)
-      .fmap{String($0)}
+    return string(s)()
 }

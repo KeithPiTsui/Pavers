@@ -8,6 +8,18 @@
 
 import PaversFRP
 
+//parserReturn :: a -> ParsecT s u m a
+//parserReturn x
+//= ParsecT $ \s _ _ eok _ ->
+//eok x s (unknownError s)
+public func parserReturn<S, U, A>(_ a: A) -> LazyParser<S, U, A> {
+  return {Parser<S, U, A>{ .empty(.ok(a, $0, ParserError(pos: $0.statePos, msgs: [])))}}
+}
+
+public func parserReturn<S, U, A>(_ a: A) -> Parser<S, U, A> {
+  return parserReturn(a)()
+}
+
 /// m a -> (a -> m b) -> m b
 public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> LazyParser<S, U, B>)
   -> LazyParser<S, U, B> {

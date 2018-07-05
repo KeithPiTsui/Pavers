@@ -8,19 +8,25 @@
 
 import PaversFRP
 
+/**
+ The alternative combinator is left-biased
+ and will return the first succeeding parse tree.
+ That means the parser p <|> q never tries parser q
+ whenever parser p has consumed any input.
+ */
 public func <|> <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b: @escaping LazyParser<S, U, A>)
   -> LazyParser<S, U, A> {
-    return {Parser {
-      switch a().unParser($0) {
+    return {Parser { state in
+      switch a().unParser(state) {
       case .consumed(let r): return .consumed(r)
       case .empty(.error(let e1)):
-        switch b().unParser($0) {
+        switch b().unParser(state) {
         case .consumed(let r): return .consumed(r)
         case .empty(.error(let e2)): return .empty(.error(e1.op(e2)))
         case .empty(let .ok(x, s, e2)): return .empty(.ok(x, s, e1.op(e2)))
         }
       case .empty(let .ok(x, s, e1)):
-        switch b().unParser($0) {
+        switch b().unParser(state) {
         case .consumed(let r): return .consumed(r)
         case .empty(.error(let e2)):
           return .empty(.ok(x, s, e1.op(e2)))

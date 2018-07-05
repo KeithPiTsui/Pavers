@@ -353,6 +353,8 @@
 		53C4334A20EC8E05002B2F40 /* ParserStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334920EC8E05002B2F40 /* ParserStream.swift */; };
 		53C4334C20EC961B002B2F40 /* Parser+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334B20EC961B002B2F40 /* Parser+Error.swift */; };
 		53C4335020EC983B002B2F40 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C4334F20EC983B002B2F40 /* JSONParser.swift */; };
+		53E00AD520EDC1FA009B64EC /* Parser+Monoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E00AD420EDC1FA009B64EC /* Parser+Monoid.swift */; };
+		53E00AD820EDE62D009B64EC /* Parser+Satisfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E00AD720EDE62D009B64EC /* Parser+Satisfy.swift */; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */; };
 		53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Parser.swift */; };
@@ -840,6 +842,8 @@
 		53C4334B20EC961B002B2F40 /* Parser+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Error.swift"; sourceTree = "<group>"; };
 		53C4334F20EC983B002B2F40 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		53CEF4261FD8075800F4046B /* Parser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monad.swift"; sourceTree = "<group>"; };
+		53E00AD420EDC1FA009B64EC /* Parser+Monoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Monoid.swift"; sourceTree = "<group>"; };
+		53E00AD720EDE62D009B64EC /* Parser+Satisfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Satisfy.swift"; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
 		53E6FC8020E3D06300DFE5E6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -1375,11 +1379,11 @@
 		531D510C20E4C2F500028394 /* ParserGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				531D510A20E4C2E200028394 /* Parser+Satisfy.swift */,
-				53C4334B20EC961B002B2F40 /* Parser+Error.swift */,
-				5357034E20EA0BF900568D3F /* Parser+String.swift */,
-				532F5B9120EA3C0B0099272D /* Parser+Combinator.swift */,
 				5394D9F420EA1A7800694145 /* Parser+Char.swift */,
+				532F5B9120EA3C0B0099272D /* Parser+Combinator.swift */,
+				53C4334B20EC961B002B2F40 /* Parser+Error.swift */,
+				531D510A20E4C2E200028394 /* Parser+Satisfy.swift */,
+				5357034E20EA0BF900568D3F /* Parser+String.swift */,
 			);
 			path = ParserGenerator;
 			sourceTree = "<group>";
@@ -1452,16 +1456,8 @@
 		5357035220EA0D7200568D3F /* Primitives */ = {
 			isa = PBXGroup;
 			children = (
+				53E00AD320EDBCC6009B64EC /* ParserCombinators */,
 				53E6FC8020E3D06300DFE5E6 /* Parser.swift */,
-				531D50FE20E4BED900028394 /* Parser+Alternative.swift */,
-				531D50FC20E4BDDB00028394 /* Parser+Applicative.swift */,
-				5394D9F120EA0DBA00694145 /* Parser+Functor.swift */,
-				531D510820E4C25600028394 /* Parser+Labeling.swift */,
-				53FE72CF20ECA2C7005AA0E5 /* Parser+Lookahead.swift */,
-				531D510420E4C14600028394 /* Parser+Many.swift */,
-				531D510620E4C18E00028394 /* Parser+Monad.swift */,
-				531D510220E4C0CC00028394 /* Parser+Optional.swift */,
-				531D510020E4C07D00028394 /* Parser+Try.swift */,
 				53A5C1FD20E38A9200F00229 /* ParserError.swift */,
 				53E6FC8220E3D81400DFE5E6 /* ParserResult.swift */,
 				53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */,
@@ -1826,9 +1822,9 @@
 		53C1DC2320E388F700E8F0F0 /* ParsecMock */ = {
 			isa = PBXGroup;
 			children = (
-				53E00AD020EDBB85009B64EC /* Parsers */,
-				53E00ACF20EDBB41009B64EC /* Parsec */,
 				531D50F920E4BA9800028394 /* HKT */,
+				53E00ACF20EDBB41009B64EC /* Parsec */,
+				53E00AD020EDBB85009B64EC /* Parsers */,
 				53C4334D20EC9636002B2F40 /* SupportingFiles */,
 			);
 			path = ParsecMock;
@@ -1837,6 +1833,7 @@
 		53C1DC2E20E388F700E8F0F0 /* ParsecMockTests */ = {
 			isa = PBXGroup;
 			children = (
+				53E00AD120EDBBD0009B64EC /* Parsec */,
 				53C1DC2F20E388F700E8F0F0 /* ParsecMockTests.swift */,
 				53C1DC3120E388F700E8F0F0 /* Info.plist */,
 			);
@@ -1894,6 +1891,47 @@
 				53C4334E20EC983B002B2F40 /* JSONParser */,
 			);
 			path = Parsers;
+			sourceTree = "<group>";
+		};
+		53E00AD120EDBBD0009B64EC /* Parsec */ = {
+			isa = PBXGroup;
+			children = (
+				53E00AD620EDE60A009B64EC /* ParserGenerator */,
+				53E00AD220EDBBE6009B64EC /* Primitives */,
+			);
+			path = Parsec;
+			sourceTree = "<group>";
+		};
+		53E00AD220EDBBE6009B64EC /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Primitives;
+			sourceTree = "<group>";
+		};
+		53E00AD320EDBCC6009B64EC /* ParserCombinators */ = {
+			isa = PBXGroup;
+			children = (
+				531D50FE20E4BED900028394 /* Parser+Alternative.swift */,
+				531D50FC20E4BDDB00028394 /* Parser+Applicative.swift */,
+				5394D9F120EA0DBA00694145 /* Parser+Functor.swift */,
+				531D510820E4C25600028394 /* Parser+Labeling.swift */,
+				53FE72CF20ECA2C7005AA0E5 /* Parser+Lookahead.swift */,
+				531D510420E4C14600028394 /* Parser+Many.swift */,
+				531D510620E4C18E00028394 /* Parser+Monad.swift */,
+				53E00AD420EDC1FA009B64EC /* Parser+Monoid.swift */,
+				531D510220E4C0CC00028394 /* Parser+Optional.swift */,
+				531D510020E4C07D00028394 /* Parser+Try.swift */,
+			);
+			path = ParserCombinators;
+			sourceTree = "<group>";
+		};
+		53E00AD620EDE60A009B64EC /* ParserGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				53E00AD720EDE62D009B64EC /* Parser+Satisfy.swift */,
+			);
+			path = ParserGenerator;
 			sourceTree = "<group>";
 		};
 		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
@@ -2827,6 +2865,7 @@
 				531D50F420E47E3100028394 /* HKT+Array.swift in Sources */,
 				53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */,
 				531118B620EB178900E11C2E /* MakeTokenParser.swift in Sources */,
+				53E00AD520EDC1FA009B64EC /* Parser+Monoid.swift in Sources */,
 				531D50FF20E4BED900028394 /* Parser+Alternative.swift in Sources */,
 				5394D9F820EA239800694145 /* CharacterSetExtension.swift in Sources */,
 				5390FE9720E6288400D396EA /* TokenPrimitive.swift in Sources */,
@@ -2844,6 +2883,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E00AD820EDE62D009B64EC /* Parser+Satisfy.swift in Sources */,
 				53C1DC3020E388F700E8F0F0 /* ParsecMockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

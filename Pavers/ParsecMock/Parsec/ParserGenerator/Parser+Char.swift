@@ -12,6 +12,12 @@ import PaversFRP
 //oneOf :: (Stream s m Char) => [Char] -> ParsecT s u m Char
 //oneOf cs            = satisfy (\c -> elem c cs)
 
+public func oneOf<S, U>(_ cs: String)
+  -> Parser<S, U, Character>
+  where S: ParserStream, S.Element == Character {
+    return oneOf(cs.chars)
+}
+
 public func oneOf<S, U>(_ cs: [Character])
   -> Parser<S, U, Character>
   where S: ParserStream, S.Element == Character {
@@ -20,6 +26,11 @@ public func oneOf<S, U>(_ cs: [Character])
 
 //noneOf :: (Stream s m Char) => [Char] -> ParsecT s u m Char
 //noneOf cs           = satisfy (\c -> not (elem c cs))
+public func noneOf<S, U>(_ cs: String)
+  -> Parser<S, U, Character> where S: ParserStream, S.Element == Character  {
+    return noneOf(cs.chars)
+}
+
 public func noneOf<S, U>(_ cs: [Character])
   -> Parser<S, U, Character> where S: ParserStream, S.Element == Character  {
   return satisfy{ !cs.contains($0)}

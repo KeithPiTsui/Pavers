@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import ParsecMock
+import PaversFRP
 
 class ParsecMockTests: XCTestCase {
   
@@ -173,6 +174,31 @@ class ParsecMockTests: XCTestCase {
       }
     }
   }
+  
+  func testA() {
+    /**
+     S ::= PQ | Q
+     P ::= "P"
+     Q ::= "PQ"
+     */
+    let p: ParserS<String> = string("P")
+    let q: ParserS<String> = string("PQ")
+    let s: ParserS<String> = (p >>> q) <|> q
+    let r = s.unParser(ParserStateS("PQ"))
+    print(r)
+  }
 
+  func testB() {
+    /**
+     S ::= PQ
+     P ::= "P" | e
+     Q ::= "PQ"
+     */
+    let p: ParserS<String> = string("P") <|> parserReturn("p")
+    let q: ParserS<String> = string("PQ")
+    let s: ParserS<String> = (p >>> q)
+    let r = s.unParser(ParserStateS("PQ"))
+    print(r)
+  }
   
 }

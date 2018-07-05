@@ -200,12 +200,12 @@ public func showErrorMessage(msgOr: String = "msgOr",
   let (unExpect, msgs2) = msgs1.span(curry((==))(Message.unexpect("")))
   let (expect, messages) = msgs2.span(curry((==))(Message.expect("")))
   let showMessages = showMany(pre: "", msgs: messages)
-  let firstMsg  = sysUnExpect[0].message
+  let firstMsg  = sysUnExpect.first?.message
   let showExpect = showMany(pre: msgExpecting, msgs: expect)
   let showUnExpect = showMany(pre: msgUnexpected, msgs: unExpect)
   let showSysUnExpect = (!unExpect.isEmpty || sysUnExpect.isEmpty)
     ? ""
-    : (firstMsg.isEmpty ? msgUnexpected + " " + msgEndOfInput : msgUnexpected + " " + firstMsg)
+    : ((firstMsg?.isEmpty ?? true) ? msgUnexpected + " " + msgEndOfInput : msgUnexpected + " " + (firstMsg ?? ""))
   return clean([showSysUnExpect,showUnExpect,showExpect,showMessages])
     .map{"\n" + $0}
     .reduce("", +)
