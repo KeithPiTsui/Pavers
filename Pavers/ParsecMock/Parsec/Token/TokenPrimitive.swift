@@ -51,20 +51,20 @@ public func tokenPrimEx_<T, S, U, A>(
       let r = uncons(state.stateInput)
       switch r {
       case .none: return
-        ParserResult<Reply<S, U, A>>.empty(
+        ParserResult<Reply<S, U, A>>.empty({
           Reply<S, U, A>.error(
-            unexpectError(s: "", pos: state.statePos)))
+            unexpectError(s: "", pos: state.statePos))})
       case .some(let (c, cs)):
         switch test(c) {
         case .none: return
-          ParserResult<Reply<S, U, A>>.empty(
+          ParserResult<Reply<S, U, A>>.empty({
             Reply<S, U, A>.error(
-              unexpectError(s: showToken(c), pos: state.statePos)))
+              unexpectError(s: showToken(c), pos: state.statePos))})
         case .some(let x):
           let newPos = nextPos(state.statePos)(c)(cs)
           let newState = ParserState<S, U>(stateInput: cs, statePos: newPos, stateUser: state.stateUser)
-          return ParserResult<Reply<S, U, A>>.consumed(
-            Reply<S, U, A>.ok(x, newState, ParserError.init(newErrorWith: Message.message(""), pos: newPos)))
+          return ParserResult<Reply<S, U, A>>.consumed({
+            Reply<S, U, A>.ok(x, newState, ParserError.init(newErrorWith: Message.message(""), pos: newPos))})
           
         }
       }
@@ -82,21 +82,21 @@ public func tokenPrimEx__<T, S, U, A>(
       let r = uncons(state.stateInput)
       switch r {
       case .none: return
-        ParserResult<Reply<S, U, A>>.empty(
+        ParserResult<Reply<S, U, A>>.empty({
           Reply<S, U, A>.error(
-            unexpectError(s: "", pos: state.statePos)))
+            unexpectError(s: "", pos: state.statePos))})
       case .some(let (c, cs)):
         switch test(c) {
         case .none: return
-          ParserResult<Reply<S, U, A>>.empty(
+          ParserResult<Reply<S, U, A>>.empty({
             Reply<S, U, A>.error(
-              unexpectError(s: showToken(c), pos: state.statePos)))
+              unexpectError(s: showToken(c), pos: state.statePos))})
         case .some(let x):
           let newPos = nextPos(state.statePos)(c)(cs)
           let newUser = nextState(state.statePos)(c)(cs)(state.stateUser)
           let newState = ParserState<S, U>(stateInput: cs, statePos: newPos, stateUser: newUser)
-          return ParserResult<Reply<S, U, A>>.consumed(
-            Reply<S, U, A>.ok(x, newState, ParserError.init(newErrorWith: Message.message(""), pos: newPos)))
+          return ParserResult<Reply<S, U, A>>.consumed({
+            Reply<S, U, A>.ok(x, newState, ParserError.init(newErrorWith: Message.message(""), pos: newPos))})
           
         }
       }

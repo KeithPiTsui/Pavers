@@ -16,16 +16,16 @@ public func lookAhead<S, U, A>(_ p: @escaping LazyParser<S, U, A>) -> LazyParser
   return {Parser<S, U, A> { state in
     switch p().unParser(state) {
     case .consumed(let reply):
-      switch reply {
+      switch reply() {
       case let .ok(a, _, _):
-        return .empty(.ok(a, state, ParserError(unknownErrorWith: state.statePos)))
-      case let otherwise: return .consumed(otherwise)
+        return .empty({.ok(a, state, ParserError(unknownErrorWith: state.statePos))})
+      case let otherwise: return .consumed({otherwise})
       }
     case .empty(let reply):
-      switch reply {
+      switch reply() {
       case let .ok(a, _, _):
-        return .empty(.ok(a, state, ParserError(unknownErrorWith: state.statePos)))
-      case let otherwise: return .empty(otherwise)
+        return .empty({.ok(a, state, ParserError(unknownErrorWith: state.statePos))})
+      case let otherwise: return .empty({otherwise})
       }
     }
     }}

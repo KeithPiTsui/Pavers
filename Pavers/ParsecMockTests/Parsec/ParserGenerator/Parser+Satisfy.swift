@@ -19,7 +19,7 @@ class Parser_Satisfy: XCTestCase {
   func testEmptyInput() {
     let emptyInput = ParserStateS("")
     let r = a.unParser(emptyInput)
-    if case ParserResult.empty(Reply.error(_)) = r {
+    if case ParserResult.empty(let x) = r, case Reply.error(_) = x() {
       XCTAssert(true)
     } else {
       XCTAssert(false, "Parse with empty input, should return empty error.\(r)")
@@ -27,7 +27,7 @@ class Parser_Satisfy: XCTestCase {
     
     
     let r1 = la().unParser(emptyInput)
-    if case ParserResult.empty(Reply.error(_)) = r1 {
+    if case ParserResult.empty(let x) = r1, case Reply.error(_) = x() {
       XCTAssert(true)
     } else {
       XCTAssert(false, "Lazy Parse with empty input, should return empty error.\(r)")
@@ -37,7 +37,7 @@ class Parser_Satisfy: XCTestCase {
   func testValidInput() {
     let validInput = ParserStateS("a###")
     let r = a.unParser(validInput)
-    if case let ParserResult.consumed(Reply.ok(a, nextState, _)) = r {
+    if case let ParserResult.consumed(x) = r, case let Reply.ok(a, nextState, _) = x() {
       XCTAssert(a == validInput.stateInput.first()! ,
                 "Should move one character forward")
       XCTAssert(nextState.stateInput == validInput.stateInput.tail() ,
@@ -49,7 +49,7 @@ class Parser_Satisfy: XCTestCase {
     }
     
     let r1 = la().unParser(validInput)
-    if case let ParserResult.consumed(Reply.ok(a, nextState, _)) = r1 {
+    if case let ParserResult.consumed(x) = r1, case let Reply.ok(a, nextState, _) = x() {
       XCTAssert(a == validInput.stateInput.first()! ,
                 "Should move one character forward")
       XCTAssert(nextState.stateInput == validInput.stateInput.tail() ,
@@ -64,14 +64,14 @@ class Parser_Satisfy: XCTestCase {
   func testInvalidInput() {
     let invalidInput = ParserStateS("###")
     let r = a.unParser(invalidInput)
-    if case ParserResult.empty(Reply.error(_)) = r {
+    if case ParserResult.empty(let x) = r, case Reply.error(_) = x() {
       XCTAssert(true)
     } else {
       XCTAssert(false, "parser with invalid string, should return empty error.\(r)")
     }
     
     let r1 = la().unParser(invalidInput)
-    if case ParserResult.empty(Reply.error(_)) = r1 {
+    if case ParserResult.empty(let x) = r1, case Reply.error(_) = x() {
       XCTAssert(true)
     } else {
       XCTAssert(false, "Lazy parser with invalid string, should return empty error.\(r)")

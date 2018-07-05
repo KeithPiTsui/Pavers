@@ -6,9 +6,23 @@
 //  Copyright © 2018 Keith. All rights reserved.
 //
 
+
+/**
+ ParserResult should lazinize its wrapped A to improve efficient.
+ 
+ An LL(1) choice combinator only looks at its second alternative
+ if the first hasn’t consumed any input – regardless of the final
+ reply value! Now that the (>>=) combinator immediately returns a
+ Consumed constructor as soon as some input has been consumed,
+ the choice combinator can choose an alternative as soon as some
+ input has been consumed. It no longer holds on to the original input,
+ fixing the space leak of the previous combinators.
+ */
+
 public enum ParserResult<A> {
-  case consumed(A)
-  case empty(A)
+  public typealias lazyA = () -> A
+  case consumed(lazyA)
+  case empty(lazyA)
 }
 
 public enum Reply<S, U, A> {
@@ -29,10 +43,10 @@ extension Reply {
 
 extension ParserResult {
   /// fmap :: (a -> b) -> f a -> f b
-  public func fmap<B>(_ f: (A) -> B) -> ParserResult<B> {
+  public func fmap<B>(_ f: @escaping (A) -> B) -> ParserResult<B> {
     switch self {
-    case let .consumed(a): return .consumed(f(a))
-    case let .empty(a): return .empty(f(a))
+    case let .consumed(a): return .consumed({f(a())})
+    case let .empty(a): return .empty({f(a())})
     }
   }
 }

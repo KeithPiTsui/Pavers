@@ -159,14 +159,14 @@ class ParsecMockTests: XCTestCase {
     
     switch r {
     case .consumed(let r):
-      switch r {
+      switch r() {
       case .ok(_, _, _): break
       case .error(let e):
         print(e.description);
         XCTAssert(false)
       }
     case .empty(let r):
-      switch r {
+      switch r() {
       case .ok(_, _, _): break
       case .error(let e):
         print(e);

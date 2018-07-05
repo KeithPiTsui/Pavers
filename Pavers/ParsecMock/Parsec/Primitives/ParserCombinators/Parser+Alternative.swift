@@ -19,19 +19,30 @@ public func <|> <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b: @escaping La
     return {Parser { state in
       switch a().unParser(state) {
       case .consumed(let r): return .consumed(r)
-      case .empty(.error(let e1)):
-        switch b().unParser(state) {
-        case .consumed(let r): return .consumed(r)
-        case .empty(.error(let e2)): return .empty(.error(e1.op(e2)))
-        case .empty(let .ok(x, s, e2)): return .empty(.ok(x, s, e1.op(e2)))
-        }
-      case .empty(let .ok(x, s, e1)):
-        switch b().unParser(state) {
-        case .consumed(let r): return .consumed(r)
-        case .empty(.error(let e2)):
-          return .empty(.ok(x, s, e1.op(e2)))
-        case .empty(let .ok(_, _, e2)):
-          return .empty(.ok(x, s, e1.op(e2)))
+      case .empty(let r):
+        switch r() {
+        case .error(let e1):
+          switch b().unParser(state) {
+          case .consumed(let r): return .consumed(r)
+          case .empty(let r):
+            switch r() {
+            case .error(let e2):
+              return .empty({.error(e1.op(e2))})
+            case let .ok(x, s, e2):
+            return .empty({.ok(x, s, e1.op(e2))})
+            }
+          }
+        case let .ok(x, s, e1):
+          switch b().unParser(state) {
+          case .consumed(let r): return .consumed(r)
+          case .empty(let r):
+            switch r() {
+            case .error(let e2):
+              return .empty({.ok(x, s, e1.op(e2))})
+            case let .ok(_, _, e2):
+              return .empty({.ok(x, s, e1.op(e2))})
+            }
+          }
         }
       }
       }

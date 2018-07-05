@@ -9,8 +9,13 @@
 public func try_ <S, U, A> (_ a: @escaping LazyParser<S, U, A>) -> LazyParser<S, U, A> {
   return {Parser {
     switch a().unParser($0) {
-    case .consumed(.error(let e)):
-      return .empty(.error(e))
+    case .consumed(let r):
+      switch r() {
+      case .error(let e):
+        return .empty({.error(e)})
+      case .ok(_, _, _):
+        return .consumed(r)
+      }
     case let otherwise:
       return otherwise
     }

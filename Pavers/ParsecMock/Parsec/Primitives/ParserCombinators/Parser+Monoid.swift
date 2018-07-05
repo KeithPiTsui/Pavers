@@ -15,7 +15,7 @@ import PaversFRP
 
 public func parserZero<S, U, A> () -> Parser<S, U, A> {
   return Parser{ state in
-    .empty(.error( ParserError(unknownErrorWith: state.statePos) ))
+    .empty({.error( ParserError(unknownErrorWith: state.statePos) )})
   }
 }
 
@@ -28,48 +28,48 @@ extension Parser: Semigroup where A: Semigroup {
     return {Parser<S, U, A> { (s: ParserState<S, U>) in
       switch self.unParser(s) {
       case .consumed(let rep):
-        switch rep {
+        switch rep() {
         case let .ok(a, s_, _):
           switch other().unParser(s_) {
           case .consumed(let rep_):
-            switch rep_ {
+            switch rep_() {
             case let .ok(a_, s__, e_):
-              return .consumed(.ok(a.op(a_), s__, e_))
+              return .consumed({.ok(a.op(a_), s__, e_)})
             case let otherwise:
-              return .consumed(otherwise)
+              return .consumed({otherwise})
             }
           case .empty(let rep_):
-            switch rep_ {
+            switch rep_() {
             case let .ok(a_, s__, e_):
-              return .consumed(.ok(a.op(a_), s__, e_))
+              return .consumed({.ok(a.op(a_), s__, e_)})
             case let otherwise:
-              return .consumed(otherwise)
+              return .consumed({otherwise})
             }
           }
           
-        case let otherwise: return .consumed(otherwise)
+        case let otherwise: return .consumed({otherwise})
         }
       case .empty(let rep):
-        switch rep {
+        switch rep() {
         case let .ok(a, s_, _):
           switch other().unParser(s_) {
           case .consumed(let rep_):
-            switch rep_ {
+            switch rep_() {
             case let .ok(a_, s__, e_):
-              return .consumed(.ok(a.op(a_), s__, e_))
+              return .consumed({.ok(a.op(a_), s__, e_)})
             case let otherwise:
-              return .consumed(otherwise)
+              return .consumed({otherwise})
             }
           case .empty(let rep_):
-            switch rep_ {
+            switch rep_() {
             case let .ok(a_, s__, e_):
-              return .empty(.ok(a.op(a_), s__, e_))
+              return .empty({.ok(a.op(a_), s__, e_)})
             case let otherwise:
-              return .empty(otherwise)
+              return .empty({otherwise})
             }
           }
           
-        case let otherwise: return .consumed(otherwise)
+        case let otherwise: return .consumed({otherwise})
         }
       }
     }

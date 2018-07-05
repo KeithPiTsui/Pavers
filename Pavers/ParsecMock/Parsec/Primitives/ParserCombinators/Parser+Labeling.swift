@@ -11,10 +11,13 @@ import PaversFRP
 public func <?> <S,U,A> (_ a: @escaping LazyParser<S,U,A>, _ labels: [String]) -> LazyParser<S,U,A> {
   return {Parser {
     switch a().unParser($0) {
-    case .empty(.error(let e)):
-      return .empty(.error(expect(e, labels)))
-    case .empty(let .ok(x, state, e)):
-      return .empty(.ok(x, state, expect(e, labels)))
+    case .empty(let r):
+      switch r() {
+      case .error(let e):
+        return .empty({.error(expect(e, labels))})
+      case let .ok(x, state, e):
+        return .empty({.ok(x, state, expect(e, labels))})
+      }
     case let otherwise: return otherwise
     }
     }}
