@@ -70,7 +70,7 @@ public func tokens <S, U, T>
       case .none: return ParserResult.empty({Reply.error(errEof)})
       case .some(let (x, xs)):
         if t == x {return walk(Array(tts.dropFirst()), xs)}
-        else { return ParserResult.consumed({Reply.error(errExpect(x))})}
+        else { return ParserResult.empty({Reply.error(errExpect(x))})}
       }
     }
 }

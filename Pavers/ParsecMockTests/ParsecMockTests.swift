@@ -197,5 +197,23 @@ class ParsecMockTests: XCTestCase {
     let r = s.unParser(ParserStateS("PQ"))
     print(r)
   }
+
+  func testNSJSONSerialization() {
+    self.measure {
+      for _ in 1 ... 1 {
+        _ = try? JSONSerialization.jsonObject(with: ParsecMockTests.json.data(using: .utf8)!,
+                                              options:JSONSerialization.ReadingOptions(rawValue: 0))
+      }
+    }
+  }
+//
+  func testParsecJSON() {
+    self.measure {
+      for _ in 1 ... 2 {
+        _ = JSON.object().unParser(parserStateJSON)
+      }
+    }
+  }
+//
   
 }

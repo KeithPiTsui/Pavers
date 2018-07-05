@@ -22,10 +22,16 @@ precedencegroup LensSetPrecedence {
 precedencegroup RunesMonadicPrecedenceRight {
   associativity: right
   lowerThan: LogicalDisjunctionPrecedence
-  higherThan: AssignmentPrecedence
+  higherThan: TagAttachmentPrecedence
 }
 
 precedencegroup RunesMonadicPrecedenceLeft {
+  associativity: left
+  lowerThan: LogicalDisjunctionPrecedence
+  higherThan: TagAttachmentPrecedence
+}
+
+precedencegroup TagAttachmentPrecedence {
   associativity: left
   lowerThan: LogicalDisjunctionPrecedence
   higherThan: AssignmentPrecedence
@@ -54,7 +60,7 @@ precedencegroup RunesApplicativeSequencePrecedence {
 
 // MARK: -
 
-infix operator <?>: NilCoalescingPrecedence
+infix operator <?>: TagAttachmentPrecedence
 
 
 // MARK: Functor Operators
