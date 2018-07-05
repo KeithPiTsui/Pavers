@@ -10,24 +10,27 @@ import XCTest
 
 class Parser_Alternative: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
+  /**
+   The alternative combinator is left-biased
+   and will return the first succeeding parse tree.
+   a. That means the parser p <|> q never tries parser q
+   whenever parser p has consumed any input.
+   b. If p success without consuming input the second alternative
+   is favored if it consumes input.
+   c. If p success without consuming input and the second alternative
+   consumes nothing as well, the p empty okay result would be returned.
+   d. If p failed without consuming input, the second alternative is favored.
+   p          q         p<|>q
+   Consumed   _         p.Consumed      (a)
+   EmptyOkay  Consumed  q.Consumed      (b)
+   EmptyOkay  Empty_    p.EmptyOkay     (c)
+   EmptyError _         q.result        (d)
+   */
+  
+  
+  func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

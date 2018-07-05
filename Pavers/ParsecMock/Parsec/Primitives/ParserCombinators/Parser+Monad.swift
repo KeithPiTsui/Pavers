@@ -23,7 +23,14 @@ public func parserReturn<S, U, A>(_ a: A) -> Parser<S, U, A> {
   return parserReturn(a)()
 }
 
-/// m a -> (a -> m b) -> m b
+/**
+ m a -> (a -> m b) -> m b
+ p          q           (p>>=q)
+ Empty      Empty       Empty
+ Empty      Consumed    Consumed
+ Consumed   Empty       Consumed
+ Consumed   Consumed    Consumed
+ */
 public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> LazyParser<S, U, B>)
   -> LazyParser<S, U, B> {
     return {Parser{
