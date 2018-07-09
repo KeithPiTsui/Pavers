@@ -8,17 +8,6 @@
 
 import PaversFRP
 
-//parserZero :: ParsecT s u m a
-//parserZero
-//= ParsecT $ \s _ _ _ eerr ->
-//eerr $ unknownError s
-
-public func parserZero<S, U, A> () -> Parser<S, U, A> {
-  return Parser{ state in
-    .empty({.error( ParserError(unknownErrorWith: state.statePos) )})
-  }
-}
-
 extension Parser: Semigroup where A: Semigroup {
   public func op(_ other: Parser<S, U, A>) -> Parser<S, U, A> {
     return self.op({other})()
@@ -79,7 +68,7 @@ extension Parser: Semigroup where A: Semigroup {
 
 extension Parser: Monoid where A: Monoid {
   public static func identity() -> Parser<S, U, A> {
-    return parserZero()
+    return pure(A.identity())
   }
 }
 

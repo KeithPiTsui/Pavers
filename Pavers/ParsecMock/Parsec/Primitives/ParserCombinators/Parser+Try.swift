@@ -6,6 +6,10 @@
 //  Copyright © 2018 Keith. All rights reserved.
 //
 
+/**
+ The (try_(a)) parser behaves exactly like parser p
+ but pretends it hasn't consumed any input when p fails.
+ */
 public func try_ <S, U, A> (_ a: @escaping LazyParser<S, U, A>) -> LazyParser<S, U, A> {
   return {Parser {
     switch a().unParser($0) {

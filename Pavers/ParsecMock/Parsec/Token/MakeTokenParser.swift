@@ -6,6 +6,7 @@
 //  Copyright © 2018 Keith. All rights reserved.
 //
 import PaversFRP
+
 //makeTokenParser :: (Stream s m Char)
 //=> GenLanguageDef s u m -> GenTokenParser s u m
 //makeTokenParser languageDef

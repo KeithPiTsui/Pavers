@@ -20,17 +20,6 @@ public func manyAccum<S, U, A>(_ acc: @escaping ([A], A) -> [A], _ p : Parser<S,
   return manyAccum(acc, {p})()
 }
 
-
-/// zero or more, a* = empty | a+
-public func many<S,U,A> (_ a: @escaping LazyParser<S,U,A>) -> LazyParser<S,U,[A]> {
-  return  manyAccum({ [$1] + $0}, a) <|> (pure([]) as LazyParser<S,U,[A]>)
-}
-
-public func many<S,U,A> (_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
-  return many({a})()
-}
-
-
 /// one or more, a+
 public func many1<S,U,A> (_ a: @escaping LazyParser<S,U,A>) -> LazyParser<S,U,[A]> {
   return manyAccum({ [$1] + $0}, a)
@@ -40,7 +29,30 @@ public func many1<S,U,A> (_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
   return many1({a})()
 }
 
+public postfix func .+<S, U, A>(_ a: @escaping LazyParser<S,U,A>) -> LazyParser<S,U,[A]> {
+  return  many1(a)
+}
 
+public postfix func .+<S, U, A>(_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
+  return  many1(a)
+}
+
+/// zero or more, a* = a+ | empty
+public func many<S,U,A> (_ a: @escaping LazyParser<S,U,A>) -> LazyParser<S,U,[A]> {
+  return  many1(a) <|> (pure([]) as LazyParser<S,U,[A]>)
+}
+
+public func many<S,U,A> (_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
+  return many({a})()
+}
+
+public postfix func .*<S, U, A>(_ a: @escaping LazyParser<S,U,A>) -> LazyParser<S,U,[A]> {
+  return  many(a)
+}
+
+public postfix func .*<S, U, A>(_ a: Parser<S,U,A>) -> Parser<S,U,[A]> {
+  return  many(a)
+}
 
 public func skipMany<S,U,A>(_ p: @escaping LazyParser<S, U, A>) -> LazyParser<S, U, ()> {
   return fmap(many(p), {_ in ()})

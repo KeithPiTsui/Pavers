@@ -8,20 +8,6 @@
 
 import PaversFRP
 
-//parserReturn :: a -> ParsecT s u m a
-//parserReturn x
-//= ParsecT $ \s _ _ eok _ ->
-//eok x s (unknownError s)
-public func parserReturn<S, U, A>(_ a: A) -> LazyParser<S, U, A> {
-  return {Parser<S, U, A>{ state in ParserResult<Reply<S, U, A>>.empty(
-    {Reply<S, U, A>.ok(a, state, ParserError(pos: state.statePos, msgs: []))})
-    }
-  }
-}
-
-public func parserReturn<S, U, A>(_ a: A) -> Parser<S, U, A> {
-  return parserReturn(a)()
-}
 
 /**
  m a -> (a -> m b) -> m b
@@ -33,27 +19,7 @@ public func parserReturn<S, U, A>(_ a: A) -> Parser<S, U, A> {
  */
 public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> LazyParser<S, U, B>)
   -> LazyParser<S, U, B> {
-    return {Parser{
-      switch a().unParser($0) {
-      case .consumed (let reply):
-        return .consumed {
-          switch reply() {
-          case .error(let e): return .error(e)
-          case let .ok(x, input, _):
-            switch f(x)().unParser(input) {
-            case .consumed(let r): return r()
-            case .empty(let r): return r()
-            }
-          }
-        }
-      case .empty(let reply):
-        switch reply() {
-        case .error(let e): return .empty({.error(e)})
-        case let .ok(x, input, _): return f(x)().unParser(input)
-        }
-      }
-      }
-    }
+    return parserBind(a, f)
 }
 
 public func >>- <S, U, A, B> (_ a: @escaping LazyParser<S, U, A>, _ f: @escaping (A) -> Parser<S, U, B>)
