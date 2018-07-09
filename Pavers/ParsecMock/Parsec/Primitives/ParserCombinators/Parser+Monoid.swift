@@ -14,56 +14,8 @@ extension Parser: Semigroup where A: Semigroup {
   }
   
   public func op(_ other: @escaping LazyParser<S, U, A>) -> LazyParser<S, U, A> {
-    return {Parser<S, U, A> { (s: ParserState<S, U>) in
-      switch self.unParser(s) {
-      case .consumed(let rep):
-        switch rep() {
-        case let .ok(a, s_, _):
-          switch other().unParser(s_) {
-          case .consumed(let rep_):
-            switch rep_() {
-            case let .ok(a_, s__, e_):
-              return .consumed({.ok(a.op(a_), s__, e_)})
-            case let otherwise:
-              return .consumed({otherwise})
-            }
-          case .empty(let rep_):
-            switch rep_() {
-            case let .ok(a_, s__, e_):
-              return .consumed({.ok(a.op(a_), s__, e_)})
-            case let otherwise:
-              return .consumed({otherwise})
-            }
-          }
-          
-        case let otherwise: return .consumed({otherwise})
-        }
-      case .empty(let rep):
-        switch rep() {
-        case let .ok(a, s_, _):
-          switch other().unParser(s_) {
-          case .consumed(let rep_):
-            switch rep_() {
-            case let .ok(a_, s__, e_):
-              return .consumed({.ok(a.op(a_), s__, e_)})
-            case let otherwise:
-              return .consumed({otherwise})
-            }
-          case .empty(let rep_):
-            switch rep_() {
-            case let .ok(a_, s__, e_):
-              return .empty({.ok(a.op(a_), s__, e_)})
-            case let otherwise:
-              return .empty({otherwise})
-            }
-          }
-          
-        case let otherwise: return .consumed({otherwise})
-        }
-      }
-    }
-    }}
-  
+    return self >>> other
+  }
 }
 
 extension Parser: Monoid where A: Monoid {
@@ -73,9 +25,15 @@ extension Parser: Monoid where A: Monoid {
 }
 
 /// (Monoid a) => m a -> m a -> m a
-public func >>> <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b: @escaping LazyParser<S, U, A>)
+public func >>> <S, U, A> (_ a: @escaping LazyParser<S, U, A>,
+                           _ b: @escaping LazyParser<S, U, A>)
   -> LazyParser<S, U, A> where A: Semigroup {
-    return { a().op(b)() }
+    return
+      a >>- { a_ in
+        b >>- { b_ in
+          pure(a_.op(b_)) as LazyParser<S, U, A>
+        }
+    }
 }
 
 public func >>> <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b:Parser<S, U, A>)

@@ -7,12 +7,14 @@
 //
 
 
-//parserMap
-//parserReturn
-//parserBind
-//parserFail
-//parserZero
-//parserPlus
+//parserMap fmap
+//parserReturn pure
+//parserBind >>-
+//parserFail Empty.Error
+//parserZero Empty.Error
+//parserPlus <|> choice
+
+/// With the bind and choice combinator we can define almost any parser
 
 
 /// fmap :: (a -> b) -> f a -> f b
@@ -27,8 +29,8 @@ public func parserMap<S, U, A, B>
 //= ParsecT $ \s _ _ eok _ ->
 //eok x s (unknownError s)
 public func parserReturn<S, U, A>(_ a: A) -> LazyParser<S, U, A> {
-  return {Parser<S, U, A>{ state in ParserResult<Reply<S, U, A>>.empty(
-    {Reply<S, U, A>.ok(a, state, ParserError(pos: state.statePos, msgs: []))})
+  return {Parser<S, U, A>{ state in
+    .empty({.ok(a, state, ParserError(pos: state.statePos, msgs: []))})
     }
   }
 }
