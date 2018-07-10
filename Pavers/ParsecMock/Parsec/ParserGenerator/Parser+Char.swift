@@ -131,7 +131,7 @@ public func digit <S,U> ()
 public func hexDigit <S,U> ()
   -> Parser<S,U,Character>
   where S: ParserStream, S.Element == Character{
-    return satisfy(CharacterSet.hexDigits.contains) <?> "hexadecimal Digit"
+    return satisfy(CharacterSet.asciiHexDigits.contains) <?> "hexadecimal Digit"
 }
 
 //octDigit :: (Stream s m Char) => ParsecT s u m Char
@@ -139,7 +139,7 @@ public func hexDigit <S,U> ()
 public func octDigit <S,U> ()
   -> Parser<S,U,Character>
   where S: ParserStream, S.Element == Character{
-    return satisfy(CharacterSet.octalDigits.contains) <?> "octal Digit"
+    return satisfy(CharacterSet.asciiOctalDigits.contains) <?> "octal Digit"
 }
 
 public func char<S, U>(_ c: Character) -> Parser<S, U, Character>

@@ -15,3 +15,15 @@ extension Character {
     return Character.init(UnicodeScalar.init(n)!)
   }
 }
+
+
+extension Character {
+  public var unicodeCodepoint: UInt? {
+    guard self.unicodeScalars.count == 1 else {return nil}
+    return self.unicodeScalars[self.unicodeScalars.startIndex].value
+  }
+  public var isAscii: Bool {
+    guard let codepoint = self.unicodeCodepoint else {return false}
+    return codepoint < 128
+  }
+}

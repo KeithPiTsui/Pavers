@@ -19,5 +19,6 @@
         <page name='Date'/>
         <page name='ParsecMockChar'/>
         <page name='ParsecMockMany'/>
+        <page name='CharacterSet'/>
     </pages>
 </playground>

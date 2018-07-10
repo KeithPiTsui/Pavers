@@ -8,21 +8,53 @@
 
 import Foundation
 
-
 extension CharacterSet {
-  public static var hexDigits: CharacterSet {
-    let abc = CharacterSet(charactersIn: "abcdefABCDEF")
-    return CharacterSet.decimalDigits.union(abc)
-  }
-  
-  public static var octalDigits: CharacterSet {
-    return CharacterSet(charactersIn: "01234567")
-  }
-  
   public func contains(_ c: Character) -> Bool {
     let cs = CharacterSet.init(charactersIn: "\(c)")
     return self.isSuperset(of: cs)
   }
   
-  
+  public static func + (_ lhs: CharacterSet, _ rhs: CharacterSet) -> CharacterSet {
+    return lhs.union(rhs)
+  }
+}
+
+extension CharacterSet: Semigroup {
+  public func op(_ other: CharacterSet) -> CharacterSet {
+    return self + other
+  }
+}
+
+extension CharacterSet: Monoid {
+  public static func identity() -> CharacterSet {
+    return CharacterSet()
+  }
+}
+
+extension NSCharacterSet {
+  public var characters:[String] {
+    var chars = [String]()
+    for plane:UInt8 in 0...16 {
+      if self.hasMemberInPlane(plane) {
+        let p0 = UInt32(plane) << 16
+        let p1 = (UInt32(plane) + 1) << 16
+        for c:UTF32Char in p0..<p1 {
+          if self.longCharacterIsMember(c) {
+            var c1 = c.littleEndian
+            if let s = NSString(bytes: &c1, length: 4, encoding: String.Encoding.utf32LittleEndian.rawValue) {
+              chars.append(String(s))
+            }
+          }
+        }
+      }
+    }
+    return chars
+  }
+}
+
+
+extension CharacterSet {
+  public var characters: [String] {
+    return (self as NSCharacterSet).characters
+  }
 }
