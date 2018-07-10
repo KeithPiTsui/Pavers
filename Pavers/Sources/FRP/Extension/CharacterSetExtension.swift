@@ -19,18 +19,6 @@ extension CharacterSet {
   }
 }
 
-extension CharacterSet: Semigroup {
-  public func op(_ other: CharacterSet) -> CharacterSet {
-    return self + other
-  }
-}
-
-extension CharacterSet: Monoid {
-  public static func identity() -> CharacterSet {
-    return CharacterSet()
-  }
-}
-
 extension NSCharacterSet {
   public var characters:[String] {
     var chars = [String]()

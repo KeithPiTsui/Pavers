@@ -146,6 +146,8 @@
 		5343B5F21FCFF55B00B0BD76 /* PaversFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D070B1F4C71A900D9CB38 /* PaversFRP.framework */; };
 		534A6E2B20F49A8500A0B897 /* CharacterSetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394D9F720EA239800694145 /* CharacterSetExtension.swift */; };
 		534A6E2D20F4A90900A0B897 /* CharacterSet+ASCII.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A6E2C20F4A90900A0B897 /* CharacterSet+ASCII.swift */; };
+		534A6E2F20F4AA2C00A0B897 /* CharacterSet+Monoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A6E2E20F4AA2C00A0B897 /* CharacterSet+Monoid.swift */; };
+		534A6E3120F4AAA500A0B897 /* Enumerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A6E3020F4AAA500A0B897 /* Enumerable.swift */; };
 		534A73CE20F4579300611641 /* DFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A73CD20F4579300611641 /* DFA.swift */; };
 		535027E820E1EFEF0043BFCE /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027E720E1EFEF0043BFCE /* ParserState.swift */; };
 		535027EA20E1F01E0043BFCE /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535027E920E1F01E0043BFCE /* Parser.swift */; };
@@ -646,6 +648,8 @@
 		5343B5FB1FD0204100B0BD76 /* Parser+Many.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Many.swift"; sourceTree = "<group>"; };
 		5343B5FD1FD0208400B0BD76 /* Parser+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Optional.swift"; sourceTree = "<group>"; };
 		534A6E2C20F4A90900A0B897 /* CharacterSet+ASCII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+ASCII.swift"; sourceTree = "<group>"; };
+		534A6E2E20F4AA2C00A0B897 /* CharacterSet+Monoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+Monoid.swift"; sourceTree = "<group>"; };
+		534A6E3020F4AAA500A0B897 /* Enumerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerable.swift; sourceTree = "<group>"; };
 		534A73CD20F4579300611641 /* DFA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFA.swift; sourceTree = "<group>"; };
 		535027E720E1EFEF0043BFCE /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
 		535027E920E1F01E0043BFCE /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -1058,6 +1062,7 @@
 				0E1D07271F4C71D400D9CB38 /* Monoid.swift */,
 				0E1D07281F4C71D400D9CB38 /* NonEmptyType.swift */,
 				0E1D07291F4C71D500D9CB38 /* NumericType.swift */,
+				534A6E3020F4AAA500A0B897 /* Enumerable.swift */,
 				0E1D072A1F4C71D500D9CB38 /* OptionalType.swift */,
 				0E1D072B1F4C71D500D9CB38 /* ResultProtocol.swift */,
 				0E1D072C1F4C71D500D9CB38 /* Semigroup.swift */,
@@ -1088,6 +1093,7 @@
 				0E1D07511F4C71D500D9CB38 /* String.swift */,
 				0E1D07521F4C71D500D9CB38 /* Tuple.swift */,
 				0E1D07531F4C71D500D9CB38 /* Unit.swift */,
+				534A6E2E20F4AA2C00A0B897 /* CharacterSet+Monoid.swift */,
 				0E1D07541F4C71D500D9CB38 /* Unpack.swift */,
 				0E1D07551F4C71D500D9CB38 /* Value */,
 			);
@@ -2534,6 +2540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534A6E3120F4AAA500A0B897 /* Enumerable.swift in Sources */,
 				0E1D07751F4C71D500D9CB38 /* NumericType.swift in Sources */,
 				534A6E2D20F4A90900A0B897 /* CharacterSet+ASCII.swift in Sources */,
 				0EEF28191F4DA0FA001EF8C5 /* Values.swift in Sources */,
@@ -2578,6 +2585,7 @@
 				0E1D07931F4C71D500D9CB38 /* Set.swift in Sources */,
 				0E1D07811F4C71D500D9CB38 /* Comparator.swift in Sources */,
 				0E1D07B31F4C71D500D9CB38 /* ValidatingProperty.swift in Sources */,
+				534A6E2F20F4AA2C00A0B897 /* CharacterSet+Monoid.swift in Sources */,
 				0E1D078A1F4C71D500D9CB38 /* LensHolder.swift in Sources */,
 				53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */,
 				0E1D07A91F4C71D500D9CB38 /* Lifetime.swift in Sources */,
