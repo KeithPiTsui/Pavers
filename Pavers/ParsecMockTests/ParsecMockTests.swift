@@ -147,11 +147,11 @@ class ParsecMockTests: XCTestCase {
   let parserStateTrue = ParserStateS("false")
   func testJSON() {
     let r =
-//      JSON.array().unParser(self.parserStateString)
-//    JSON.jstring.unParser(self.parserState)
-          JSON.object().unParser(self.parserStateJSON)
-//      JSON.array().unParser(self.parserStateString)
-//    JSON.bool.unParser(self.parserStateTrue)
+      //      JSON.array().unParser(self.parserStateString)
+      //    JSON.jstring.unParser(self.parserState)
+      JSON.object().unParser(self.parserStateJSON)
+    //      JSON.array().unParser(self.parserStateString)
+    //    JSON.bool.unParser(self.parserStateTrue)
     print("\(r)")
     
     switch r {
@@ -184,7 +184,7 @@ class ParsecMockTests: XCTestCase {
     let r = s.unParser(ParserStateS("PQ"))
     print(r)
   }
-
+  
   func testB() {
     /**
      S ::= PQ
@@ -197,7 +197,7 @@ class ParsecMockTests: XCTestCase {
     let r = s.unParser(ParserStateS("PQ"))
     print(r)
   }
-
+  
   func testNSJSONSerialization() {
     self.measure {
       for _ in 1 ... 1 {
@@ -206,7 +206,7 @@ class ParsecMockTests: XCTestCase {
       }
     }
   }
-//
+  //
   func testParsecJSON() {
     self.measure {
       for _ in 1 ... 2 {
@@ -214,11 +214,25 @@ class ParsecMockTests: XCTestCase {
       }
     }
   }
-//
+  //
   
   func testCharacterSet() {
     let ascii = CharacterSet.ascii
     print(ascii.characters)
   }
+  
+  func testDFA() {
+    let customer = customerDFA()
+    let bank = bankDFA()
+    let store = storeDFA()
+    let combined: DFA<DFAPair<Int, Int>, ElectronicMoneyEvents>
+      = customer * bank
+    let combined2: DFA<DFAPair<DFAPair<Int, Int>, Int>, ElectronicMoneyEvents>
+      = combined * store
+    let events: [ElectronicMoneyEvents] = [.pay, .ship, .redeem, .transfer]
+    let result = process(input: events, on: combined2)
+    print(result)
+  }
+  
   
 }

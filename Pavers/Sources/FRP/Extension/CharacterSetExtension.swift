@@ -41,6 +41,10 @@ extension NSCharacterSet {
 }
 
 extension CharacterSet {
+  public var lazyCharacters:
+    LazyCollection<FlattenCollection<LazyMapCollection<LazyFilterCollection<(ClosedRange<UInt8>)>, [Character]>>> {
+    return (self as NSCharacterSet).lazyCharacters
+  }
   public var characters: [Character] {
     return (self as NSCharacterSet).characters
   }
