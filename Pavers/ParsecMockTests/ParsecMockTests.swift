@@ -216,4 +216,9 @@ class ParsecMockTests: XCTestCase {
   }
 //
   
+  func testCharacterSet() {
+    let ascii = CharacterSet.ascii
+    print(ascii.characters)
+  }
+  
 }

@@ -11,7 +11,7 @@ extension CharacterSet {
     guard upper >= lower,
       let lowerCodepoint = Unicode.Scalar.init(lower),
       let upperCodepoint = Unicode.Scalar.init(upper) else {return nil}
-    self = CharacterSet(charactersIn: Range<Unicode.Scalar>(uncheckedBounds: (lowerCodepoint, upperCodepoint)))
+    self = CharacterSet(charactersIn: ClosedRange<Unicode.Scalar>(uncheckedBounds: (lowerCodepoint, upperCodepoint)))
   }
   
   public static var asciiBinaryDigits: CharacterSet {

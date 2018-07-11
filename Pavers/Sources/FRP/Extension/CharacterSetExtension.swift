@@ -20,29 +20,28 @@ extension CharacterSet {
 }
 
 extension NSCharacterSet {
-  public var characters:[String] {
-    var chars = [String]()
-    for plane:UInt8 in 0...16 {
-      if self.hasMemberInPlane(plane) {
+  public var lazyCharacters:
+    LazyCollection<FlattenCollection<LazyMapCollection<LazyFilterCollection<(ClosedRange<UInt8>)>, [Character]>>> {
+    return ((0...16) as ClosedRange<UInt8>)
+      .lazy
+      .filter(self.hasMemberInPlane)
+      .flatMap { (plane) -> [Character] in
         let p0 = UInt32(plane) << 16
         let p1 = (UInt32(plane) + 1) << 16
-        for c:UTF32Char in p0..<p1 {
-          if self.longCharacterIsMember(c) {
-            var c1 = c.littleEndian
-            if let s = NSString(bytes: &c1, length: 4, encoding: String.Encoding.utf32LittleEndian.rawValue) {
-              chars.append(String(s))
-            }
-          }
-        }
-      }
-    }
-    return chars
+        return ((p0 ..< p1) as Range<UTF32Char>)
+          .lazy
+          .filter(self.longCharacterIsMember)
+          .compactMap(UnicodeScalar.init)
+          .map(Character.init)}
+  }
+  
+  public var characters:[Character] {
+      return Array(self.lazyCharacters)
   }
 }
 
-
 extension CharacterSet {
-  public var characters: [String] {
+  public var characters: [Character] {
     return (self as NSCharacterSet).characters
   }
 }

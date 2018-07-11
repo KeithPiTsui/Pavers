@@ -18,7 +18,7 @@ extension Character {
 
 
 extension Character {
-  public var unicodeCodepoint: UInt? {
+  public var unicodeCodepoint: UInt32? {
     guard self.unicodeScalars.count == 1 else {return nil}
     return self.unicodeScalars[self.unicodeScalars.startIndex].value
   }
