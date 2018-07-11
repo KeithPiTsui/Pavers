@@ -25,7 +25,7 @@ extension NSCharacterSet {
     return ((0...16) as ClosedRange<UInt8>)
       .lazy
       .filter(self.hasMemberInPlane)
-      .flatMap { (plane) -> [Character] in
+      .flatMap { (plane) in
         let p0 = UInt32(plane) << 16
         let p1 = (UInt32(plane) + 1) << 16
         return ((p0 ..< p1) as Range<UTF32Char>)
