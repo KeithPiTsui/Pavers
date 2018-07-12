@@ -225,14 +225,21 @@ class ParsecMockTests: XCTestCase {
     let customer = customerDFA()
     let bank = bankDFA()
     let store = storeDFA()
-    let combined: DFA<DFAPair<Int, Int>, ElectronicMoneyEvents>
+    let combined: DFA<Pair<Int, Int>, ElectronicMoneyEvents>
       = customer * bank
-    let combined2: DFA<DFAPair<DFAPair<Int, Int>, Int>, ElectronicMoneyEvents>
+    let combined2: DFA<Pair<Pair<Int, Int>, Int>, ElectronicMoneyEvents>
       = combined * store
     let events: [ElectronicMoneyEvents] = [.pay, .ship, .redeem, .transfer]
     let result = process(input: events, on: combined2)
     print(result)
+    XCTAssert(result, "DFA should accept the events")
   }
   
+  func testNFA() {
+    let ended01 = endedWith01()
+    let state = ended01.extendedTransition(ended01.initial, [.zero, .zero, .one, .zero, .one])
+    let accepted = !ended01.finals.intersection(state).isEmpty
+    print(accepted)
+  }
   
 }
