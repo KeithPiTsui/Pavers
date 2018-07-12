@@ -26,22 +26,22 @@ where State: Hashable, Sym: Hashable {
 
 extension DFA {
   public var accessibleStates : Set<State> {
-      var preAccessibleStates: Set<State> = [initial]
-      var currentAccessibleStates: Set<State> = [initial]
-      repeat {
-        preAccessibleStates = currentAccessibleStates
-        currentAccessibleStates = nextAccessibleStates(of: currentAccessibleStates, with: transition, and: alphabet)
-      } while currentAccessibleStates != preAccessibleStates
-      return currentAccessibleStates
-
+    var preAccessibleStates: Set<State> = [initial]
+    var currentAccessibleStates: Set<State> = [initial]
+    repeat {
+      preAccessibleStates = currentAccessibleStates
+      currentAccessibleStates = nextAccessibleStates(of: currentAccessibleStates, with: transition, and: alphabet)
+    } while currentAccessibleStates != preAccessibleStates
+    return currentAccessibleStates
+    
   }
 }
 
 extension DFA {
   public func extendedTransition<C>(_ state: State, _ symbols: C) -> State
     where C: BidirectionalCollection, C.Element == Sym {
-    guard let a = symbols.last else { return state }
-    return transition(extendedTransition(state, symbols.dropLast()), a)
+      guard let a = symbols.last else { return state }
+      return transition(extendedTransition(state, symbols.dropLast()), a)
   }
 }
 
@@ -49,23 +49,23 @@ extension DFA {
 public func * <StateA, StateB, Sym>(_ lhs: DFA<StateA, Sym>,
                                     _ rhs: DFA<StateB, Sym>)
   -> DFA<Pair<StateA, StateB>, Sym> {
-    let inputSymbols = lhs.alphabet.union(rhs.alphabet)
+    let alphabet = lhs.alphabet.union(rhs.alphabet)
     let transition: (Pair<StateA, StateB>, Sym) -> Pair<StateA, StateB> = { (pairState, sym) in
-        let s1 = lhs.transition(pairState.first, sym)
-        let s2 = rhs.transition(pairState.second, sym)
+      let s1 = lhs.transition(pairState.first, sym)
+      let s2 = rhs.transition(pairState.second, sym)
       return Pair(s1, s2)
     }
     let initialState: Pair<StateA, StateB> = Pair(lhs.initial, rhs.initial)
     let finalStates = cartesian(lhs.finals, rhs.finals)
-    return DFA.init(alphabet: inputSymbols,
-                    transition: transition,
-                    initial: initialState,
-                    finals: finalStates)
+    return DFA(alphabet: alphabet,
+               transition: transition,
+               initial: initialState,
+               finals: finalStates)
 }
 
 public func cartesian<A, B>(_ a: Set<A>, _ b: Set<B>) -> Set<Pair<A, B>>
   where A: Hashable, B: Hashable {
-  return Set( a.flatMap{ a_ in b.map{b_ in Pair(a_, b_)}})
+    return Set( a.flatMap{ a_ in b.map{b_ in Pair(a_, b_)}})
 }
 
 
@@ -78,4 +78,15 @@ public func process<State, Sym, Seq>(input: Seq,
       currentState = dfa.transition(currentState, e)
     }
     return dfa.finals.contains(currentState)
+}
+
+
+public func transform<State, Sym>(dfa: DFA<State, Sym>) -> NFA<State, Sym> {
+  let transition: (State, Sym) -> Set<State> = { state, input in
+    [dfa.transition(state, input)]
+  }
+  return NFA(alphabet: dfa.alphabet,
+             transition: transition,
+             initial: dfa.initial,
+             finals: dfa.finals)
 }

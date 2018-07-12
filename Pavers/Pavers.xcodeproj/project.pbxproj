@@ -378,6 +378,7 @@
 		53F6A6B820F6F66B0009C7FB /* NFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6B720F6F66B0009C7FB /* NFA.swift */; };
 		53F6A6BA20F6FA510009C7FB /* NFAExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6B920F6FA510009C7FB /* NFAExample.swift */; };
 		53F6A6BD20F721D50009C7FB /* Collection+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6BB20F71C480009C7FB /* Collection+PowerSet.swift */; };
+		53F6A6C020F753160009C7FB /* ENFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6BF20F753160009C7FB /* ENFA.swift */; };
 		53FE25B91FF4B5CF00B6CDE1 /* PaversCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 53FE25AB1FF4B5CF00B6CDE1 /* PaversCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53FE26051FF4B5EE00B6CDE1 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE25C11FF4B5EE00B6CDE1 /* Array+Extensions.swift */; };
 		53FE26061FF4B5EE00B6CDE1 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE25C21FF4B5EE00B6CDE1 /* AES.swift */; };
@@ -884,6 +885,7 @@
 		53F6A6B720F6F66B0009C7FB /* NFA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFA.swift; sourceTree = "<group>"; };
 		53F6A6B920F6FA510009C7FB /* NFAExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFAExample.swift; sourceTree = "<group>"; };
 		53F6A6BB20F71C480009C7FB /* Collection+PowerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+PowerSet.swift"; sourceTree = "<group>"; };
+		53F6A6BF20F753160009C7FB /* ENFA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENFA.swift; sourceTree = "<group>"; };
 		53FE25A91FF4B5CF00B6CDE1 /* PaversCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaversCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FE25AB1FF4B5CF00B6CDE1 /* PaversCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversCrypto.h; sourceTree = "<group>"; };
 		53FE25AC1FF4B5CF00B6CDE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1473,10 +1475,10 @@
 		534A73CC20F4577900611641 /* DFA */ = {
 			isa = PBXGroup;
 			children = (
+				53F6A6BE20F745F70009C7FB /* Examples */,
 				534A73CD20F4579300611641 /* DFA.swift */,
+				53F6A6BF20F753160009C7FB /* ENFA.swift */,
 				53F6A6B720F6F66B0009C7FB /* NFA.swift */,
-				53F6A6B920F6FA510009C7FB /* NFAExample.swift */,
-				538F552420F5FB3B00DF6EFE /* DFAExample.swift */,
 			);
 			path = DFA;
 			sourceTree = "<group>";
@@ -2023,6 +2025,15 @@
 				53E932701FE224250049B8AD /* RuntimeModification.swift */,
 			);
 			path = ObjectiveKit;
+			sourceTree = "<group>";
+		};
+		53F6A6BE20F745F70009C7FB /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				538F552420F5FB3B00DF6EFE /* DFAExample.swift */,
+				53F6A6B920F6FA510009C7FB /* NFAExample.swift */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		53FE25AA1FF4B5CF00B6CDE1 /* PaversCrypto */ = {
@@ -2948,6 +2959,7 @@
 				53C4334520EC6C99002B2F40 /* Languages.swift in Sources */,
 				5394D9F220EA0DBA00694145 /* Parser+Functor.swift in Sources */,
 				534A73CE20F4579300611641 /* DFA.swift in Sources */,
+				53F6A6C020F753160009C7FB /* ENFA.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -70,9 +70,16 @@ public func process<State, Sym, C>(input: C,
 public func transform<State, Sym>(nfa: NFA<State, Sym>) -> DFA<Set<State>, Sym> {
   let alphabet = nfa.alphabet
   let initial: Set<State> = [nfa.initial]
+  var transitionMap: [Pair<Set<State>, Sym>: Set<State>] = [:]
   let transition: (Set<State>, Sym) -> Set<State> = { (states, a) in
-    return states.reduce([]) { (acc, p) -> Set<State> in
-      acc.union(nfa.transition(p, a))
+    if let exists = transitionMap[Pair(states, a)] {
+      return exists
+    } else {
+      let new: Set<State> = states
+        .reduce([]) { (acc, p) in
+          acc.union(nfa.transition(p, a))}
+      transitionMap[Pair(states, a)] = new
+      return new
     }
   }
   
@@ -104,23 +111,6 @@ public func nextAccessibleStates<State, Sym>
       alphabet.map{ (sym) in
         transition(state, sym)}
     })
-}
-
-
-public func powerSet<A>(of a: Set<A>) -> Set<Set<A>> {
-  return Set(a.powerSet.map(Set.init))
-}
-
-public func factorial(_ n: Int) -> Int {
-  return (1...n).reduce(1, *)
-}
-
-public func permutation(_ m: Int, _ n: Int) -> Int {
-  return (1...n).suffix(m).reduce(1, *)
-}
-
-public func combinator(_ m: Int, _ n: Int) -> Int {
-  return permutation(m, n) / factorial(m)
 }
 
 

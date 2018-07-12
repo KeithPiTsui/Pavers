@@ -236,10 +236,30 @@ class ParsecMockTests: XCTestCase {
   }
   
   func testNFA() {
+    let input: [BinaryDigit] = [.zero, .zero, .one, .zero, .one]
     let ended01 = endedWith01()
-    let state = ended01.extendedTransition(ended01.initial, [.zero, .zero, .one, .zero, .one])
+    let state = ended01.extendedTransition(ended01.initial, input)
     let accepted = !ended01.finals.intersection(state).isEmpty
     print(accepted)
+    print(ended01.accessibleStates)
+    
+    let dfa01 = transform(nfa: ended01)
+    let acceptedDFA = process(input: input, on: dfa01)
+    print(acceptedDFA)
+    print(dfa01.accessibleStates)
+  }
+  
+  func testKeywordAutomata() {
+    let input = "xxseweb".chars
+    let keywordNFA = keywords()
+    let accepted = process(input: input, on: keywordNFA)
+    print(accepted)
+    print(keywordNFA.accessibleStates)
+    let keywordDFA = transform(nfa: keywordNFA)
+    let acceptedDFA = process(input: input, on: keywordDFA)
+    print(acceptedDFA)
+    print(keywordDFA.accessibleStates)
+    
   }
   
 }
