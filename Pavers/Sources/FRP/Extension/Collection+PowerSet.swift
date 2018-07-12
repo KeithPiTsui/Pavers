@@ -1,5 +1,5 @@
 //
-//  Array+PowerSet.swift
+//  Collection+PowerSet.swift
 //  ParsecMock
 //
 //  Created by Keith on 2018/7/12.
