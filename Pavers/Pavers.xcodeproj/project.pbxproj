@@ -377,7 +377,7 @@
 		53E932751FE224260049B8AD /* ObjectiveClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E932721FE224260049B8AD /* ObjectiveClass.swift */; };
 		53F6A6B820F6F66B0009C7FB /* NFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6B720F6F66B0009C7FB /* NFA.swift */; };
 		53F6A6BA20F6FA510009C7FB /* NFAExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6B920F6FA510009C7FB /* NFAExample.swift */; };
-		53F6A6BC20F71C480009C7FB /* Collection+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6BB20F71C480009C7FB /* Collection+PowerSet.swift */; };
+		53F6A6BD20F721D50009C7FB /* Collection+PowerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6A6BB20F71C480009C7FB /* Collection+PowerSet.swift */; };
 		53FE25B91FF4B5CF00B6CDE1 /* PaversCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 53FE25AB1FF4B5CF00B6CDE1 /* PaversCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53FE26051FF4B5EE00B6CDE1 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE25C11FF4B5EE00B6CDE1 /* Array+Extensions.swift */; };
 		53FE26061FF4B5EE00B6CDE1 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FE25C21FF4B5EE00B6CDE1 /* AES.swift */; };
@@ -2652,6 +2652,7 @@
 				0EEF28051F4DA0FA001EF8C5 /* ConcatMap.swift in Sources */,
 				53A0C1D01FB43056001C9A24 /* String+Extension.swift in Sources */,
 				0E1D077E1F4C71D500D9CB38 /* Array.swift in Sources */,
+				53F6A6BD20F721D50009C7FB /* Collection+PowerSet.swift in Sources */,
 				0EEF281B1F4DA0FA001EF8C5 /* WrapInOptional.swift in Sources */,
 				0EEF28131F4DA0FA001EF8C5 /* SlidingWindow.swift in Sources */,
 				0E1D07971F4C71D500D9CB38 /* String.swift in Sources */,
@@ -2923,7 +2924,6 @@
 				53BA8CB020E90616000C7BF6 /* RunParsec.swift in Sources */,
 				5383BEFB20F33E2D00A9CAE9 /* Parser+Primitives.swift in Sources */,
 				53C4335020EC983B002B2F40 /* JSONParser.swift in Sources */,
-				53F6A6BC20F71C480009C7FB /* Collection+PowerSet.swift in Sources */,
 				5357034F20EA0BF900568D3F /* Parser+String.swift in Sources */,
 				5390FE9320E6285F00D396EA /* Token.swift in Sources */,
 				531D510520E4C14600028394 /* Parser+Many.swift in Sources */,

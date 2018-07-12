@@ -18,11 +18,23 @@ public typealias Alphabet<Symbol> = Set<Symbol> where Symbol: Hashable
 
 public struct DFA<State, Sym>
 where State: Hashable, Sym: Hashable {
-  public let states: Set<State>
   public let alphabet: Set<Sym>
   public let transition: (State, Sym) -> State
   public let initial: State
   public let finals: Set<State>
+}
+
+extension DFA {
+  public var accessibleStates : Set<State> {
+      var preAccessibleStates: Set<State> = [initial]
+      var currentAccessibleStates: Set<State> = [initial]
+      repeat {
+        preAccessibleStates = currentAccessibleStates
+        currentAccessibleStates = nextAccessibleStates(of: currentAccessibleStates, with: transition, and: alphabet)
+      } while currentAccessibleStates != preAccessibleStates
+      return currentAccessibleStates
+
+  }
 }
 
 extension DFA {
@@ -37,7 +49,6 @@ extension DFA {
 public func * <StateA, StateB, Sym>(_ lhs: DFA<StateA, Sym>,
                                     _ rhs: DFA<StateB, Sym>)
   -> DFA<Pair<StateA, StateB>, Sym> {
-    let states = cartesian(lhs.states, rhs.states)
     let inputSymbols = lhs.alphabet.union(rhs.alphabet)
     let transition: (Pair<StateA, StateB>, Sym) -> Pair<StateA, StateB> = { (pairState, sym) in
         let s1 = lhs.transition(pairState.first, sym)
@@ -46,8 +57,7 @@ public func * <StateA, StateB, Sym>(_ lhs: DFA<StateA, Sym>,
     }
     let initialState: Pair<StateA, StateB> = Pair(lhs.initial, rhs.initial)
     let finalStates = cartesian(lhs.finals, rhs.finals)
-    return DFA.init(states: states,
-                    alphabet: inputSymbols,
+    return DFA.init(alphabet: inputSymbols,
                     transition: transition,
                     initial: initialState,
                     finals: finalStates)

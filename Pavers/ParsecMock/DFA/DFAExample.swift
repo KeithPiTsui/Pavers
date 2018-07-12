@@ -17,12 +17,11 @@ public enum ElectronicMoneyEvents: CaseIterable {
 
 public func customerDFA() -> DFA<Int, ElectronicMoneyEvents> {
   let state1 = 1
-  let states: Set<Int> = [1]
   let inputSymbols: Set<ElectronicMoneyEvents> = Set(ElectronicMoneyEvents.allCases)
   let transition: (Int, ElectronicMoneyEvents) -> Int = { _,_ in state1 }
   let initialState = state1
   let finalStates: Set<Int> = [state1]
-  return DFA(states: states,
+  return DFA(//states: states,
              alphabet: inputSymbols,
              transition: transition,
              initial: initialState,
@@ -31,7 +30,6 @@ public func customerDFA() -> DFA<Int, ElectronicMoneyEvents> {
 
 public func bankDFA() -> DFA<Int, ElectronicMoneyEvents> {
   let state1 = 1
-  let states: Set<Int> = [0, 1, 2, 3, 4]
   let inputSymbols: Set<ElectronicMoneyEvents> = Set(ElectronicMoneyEvents.allCases)
   let transitionMap: [Dictionary<ElectronicMoneyEvents, Int>] = [
     [.pay: 0, .ship: 0, .cancel: 0, .redeem: 0, .transfer: 0],
@@ -45,8 +43,7 @@ public func bankDFA() -> DFA<Int, ElectronicMoneyEvents> {
   }
   let initialState = state1
   let finalStates: Set<Int> = [2, 4]
-  return DFA(states: states,
-             alphabet: inputSymbols,
+  return DFA(alphabet: inputSymbols,
              transition: transition,
              initial: initialState,
              finals: finalStates)
@@ -54,7 +51,6 @@ public func bankDFA() -> DFA<Int, ElectronicMoneyEvents> {
 
 public func storeDFA() -> DFA<Int, ElectronicMoneyEvents> {
   let state1 = 1
-  let states: Set<Int> = [1, 2, 3, 4, 5, 6, 7]
   let inputSymbols: Set<ElectronicMoneyEvents> = Set(ElectronicMoneyEvents.allCases)
   let transitionMap: [Dictionary<ElectronicMoneyEvents, Int>] = [
     [.pay: 0, .ship: 0, .cancel: 0, .redeem: 0, .transfer: 0],
@@ -71,8 +67,7 @@ public func storeDFA() -> DFA<Int, ElectronicMoneyEvents> {
   }
   let initialState = state1
   let finalStates: Set<Int> = [7]
-  return DFA(states: states,
-             alphabet: inputSymbols,
+  return DFA(alphabet: inputSymbols,
              transition: transition,
              initial: initialState,
              finals: finalStates)

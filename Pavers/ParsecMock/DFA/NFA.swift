@@ -10,7 +10,6 @@ import PaversFRP
 
 public struct NFA<State, Sym>
 where State: Hashable, Sym: Hashable {
-  public let states: Set<State>
   public let alphabet: Set<Sym>
   public let transition: (State, Sym) -> Set<State>
   public let initial: State
@@ -26,6 +25,32 @@ extension NFA {
         { (acc, ps) -> Set<State> in acc.union(transition(ps, a))}
   }
 }
+
+
+extension NFA {
+  public var accessibleStates : Set<State> {
+    var preAccessibleStates: Set<State> = [initial]
+    var currentAccessibleStates: Set<State> = [initial]
+    repeat {
+      preAccessibleStates = currentAccessibleStates
+      currentAccessibleStates = nextAccessibleStates(of: currentAccessibleStates, with: transition, and: alphabet)
+    } while currentAccessibleStates != preAccessibleStates
+    return currentAccessibleStates
+    
+  }
+}
+
+public func nextAccessibleStates<State, Sym>
+  (of states: Set<State>,
+   with transition: (State, Sym) -> Set<State>,
+   and alphabet: Set<Sym>) -> Set<State> {
+  return
+    Set(states.flatMap { (state) in
+      alphabet.flatMap{ (sym) in
+        transition(state, sym)}
+    })
+}
+
 
 public func process<State, Sym, C>(input: C,
                                    on nfa: NFA<State, Sym>)
@@ -45,18 +70,45 @@ public func process<State, Sym, C>(input: C,
 public func transform<State, Sym>(nfa: NFA<State, Sym>) -> DFA<Set<State>, Sym> {
   let alphabet = nfa.alphabet
   let initial: Set<State> = [nfa.initial]
-  let states: Set<Set<State>> = powerSet(of: nfa.states)
-  let finals = states.filter{!$0.intersection(nfa.finals).isEmpty}
   let transition: (Set<State>, Sym) -> Set<State> = { (states, a) in
     return states.reduce([]) { (acc, p) -> Set<State> in
       acc.union(nfa.transition(p, a))
     }
   }
-  return DFA(states: states,
-             alphabet: alphabet,
+  
+  let states: Set<Set<State>> = {
+    var preState: Set<Set<State>> = [initial]
+    var currentStates: Set<Set<State>> = [initial]
+    repeat {
+      preState = currentStates
+      currentStates = nextAccessibleStates(of: currentStates, with: transition, and: alphabet)
+    } while currentStates != preState
+    return currentStates
+  }()
+  
+  let finals = states.filter{!$0.intersection(nfa.finals).isEmpty}
+  
+  
+  return DFA(alphabet: alphabet,
              transition: transition,
              initial: initial,
              finals: finals)
+}
+
+public func nextAccessibleStates<State, Sym>
+  (of states: Set<State>,
+   with transition: (State, Sym) -> State,
+   and alphabet: Set<Sym>) -> Set<State> {
+  return
+    Set(states.flatMap { (state) in
+      alphabet.map{ (sym) in
+        transition(state, sym)}
+    })
+}
+
+
+public func powerSet<A>(of a: Set<A>) -> Set<Set<A>> {
+  return Set(a.powerSet.map(Set.init))
 }
 
 public func factorial(_ n: Int) -> Int {
@@ -71,6 +123,4 @@ public func combinator(_ m: Int, _ n: Int) -> Int {
   return permutation(m, n) / factorial(m)
 }
 
-public func powerSet<A>(of a: Set<A>) -> Set<Set<A>> {
-  return Set(Array(a).powerSet.map(Set.init))
-}
+

@@ -14,7 +14,7 @@ public enum BinaryDigit: CaseIterable {
 
 public func endedWith01() -> NFA<Int, BinaryDigit> {
   let state1 = 0
-  let states: Set<Int> = [0, 1, 2]
+
   let inputSymbols: Set<BinaryDigit> = Set(BinaryDigit.allCases)
   let transitionMap: [Dictionary<BinaryDigit, Set<Int>>] = [
     [.zero: [0, 1], .one: [0]],
@@ -26,8 +26,7 @@ public func endedWith01() -> NFA<Int, BinaryDigit> {
   }
   let initialState = state1
   let finalStates: Set<Int> = [2]
-  return NFA(states: states,
-             alphabet: inputSymbols,
+  return NFA(alphabet: inputSymbols,
              transition: transition,
              initial: initialState,
              finals: finalStates)
