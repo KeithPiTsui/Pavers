@@ -262,4 +262,17 @@ class ParsecMockTests: XCTestCase {
     
   }
   
+  func testNumberENFA() {
+    let input = "1255.635".chars
+    let numberENFA = number()
+    let accepted = process(input: input, on: numberENFA)
+    print(accepted)
+    print(numberENFA.accessibleStates)
+    
+    let numberDFA = transform(enfa: numberENFA)
+    let acceptedDFA = process(input: input, on: numberDFA)
+    print(acceptedDFA)
+    print(numberDFA.accessibleStates)
+  }
+  
 }
