@@ -35,8 +35,8 @@ extension CharacterSet {
   
   public static var asciiHexDigits: CharacterSet {
     return .asciiDecimalDigits
-      + .asciiLowercaseHexLetters
-      + .asciiUppercaseHexLetters
+      <> .asciiLowercaseHexLetters
+      <> .asciiUppercaseHexLetters
   }
   
   public static var ascii: CharacterSet {
@@ -52,11 +52,11 @@ extension CharacterSet {
   }
   
   public static var asciiLetters: CharacterSet {
-    return .asciiLowercaseLetters + .asciiUppercaseLetters
+    return .asciiLowercaseLetters <> .asciiUppercaseLetters
   }
   
   public static var asciiControls: CharacterSet {
-    return CharacterSet(lower: 0, upper: 31)! + CharacterSet(lower: 127, upper: 127)!
+    return CharacterSet(lower: 0, upper: 31)! <> CharacterSet(lower: 127, upper: 127)!
   }
   
   public static var asciiPrintables: CharacterSet {
@@ -65,8 +65,8 @@ extension CharacterSet {
   
   public static var asciiPunctuations: CharacterSet {
     return CharacterSet(lower: 32, upper: 47)!
-      + CharacterSet(lower: 58, upper: 64)!
-      + CharacterSet(lower: 91, upper: 96)!
-      + CharacterSet(lower: 123, upper: 126)!
+      <> CharacterSet(lower: 58, upper: 64)!
+      <> CharacterSet(lower: 91, upper: 96)!
+      <> CharacterSet(lower: 123, upper: 126)!
   }
 }

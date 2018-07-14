@@ -36,11 +36,11 @@ extension ENFA {
       // by calculating the set of state that can be reached with
       // a transition on a
       let rs = ps.reduce([])
-      {(acc, p) -> Set<State> in acc.union(transition(p, a))}
+      {(acc, p) -> Set<State> in acc <> transition(p, a)}
       
       // lastly, calculate the e-closure of a-transited set.
       let ers = rs.reduce([])
-      {(acc, p) -> Set<State> in acc.union(self.eclosure(of: p))}
+      {(acc, p) -> Set<State> in acc <> self.eclosure(of: p)}
       
       return ers
   }
@@ -72,7 +72,7 @@ extension ENFA {
     repeat {
       newStates = Set(newStates.flatMap(self.eTransition))
       preStates = curStates
-      curStates = curStates.union(newStates)
+      curStates = curStates <> newStates
     } while preStates != curStates
     return curStates
   }
@@ -121,10 +121,10 @@ public func transform<State, Sym>(enfa: ENFA<State, Sym>) -> DFA<Set<State>, Sym
       
       let rs: Set<State> = states
         .reduce([]) { (acc, p) in
-          acc.union(enfa.transition(p, a))}
+          acc <> enfa.transition(p, a)}
       
       let new = rs.reduce([])
-      {(acc, p) -> Set<State> in acc.union(enfa.eclosure(of: p))}
+      {(acc, p) -> Set<State> in acc <> enfa.eclosure(of: p)}
       
       transitionMap[Pair(states, a)] = new
       return new

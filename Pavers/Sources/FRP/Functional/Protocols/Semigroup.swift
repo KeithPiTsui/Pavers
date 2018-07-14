@@ -4,6 +4,12 @@ public protocol Semigroup {
   func op(_ other: Self) -> Self
 }
 
+extension Semigroup {
+  public static func <> (_ lhs: Self, _ rhs: Self) -> Self {
+    return lhs.op(rhs)
+  }
+}
+
 /**
  An infix version of the semigroup operator.
 

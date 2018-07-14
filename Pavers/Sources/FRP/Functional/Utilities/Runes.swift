@@ -5,13 +5,13 @@ precedencegroup LeftApplyPrecedence {
   lowerThan: TernaryPrecedence
 }
 
+/// infixr 9
 precedencegroup FunctionCompositionPrecedence {
   associativity: right
   higherThan: LeftApplyPrecedence
 }
 
 // MARK: Lens Precedence Group
-
 precedencegroup LensSetPrecedence {
   associativity: left
   higherThan: FunctionCompositionPrecedence
@@ -38,6 +38,7 @@ precedencegroup TagAttachmentPrecedence {
 }
 
 // MARK: Alternative Precedence Group
+/// infixl 3
 precedencegroup RunesAlternativePrecedence {
   associativity: left
   higherThan: LogicalConjunctionPrecedence
@@ -45,23 +46,30 @@ precedencegroup RunesAlternativePrecedence {
 }
 
 // MARK: Applicative Precedence Group
-
+/// infixl 4
 precedencegroup RunesApplicativePrecedence {
   associativity: left
   higherThan: RunesAlternativePrecedence
   lowerThan: NilCoalescingPrecedence
 }
 
+/// infixl 5
 precedencegroup RunesApplicativeSequencePrecedence {
   associativity: left
   higherThan: RunesApplicativePrecedence
   lowerThan: NilCoalescingPrecedence
 }
 
+
 // MARK: -
 
 infix operator <?>: TagAttachmentPrecedence
 
+/**
+ Expected function type: `(Semigroup a) => a -> a -> a`
+ Haskell `infixl 6`
+ */
+infix operator <>: RunesApplicativePrecedence
 
 // MARK: Functor Operators
 /**

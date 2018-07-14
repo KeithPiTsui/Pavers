@@ -49,7 +49,7 @@ extension DFA {
 public func * <StateA, StateB, Sym>(_ lhs: DFA<StateA, Sym>,
                                     _ rhs: DFA<StateB, Sym>)
   -> DFA<Pair<StateA, StateB>, Sym> {
-    let alphabet = lhs.alphabet.union(rhs.alphabet)
+    let alphabet = lhs.alphabet <> rhs.alphabet
     let transition: (Pair<StateA, StateB>, Sym) -> Pair<StateA, StateB> = { (pairState, sym) in
       let s1 = lhs.transition(pairState.first, sym)
       let s2 = rhs.transition(pairState.second, sym)

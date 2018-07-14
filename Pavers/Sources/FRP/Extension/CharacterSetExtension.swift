@@ -13,10 +13,6 @@ extension CharacterSet {
     let cs = CharacterSet.init(charactersIn: "\(c)")
     return self.isSuperset(of: cs)
   }
-  
-  public static func + (_ lhs: CharacterSet, _ rhs: CharacterSet) -> CharacterSet {
-    return lhs.union(rhs)
-  }
 }
 
 extension NSCharacterSet {

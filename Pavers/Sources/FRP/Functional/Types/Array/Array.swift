@@ -136,3 +136,14 @@ extension Array where Element: EitherType {
     return PaversFRP.rights(self)
   }
 }
+
+extension Collection where Element == Bool {
+  public func all () -> Bool {
+    return self.reduce(true) {$0 && $1}
+  }
+  
+  public func some () -> Bool {
+    return self.reduce(false) {$0 || $1}
+  }
+}
+

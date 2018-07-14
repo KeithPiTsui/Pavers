@@ -94,6 +94,6 @@ extension CharacterSet {
     let rangeE = CharacterSet(charactersIn: UnicodeScalar(0x2B740 as UInt32)!...UnicodeScalar(0x2B81F as UInt32)!)
     let rangeF = CharacterSet(charactersIn: UnicodeScalar(0xF900 as UInt32)!...UnicodeScalar(0xFAFF as UInt32)!)
     let rangeG = CharacterSet(charactersIn: UnicodeScalar(0x2F800 as UInt32)!...UnicodeScalar(0x2FA1F as UInt32)!)
-    return rangeA.union(rangeB).union(rangeC).union(rangeD).union(rangeE).union(rangeF).union(rangeG)
+    return rangeA <> rangeB <> rangeC <> rangeD <> rangeE <> rangeF <> rangeG
   }()
 }

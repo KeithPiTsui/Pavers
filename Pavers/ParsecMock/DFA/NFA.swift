@@ -22,7 +22,7 @@ extension NFA {
       guard let a = symbols.last else { return [state] }
       return extendedTransition(state, symbols.dropLast())
         .reduce([])
-        { (acc, ps) -> Set<State> in acc.union(transition(ps, a))}
+        { (acc, ps) -> Set<State> in acc <> transition(ps, a) }
   }
 }
 
@@ -77,7 +77,7 @@ public func transform<State, Sym>(nfa: NFA<State, Sym>) -> DFA<Set<State>, Sym> 
     } else {
       let new: Set<State> = states
         .reduce([]) { (acc, p) in
-          acc.union(nfa.transition(p, a))}
+          acc <> nfa.transition(p, a)}
       transitionMap[Pair(states, a)] = new
       return new
     }
