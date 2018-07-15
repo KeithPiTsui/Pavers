@@ -39,16 +39,12 @@ public enum JSON {
     (plusOrMinus.?
       >>> digits
       >>> decimalFactionPart.?)
-      .fmap { (numberParts) -> Double in
-        let sign = numberParts.0
-        let decimalString = numberParts.1.0
-        let fractionString = numberParts.1.1?.1
+      .fmap { (sign, decimalString, fractionString) -> Double in
         var result: Double = 0
         for (i, d) in decimalString.reversed().enumerated() {
           let e: Double = Double(powf(10, Float(i)))
           guard let dd = Double("\(d)") else {fatalError("\(d) must be a digit")}
           result += dd * e
-          
         }
         return result
   } <?> "number"
@@ -61,8 +57,8 @@ public enum JSON {
   internal static let letters = many1(letter)  <?> "letters"
   internal static let doubleQuoate: ParserS<Character> = char("\"")  <?> "double quoate"
   public static let jstring = (doubleQuoate >>> letters.? >>> doubleQuoate)
-    .fmap { stringParts -> String in
-      return String.init(stringParts.1.0 ?? [])
+    .fmap { (_, str, _) -> String in
+      return String.init(str ?? [])
   }  <?> "jstring"
   
   
@@ -84,22 +80,14 @@ public enum JSON {
   
   
   internal static let comma: ParserS<Character> = char(",")  <?> "comma"
+  internal static let commaItem = fmap(comma >>> whitespaces >>> item){(_, _, item) in item}
   internal static let itemCommaList: () -> ParserS<[Any]> =
-    fmap(item >>> whitespaces >>> many(comma >>> whitespaces >>> item)){
-      (parts: (Any, ([Character]?, [(Character, ([Character]?, Any))]?))) -> [Any] in
-      let first = parts.0
-      if let rest = parts.1.1 {
-        let restAnys = rest.map(second).map(second)
-        return [first] + restAnys
-      } else {
-        return [first]
-      }
-  }  <?> "itemCommaList"
+    fmap(item >>> whitespaces >>> many(commaItem)){ (first, _, rest) -> [Any] in return [first] + rest}  <?> "itemCommaList"
   
   public static let array: () -> ParserS<[Any]> =
     fmap(squareBracketFront >>> whitespaces >>> itemCommaList.? >>> whitespaces >>> squareBracketBack) {
-      (parts: (Character, ([Character]?, ([Any]?, ([Character]?, Character))))) -> [Any] in
-      return parts.1.1.0 ?? [] } <?> "array"
+      (_, _, items, _, _) -> [Any] in
+      return items ?? [] } <?> "array"
   
   
   internal static func anize<A> (_ a : @autoclosure () -> ParserS<A>) -> ParserS<Any> {
@@ -115,9 +103,6 @@ public enum JSON {
   }
   
   
-  
-  
-  
   /// Object {"key": value , "key": value ... }
   internal static let bracketFront: ParserS<Character> = char("{") <?> "bracketFront"
   internal static let bracketEnd: ParserS<Character> = char("}") <?> "bracketEnd"
@@ -127,29 +112,19 @@ public enum JSON {
   
   internal static let keyValuePair: () -> ParserS<(String, Any)> =
     fmap(key >>> whitespaces >>> colon >>> whitespaces >>> value){
-      (parts: (String, ([Character]?, (Character, ([Character]?, Any))))) -> (String, Any) in
-      let k = parts.0
-      let v = parts.1.1.1.1
-      return (k, v)
+      (k, _, _, _, v) -> (String, Any) in (k, v)
   } <?> "key value pair"
   
+  internal static let commaKV = fmap(comma >>> whitespaces >>> keyValuePair){(_, _, kv) in kv}
   internal static let kvCommaList: () -> ParserS<Dictionary<String, Any>> =
-    fmap(keyValuePair >>> whitespaces >>> many(comma >>> whitespaces >>> keyValuePair)){
-      (parts: ((String, Any), ([Character]?, [(Character, ([Character]?, (String, Any)))]?))) -> Dictionary<String, Any> in
-      let first = parts.0
-      var result: [(String, Any)]
-      if let rest = parts.1.1 {
-        let restAnys = rest.map(second).map(second)
-        result = [first] + restAnys
-      } else {
-        result = [first]
-      }
-      return Dictionary.init(uniqueKeysWithValues: result)
+    fmap(keyValuePair >>> whitespaces >>> many(commaKV)){
+      (kv, _, kvs) -> Dictionary<String, Any> in
+      return Dictionary.init(uniqueKeysWithValues: [kv]+kvs)
   } <?> "kvCommaList"
   
   public static let object: () -> ParserS<Dictionary<String, Any>> =
     fmap(bracketFront >>> whitespaces >>> kvCommaList.? >>> whitespaces >>> bracketEnd){
-      (parts: (Character, ([Character]?, (Dictionary<String, Any>?, ([Character]?, Character))))) -> Dictionary<String, Any> in
-      return parts.1.1.0 ?? [:]
+      (_, _, kvs, _, _) -> Dictionary<String, Any> in
+      return kvs ?? [:]
   } <?> "object"
 }

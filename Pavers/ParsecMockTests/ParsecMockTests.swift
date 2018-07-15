@@ -180,7 +180,7 @@ class ParsecMockTests: XCTestCase {
      */
     let p: ParserS<String> = string("P")
     let q: ParserS<String> = string("PQ")
-    let s: ParserS<String> = (p >>> q) <|> q
+    let s: ParserS<String> = (p >>- q) <|> q
     let r = s.unParser(ParserStateS("PQ"))
     print(r)
   }
@@ -193,7 +193,7 @@ class ParsecMockTests: XCTestCase {
      */
     let p: ParserS<String> = string("P") <|> parserReturn("p")
     let q: ParserS<String> = string("PQ")
-    let s: ParserS<String> = (p >>> q)
+    let s: ParserS<String> = (p >>- q)
     let r = s.unParser(ParserStateS("PQ"))
     print(r)
   }

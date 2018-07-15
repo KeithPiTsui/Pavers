@@ -141,6 +141,7 @@
 		531D510920E4C25600028394 /* Parser+Labeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D510820E4C25600028394 /* Parser+Labeling.swift */; };
 		531D510B20E4C2E200028394 /* Parser+Satisfy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531D510A20E4C2E200028394 /* Parser+Satisfy.swift */; };
 		532F5B9220EA3C0B0099272D /* Parser+Combinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532F5B9120EA3C0B0099272D /* Parser+Combinator.swift */; };
+		53415D8520FB428400844A26 /* Parser+Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415D8420FB428400844A26 /* Parser+Pack.swift */; };
 		534A6E2B20F49A8500A0B897 /* CharacterSetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394D9F720EA239800694145 /* CharacterSetExtension.swift */; };
 		534A6E2D20F4A90900A0B897 /* CharacterSet+ASCII.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A6E2C20F4A90900A0B897 /* CharacterSet+ASCII.swift */; };
 		534A6E2F20F4AA2C00A0B897 /* CharacterSet+Monoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A6E2E20F4AA2C00A0B897 /* CharacterSet+Monoid.swift */; };
@@ -578,6 +579,7 @@
 		531D510820E4C25600028394 /* Parser+Labeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Labeling.swift"; sourceTree = "<group>"; };
 		531D510A20E4C2E200028394 /* Parser+Satisfy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Satisfy.swift"; sourceTree = "<group>"; };
 		532F5B9120EA3C0B0099272D /* Parser+Combinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Combinator.swift"; sourceTree = "<group>"; };
+		53415D8420FB428400844A26 /* Parser+Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Pack.swift"; sourceTree = "<group>"; };
 		5343B5D61FCFF44400B0BD76 /* PaversParsec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversParsec.h; sourceTree = "<group>"; };
 		5343B5D71FCFF44400B0BD76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		534A6E2C20F4A90900A0B897 /* CharacterSet+ASCII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+ASCII.swift"; sourceTree = "<group>"; };
@@ -1755,6 +1757,7 @@
 				5383BEFA20F33E2D00A9CAE9 /* Parser+Primitives.swift */,
 				53FE72CF20ECA2C7005AA0E5 /* Parser+Lookahead.swift */,
 				531D510420E4C14600028394 /* Parser+Many.swift */,
+				53415D8420FB428400844A26 /* Parser+Pack.swift */,
 				531D510620E4C18E00028394 /* Parser+Monad.swift */,
 				53E00AD420EDC1FA009B64EC /* Parser+Monoid.swift */,
 				531D510220E4C0CC00028394 /* Parser+Optional.swift */,
@@ -2563,6 +2566,7 @@
 				531D510B20E4C2E200028394 /* Parser+Satisfy.swift in Sources */,
 				531D50F420E47E3100028394 /* HKT+Array.swift in Sources */,
 				538F552520F5FB3B00DF6EFE /* DFAExample.swift in Sources */,
+				53415D8520FB428400844A26 /* Parser+Pack.swift in Sources */,
 				53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */,
 				53F6A6BA20F6FA510009C7FB /* NFAExample.swift in Sources */,
 				531118B620EB178900E11C2E /* MakeTokenParser.swift in Sources */,
