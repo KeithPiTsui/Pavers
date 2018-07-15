@@ -71,10 +71,10 @@ infix operator <?>: TagAttachmentPrecedence
  */
 infix operator <>: RunesApplicativePrecedence
 
-/// pre-composition, i.e `>>> f`
+/// pre-composition, i.e `<> f`
 prefix operator <>
 
-/// post-composition, i.e `f >>>`
+/// post-composition, i.e `f <>`
 postfix operator <>
 
 // MARK: Functor Operators
@@ -183,7 +183,23 @@ prefix operator >>>
 postfix operator >>>
 
 
+// MARK: Kleisi Composition Operators
 
+/// Compose forward operator, i.e. `f >-> g`,
+/// f :: a -> m b,  g :: b -> m c
+/// f >-> g :: a -> mc
+infix operator >-> : FunctionCompositionPrecedence
+
+/// Compose forward operator, i.e. `f <-< g`,
+/// f :: b -> m c,  g :: a -> m b
+/// f <-< g :: a -> mc
+infix operator <-< : FunctionCompositionPrecedence
+
+/// pre-composition, i.e `>-> f`
+prefix operator >->
+
+/// post-composition, i.e `f >->`
+postfix operator >->
 
 /// optional operator
 /// i.e. `a: A := a.? : A?`
