@@ -30,7 +30,7 @@ extension Array {
 
 extension NonEmptyArray: Semigroup {
   public func op(_ other: NonEmptyArray) -> NonEmptyArray {
-    return self.head +| (self.tail >>> [other.head] >>> other.tail)
+    return self.head +| (self.tail <> [other.head] <> other.tail)
   }
 }
 
@@ -67,6 +67,6 @@ extension Array where Element: Hashable {
 
 extension NonEmptySet: Semigroup {
   public func op(_ other: NonEmptySet) -> NonEmptySet {
-    return self.head +| (self.tail >>> [other.head] >>> other.tail)
+    return self.head +| (self.tail <> [other.head] <> other.tail)
   }
 }

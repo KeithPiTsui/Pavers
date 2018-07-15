@@ -20,5 +20,6 @@
         <page name='ParsecMockChar'/>
         <page name='ParsecMockMany'/>
         <page name='CharacterSet'/>
+        <page name='SectionFunction'/>
     </pages>
 </playground>

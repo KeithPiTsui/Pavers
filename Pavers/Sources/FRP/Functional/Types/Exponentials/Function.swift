@@ -77,6 +77,38 @@ public func <<< <A, B, C> (f: @escaping (B) -> C, g: @escaping (A) -> B) -> (A) 
   return { f(g($0)) }
 }
 
+/**
+ (2+)
+ section(2, +) :: A -> A
+ */
+public func sec<A, B, C>(_ a: A, _ f: @escaping (A, B) -> C) -> (B) -> C {
+  return sec(a, curry(f))
+}
+
+/**
+ (+2)
+ section(+, 2) :: A -> A
+ */
+public func sec<A, B, C>(_ a: A, _ f: @escaping (A) -> (B) -> C) -> (B) -> C {
+  return f(a)
+}
+
+
+/**
+ (+2)
+ section(+, 2) :: A -> A
+ */
+public func sec<A, B, C>(_ f: @escaping (A, B) -> C, _ b: B) -> (A) -> C {
+  return sec(curry(f), b)
+}
+
+/**
+ (+2)
+ section(+, 2) :: A -> A
+ */
+public func sec<A, B, C>(_ f: @escaping (A) -> (B) -> C, _ b: B) -> (A) -> C {
+  return { a in f(a)(b) }
+}
 
 /**
  The identity function on `A`.
@@ -90,9 +122,9 @@ public func id <A> (_ x: A) -> A {
   return x
 }
 
-public func identity <A> (_ x: A) -> A {
-  return x
-}
+//public func identity <A> (_ x: A) -> A {
+//  return x
+//}
 
 public func terminal<A>(_ x: A) -> () {
   return ()

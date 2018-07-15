@@ -71,6 +71,12 @@ infix operator <?>: TagAttachmentPrecedence
  */
 infix operator <>: RunesApplicativePrecedence
 
+/// pre-composition, i.e `>>> f`
+prefix operator <>
+
+/// post-composition, i.e `f >>>`
+postfix operator <>
+
 // MARK: Functor Operators
 /**
   map a function over a value with context

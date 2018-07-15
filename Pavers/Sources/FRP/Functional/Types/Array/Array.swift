@@ -19,13 +19,13 @@ public extension Array where Element: Semigroup {
    - returns: The concatenation of all the values.
    */
   public func sconcat(_ initial: Element) -> Element {
-    return self.reduce(initial, >>>)
+    return self.reduce(initial, <>)
   }
 }
 
 public extension Array where Element: Monoid {
   public func sconcat() -> Element {
-    return self.reduce(Element.identity(), >>>)
+    return self.reduce(Element.identity(), <>)
   }
 }
 

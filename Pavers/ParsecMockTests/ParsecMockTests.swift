@@ -275,4 +275,10 @@ class ParsecMockTests: XCTestCase {
     print(numberDFA.accessibleStates)
   }
   
+  func testSection() {
+    let f = sec(2, +) >>> sec(3, +)
+    let addedOne = [1,2,3].map(f)
+    print(addedOne)
+  }
+  
 }
