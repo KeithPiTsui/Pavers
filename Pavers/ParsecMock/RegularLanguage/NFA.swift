@@ -31,12 +31,13 @@ extension NFA {
   public var accessibleStates : Set<State> {
     var preAccessibleStates: Set<State> = [initial]
     var currentAccessibleStates: Set<State> = [initial]
+    var newAddedStates: Set<State> = [initial]
     repeat {
       preAccessibleStates = currentAccessibleStates
-      currentAccessibleStates = nextAccessibleStates(of: currentAccessibleStates, with: transition, and: alphabet)
+      newAddedStates = nextAccessibleStates(of: newAddedStates, with: transition, and: alphabet)
+      currentAccessibleStates = newAddedStates <> currentAccessibleStates
     } while currentAccessibleStates != preAccessibleStates
     return currentAccessibleStates
-    
   }
 }
 

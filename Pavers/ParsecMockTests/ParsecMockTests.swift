@@ -281,4 +281,30 @@ class ParsecMockTests: XCTestCase {
     print(addedOne)
   }
   
+  
+  func testRE2DFA() {
+    
+    let zero = RegularExpression.primitives(0)
+    let one = RegularExpression.primitives(1)
+    let oneOrZeor = RegularExpression.union(zero, one)
+    let manyOneOrZero = RegularExpression.kleeneClosure(oneOrZeor)
+    
+    let manyOneOrZeroThenOne = RegularExpression.concatenation(manyOneOrZero, one)
+    let manyOneOrZeroThenOneThenOneOrZero = RegularExpression.concatenation(manyOneOrZeroThenOne, oneOrZeor)
+
+    let enfa = transform(re: manyOneOrZeroThenOneThenOneOrZero)
+    let input = [0, 0, 1, 0]
+    let accepted = process(input: input, on: enfa)
+    print(accepted)
+    print("Alphabet of ENFA: \(enfa.alphabet)")
+    print("States of ENFA: \(enfa.accessibleStates)")
+    
+    let dfa_ = transform(enfa: enfa)
+    let dfa = renamedStates(of: dfa_, start: 1)
+    let acceptedDFA = process(input: input, on: dfa)
+    print(acceptedDFA)
+    print(dfa.accessibleStates)
+  }
+  
+  
 }

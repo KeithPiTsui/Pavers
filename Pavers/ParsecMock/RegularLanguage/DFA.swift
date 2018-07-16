@@ -25,15 +25,35 @@ where State: Hashable, Sym: Hashable {
 }
 
 extension DFA {
+  public func transitionMap() -> [State:[Sym: State]] {
+    return Dictionary(uniqueKeysWithValues:
+      self.accessibleStates.map { (state) -> (State, [Sym: State]) in
+        (state,
+         Dictionary(uniqueKeysWithValues:
+          self.alphabet
+            .map{ (sym) -> (Sym, State) in
+              (sym,
+               transition(state, sym)
+              )
+          }
+          )
+        )
+      }
+    )
+  }
+}
+
+extension DFA {
   public var accessibleStates : Set<State> {
     var preAccessibleStates: Set<State> = [initial]
     var currentAccessibleStates: Set<State> = [initial]
+    var newAddedStates: Set<State> = [initial]
     repeat {
       preAccessibleStates = currentAccessibleStates
-      currentAccessibleStates = nextAccessibleStates(of: currentAccessibleStates, with: transition, and: alphabet)
+      newAddedStates = nextAccessibleStates(of: newAddedStates, with: transition, and: alphabet)
+      currentAccessibleStates = newAddedStates <> currentAccessibleStates
     } while currentAccessibleStates != preAccessibleStates
     return currentAccessibleStates
-    
   }
 }
 
@@ -100,7 +120,7 @@ public func transform<State, Sym>(dfa: DFA<State, Sym>) -> ENFA<State, Sym> {
     }
   }
   return ENFA(alphabet: dfa.alphabet,
-             transition: transition,
-             initial: dfa.initial,
-             finals: dfa.finals)
+              transition: transition,
+              initial: dfa.initial,
+              finals: dfa.finals)
 }

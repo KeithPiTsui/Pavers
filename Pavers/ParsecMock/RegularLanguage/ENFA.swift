@@ -51,12 +51,13 @@ extension ENFA {
   public var accessibleStates : Set<State> {
     var preAccessibleStates: Set<State> = [initial]
     var currentAccessibleStates: Set<State> = [initial]
+    var newAddedStates: Set<State> = [initial]
     repeat {
       preAccessibleStates = currentAccessibleStates
-      currentAccessibleStates = nextAccessibleStates(of: currentAccessibleStates, with: transition, and: alphabet)
+      newAddedStates = nextAccessibleStates(of: newAddedStates, with: transition, and: alphabet)
+      currentAccessibleStates = newAddedStates <> currentAccessibleStates
     } while currentAccessibleStates != preAccessibleStates
     return currentAccessibleStates
-    
   }
 }
 
@@ -83,9 +84,11 @@ public func nextAccessibleStates<State, Sym>
    with transition: (State, Sym?) -> Set<State>,
    and alphabet: Set<Sym>) -> Set<State> {
   return
-    Set(states.flatMap { (state) in
-      alphabet.flatMap{ (sym) in
-        transition(state, sym)}
+    Set(states.flatMap { (state) -> Set<State> in
+      let x: [State] =  alphabet.flatMap{ (sym) in transition(state, sym)}
+      let x_: [State] =  x.flatMap{ (s) in transition(s, nil)}
+      let y: Set<State> = transition(state, nil)
+      return Set(x) <> Set(x_) <> y
     })
 }
 
