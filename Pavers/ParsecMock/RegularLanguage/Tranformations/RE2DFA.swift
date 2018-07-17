@@ -1,128 +1,32 @@
 //
-//  RegularExpression.swift
+//  RE2DFA.swift
 //  ParsecMock
 //
-//  Created by Keith on 2018/7/16.
+//  Created by Keith on 2018/7/17.
 //  Copyright © 2018 Keith. All rights reserved.
 //
 
 import PaversFRP
 
-public enum RegularExpression<Symbol> {
-  /// empty string of symbol
-  case epsilon
-  /// empty language that contain no string of symbol
-  case empty
-  /// one symbol
-  case primitives(Symbol)
-  indirect case union(RegularExpression<Symbol>, RegularExpression<Symbol>)
-  indirect case concatenation(RegularExpression<Symbol>, RegularExpression<Symbol>)
-  indirect case kleeneClosure(RegularExpression<Symbol>)
-  indirect case parenthesis(RegularExpression<Symbol>)
-}
-
-extension RegularExpression {
-  public static func + (_ lhs: RegularExpression, _ rhs: RegularExpression)
-    -> RegularExpression {
-      return .union(lhs, rhs)
-  }
-  
-  public static func * (_ lhs: RegularExpression, _ rhs: RegularExpression)
-    -> RegularExpression {
-      return .concatenation(lhs, rhs)
-  }
-  
-  public static postfix func .* (_ re: RegularExpression)
-    -> RegularExpression {
-      return .kleeneClosure(re)
-  }
-}
-
-
-public func renamedStates<State, Symbol>(of dfa: DFA<State, Symbol>, start: Int) -> DFA<Int, Symbol> {
-  let states = dfa.accessibleStates
-  let initialMap = [dfa.initial : 1]
-  let restStates = states.subtracting([dfa.initial])
-  let restMap = Dictionary.init(uniqueKeysWithValues: restStates.enumerated().map{(i, e) -> (State, Int) in (e, i + 2)})
-  let stateMap = initialMap.withAllValuesFrom(restMap)
-  let transition: (Int, Symbol) -> Int = { (stateInt, sym) in
-    let s = stateMap.findFirst{(_, v) in v == stateInt}!.key
-    let s_ = dfa.transition(s, sym)
-    return stateMap[s_]!
-  }
-  let initialState = 1
-  let finalStates: Set<Int> = Set(dfa.finals.map{stateMap[$0]!})
-  return DFA(
-    alphabet: dfa.alphabet,
-    transition: transition,
-    initial: initialState,
-    finals: finalStates)
-}
-
-public func renamedStates<State, Symbol>(of enfa: ENFA<State, Symbol>, start: Int) -> ENFA<Int, Symbol> {
-  let states = enfa.accessibleStates
-  let initialState = start
-  let initialMap = [enfa.initial : initialState]
-  let restStates = states.subtracting([enfa.initial])
-  let restMap = Dictionary.init(uniqueKeysWithValues: restStates.enumerated().map{(i, e) -> (State, Int) in (e, i + 1 + initialState)})
-  
-  let stateMap = initialMap.withAllValuesFrom(restMap)
-  print(stateMap)
-  
-  let transition: (Int, Symbol?) -> Set<Int> = { (stateInt, sym) in
-    let s = stateMap.findFirst{(_, v) in v == stateInt}?.key
-    guard let ss = s else {
-      print("stateInt:\(stateInt)")
-      return []
-    }
-    let s_ = enfa.transition(ss, sym).map{stateMap[$0]!}
-    return Set(s_)
-  }
-  
-  let finalStates: Set<Int> = Set(enfa.finals.map{stateMap[$0]!})
-  return ENFA(
-    alphabet: enfa.alphabet,
-    transition: transition,
-    initial: initialState,
-    finals: finalStates)
-}
-
-public func regularExpression<Int, Symbol>(of dfa: DFA<Int, Symbol>,
-                                           i: Int, j: Int, k: Int)
-  -> RegularExpression<Symbol> {
-    fatalError("Not implemented yet")
-}
-
-
 public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol> {
   switch re {
   case .epsilon:
     let transition: (Int, Symbol?) -> Set<Int> = { state, input in
-      if state == 1 && input == nil {
-        return [2]
-      } else {
-        return [state]
-      }
+      state == 1 && input == nil ? [2] : [state]
     }
     return ENFA<Int, Symbol>(alphabet: [],
                              transition: transition,
                              initial: 1,
                              finals: [2])
   case .empty:
-    let transition: (Int, Symbol?) -> Set<Int> = { state, input in
-      [state]
-    }
+    let transition: (Int, Symbol?) -> Set<Int> = { state, input in [state] }
     return ENFA<Int, Symbol>(alphabet: [],
                              transition: transition,
                              initial: 1,
                              finals: [2])
   case .primitives(let a):
     let transition: (Int, Symbol?) -> Set<Int> = { state, input in
-      if state == 1 && input == a {
-        return [2]
-      } else {
-        return [state]
-      }
+      state == 1 && input == a ? [2] : [state]
     }
     return ENFA<Int, Symbol>(alphabet: [a],
                              transition: transition,
@@ -219,9 +123,9 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
     }
     
     let enfa_ = ENFA<Int, Symbol>(alphabet: renamedENFA.alphabet,
-                                 transition: transition,
-                                 initial: 1,
-                                 finals: finals)
+                                  transition: transition,
+                                  initial: 1,
+                                  finals: finals)
     
     print(enfa_.accessibleStates)
     
@@ -231,7 +135,3 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
     return transform(re: re)
   }
 }
-
-
-
-

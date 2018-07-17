@@ -8,14 +8,6 @@
 
 import PaversFRP
 
-/**
- An `Alphabet` is a finite, nonempty set of symbols.
- 
- Conventionally, we use the symbol Sigma (Σ) for an Alphabet.
- */
-public typealias Alphabet<Symbol> = Set<Symbol> where Symbol: Hashable
-
-
 public struct DFA<State, Sym>
 where State: Hashable, Sym: Hashable {
   public let alphabet: Set<Sym>
@@ -83,11 +75,6 @@ public func * <StateA, StateB, Sym>(_ lhs: DFA<StateA, Sym>,
                finals: finalStates)
 }
 
-public func cartesian<A, B>(_ a: Set<A>, _ b: Set<B>) -> Set<Pair<A, B>>
-  where A: Hashable, B: Hashable {
-    return Set( a.flatMap{ a_ in b.map{b_ in Pair(a_, b_)}})
-}
-
 
 public func process<State, Sym, Seq>(input: Seq,
                                      on dfa: DFA<State, Sym>)
@@ -98,29 +85,4 @@ public func process<State, Sym, Seq>(input: Seq,
       currentState = dfa.transition(currentState, e)
     }
     return dfa.finals.contains(currentState)
-}
-
-
-public func transform<State, Sym>(dfa: DFA<State, Sym>) -> NFA<State, Sym> {
-  let transition: (State, Sym) -> Set<State> = { state, input in
-    [dfa.transition(state, input)]
-  }
-  return NFA(alphabet: dfa.alphabet,
-             transition: transition,
-             initial: dfa.initial,
-             finals: dfa.finals)
-}
-
-public func transform<State, Sym>(dfa: DFA<State, Sym>) -> ENFA<State, Sym> {
-  let transition: (State, Sym?) -> Set<State> = { state, input in
-    if let sym = input {
-      return [dfa.transition(state, sym)]
-    } else {
-      return []
-    }
-  }
-  return ENFA(alphabet: dfa.alphabet,
-              transition: transition,
-              initial: dfa.initial,
-              finals: dfa.finals)
 }
