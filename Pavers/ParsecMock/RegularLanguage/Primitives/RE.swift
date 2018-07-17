@@ -24,17 +24,40 @@ public enum RegularExpression<Symbol> {
 extension RegularExpression {
   public static func + (_ lhs: RegularExpression, _ rhs: RegularExpression)
     -> RegularExpression {
-      return .union(lhs, rhs)
+      switch (lhs, rhs) {
+      case (.empty, let rhs):
+        return rhs
+      case (let lhs, .empty):
+        return lhs
+      default:
+        return .union(lhs, rhs)
+      }
   }
   
   public static func * (_ lhs: RegularExpression, _ rhs: RegularExpression)
     -> RegularExpression {
-      return .concatenation(lhs, rhs)
+      switch (lhs, rhs) {
+      case (.empty, _), (_, .empty):
+        return .empty
+      case (.epsilon, let rhs):
+        return rhs
+      case (let lhs, .epsilon):
+        return lhs
+      default:
+        return .concatenation(lhs, rhs)
+      }
   }
   
   public static postfix func .* (_ re: RegularExpression)
     -> RegularExpression {
-      return .kleeneClosure(re)
+      switch re {
+      case .empty:
+        return .empty
+      case .epsilon:
+        return .epsilon
+      default:
+        return .kleeneClosure(re)
+      }
   }
 }
 
