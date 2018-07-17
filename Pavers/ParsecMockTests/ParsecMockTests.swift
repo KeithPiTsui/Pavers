@@ -329,6 +329,19 @@ class ParsecMockTests: XCTestCase {
     print(dfa2re)
     
     
+    let enfa_ = transform(re: dfa2re)
+    let accepted_ = process(input: input, on: enfa_)
+    print(accepted_)
+    print("Alphabet of ENFA_: \(enfa_.alphabet)")
+    print("States of ENFA_: \(enfa_.accessibleStates)")
+    
+    let dfa__ = transform(enfa: enfa_)
+    let dfa___ = renamedStates(of: dfa__, start: 1)
+    let acceptedDFA_ = process(input: input, on: dfa___)
+    print(acceptedDFA_)
+    print("Alphabet of DFA_: \(dfa___.alphabet)")
+    print("States of DFA_: \(dfa___.accessibleStates)")
+    
   }
   
   
