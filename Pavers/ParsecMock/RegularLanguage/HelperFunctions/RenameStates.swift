@@ -34,7 +34,7 @@ public func renamedStates<State, Symbol>(of enfa: ENFA<State, Symbol>, start: In
   let restMap = Dictionary.init(uniqueKeysWithValues: restStates.enumerated().map{(i, e) -> (State, Int) in (e, i + 1 + initialState)})
   
   let stateMap = initialMap.withAllValuesFrom(restMap)
-  print(stateMap)
+//  print(stateMap)
   
   let transition: (Int, Symbol?) -> Set<Int> = { (stateInt, sym) in
     let s = stateMap.findFirst{(_, v) in v == stateInt}?.key

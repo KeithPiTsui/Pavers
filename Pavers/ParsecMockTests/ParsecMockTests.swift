@@ -242,11 +242,13 @@ class ParsecMockTests: XCTestCase {
     let accepted = !ended01.finals.intersection(state).isEmpty
     print(accepted)
     print(ended01.accessibleStates)
+    XCTAssert(accepted)
     
     let dfa01 = transform(nfa: ended01)
     let acceptedDFA = process(input: input, on: dfa01)
     print(acceptedDFA)
     print(dfa01.accessibleStates)
+    XCTAssert(acceptedDFA)
   }
   
   func testKeywordAutomata() {
@@ -255,11 +257,12 @@ class ParsecMockTests: XCTestCase {
     let accepted = process(input: input, on: keywordNFA)
     print(accepted)
     print(keywordNFA.accessibleStates)
+    XCTAssert(accepted)
     let keywordDFA = transform(nfa: keywordNFA)
     let acceptedDFA = process(input: input, on: keywordDFA)
     print(acceptedDFA)
     print(keywordDFA.accessibleStates)
-    
+    XCTAssert(acceptedDFA)
   }
   
   func testNumberENFA() {
@@ -268,11 +271,13 @@ class ParsecMockTests: XCTestCase {
     let accepted = process(input: input, on: numberENFA)
     print(accepted)
     print(numberENFA.accessibleStates)
+    XCTAssert(accepted)
     
     let numberDFA = transform(enfa: numberENFA)
     let acceptedDFA = process(input: input, on: numberDFA)
     print(acceptedDFA)
     print(numberDFA.accessibleStates)
+    XCTAssert(acceptedDFA)
   }
   
   func testSection() {
@@ -298,25 +303,30 @@ class ParsecMockTests: XCTestCase {
     print(accepted)
     print("Alphabet of ENFA: \(enfa.alphabet)")
     print("States of ENFA: \(enfa.accessibleStates)")
+    XCTAssert(accepted)
+    
     
     let dfa_ = transform(enfa: enfa)
     let dfa = renamedStates(of: dfa_, start: 1)
     let acceptedDFA = process(input: input, on: dfa)
     print(acceptedDFA)
     print(dfa.accessibleStates)
+    XCTAssert(acceptedDFA)
   }
   
   func testDFA2RE() {
     let zero = RegularExpression.primitives(0)
     let one = RegularExpression.primitives(1)
-    let re = one.* + zero + (zero + one).*
+    let re = zero * (zero + one).*
+    print(re)
     
     let enfa = transform(re: re)
-    let input = [1, 0, 1, 0, 1, 1, 0, 0]
+    let input = [0, 1]
     let accepted = process(input: input, on: enfa)
     print(accepted)
     print("Alphabet of ENFA: \(enfa.alphabet)")
     print("States of ENFA: \(enfa.accessibleStates)")
+    XCTAssert(accepted)
     
     let dfa_ = transform(enfa: enfa)
     let dfa = renamedStates(of: dfa_, start: 1)
@@ -324,9 +334,10 @@ class ParsecMockTests: XCTestCase {
     print(acceptedDFA)
     print("Alphabet of DFA: \(dfa.alphabet)")
     print("States of DFA: \(dfa.accessibleStates)")
+    XCTAssert(acceptedDFA)
     
     let dfa2re = regularExpression(of: dfa)
-    print(dfa2re)
+    print(dfa2re.description)
     
     
     let enfa_ = transform(re: dfa2re)
@@ -334,6 +345,7 @@ class ParsecMockTests: XCTestCase {
     print(accepted_)
     print("Alphabet of ENFA_: \(enfa_.alphabet)")
     print("States of ENFA_: \(enfa_.accessibleStates)")
+    XCTAssert(accepted_)
     
     let dfa__ = transform(enfa: enfa_)
     let dfa___ = renamedStates(of: dfa__, start: 1)
@@ -341,7 +353,7 @@ class ParsecMockTests: XCTestCase {
     print(acceptedDFA_)
     print("Alphabet of DFA_: \(dfa___.alphabet)")
     print("States of DFA_: \(dfa___.accessibleStates)")
-    
+    XCTAssert(acceptedDFA_)
   }
   
   

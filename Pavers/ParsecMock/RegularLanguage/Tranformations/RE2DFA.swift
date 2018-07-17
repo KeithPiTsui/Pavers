@@ -39,13 +39,13 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
     let lhsStateCount = lhsENFA.accessibleStates.count
     let renamedLHSENFA = renamedStates(of: lhsENFA, start: 2)
     let lhsStates = renamedLHSENFA.accessibleStates
-    print(lhsStates)
+//    print(lhsStates)
     
     let rhsENFA = transform(re: rhs)
     let rhsStateCount = rhsENFA.accessibleStates.count
     let renamedRHSENFA = renamedStates(of: rhsENFA, start: lhsStateCount + 2)
     let rhsStates = renamedRHSENFA.accessibleStates
-    print(rhsStates)
+//    print(rhsStates)
     
     let finals: Set<Int> = [1 + rhsStateCount + lhsStateCount + 1]
     
@@ -66,7 +66,7 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
                                  transition: transition,
                                  initial: 1,
                                  finals: finals)
-    print(enfa.accessibleStates)
+//    print(enfa.accessibleStates)
     
     return enfa
     
@@ -76,12 +76,12 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
     let lhsStateCount = lhsENFA.accessibleStates.count
     let renamedLHSENFA = lhsENFA
     let lhsStates = renamedLHSENFA.accessibleStates
-    print("concatenation lhsStates:\(lhsStates)")
+//    print("concatenation lhsStates:\(lhsStates)")
     
     let rhsENFA = transform(re: rhs)
     let renamedRHSENFA = renamedStates(of: rhsENFA, start: lhsStateCount + 1)
     let rhsStates = renamedRHSENFA.accessibleStates
-    print("concatenation rhsStates:\(rhsStates)")
+//    print("concatenation rhsStates:\(rhsStates)")
     
     
     let finals: Set<Int> = renamedRHSENFA.finals
@@ -106,7 +106,7 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
     let enfa = transform(re: re)
     let renamedENFA = renamedStates(of: enfa, start: 2)
     let renamedENFAStates = renamedENFA.accessibleStates
-    print(renamedENFAStates)
+//    print(renamedENFAStates)
     
     let finals: Set<Int> = [renamedENFAStates.count + 2]
     
@@ -127,7 +127,7 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
                                   initial: 1,
                                   finals: finals)
     
-    print(enfa_.accessibleStates)
+//    print(enfa_.accessibleStates)
     
     return enfa_
     
