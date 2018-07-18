@@ -356,5 +356,21 @@ class ParsecMockTests: XCTestCase {
     XCTAssert(acceptedDFA_)
   }
   
+  func testRES() {
+    let x = RegularExpression.primitives(">")
+    let y = RegularExpression.primitives("<")
+    
+    let enfa = transform(res: [(x, {print("find >")}), (y, {print("find <")})])
+//    let enfa = transform(re: x + y)
+    
+    let input = [">", "<", "<"]
+    let accepted = process(input: input, on: enfa)
+    print(accepted)
+    print("Alphabet of ENFA: \(enfa.alphabet)")
+    print("States of ENFA: \(enfa.accessibleStates)")
+    
+  }
+  
+  
   
 }

@@ -143,7 +143,7 @@
 		53223A6D20FC421A007000CD /* RE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53223A6C20FC421A007000CD /* RE.swift */; };
 		532F5B9220EA3C0B0099272D /* Parser+Combinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532F5B9120EA3C0B0099272D /* Parser+Combinator.swift */; };
 		5330F82620FD90D9005E3480 /* RenameStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5330F82520FD90D9005E3480 /* RenameStates.swift */; };
-		5330F82820FD9102005E3480 /* RE2DFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5330F82720FD9102005E3480 /* RE2DFA.swift */; };
+		5330F82820FD9102005E3480 /* RE2ENFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5330F82720FD9102005E3480 /* RE2ENFA.swift */; };
 		5330F82A20FD9128005E3480 /* DFA2RE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5330F82920FD9128005E3480 /* DFA2RE.swift */; };
 		53415D8520FB428400844A26 /* Parser+Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415D8420FB428400844A26 /* Parser+Pack.swift */; };
 		534A6E2B20F49A8500A0B897 /* CharacterSetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394D9F720EA239800694145 /* CharacterSetExtension.swift */; };
@@ -591,7 +591,7 @@
 		53223A6C20FC421A007000CD /* RE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RE.swift; sourceTree = "<group>"; };
 		532F5B9120EA3C0B0099272D /* Parser+Combinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Combinator.swift"; sourceTree = "<group>"; };
 		5330F82520FD90D9005E3480 /* RenameStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameStates.swift; sourceTree = "<group>"; };
-		5330F82720FD9102005E3480 /* RE2DFA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RE2DFA.swift; sourceTree = "<group>"; };
+		5330F82720FD9102005E3480 /* RE2ENFA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RE2ENFA.swift; sourceTree = "<group>"; };
 		5330F82920FD9128005E3480 /* DFA2RE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFA2RE.swift; sourceTree = "<group>"; };
 		53415D8420FB428400844A26 /* Parser+Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Pack.swift"; sourceTree = "<group>"; };
 		5343B5D61FCFF44400B0BD76 /* PaversParsec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaversParsec.h; sourceTree = "<group>"; };
@@ -1314,7 +1314,7 @@
 				5330F82920FD9128005E3480 /* DFA2RE.swift */,
 				5352BB1720FD8E9400A46FD7 /* ENFA2DFA.swift */,
 				5352BB1920FD8F0700A46FD7 /* NFA2DFA.swift */,
-				5330F82720FD9102005E3480 /* RE2DFA.swift */,
+				5330F82720FD9102005E3480 /* RE2ENFA.swift */,
 			);
 			path = Tranformations;
 			sourceTree = "<group>";
@@ -2628,7 +2628,7 @@
 				5352BB1420FD8D8900A46FD7 /* DFA2NFA.swift in Sources */,
 				538F552520F5FB3B00DF6EFE /* DFAExample.swift in Sources */,
 				53415D8520FB428400844A26 /* Parser+Pack.swift in Sources */,
-				5330F82820FD9102005E3480 /* RE2DFA.swift in Sources */,
+				5330F82820FD9102005E3480 /* RE2ENFA.swift in Sources */,
 				5352BB1C20FD8F9100A46FD7 /* NextAccessibleStates.swift in Sources */,
 				53E6FC8320E3D81400DFE5E6 /* ParserResult.swift in Sources */,
 				53F6A6BA20F6FA510009C7FB /* NFAExample.swift in Sources */,

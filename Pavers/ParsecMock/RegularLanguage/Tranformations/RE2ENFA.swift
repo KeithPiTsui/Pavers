@@ -12,21 +12,21 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
   switch re {
   case .epsilon:
     let transition: (Int, Symbol?) -> Set<Int> = { state, input in
-      state == 1 && input == nil ? [2] : [state]
+      state == 1 && input == nil ? [2] : []
     }
     return ENFA<Int, Symbol>(alphabet: [],
                              transition: transition,
                              initial: 1,
                              finals: [2])
   case .empty:
-    let transition: (Int, Symbol?) -> Set<Int> = { state, input in [state] }
+    let transition: (Int, Symbol?) -> Set<Int> = { state, input in [] }
     return ENFA<Int, Symbol>(alphabet: [],
                              transition: transition,
                              initial: 1,
                              finals: [2])
   case .primitives(let a):
     let transition: (Int, Symbol?) -> Set<Int> = { state, input in
-      state == 1 && input == a ? [2] : [state]
+      state == 1 && input == a ? [2] : []
     }
     return ENFA<Int, Symbol>(alphabet: [a],
                              transition: transition,
@@ -50,15 +50,22 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
     let finals: Set<Int> = [1 + rhsStateCount + lhsStateCount + 1]
     
     let transition: (Int, Symbol?) -> Set<Int> = { state, input in
+//      print("state: \(state), input:\(input)")
+      
       if state == 1 && input == nil {
+//        print("go to \([renamedLHSENFA.initial, renamedRHSENFA.initial])")
         return [renamedLHSENFA.initial, renamedRHSENFA.initial]
       } else if (renamedLHSENFA.finals <> renamedRHSENFA.finals).contains(state) && input == nil {
+//        print("go to \(finals)")
         return finals
       } else if lhsStates.contains(state) {
+//        print("go to \(renamedLHSENFA.transition(state,input))")
         return renamedLHSENFA.transition(state,input)
       } else if rhsStates.contains(state) {
+//        print("go to \(renamedRHSENFA.transition(state,input))")
         return renamedRHSENFA.transition(state,input)
       } else {
+//        print("go to \([])")
         return []
       }
     }
@@ -134,4 +141,46 @@ public func transform<Symbol>(re: RegularExpression<Symbol>) -> ENFA<Int, Symbol
   case .parenthesis(let re):
     return transform(re: re)
   }
+}
+
+
+
+public func transform<Sym>(res: [(re: RegularExpression<Sym>, f: () -> ())]) -> ENFA<Int, Sym> {
+  
+  let enfas: [ENFA<Int, Sym>] = res.map(first).map(transform)
+  let enfaStateCounts = enfas.map{$0.accessibleStates.count}
+  let renamedENFAsAndCount: ([ENFA<Int, Sym>], Int ) = zip(enfas, enfaStateCounts)
+    .reduce(([], 2)){ (acc, pair) -> ([ENFA<Int, Sym>], Int ) in
+    (acc.0 + [renamedStates(of: pair.0, start: acc.1)], acc.1 + pair.1)
+  }
+  
+  
+  let renamedENFAs = renamedENFAsAndCount.0
+  let lastStateInt = renamedENFAsAndCount.1
+  let renamedENFAStates = renamedENFAs.map{$0.accessibleStates}
+  let renamedENFAFinals = renamedENFAs.map{$0.finals}
+  let renamedENFAInitials = Set(renamedENFAs.map{$0.initial})
+  let fs = res.map(second)
+  
+  let finals: Set<Int> = [lastStateInt + 1]
+  
+  
+  let transition: (Int, Sym?) -> Set<Int> = { state, input in
+    if state == 1 && input == nil {
+      return renamedENFAInitials
+    } else if Set(renamedENFAs.flatMap{$0.finals}).contains(state) && input == nil {
+      
+      if let idx = renamedENFAFinals.firstIndex(where: {$0.contains(state)}) {
+        fs[idx]()
+      }
+      return finals
+    } else if let idx = renamedENFAStates.firstIndex(where: {$0.contains(state)}) {
+      return renamedENFAs[idx].transition(state, input)
+    } else { return [] }
+  }
+  let enfa = ENFA<Int, Sym>(alphabet: Set(renamedENFAs.flatMap{$0.alphabet}),
+                               transition: transition,
+                               initial: 1,
+                               finals: finals)
+  return enfa
 }
