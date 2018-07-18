@@ -366,9 +366,13 @@ class ParsecMockTests: XCTestCase {
     let input = [">", "<", "<"]
     let accepted = process(input: input, on: enfa)
     print(accepted)
-    print("Alphabet of ENFA: \(enfa.alphabet)")
-    print("States of ENFA: \(enfa.accessibleStates)")
-    
+//    print("Alphabet of ENFA: \(enfa.alphabet)")
+//    print("States of ENFA: \(enfa.accessibleStates)")
+   
+    let dfa_ = transform(enfa: enfa)
+    let dfa = renamedStates(of: dfa_, start: 1)
+    let acceptedDFA = process(input: input, on: dfa)
+    print(acceptedDFA)
   }
   
   
