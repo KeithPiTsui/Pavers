@@ -41,14 +41,6 @@ extension NFA {
   }
 }
 
-public func process<State, Sym, C>(input: C,
-                                   on nfa: NFA<State, Sym>)
-  -> Bool
-  where C: BidirectionalCollection, C.Element == Sym {
-    let state = nfa.extendedTransition(nfa.initial, input)
-    return !nfa.finals.intersection(state).isEmpty
-}
-
 
 
 

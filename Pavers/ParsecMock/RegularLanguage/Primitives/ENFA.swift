@@ -79,13 +79,5 @@ extension ENFA {
   }
 }
 
-public func process<State, Sym, C>(input: C,
-                                   on enfa: ENFA<State, Sym>)
-  -> Bool
-  where C: BidirectionalCollection, C.Element == Sym {
-    let state = enfa.extendedTransition(enfa.initial, input)
-    return !enfa.finals.intersection(state).isEmpty
-}
-
 
 

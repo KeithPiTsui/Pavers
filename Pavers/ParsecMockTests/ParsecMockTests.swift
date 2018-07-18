@@ -360,19 +360,11 @@ class ParsecMockTests: XCTestCase {
     let x = RegularExpression.primitives(">")
     let y = RegularExpression.primitives("<")
     
-    let enfa = transform(res: [(x, {print("find >")}), (y, {print("find <")})])
-//    let enfa = transform(re: x + y)
+    let enfa = transform(re: x + y)
     
-    let input = [">", "<", "<"]
+    let input = ["a"]
     let accepted = process(input: input, on: enfa)
     print(accepted)
-//    print("Alphabet of ENFA: \(enfa.alphabet)")
-//    print("States of ENFA: \(enfa.accessibleStates)")
-   
-    let dfa_ = transform(enfa: enfa)
-    let dfa = renamedStates(of: dfa_, start: 1)
-    let acceptedDFA = process(input: input, on: dfa)
-    print(acceptedDFA)
   }
   
   

@@ -335,6 +335,11 @@
 		53E00ADD20EE10B9009B64EC /* Paser+Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E00ADC20EE10B9009B64EC /* Paser+Monad.swift */; };
 		53E00ADF20EE10C6009B64EC /* Parser+Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E00ADE20EE10C6009B64EC /* Parser+Alternative.swift */; };
 		53E00AE120EE10E1009B64EC /* Parser+Try.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E00AE020EE10E1009B64EC /* Parser+Try.swift */; };
+		53E28ECF20FF0C9F00146643 /* RE+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ECE20FF0C9F00146643 /* RE+Operators.swift */; };
+		53E28ED120FF0CC300146643 /* RE+PrettyPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ED020FF0CC300146643 /* RE+PrettyPrint.swift */; };
+		53E28ED520FF119600146643 /* DFA+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ED420FF119600146643 /* DFA+Product.swift */; };
+		53E28ED720FF11C400146643 /* RunFiniteAutomaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ED620FF11C400146643 /* RunFiniteAutomaton.swift */; };
+		53E28ED920FF123E00146643 /* DFA+TransitionMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ED820FF123E00146643 /* DFA+TransitionMap.swift */; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */; };
 		53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Parser.swift */; };
@@ -791,6 +796,11 @@
 		53E00ADC20EE10B9009B64EC /* Paser+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Paser+Monad.swift"; sourceTree = "<group>"; };
 		53E00ADE20EE10C6009B64EC /* Parser+Alternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Alternative.swift"; sourceTree = "<group>"; };
 		53E00AE020EE10E1009B64EC /* Parser+Try.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parser+Try.swift"; sourceTree = "<group>"; };
+		53E28ECE20FF0C9F00146643 /* RE+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RE+Operators.swift"; sourceTree = "<group>"; };
+		53E28ED020FF0CC300146643 /* RE+PrettyPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RE+PrettyPrint.swift"; sourceTree = "<group>"; };
+		53E28ED420FF119600146643 /* DFA+Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DFA+Product.swift"; sourceTree = "<group>"; };
+		53E28ED620FF11C400146643 /* RunFiniteAutomaton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunFiniteAutomaton.swift; sourceTree = "<group>"; };
+		53E28ED820FF123E00146643 /* DFA+TransitionMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DFA+TransitionMap.swift"; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
 		53E6FC8020E3D06300DFE5E6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -1334,6 +1344,7 @@
 			isa = PBXGroup;
 			children = (
 				5352BB1B20FD8F9100A46FD7 /* NextAccessibleStates.swift */,
+				53E28ED620FF11C400146643 /* RunFiniteAutomaton.swift */,
 				5330F82520FD90D9005E3480 /* RenameStates.swift */,
 			);
 			path = HelperFunctions;
@@ -1351,6 +1362,7 @@
 		534A73CC20F4577900611641 /* RegularLanguage */ = {
 			isa = PBXGroup;
 			children = (
+				53E28ECD20FF0C9200146643 /* Extensions */,
 				5330F82D20FD9186005E3480 /* HelperFunctions */,
 				5330F82C20FD9177005E3480 /* Primitives */,
 				5330F82B20FD9163005E3480 /* Tranformations */,
@@ -1837,6 +1849,17 @@
 				53E00AE020EE10E1009B64EC /* Parser+Try.swift */,
 			);
 			path = ParserCombinators;
+			sourceTree = "<group>";
+		};
+		53E28ECD20FF0C9200146643 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53E28ECE20FF0C9F00146643 /* RE+Operators.swift */,
+				53E28ED820FF123E00146643 /* DFA+TransitionMap.swift */,
+				53E28ED020FF0CC300146643 /* RE+PrettyPrint.swift */,
+				53E28ED420FF119600146643 /* DFA+Product.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
@@ -2599,6 +2622,8 @@
 				5390FE9520E6287900D396EA /* Tokens.swift in Sources */,
 				531118BA20EB4C7100E11C2E /* StringExtension.swift in Sources */,
 				5394D9F520EA1A7800694145 /* Parser+Char.swift in Sources */,
+				53E28ED720FF11C400146643 /* RunFiniteAutomaton.swift in Sources */,
+				53E28ED920FF123E00146643 /* DFA+TransitionMap.swift in Sources */,
 				531118B820EB450C00E11C2E /* CharacterExtension.swift in Sources */,
 				53EA872920F87F46006FBFD0 /* ENFAExample.swift in Sources */,
 				531D510320E4C0CC00028394 /* Parser+Optional.swift in Sources */,
@@ -2609,8 +2634,10 @@
 				532F5B9220EA3C0B0099272D /* Parser+Combinator.swift in Sources */,
 				5352BB1620FD8D9C00A46FD7 /* DFA2ENFA.swift in Sources */,
 				531D510920E4C25600028394 /* Parser+Labeling.swift in Sources */,
+				53E28ECF20FF0C9F00146643 /* RE+Operators.swift in Sources */,
 				53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */,
 				5352BB1A20FD8F0700A46FD7 /* NFA2DFA.swift in Sources */,
+				53E28ED520FF119600146643 /* DFA+Product.swift in Sources */,
 				5357035120EA0D6D00568D3F /* GenTokenParser.swift in Sources */,
 				531D50F820E4837100028394 /* Identity.swift in Sources */,
 				53BA8CB020E90616000C7BF6 /* RunParsec.swift in Sources */,
@@ -2623,6 +2650,7 @@
 				531D50F220E47C5100028394 /* HigherKindedType.swift in Sources */,
 				5383BEF920F33E0E00A9CAE9 /* Parser+Handler.swift in Sources */,
 				53C4334A20EC8E05002B2F40 /* ParserStream.swift in Sources */,
+				53E28ED120FF0CC300146643 /* RE+PrettyPrint.swift in Sources */,
 				531D510B20E4C2E200028394 /* Parser+Satisfy.swift in Sources */,
 				531D50F420E47E3100028394 /* HKT+Array.swift in Sources */,
 				5352BB1420FD8D8900A46FD7 /* DFA2NFA.swift in Sources */,
