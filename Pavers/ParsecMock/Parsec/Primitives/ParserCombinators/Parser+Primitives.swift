@@ -135,3 +135,30 @@ public func parserPlus <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b: @esca
       }
     }
 }
+
+public func parserPrioritizedLongestMatch<S, U, A>
+  (_ a:@escaping LazyParser<S, U, A>,
+   _ b:@escaping LazyParser<S, U, A>)
+  -> LazyParser<S, U, A> {
+    return {Parser { state in
+      let aResult = a().unParser(state)
+      let bResult = b().unParser(state)
+      switch (aResult, bResult) {
+      case (.consumed(let ar), .consumed(let br)):
+        let aReply = ar()
+        let bReply = br()
+        switch (aReply, bReply) {
+        case let (.ok(aValue, aState, aUser), .ok(bValue, bState, bUser)):
+          return bState.statePos > aState.statePos
+            ? .consumed({.ok(bValue, bState, bUser)})
+            : .consumed({.ok(aValue, aState, aUser)})
+          
+        default: break
+        }
+      default: break
+      }
+      return (parserPlus(a, b))().unParser(state)
+      
+      }
+    }
+}

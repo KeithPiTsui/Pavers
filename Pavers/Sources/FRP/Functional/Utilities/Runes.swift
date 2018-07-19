@@ -124,6 +124,7 @@ infix operator *> : RunesApplicativeSequencePrecedence
   Haskell `infixl 3`
 */
 infix operator <|> : RunesAlternativePrecedence
+infix operator <||> : RunesApplicativeSequencePrecedence
 infix operator .|. : RunesAlternativePrecedence
 
 

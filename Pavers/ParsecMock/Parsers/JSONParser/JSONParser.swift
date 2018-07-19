@@ -34,19 +34,16 @@ public enum JSON {
   internal static let plusSign: ParserS<Character> = char("+") <?> "plus sign"
   internal static let minusSign: ParserS<Character> = char("-") <?> "minus sign"
   internal static let plusOrMinus = plusSign <|> minusSign <?> "sign"
-  internal static let decimalFactionPart = (dicimalPoint >>> digits) <?> "decimalFactionPart"
+  internal static let decimalFactionPart = (dicimalPoint >>- digits) <?> "decimalFactionPart"
   public static let number =
-    (plusOrMinus.?
-      >>> digits
-      >>> decimalFactionPart.?)
+    (plusOrMinus.? >>> digits >>> decimalFactionPart.?)
       .fmap { (sign, decimalString, fractionString) -> Double in
-        var result: Double = 0
-        for (i, d) in decimalString.reversed().enumerated() {
-          let e: Double = Double(powf(10, Float(i)))
-          guard let dd = Double("\(d)") else {fatalError("\(d) must be a digit")}
-          result += dd * e
-        }
-        return result
+        let sign_ = sign ?? "+"
+        let fractionPart = fractionString ?? []
+        let fraction_ = String(fractionPart)
+        let decimals = String(decimalString)
+        let numberStr = "\(sign_)\(decimals).\(fraction_)"
+        return Double(numberStr)!
   } <?> "number"
   
   

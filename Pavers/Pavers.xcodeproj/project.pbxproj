@@ -340,6 +340,10 @@
 		53E28ED520FF119600146643 /* DFA+Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ED420FF119600146643 /* DFA+Product.swift */; };
 		53E28ED720FF11C400146643 /* RunFiniteAutomaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ED620FF11C400146643 /* RunFiniteAutomaton.swift */; };
 		53E28ED920FF123E00146643 /* DFA+TransitionMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28ED820FF123E00146643 /* DFA+TransitionMap.swift */; };
+		53E28EE820FF391100146643 /* ParsecKaleidoscope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E28EDF20FF391100146643 /* ParsecKaleidoscope.framework */; };
+		53E28EED20FF391100146643 /* ParsecKaleidoscopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28EEC20FF391100146643 /* ParsecKaleidoscopeTests.swift */; };
+		53E28EEF20FF391100146643 /* ParsecKaleidoscope.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E28EE120FF391100146643 /* ParsecKaleidoscope.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53E28EFB20FF393A00146643 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E28EFA20FF393A00146643 /* Tokens.swift */; };
 		53E6FC7B20E3C5C000DFE5E6 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */; };
 		53E6FC7F20E3D00200DFE5E6 /* ParserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */; };
 		53E6FC8120E3D06300DFE5E6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6FC8020E3D06300DFE5E6 /* Parser.swift */; };
@@ -438,6 +442,27 @@
 			remoteInfo = PaversFRP;
 		};
 		53C1DC2C20E388F700E8F0F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53C1DC2120E388F700E8F0F0;
+			remoteInfo = ParsecMock;
+		};
+		53E28EE920FF391100146643 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E28EDE20FF391100146643;
+			remoteInfo = ParsecKaleidoscope;
+		};
+		53E28EF620FF392200146643 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E1D070A1F4C71A900D9CB38;
+			remoteInfo = PaversFRP;
+		};
+		53E28EF820FF392600146643 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0E8965621F2C8D6B00A867E2 /* Project object */;
 			proxyType = 1;
@@ -801,6 +826,13 @@
 		53E28ED420FF119600146643 /* DFA+Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DFA+Product.swift"; sourceTree = "<group>"; };
 		53E28ED620FF11C400146643 /* RunFiniteAutomaton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunFiniteAutomaton.swift; sourceTree = "<group>"; };
 		53E28ED820FF123E00146643 /* DFA+TransitionMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DFA+TransitionMap.swift"; sourceTree = "<group>"; };
+		53E28EDF20FF391100146643 /* ParsecKaleidoscope.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParsecKaleidoscope.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E28EE120FF391100146643 /* ParsecKaleidoscope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParsecKaleidoscope.h; sourceTree = "<group>"; };
+		53E28EE220FF391100146643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53E28EE720FF391100146643 /* ParsecKaleidoscopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsecKaleidoscopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E28EEC20FF391100146643 /* ParsecKaleidoscopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsecKaleidoscopeTests.swift; sourceTree = "<group>"; };
+		53E28EEE20FF391100146643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53E28EFA20FF393A00146643 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		53E6FC7A20E3C5C000DFE5E6 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		53E6FC7E20E3D00200DFE5E6 /* ParserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserState.swift; sourceTree = "<group>"; };
 		53E6FC8020E3D06300DFE5E6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -922,6 +954,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C1DC2B20E388F700E8F0F0 /* ParsecMock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E28EDC20FF391100146643 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E28EE420FF391100146643 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E28EE820FF391100146643 /* ParsecKaleidoscope.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1201,16 +1248,18 @@
 		0E8965611F2C8D6B00A867E2 = {
 			isa = PBXGroup;
 			children = (
-				53E932681FE223F80049B8AD /* PaversObjc */,
-				53FE25AA1FF4B5CF00B6CDE1 /* PaversCrypto */,
-				5375659D20E0D3650016AF17 /* PaversParsec2 */,
-				537565A820E0D3650016AF17 /* PaversParsec2Tests */,
+				0E89660D1F2C90A000A867E2 /* Frameworks */,
+				53E28EE020FF391100146643 /* ParsecKaleidoscope */,
+				53E28EEB20FF391100146643 /* ParsecKaleidoscopeTests */,
 				53C1DC2320E388F700E8F0F0 /* ParsecMock */,
 				53C1DC2E20E388F700E8F0F0 /* ParsecMockTests */,
-				0E89660D1F2C90A000A867E2 /* Frameworks */,
 				0E3D75921F4DC5E700FFD6C3 /* PaversArgo */,
+				53FE25AA1FF4B5CF00B6CDE1 /* PaversCrypto */,
 				0E1D070C1F4C71A900D9CB38 /* PaversFRP */,
+				53E932681FE223F80049B8AD /* PaversObjc */,
 				5343B5D51FCFF44400B0BD76 /* PaversParsec */,
+				5375659D20E0D3650016AF17 /* PaversParsec2 */,
+				537565A820E0D3650016AF17 /* PaversParsec2Tests */,
 				0E5151CA1F4AD7280006BE05 /* PaversUI */,
 				0E89656C1F2C8D6B00A867E2 /* Products */,
 				0E8965851F2C8E9500A867E2 /* Sources */,
@@ -1227,6 +1276,8 @@
 				53FE25A91FF4B5CF00B6CDE1 /* PaversCrypto.framework */,
 				53C1DC2220E388F700E8F0F0 /* ParsecMock.framework */,
 				53C1DC2A20E388F700E8F0F0 /* ParsecMockTests.xctest */,
+				53E28EDF20FF391100146643 /* ParsecKaleidoscope.framework */,
+				53E28EE720FF391100146643 /* ParsecKaleidoscopeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1344,8 +1395,8 @@
 			isa = PBXGroup;
 			children = (
 				5352BB1B20FD8F9100A46FD7 /* NextAccessibleStates.swift */,
-				53E28ED620FF11C400146643 /* RunFiniteAutomaton.swift */,
 				5330F82520FD90D9005E3480 /* RenameStates.swift */,
+				53E28ED620FF11C400146643 /* RunFiniteAutomaton.swift */,
 			);
 			path = HelperFunctions;
 			sourceTree = "<group>";
@@ -1854,12 +1905,31 @@
 		53E28ECD20FF0C9200146643 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				53E28ECE20FF0C9F00146643 /* RE+Operators.swift */,
-				53E28ED820FF123E00146643 /* DFA+TransitionMap.swift */,
-				53E28ED020FF0CC300146643 /* RE+PrettyPrint.swift */,
 				53E28ED420FF119600146643 /* DFA+Product.swift */,
+				53E28ED820FF123E00146643 /* DFA+TransitionMap.swift */,
+				53E28ECE20FF0C9F00146643 /* RE+Operators.swift */,
+				53E28ED020FF0CC300146643 /* RE+PrettyPrint.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		53E28EE020FF391100146643 /* ParsecKaleidoscope */ = {
+			isa = PBXGroup;
+			children = (
+				53E28EE120FF391100146643 /* ParsecKaleidoscope.h */,
+				53E28EFA20FF393A00146643 /* Tokens.swift */,
+				53E28EE220FF391100146643 /* Info.plist */,
+			);
+			path = ParsecKaleidoscope;
+			sourceTree = "<group>";
+		};
+		53E28EEB20FF391100146643 /* ParsecKaleidoscopeTests */ = {
+			isa = PBXGroup;
+			children = (
+				53E28EEC20FF391100146643 /* ParsecKaleidoscopeTests.swift */,
+				53E28EEE20FF391100146643 /* Info.plist */,
+			);
+			path = ParsecKaleidoscopeTests;
 			sourceTree = "<group>";
 		};
 		53E6FC7920E3C5AF00DFE5E6 /* Extension */ = {
@@ -2045,6 +2115,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53E28EDA20FF391100146643 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E28EEF20FF391100146643 /* ParsecKaleidoscope.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53E932641FE223F80049B8AD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2157,6 +2235,44 @@
 			productReference = 53C1DC2A20E388F700E8F0F0 /* ParsecMockTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		53E28EDE20FF391100146643 /* ParsecKaleidoscope */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E28EF020FF391100146643 /* Build configuration list for PBXNativeTarget "ParsecKaleidoscope" */;
+			buildPhases = (
+				53E28EDA20FF391100146643 /* Headers */,
+				53E28EDB20FF391100146643 /* Sources */,
+				53E28EDC20FF391100146643 /* Frameworks */,
+				53E28EDD20FF391100146643 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53E28EF920FF392600146643 /* PBXTargetDependency */,
+				53E28EF720FF392200146643 /* PBXTargetDependency */,
+			);
+			name = ParsecKaleidoscope;
+			productName = ParsecKaleidoscope;
+			productReference = 53E28EDF20FF391100146643 /* ParsecKaleidoscope.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		53E28EE620FF391100146643 /* ParsecKaleidoscopeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E28EF320FF391100146643 /* Build configuration list for PBXNativeTarget "ParsecKaleidoscopeTests" */;
+			buildPhases = (
+				53E28EE320FF391100146643 /* Sources */,
+				53E28EE420FF391100146643 /* Frameworks */,
+				53E28EE520FF391100146643 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53E28EEA20FF391100146643 /* PBXTargetDependency */,
+			);
+			name = ParsecKaleidoscopeTests;
+			productName = ParsecKaleidoscopeTests;
+			productReference = 53E28EE720FF391100146643 /* ParsecKaleidoscopeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		53E932661FE223F80049B8AD /* PaversObjc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53E9326E1FE223F80049B8AD /* Build configuration list for PBXNativeTarget "PaversObjc" */;
@@ -2229,6 +2345,17 @@
 						DevelopmentTeam = 5S4N5M3749;
 						ProvisioningStyle = Automatic;
 					};
+					53E28EDE20FF391100146643 = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = 5S4N5M3749;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
+					53E28EE620FF391100146643 = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = 5S4N5M3749;
+						ProvisioningStyle = Automatic;
+					};
 					53E932661FE223F80049B8AD = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = N37D6JUD58;
@@ -2261,6 +2388,8 @@
 				53FE25A81FF4B5CF00B6CDE1 /* PaversCrypto */,
 				53C1DC2120E388F700E8F0F0 /* ParsecMock */,
 				53C1DC2920E388F700E8F0F0 /* ParsecMockTests */,
+				53E28EDE20FF391100146643 /* ParsecKaleidoscope */,
+				53E28EE620FF391100146643 /* ParsecKaleidoscopeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2295,6 +2424,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		53C1DC2820E388F700E8F0F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E28EDD20FF391100146643 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E28EE520FF391100146643 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2690,6 +2833,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53E28EDB20FF391100146643 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E28EFB20FF393A00146643 /* Tokens.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E28EE320FF391100146643 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E28EED20FF391100146643 /* ParsecKaleidoscopeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53E932621FE223F80049B8AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2788,6 +2947,21 @@
 			isa = PBXTargetDependency;
 			target = 53C1DC2120E388F700E8F0F0 /* ParsecMock */;
 			targetProxy = 53C1DC2C20E388F700E8F0F0 /* PBXContainerItemProxy */;
+		};
+		53E28EEA20FF391100146643 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E28EDE20FF391100146643 /* ParsecKaleidoscope */;
+			targetProxy = 53E28EE920FF391100146643 /* PBXContainerItemProxy */;
+		};
+		53E28EF720FF392200146643 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E1D070A1F4C71A900D9CB38 /* PaversFRP */;
+			targetProxy = 53E28EF620FF392200146643 /* PBXContainerItemProxy */;
+		};
+		53E28EF920FF392600146643 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53C1DC2120E388F700E8F0F0 /* ParsecMock */;
+			targetProxy = 53E28EF820FF392600146643 /* PBXContainerItemProxy */;
 		};
 		53E6FC7D20E3C5F200DFE5E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3181,6 +3355,105 @@
 			};
 			name = Release;
 		};
+		53E28EF120FF391100146643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecKaleidoscope/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecKaleidoscope;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53E28EF220FF391100146643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecKaleidoscope/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecKaleidoscope;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		53E28EF420FF391100146643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecKaleidoscopeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecKaleidoscopeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53E28EF520FF391100146643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5S4N5M3749;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ParsecKaleidoscopeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.521qw.ParsecKaleidoscopeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		53E9326C1FE223F80049B8AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3339,6 +3612,24 @@
 			buildConfigurations = (
 				53C1DC3720E388F700E8F0F0 /* Debug */,
 				53C1DC3820E388F700E8F0F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53E28EF020FF391100146643 /* Build configuration list for PBXNativeTarget "ParsecKaleidoscope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53E28EF120FF391100146643 /* Debug */,
+				53E28EF220FF391100146643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53E28EF320FF391100146643 /* Build configuration list for PBXNativeTarget "ParsecKaleidoscopeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53E28EF420FF391100146643 /* Debug */,
+				53E28EF520FF391100146643 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

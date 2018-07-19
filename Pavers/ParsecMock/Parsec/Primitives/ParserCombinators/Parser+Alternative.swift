@@ -52,3 +52,29 @@ public func <|> <S, U, A> (_ a: @escaping LazyParser<S, U, A>, _ b:Parser<S, U, 
   -> LazyParser<S, U, A> {
     return a <|> {b}
 }
+
+
+public func <||> <S, U, A> (_ a:@escaping LazyParser<S, U, A>,
+                            _ b:@escaping LazyParser<S, U, A>)
+  -> LazyParser<S, U, A> {
+    return parserPrioritizedLongestMatch(a, b)
+}
+
+public func <||> <S, U, A> (_ a:@escaping LazyParser<S, U, A>,
+                            _ b: Parser<S, U, A>)
+  -> LazyParser<S, U, A> {
+    return  a <||> {b}
+}
+
+
+public func <||> <S, U, A> (_ a:Parser<S, U, A>,
+                            _ b: @escaping LazyParser<S, U, A>)
+  -> LazyParser<S, U, A> {
+    return  {a} <||> b
+}
+
+public func <||> <S, U, A> (_ a: Parser<S, U, A>,
+                            _ b: Parser<S, U, A>)
+  -> Parser<S, U, A> {
+    return  ({a} <||> {b})()
+}
