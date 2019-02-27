@@ -11,10 +11,10 @@ public typealias ViewClass = UIView
 // Mark: - Convenient Initializers
 extension NSLayoutConstraint {
   public convenience init(_ item: ViewClass,
-                          _ attribute: NSLayoutAttribute,
-                          relatedBy r: NSLayoutRelation = .equal,
+                          _ attribute: NSLayoutConstraint.Attribute,
+                          relatedBy r: NSLayoutConstraint.Relation = .equal,
                           toItem secondItem: ViewClass? = nil,
-                          attribute secondAttribute: NSLayoutAttribute = .notAnAttribute,
+                          attribute secondAttribute: NSLayoutConstraint.Attribute = .notAnAttribute,
                           multiplier m: CGFloat = 1,
                           constant c: CGFloat = 0) {
     self.init(item: item,

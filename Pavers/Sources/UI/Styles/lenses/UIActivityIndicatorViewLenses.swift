@@ -2,8 +2,8 @@ import PaversFRP
 import UIKit
 
 public protocol UIActivityIndicatorViewProtocol: UIViewProtocol {
-  var activityIndicatorViewStyle: UIActivityIndicatorViewStyle { get set }
-  var color: UIColor? { get set }
+  var style: UIActivityIndicatorView.Style { get set }
+  var color: UIColor! { get set }
   var hidesWhenStopped: Bool { get set }
   var isAnimating: Bool { get }
   func startAnimating()
@@ -14,10 +14,10 @@ extension UIActivityIndicatorView: UIActivityIndicatorViewProtocol {}
 
 public extension LensHolder where Object: UIActivityIndicatorViewProtocol {
 
-  public var activityIndicatorViewStyle: Lens<Object, UIActivityIndicatorViewStyle> {
+  public var style: Lens<Object, UIActivityIndicatorView.Style> {
     return Lens(
-      view: { $0.activityIndicatorViewStyle },
-      set: { $1.activityIndicatorViewStyle = $0; return $1 }
+      view: { $0.style },
+      set: { $1.style = $0; return $1 }
     )
   }
 

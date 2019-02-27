@@ -25,9 +25,9 @@ public protocol CALayerProtocol: KSObjectProtocol {
 
   var mask: CALayer? {get set}
 
-  var minificationFilter: String {get set}
+  var minificationFilter: CALayerContentsFilter {get set}
 
-  var magnificationFilter: String {get set}
+  var magnificationFilter: CALayerContentsFilter {get set}
 
   var transform: CATransform3D {get set}
 
@@ -142,14 +142,14 @@ extension LensHolder where Object: CALayerProtocol {
     )
   }
 
-  public var minificationFilter: Lens<Object, String> {
+  public var minificationFilter: Lens<Object, CALayerContentsFilter> {
     return Lens(
       view: {$0.minificationFilter},
       set: { $1.minificationFilter = $0; return $1 }
     )
   }
 
-  public var magnificationFilter: Lens<Object, String> {
+  public var magnificationFilter: Lens<Object, CALayerContentsFilter> {
     return Lens(
       view: {$0.magnificationFilter},
       set: { $1.magnificationFilter = $0; return $1 }

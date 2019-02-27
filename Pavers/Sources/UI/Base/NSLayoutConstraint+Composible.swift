@@ -64,7 +64,7 @@ extension VisualConstraintCollector {
 }
 
 public func visualConstraintGenerator(_ visualFormat: String,
-                                      _ options: NSLayoutFormatOptions = [])
+                                      _ options: NSLayoutConstraint.FormatOptions = [])
   -> (VisualConstraintParameter) -> [NSLayoutConstraint] {
     return {
       NSLayoutConstraint.constraints(withVisualFormat: visualFormat,

@@ -21,7 +21,7 @@ public protocol CAShapeLayerProtocol: CALayerProtocol {
   /* The fill rule used when filling the path. Options are `non-zero' and
    * `even-odd'. Defaults to `non-zero'. */
 
-  var fillRule: String {get set}
+  var fillRule: CAShapeLayerFillRule {get set}
 
 
   /* The color to fill the path's stroked outline, or nil for no stroking.
@@ -57,13 +57,13 @@ public protocol CAShapeLayerProtocol: CALayerProtocol {
   /* The cap style used when stroking the path. Options are `butt', `round'
    * and `square'. Defaults to `butt'. */
 
-  var lineCap: String {get set}
+  var lineCap: CAShapeLayerLineCap {get set}
 
 
   /* The join style used when stroking the path. Options are `miter', `round'
    * and `bevel'. Defaults to `miter'. */
 
-  var lineJoin: String {get set}
+  var lineJoin: CAShapeLayerLineJoin {get set}
 
 
   /* The phase of the dashing pattern applied when creating the stroke.
@@ -94,7 +94,7 @@ extension LensHolder where Object: CAShapeLayerProtocol {
       set: { $1.fillColor = $0; return $1 }
     )
   }
-  public var fillRule: Lens<Object, String> {
+  public var fillRule: Lens<Object, CAShapeLayerFillRule> {
     return Lens(
       view: { $0.fillRule },
       set: { $1.fillRule = $0; return $1 }
@@ -130,13 +130,13 @@ extension LensHolder where Object: CAShapeLayerProtocol {
       set: { $1.miterLimit = $0; return $1 }
     )
   }
-  public var lineCap: Lens<Object, String> {
+  public var lineCap: Lens<Object, CAShapeLayerLineCap> {
     return Lens(
       view: { $0.lineCap },
       set: { $1.lineCap = $0; return $1 }
     )
   }
-  public var lineJoin: Lens<Object, String> {
+  public var lineJoin: Lens<Object, CAShapeLayerLineJoin> {
     return Lens(
       view: { $0.lineJoin },
       set: { $1.lineJoin = $0; return $1 }

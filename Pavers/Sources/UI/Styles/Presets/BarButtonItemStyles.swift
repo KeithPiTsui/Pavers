@@ -6,8 +6,8 @@ public let baseBarButtonItemStyle =
 
 public let plainBarButtonItemStyle = baseBarButtonItemStyle
   >>> UIBarButtonItem.lens.style .~ .plain
-  >>> UIBarButtonItem.lens.titleTextAttributes(forState: .normal) .~ [
-    NSAttributedStringKey.font.rawValue: UIFont.ksr_subhead(size: 15)
+  >>> UIBarButtonItem.lens.titleTextAttributes(for: .normal) .~ [
+    NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont.ksr_subhead(size: 15)
 ]
 
 public let iconBarButtonItemStyle = baseBarButtonItemStyle

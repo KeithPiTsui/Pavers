@@ -45,7 +45,7 @@ extension NSLayoutConstraint {
 
 
 
-extension NSLayoutAttribute {
+extension NSLayoutConstraint.Attribute {
   public var stringValue: String {
     switch self {
     case .left: return "left"
@@ -73,7 +73,7 @@ extension NSLayoutAttribute {
   }
 }
 
-extension NSLayoutRelation {
+extension NSLayoutConstraint.Relation {
   public var stringValue: String {
     switch self {
     case .lessThanOrEqual: return "<="
