@@ -1188,6 +1188,8 @@ extension Signal {
 			}
 		}
 	}
+  
+  
 
 	/// Do not forward any values from `self` until `trigger` sends a `value` or
 	/// `completed` event, at which point the returned signal behaves exactly
@@ -1215,6 +1217,12 @@ extension Signal {
 			}
 		}
 	}
+  
+  public func split(on trigger: Signal<(), Never>) -> (front: Signal<Value, Error>, tail: Signal<Value, Error>) {
+    let f = self.take(until: trigger)
+    let t = self.skip(until: trigger)
+    return (f, t)
+  }
 
 	/// Forward events from `self` with history: values of the returned signal
 	/// are a tuples whose first member is the previous value and whose second member
@@ -1421,6 +1429,10 @@ extension Signal {
 	public func zip<U>(with other: Signal<U, Error>) -> Signal<(Value, U), Error> {
 		return Signal.zip(self, other)
 	}
+  
+  public func sync<U>(on other: Signal<U, Error>) -> Signal<Value, Error> {
+    return Signal.zip(self, other).map(first)
+  }
 
 	/// Forward the latest value on `scheduler` after at least `interval`
 	/// seconds have passed since *the returned signal* last sent a value.
