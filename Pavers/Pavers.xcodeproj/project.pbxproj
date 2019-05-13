@@ -1794,7 +1794,7 @@
 					};
 					0E3D75901F4DC5E600FFD6C3 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					5343B5D31FCFF44400B0BD76 = {

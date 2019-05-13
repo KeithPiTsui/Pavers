@@ -25,6 +25,10 @@ extension DecodeError: CustomStringConvertible {
 }
 
 extension DecodeError: Hashable {
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(self.hashValue)
+  }
+  
   public var hashValue: Int {
     switch self {
     case let .typeMismatch(expected: expected, actual: actual):
