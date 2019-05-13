@@ -2,7 +2,7 @@ import Foundation
 
 public extension String {
     
-  public var isEmptyOrWhiteSpace: Bool {
+  var isEmptyOrWhiteSpace: Bool {
     return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
   }
 }
@@ -12,11 +12,11 @@ extension String: OptionalString {}
 
 public extension Optional where Wrapped: OptionalString {
     
-  public var isNilOrEmpty: Bool {
+  var isNilOrEmpty: Bool {
     return ((self as? String) ?? "").isEmpty
   }
   
-  public var isNilOrEmptyOrWhiteSpace: Bool {
+  var isNilOrEmptyOrWhiteSpace: Bool {
     return ((self as? String) ?? "").isEmptyOrWhiteSpace
   }
 }

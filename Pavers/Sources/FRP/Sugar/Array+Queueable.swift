@@ -4,7 +4,7 @@ public protocol Queueable {
 
 public extension Array where Element : Queueable {
 
-  public mutating func processQueue(_ from: Int = 0,
+  mutating func processQueue(_ from: Int = 0,
                                     _ to: Int? = nil,
                                     process: ((_ element: Element) -> Void)? = nil) {
     let to = to != nil ? to! : count

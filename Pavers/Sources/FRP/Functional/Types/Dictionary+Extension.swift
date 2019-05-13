@@ -1,9 +1,9 @@
-public extension Dictionary where Value: OptionalType {
+public extension Dictionary where Value: OptionalProtocol {
 
   /**
    - returns: A new dictionary with `nil` values removed.
    */
-  public func compact() -> [Key:Value.Wrapped] {
+  func compact() -> [Key:Value.Wrapped] {
     var ret: [Key:Value.Wrapped] = [:]
     for (key, value) in self {
       if let value = value.optional {
@@ -23,7 +23,7 @@ public extension Dictionary {
 
    - returns: A merged dictionary.
    */
-  public func withAllValuesFrom(_ other: Dictionary) -> Dictionary {
+  func withAllValuesFrom(_ other: Dictionary) -> Dictionary {
     var result = self
     other.forEach { result[$0] = $1 }
     return result
@@ -37,7 +37,7 @@ public extension Dictionary {
 
    - returns: A dictionary.
    */
-  public static func keyValuePairs(_ pairs: [(Key, Value)]) -> Dictionary {
+  static func keyValuePairs(_ pairs: [(Key, Value)]) -> Dictionary {
     var result = Dictionary()
     pairs.forEach { result[$0] = $1 }
     return result
@@ -52,7 +52,7 @@ public extension Dictionary {
 
    - returns: A new dictionary with keys transformed.
    */
-  public func transformedKeys(_ f: (Key) -> Key) -> Dictionary {
+  func transformedKeys(_ f: (Key) -> Key) -> Dictionary {
     return Dictionary.keyValuePairs(self.map { (f($0), $1) })
   }
 }

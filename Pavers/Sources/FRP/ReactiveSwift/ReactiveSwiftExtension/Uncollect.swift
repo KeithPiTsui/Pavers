@@ -6,9 +6,9 @@ public extension SignalProtocol where Value: Sequence {
 
    - returns: A new signal.
    */
-  public func uncollect() -> Signal<Value.Iterator.Element, Error> {
-    return Signal<Value.Iterator.Element, Error> { observer in
-      return self.signal.observe { event in
+  func uncollect() -> Signal<Value.Iterator.Element, Error> {
+    return Signal<Value.Iterator.Element, Error> { (observer, lifetime) in
+      let dispose = self.signal.observe { event in
         switch event {
         case let .value(sequence):
           sequence.forEach(observer.send(value:))
@@ -20,6 +20,7 @@ public extension SignalProtocol where Value: Sequence {
           observer.sendInterrupted()
         }
       }
+      lifetime += dispose
     }
   }
 }
@@ -30,7 +31,7 @@ public extension SignalProducerProtocol where Value: Sequence {
 
    - returns: A new producer.
    */
-  public func uncollect() -> SignalProducer<Value.Iterator.Element, Error> {
+  func uncollect() -> SignalProducer<Value.Iterator.Element, Error> {
     return self.producer.lift { $0.uncollect() }
   }
 }

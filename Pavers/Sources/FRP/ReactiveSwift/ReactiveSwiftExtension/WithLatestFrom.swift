@@ -10,10 +10,10 @@ public extension SignalProtocol {
 
    - returns: A new signal.
    */
-  public func withLatestFrom <U, OtherError> (_ other: Signal<U, OtherError>) ->
+  func withLatestFrom <U, OtherError> (_ other: Signal<U, OtherError>) ->
     Signal<(Value, U), OtherError> {
 
-    return Signal { observer in
+    return Signal { (observer, lifetime) in
       let lock = NSLock()
       lock.name = "org.reactivecocoa.ReactiveCocoa.withLatestFrom"
 
@@ -49,7 +49,8 @@ public extension SignalProtocol {
         }
       }
 
-      return disposable
+      lifetime += disposable
+//      return disposable
     }
   }
 
@@ -61,10 +62,10 @@ public extension SignalProtocol {
 
    - returns: A new signal.
    */
-  public func withLatestFrom <U, OtherError> (_ other: SignalProducer<U, OtherError>) ->
+  func withLatestFrom <U, OtherError> (_ other: SignalProducer<U, OtherError>) ->
     Signal<(Value, U), OtherError> {
 
-    return Signal { observer in
+    return Signal { (observer, lifetime) in
       let lock = NSLock()
       lock.name = "org.reactivecocoa.ReactiveCocoa.withLatestFrom"
 
@@ -100,7 +101,7 @@ public extension SignalProtocol {
         }
       }
 
-      return disposable
+      lifetime += disposable
     }
   }
 }

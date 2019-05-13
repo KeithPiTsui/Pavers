@@ -75,7 +75,7 @@ public extension String {
   ///
   /// - Parameter characterSet: The `CharacterSet` used to test the string.
   /// - Returns: True, if all the characters in the string belong to the `CharacterSet`. Otherwise, false.
-  public func containsCharactersFound(in characterSet: CharacterSet) -> Bool {
+  func containsCharactersFound(in characterSet: CharacterSet) -> Bool {
     for scalar in unicodeScalars {
       guard characterSet.contains(scalar) else {
         return false

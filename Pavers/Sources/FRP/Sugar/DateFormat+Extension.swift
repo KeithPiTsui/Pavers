@@ -11,52 +11,52 @@ import Foundation
 public typealias DateFormat = String
 
 public extension DateFormat {
-  public static let yyyy =
+  static let yyyy =
     DateFormatComponent.calendarYear.rawValue
       + DateFormatComponent.calendarYear.rawValue
       + DateFormatComponent.calendarYear.rawValue
       + DateFormatComponent.calendarYear.rawValue
   
-  public static let mm =
+  static let mm =
     DateFormatComponent.monthNumber.rawValue
       + DateFormatComponent.monthNumber.rawValue
   
-  public static let dd =
+  static let dd =
     DateFormatComponent.dayOfMonth.rawValue
       + DateFormatComponent.dayOfMonth.rawValue
   
-  public static let h24 =
+  static let h24 =
     DateFormatComponent.hour24.rawValue
     + DateFormatComponent.hour24.rawValue
   
-  public static let mi =
+  static let mi =
     DateFormatComponent.minute.rawValue
     + DateFormatComponent.minute.rawValue
   
-  public static let ss =
+  static let ss =
     DateFormatComponent.second.rawValue
     + DateFormatComponent.second.rawValue
   
-  public static let ms =
+  static let ms =
     DateFormatComponent.fractionalSecond.rawValue
     + DateFormatComponent.fractionalSecond.rawValue
     + DateFormatComponent.fractionalSecond.rawValue
   
-  public static let yyyymmdd = "\(yyyy)\(mm)\(dd)"
+  static let yyyymmdd = "\(yyyy)\(mm)\(dd)"
   
-  public static let yyyy_mm_dd = "\(yyyy)-\(mm)-\(dd)"
+  static let yyyy_mm_dd = "\(yyyy)-\(mm)-\(dd)"
   
-  public static let h24miss = "\(h24)\(mi)\(ss)"
+  static let h24miss = "\(h24)\(mi)\(ss)"
   
-  public static let h24_mi_ss = "\(h24):\(mi):\(ss)"
+  static let h24_mi_ss = "\(h24):\(mi):\(ss)"
   
-  public static let h24_mi_ss_ms = "\(h24):\(mi):\(ss).\(ms)"
+  static let h24_mi_ss_ms = "\(h24):\(mi):\(ss).\(ms)"
   
-  public static let yyyymmddh24miss = "\(yyyymmdd)\(h24miss)"
+  static let yyyymmddh24miss = "\(yyyymmdd)\(h24miss)"
   
-  public static let yyyy_mm_dd_h24_mi_ss = "\(yyyy_mm_dd) \(h24_mi_ss)"
+  static let yyyy_mm_dd_h24_mi_ss = "\(yyyy_mm_dd) \(h24_mi_ss)"
   
-  public static let yyyy_mm_dd_h24_mi_ss_ms = "\(yyyy_mm_dd) \(h24_mi_ss_ms)"
+  static let yyyy_mm_dd_h24_mi_ss_ms = "\(yyyy_mm_dd) \(h24_mi_ss_ms)"
 }
 
 public enum DateFormatComponent: DateFormat {

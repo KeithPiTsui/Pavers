@@ -9,9 +9,9 @@ public final class Lifetime {
 	///
 	/// - note: Consider using `Lifetime.observeEnded` if only a closure observer
 	///         is to be attached.
-	public var ended: Signal<Never, NoError> {
-		return Signal { observer in
-			return disposables += observer.sendCompleted
+	public var ended: Signal<Never, Never> {
+		return Signal { observer, lifetime in
+			lifetime += (disposables += observer.sendCompleted)
 		}
 	}
 
@@ -62,7 +62,8 @@ public final class Lifetime {
 	///            if `lifetime` has already ended.
 	@discardableResult
 	public static func += (lifetime: Lifetime, disposable: Disposable?) -> Disposable? {
-		return (disposable?.dispose).flatMap(lifetime.observeEnded)
+		guard let dispose = disposable?.dispose else { return nil }
+		return lifetime.observeEnded(dispose)
 	}
 }
 
@@ -84,7 +85,8 @@ extension Lifetime {
 }
 
 extension Lifetime {
-	/// A token object which completes its signal when it deinitializes.
+	/// A token object which completes its associated `Lifetime` when
+	/// it deinitializes, or when `dispose()` is called.
 	///
 	/// It is generally used in conjuncion with `Lifetime` as a private
 	/// deinitialization trigger.
@@ -95,15 +97,18 @@ extension Lifetime {
 	/// }
 	/// ```
 	public final class Token {
-		/// A signal that sends a Completed event when the lifetime ends.
 		fileprivate let disposables: CompositeDisposable
 
 		public init() {
 			disposables = CompositeDisposable()
 		}
 
-		deinit {
+		public func dispose() {
 			disposables.dispose()
+		}
+
+		deinit {
+			dispose()
 		}
 	}
 }

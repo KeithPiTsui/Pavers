@@ -10,12 +10,12 @@ public extension SignalProtocol {
 
    - returns: A new signal.
    */
-  public func scan(_ combine: @escaping (Value, Value) -> Value) -> Signal<Value, Error> {
-    return Signal { observer in
+  func scan(_ combine: @escaping (Value, Value) -> Value) -> Signal<Value, Error> {
+    return Signal { (observer, lifetime) in
       var accumulated: Value? = nil
 
-      return self.signal.observe { event in
-        observer.action(event.map { value in
+      lifetime += self.signal.observe { event in
+        observer.send(event.map { value in
           if let unwrapped = accumulated {
             let next = combine(unwrapped, value)
             accumulated = next

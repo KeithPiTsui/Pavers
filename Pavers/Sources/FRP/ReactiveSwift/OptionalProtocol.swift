@@ -18,6 +18,9 @@ public protocol OptionalProtocol {
 }
 
 extension Optional: OptionalProtocol {
+	public var optional: Wrapped? {
+		return self
+	}
 
 	public init(reconstructing value: Wrapped?) {
 		self = value

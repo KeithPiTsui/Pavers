@@ -12,11 +12,11 @@ public enum Regex: String {
 
 public extension String {
   
-  public func match(_ regex: Regex) -> Bool {
+  func match(_ regex: Regex) -> Bool {
     return self.match(regex.pattern)
   }
   
-  public func match(_ pattern: String) -> Bool {
+  func match(_ pattern: String) -> Bool {
     do {
       let regex = try NSRegularExpression(pattern: pattern, options: [.caseInsensitive])
       return regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count)) != nil
@@ -28,7 +28,7 @@ public extension String {
 
 public extension String {
 
-  public var localized: String {
+  var localized: String {
     return NSLocalizedString(self, comment: "")
   }
 }

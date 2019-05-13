@@ -1,8 +1,9 @@
 import Foundation
+import Dispatch
 
 /// A push-driven stream that sends Events over time, parameterized by the type
 /// of values being sent (`Value`) and the type of failure that can occur
-/// (`Error`). If no failures should be possible, NoError can be specified for
+/// (`Error`). If no failures should be possible, Never can be specified for
 /// `Error`.
 ///
 /// An observer of a Signal will see the exact same sequence of events as all
@@ -50,7 +51,7 @@ public final class Signal<Value, Error: Swift.Error> {
 		/// Disposing of `disposable` is assumed to remove the generator
 		/// observer from its attached `Signal`, so that the generator observer
 		/// as the last +1 retain of the `Signal` core may deinitialize.
-		private let disposable: SerialDisposable
+		private let disposable: CompositeDisposable
 
 		/// The state of the signal.
 		private var state: State
@@ -61,15 +62,15 @@ public final class Signal<Value, Error: Swift.Error> {
 		/// Used to ensure that events are serialized during delivery to observers.
 		private let sendLock: Lock
 
-		fileprivate init(_ generator: (Observer) -> Disposable?) {
+		fileprivate init(_ generator: (Observer, Lifetime) -> Void) {
 			state = .alive(Bag(), hasDeinitialized: false)
 
 			stateLock = Lock.make()
 			sendLock = Lock.make()
-			disposable = SerialDisposable()
+			disposable = CompositeDisposable()
 
 			// The generator observer retains the `Signal` core.
-			disposable.inner = generator(Observer(action: self.send, interruptsOnDeinit: true))
+			generator(Observer(action: self.send, interruptsOnDeinit: true), Lifetime(disposable))
 		}
 
 		private func send(_ event: Event) {
@@ -111,7 +112,7 @@ public final class Signal<Value, Error: Swift.Error> {
 					self.stateLock.unlock()
 
 					for observer in observers {
-						observer.action(event)
+						observer.send(event)
 					}
 				} else {
 					self.stateLock.unlock()
@@ -218,7 +219,7 @@ public final class Signal<Value, Error: Swift.Error> {
 
 					if let event = terminationKind.materialize() {
 						for observer in observers {
-							observer.action(event)
+							observer.send(event)
 						}
 					}
 
@@ -294,7 +295,7 @@ public final class Signal<Value, Error: Swift.Error> {
 	/// - parameters:
 	///   - generator: A closure that accepts an implicitly created observer
 	///                that will act as an event emitter for the signal.
-	public init(_ generator: (Observer) -> Disposable?) {
+	public init(_ generator: (Observer, Lifetime) -> Void) {
 		core = Core(generator)
 	}
 
@@ -375,18 +376,17 @@ public final class Signal<Value, Error: Swift.Error> {
 extension Signal {
 	/// A Signal that never sends any events to its observers.
 	public static var never: Signal {
-		return self.init { observer in
+		return self.init { observer, lifetime in
 			// If `observer` deinitializes, the `Signal` would interrupt which is
 			// undesirable for `Signal.never`.
-			return AnyDisposable { _ = observer }
+			lifetime.observeEnded { _ = observer }
 		}
 	}
 
 	/// A Signal that completes immediately without emitting any value.
 	public static var empty: Signal {
-		return self.init { observer in
+		return self.init { observer, _ in
 			observer.sendCompleted()
-			return nil
 		}
 	}
 
@@ -401,13 +401,14 @@ extension Signal {
 	///   - disposable: An optional disposable to associate with the signal, and
 	///                 to be disposed of when the signal terminates.
 	///
-	/// - returns: A tuple of `output: Signal`, the output end of the pipe,
-	///            and `input: Observer`, the input end of the pipe.
+	/// - returns: A 2-tuple of the output end of the pipe as `Signal`, and the input end
+	///            of the pipe as `Signal.Observer`.
 	public static func pipe(disposable: Disposable? = nil) -> (output: Signal, input: Observer) {
 		var observer: Observer!
-		let signal = self.init { innerObserver in
+
+		let signal = self.init { innerObserver, lifetime in
 			observer = innerObserver
-			return disposable
+			lifetime += disposable
 		}
 
 		return (signal, observer)
@@ -511,7 +512,7 @@ extension Signal {
 	}
 }
 
-extension Signal where Error == NoError {
+extension Signal where Error == Never {
 	/// Observe `self` for all values being emitted.
 	///
 	/// - parameters:
@@ -536,9 +537,13 @@ extension Signal {
 	///                closure.
 	///
 	/// - returns: A signal that forwards events yielded by the action.
-	internal func flatMapEvent<U, E>(_ transform: @escaping (@escaping Signal<U, E>.Observer.Action) -> (Event) -> Void) -> Signal<U, E> {
-		return Signal<U, E> { observer in
-			return self.observe(.init(observer, transform))
+	internal func flatMapEvent<U, E>(_ transform: @escaping Event.Transformation<U, E>) -> Signal<U, E> {
+		return Signal<U, E> { output, lifetime in
+			// Create an input sink whose events would go through the given
+			// event transformation, and have the resulting events propagated
+			// to the resulting `Signal`.
+			let input = transform(output.send, lifetime)
+			lifetime += self.observe(input)
 		}
 	}
 
@@ -552,8 +557,17 @@ extension Signal {
 	public func map<U>(_ transform: @escaping (Value) -> U) -> Signal<U, Error> {
 		return flatMapEvent(Signal.Event.map(transform))
 	}
+	
+	/// Map each value in the signal to a new constant value.
+	///
+	/// - parameters:
+	///   - value: A new value.
+	///
+	/// - returns: A signal that will send new values.
+	public func map<U>(value: U) -> Signal<U, Error> {
+		return map { _ in value }
+	}
 
-#if swift(>=3.2)
 	/// Map each value in the signal to a new value by applying a key path.
 	///
 	/// - parameters:
@@ -563,7 +577,6 @@ extension Signal {
 	public func map<U>(_ keyPath: KeyPath<Value, U>) -> Signal<U, Error> {
 		return map { $0[keyPath: keyPath] }
 	}
-#endif
 
 	/// Map errors in the signal to a new error.
 	///
@@ -592,10 +605,7 @@ extension Signal {
 	/// - returns: A signal that sends values obtained using `transform` as this 
 	///            signal sends values.
 	public func lazyMap<U>(on scheduler: Scheduler, transform: @escaping (Value) -> U) -> Signal<U, Error> {
-		return flatMap(.latest) { value in
-			return SignalProducer({ transform(value) })
-				.start(on: scheduler)
-		}
+		return flatMapEvent(Signal.Event.lazyMap(on: scheduler, transform: transform))
 	}
 
 	/// Preserve only values which pass the given closure.
@@ -626,7 +636,7 @@ extension Signal where Value: OptionalProtocol {
 	///
 	/// - returns: A signal that sends only non-nil values.
 	public func skipNil() -> Signal<Value.Wrapped, Error> {
-		return filterMap { $0.optional }
+		return flatMapEvent(Signal.Event.skipNil)
 	}
 }
 
@@ -641,67 +651,10 @@ extension Signal {
 	/// - returns: A signal that will yield the first `count` values from `self`
 	public func take(first count: Int) -> Signal<Value, Error> {
 		precondition(count >= 0)
-
-		return Signal { observer in
-			if count == 0 {
-				observer.sendCompleted()
-				return nil
-			}
-
-			var taken = 0
-
-			return self.observe { event in
-				guard let value = event.value else {
-					observer.action(event)
-					return
-				}
-
-				if taken < count {
-					taken += 1
-					observer.send(value: value)
-				}
-
-				if taken == count {
-					observer.sendCompleted()
-				}
-			}
-		}
-	}
-}
-
-/// A reference type which wraps an array to auxiliate the collection of values
-/// for `collect` operator.
-private final class CollectState<Value> {
-	var values: [Value] = []
-
-	/// Collects a new value.
-	func append(_ value: Value) {
-		values.append(value)
+		guard count >= 1 else { return .empty }
+		return flatMapEvent(Signal.Event.take(first: count))
 	}
 
-	/// Check if there are any items remaining.
-	///
-	/// - note: This method also checks if there weren't collected any values
-	///         and, in that case, it means an empty array should be sent as the
-	///         result of collect.
-	var isEmpty: Bool {
-		/// We use capacity being zero to determine if we haven't collected any
-		/// value since we're keeping the capacity of the array to avoid
-		/// unnecessary and expensive allocations). This also guarantees
-		/// retro-compatibility around the original `collect()` operator.
-		return values.isEmpty && values.capacity > 0
-	}
-
-	/// Removes all values previously collected if any.
-	func flush() {
-		// Minor optimization to avoid consecutive allocations. Can
-		// be useful for sequences of regular or similar size and to
-		// track if any value was ever collected.
-		values.removeAll(keepingCapacity: true)
-	}
-}
-
-extension Signal {
 	/// Collect all values sent by the signal then forward them as a single
 	/// array and complete.
 	///
@@ -711,7 +664,7 @@ extension Signal {
 	/// - returns: A signal that will yield an array of values when `self`
 	///            completes.
 	public func collect() -> Signal<[Value], Error> {
-		return collect { _, _ in false }
+		return flatMapEvent(Signal.Event.collect)
 	}
 
 	/// Collect at most `count` values from `self`, forward them as a single
@@ -727,8 +680,7 @@ extension Signal {
 	/// - precondition: `count` should be greater than zero.
 	///
 	public func collect(count: Int) -> Signal<[Value], Error> {
-		precondition(count > 0)
-		return collect { values in values.count == count }
+		return flatMapEvent(Signal.Event.collect(count: count))
 	}
 
 	/// Collect values from `self`, and emit them if the predicate passes.
@@ -740,7 +692,7 @@ extension Signal {
 	/// emitted, followed by the completion of the returned `Signal`.
 	///
 	/// ````
-	/// let (signal, observer) = Signal<Int, NoError>.pipe()
+	/// let (signal, observer) = Signal<Int, Never>.pipe()
 	///
 	/// signal
 	///     .collect { values in values.reduce(0, combine: +) == 8 }
@@ -769,29 +721,7 @@ extension Signal {
 	/// - returns: A signal of arrays of values, as instructed by the `shouldEmit`
 	///            closure.
 	public func collect(_ shouldEmit: @escaping (_ collectedValues: [Value]) -> Bool) -> Signal<[Value], Error> {
-		return Signal<[Value], Error> { observer in
-			let state = CollectState<Value>()
-
-			return self.observe { event in
-				switch event {
-				case let .value(value):
-					state.append(value)
-					if shouldEmit(state.values) {
-						observer.send(value: state.values)
-						state.flush()
-					}
-				case .completed:
-					if !state.isEmpty {
-						observer.send(value: state.values)
-					}
-					observer.sendCompleted()
-				case let .failed(error):
-					observer.send(error: error)
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.collect(shouldEmit))
 	}
 
 	/// Collect values from `self`, and emit them if the predicate passes.
@@ -803,7 +733,7 @@ extension Signal {
 	/// emitted, followed by the completion of the returned `Signal`.
 	///
 	/// ````
-	/// let (signal, observer) = Signal<Int, NoError>.pipe()
+	/// let (signal, observer) = Signal<Int, Never>.pipe()
 	///
 	/// signal
 	///     .collect { values, value in value == 7 }
@@ -832,29 +762,29 @@ extension Signal {
 	/// - returns: A signal of arrays of values, as instructed by the `shouldEmit`
 	///            closure.
 	public func collect(_ shouldEmit: @escaping (_ collected: [Value], _ latest: Value) -> Bool) -> Signal<[Value], Error> {
-		return Signal<[Value], Error> { observer in
-			let state = CollectState<Value>()
+		return flatMapEvent(Signal.Event.collect(shouldEmit))
+	}
 
-			return self.observe { event in
-				switch event {
-				case let .value(value):
-					if shouldEmit(state.values, value) {
-						observer.send(value: state.values)
-						state.flush()
-					}
-					state.append(value)
-				case .completed:
-					if !state.isEmpty {
-						observer.send(value: state.values)
-					}
-					observer.sendCompleted()
-				case let .failed(error):
-					observer.send(error: error)
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
+	/// Forward the latest values on `scheduler` every `interval`.
+	///
+	/// - note: If `self` terminates while values are being accumulated,
+	///         the behaviour will be determined by `discardWhenCompleted`.
+	///         If `true`, the values will be discarded and the returned signal
+	///         will terminate immediately.
+	///         If `false`, that values will be delivered at the next interval.
+	///
+	/// - parameters:
+	///   - interval: A repetition interval.
+	///   - scheduler: A scheduler to send values on.
+	///   - skipEmpty: Whether empty arrays should be sent if no values were
+	///     accumulated during the interval.
+	///   - discardWhenCompleted: A boolean to indicate if the latest unsent
+	///     values should be discarded on completion.
+	///
+	/// - returns: A signal that sends all values that are sent from `self` at
+	///            `interval` seconds apart.
+	public func collect(every interval: DispatchTimeInterval, on scheduler: DateScheduler, skipEmpty: Bool = false, discardWhenCompleted: Bool = true) -> Signal<[Value], Error> {
+		return flatMapEvent(Signal.Event.collect(every: interval, on: scheduler, skipEmpty: skipEmpty, discardWhenCompleted: discardWhenCompleted))
 	}
 
 	/// Forward all events onto the given scheduler, instead of whichever
@@ -865,13 +795,7 @@ extension Signal {
 	///
 	/// - returns: A signal that will yield `self` values on provided scheduler.
 	public func observe(on scheduler: Scheduler) -> Signal<Value, Error> {
-		return Signal { observer in
-			return self.observe { event in
-				scheduler.schedule {
-					observer.action(event)
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.observe(on: scheduler))
 	}
 }
 
@@ -896,11 +820,18 @@ extension Signal {
 	public func combineLatest<U>(with other: Signal<U, Error>) -> Signal<(Value, U), Error> {
 		return Signal.combineLatest(self, other)
 	}
+	
+	/// Merge the given signal into a single `Signal` that will emit all
+	/// values from both of them, and complete when all of them have completed.
+	///
+	/// - parameters:
+	///   - other: A signal to merge `self`'s value with.
+	///
+	/// - returns: A signal that sends all values of `self` and given signal.
+	public func merge(with other: Signal<Value, Error>) -> Signal<Value, Error> {
+		return Signal.merge(self, other)
+	}
 
-  public func tick() -> Signal<Value, Error> {
-   return self.delay(0.001, on: QueueScheduler.main)
-  }
-  
 	/// Delay `value` and `completed` events by the given interval, forwarding
 	/// them on the given scheduler.
 	///
@@ -916,24 +847,7 @@ extension Signal {
 	/// - returns: A signal that will delay `value` and `completed` events and
 	///            will yield them on given scheduler.
 	public func delay(_ interval: TimeInterval, on scheduler: DateScheduler) -> Signal<Value, Error> {
-		precondition(interval >= 0)
-
-		return Signal { observer in
-			return self.observe { event in
-				switch event {
-				case .failed, .interrupted:
-					scheduler.schedule {
-						observer.action(event)
-					}
-
-				case .value, .completed:
-					let date = scheduler.currentDate.addingTimeInterval(interval)
-					scheduler.schedule(after: date) {
-						observer.action(event)
-					}
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.delay(interval, on: scheduler))
 	}
 
 	/// Skip first `count` number of values then act as usual.
@@ -946,23 +860,8 @@ extension Signal {
 	/// - returns:  A signal that will skip the first `count` values, then
 	///             forward everything afterward.
 	public func skip(first count: Int) -> Signal<Value, Error> {
-		precondition(count >= 0)
-
-		if count == 0 {
-			return self
-		}
-
-		return Signal { observer in
-			var skipped = 0
-
-			return self.observe { event in
-				if case .value = event, skipped < count {
-					skipped += 1
-				} else {
-					observer.action(event)
-				}
-			}
-		}
+		guard count != 0 else { return self }
+		return flatMapEvent(Signal.Event.skip(first: count))
 	}
 
 	/// Treat all Events from `self` as plain values, allowing them to be
@@ -976,49 +875,41 @@ extension Signal {
 	///         the Event itself and then interrupt.
 	///
 	/// - returns: A signal that sends events as its values.
-	public func materialize() -> Signal<Event, NoError> {
-		return Signal<Event, NoError> { observer in
-			return self.observe { event in
-				observer.send(value: event)
+	public func materialize() -> Signal<Event, Never> {
+		return flatMapEvent(Signal.Event.materialize)
+	}
 
-				switch event {
-				case .interrupted:
-					observer.sendInterrupted()
-
-				case .completed, .failed:
-					observer.sendCompleted()
-
-				case .value:
-					break
-				}
-			}
-		}
+	/// Treats all Results from the input producer as plain values, allowing them
+	/// to be manipulated just like any other value.
+	///
+	/// In other words, this brings Results “into the monad.”
+	///
+	/// - note: When a Failed event is received, the resulting producer will
+	///         send the `Result.failure` itself and then complete.
+	///
+	/// - returns: A producer that sends results as its values.
+	public func materializeResults() -> Signal<Result<Value, Error>, Never> {
+		return flatMapEvent(Signal.Event.materializeResults)
 	}
 }
 
-extension Signal where Value: EventProtocol, Error == NoError {
+extension Signal where Value: EventProtocol, Error == Never {
 	/// Translate a signal of `Event` _values_ into a signal of those events
 	/// themselves.
 	///
 	/// - returns: A signal that sends values carried by `self` events.
 	public func dematerialize() -> Signal<Value.Value, Value.Error> {
-		return Signal<Value.Value, Value.Error> { observer in
-			return self.observe { event in
-				switch event {
-				case let .value(innerEvent):
-					observer.action(innerEvent.event)
+		return flatMapEvent(Signal.Event.dematerialize)
+	}
+}
 
-				case .failed:
-					fatalError("NoError is impossible to construct")
-
-				case .completed:
-					observer.sendCompleted()
-
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
+extension Signal where Value: ResultProtocol, Error == Never {
+	/// Translate a signal of `Result` _values_ into a signal of those events
+	/// themselves.
+	///
+	/// - returns: A signal that sends values carried by `self` events.
+	public func dematerializeResults() -> Signal<Value.Success, Value.Failure> {
+		return flatMapEvent(Signal.Event.dematerializeResults)
 	}
 }
 
@@ -1046,14 +937,12 @@ extension Signal {
 		disposed: (() -> Void)? = nil,
 		value: ((Value) -> Void)? = nil
 	) -> Signal<Value, Error> {
-		return Signal { observer in
-			let disposable = CompositeDisposable()
-
+		return Signal { observer, lifetime in
 			if let action = disposed {
-				disposable.add(action)
+				lifetime.observeEnded(action)
 			}
 
-			disposable += self.observe { receivedEvent in
+			lifetime += signal.observe { receivedEvent in
 				event?(receivedEvent)
 
 				switch receivedEvent {
@@ -1074,10 +963,8 @@ extension Signal {
 					terminated?()
 				}
 
-				observer.action(receivedEvent)
+				observer.send(receivedEvent)
 			}
-
-			return disposable
 		}
 	}
 }
@@ -1103,12 +990,11 @@ extension Signal {
 	///            sampled (possibly multiple times) by `sampler`, then complete
 	///            once both input signals have completed, or interrupt if
 	///            either input signal is interrupted.
-	public func sample<T>(with sampler: Signal<T, NoError>) -> Signal<(Value, T), Error> {
-		return Signal<(Value, T), Error> { observer in
+	public func sample<T>(with sampler: Signal<T, Never>) -> Signal<(Value, T), Error> {
+		return Signal<(Value, T), Error> { observer, lifetime in
 			let state = Atomic(SampleState<Value>())
-			let disposable = CompositeDisposable()
 
-			disposable += self.observe { event in
+			lifetime += self.observe { event in
 				switch event {
 				case let .value(value):
 					state.modify {
@@ -1133,7 +1019,7 @@ extension Signal {
 				}
 			}
 
-			disposable += sampler.observe { event in
+			lifetime += sampler.observe { event in
 				switch event {
 				case .value(let samplerValue):
 					if let value = state.value.latestValue {
@@ -1157,8 +1043,6 @@ extension Signal {
 					break
 				}
 			}
-
-			return disposable
 		}
 	}
 
@@ -1176,7 +1060,7 @@ extension Signal {
 	///            multiple times) by `sampler`, then complete once both input
 	///            signals have completed, or interrupt if either input signal
 	///            is interrupted.
-	public func sample(on sampler: Signal<(), NoError>) -> Signal<Value, Error> {
+	public func sample(on sampler: Signal<(), Never>) -> Signal<Value, Error> {
 		return sample(with: sampler)
 			.map { $0.0 }
 	}
@@ -1196,16 +1080,15 @@ extension Signal {
 	///            sampled (possibly multiple times) by `self`, then terminate
 	///            once `self` has terminated. **`samplee`'s terminated events
 	///            are ignored**.
-	public func withLatest<U>(from samplee: Signal<U, NoError>) -> Signal<(Value, U), Error> {
-		return Signal<(Value, U), Error> { observer in
+	public func withLatest<U>(from samplee: Signal<U, Never>) -> Signal<(Value, U), Error> {
+		return Signal<(Value, U), Error> { observer, lifetime in
 			let state = Atomic<U?>(nil)
-			let disposable = CompositeDisposable()
 
-			disposable += samplee.observeValues { value in
+			lifetime += samplee.observeValues { value in
 				state.value = value
 			}
 
-			disposable += self.observe { event in
+			lifetime += self.observe { event in
 				switch event {
 				case let .value(value):
 					if let value2 = state.value {
@@ -1219,8 +1102,6 @@ extension Signal {
 					observer.sendInterrupted()
 				}
 			}
-
-			return disposable
 		}
 	}
 
@@ -1239,15 +1120,32 @@ extension Signal {
 	///            sampled (possibly multiple times) by `self`, then terminate
 	///            once `self` has terminated. **`samplee`'s terminated events
 	///            are ignored**.
-	public func withLatest<U>(from samplee: SignalProducer<U, NoError>) -> Signal<(Value, U), Error> {
-		return Signal<(Value, U), Error> { observer in
-			let d = CompositeDisposable()
+	public func withLatest<U>(from samplee: SignalProducer<U, Never>) -> Signal<(Value, U), Error> {
+		return Signal<(Value, U), Error> { observer, lifetime in
 			samplee.startWithSignal { signal, disposable in
-				d += disposable
-				d += self.withLatest(from: signal).observe(observer)
+				lifetime += disposable
+				lifetime += self.withLatest(from: signal).observe(observer)
 			}
-			return d
 		}
+	}
+
+	/// Forward the latest value from `samplee` with the value from `self` as a
+	/// tuple, only when `self` sends a `value` event.
+	/// This is like a flipped version of `sample(with:)`, but `samplee`'s
+	/// terminal events are completely ignored.
+	///
+	/// - note: If `self` fires before a value has been observed on `samplee`,
+	///         nothing happens.
+	///
+	/// - parameters:
+	///   - samplee: A producer whose latest value is sampled by `self`.
+	///
+	/// - returns: A signal that will send values from `self` and `samplee`,
+	///            sampled (possibly multiple times) by `self`, then terminate
+	///            once `self` has terminated. **`samplee`'s terminated events
+	///            are ignored**.
+	public func withLatest<Samplee: SignalProducerConvertible>(from samplee: Samplee) -> Signal<(Value, Samplee.Value), Error> where Samplee.Error == Never {
+		return withLatest(from: samplee.producer)
 	}
 }
 
@@ -1261,11 +1159,9 @@ extension Signal {
 	///
 	/// - returns: A signal that will deliver events until `lifetime` ends.
 	public func take(during lifetime: Lifetime) -> Signal<Value, Error> {
-		return Signal<Value, Error> { observer in
-			let disposable = CompositeDisposable()
-			disposable += self.observe(observer)
-			disposable += lifetime.observeEnded(observer.sendCompleted)
-			return disposable
+		return Signal<Value, Error> { observer, innerLifetime in
+			innerLifetime += self.observe(observer)
+			innerLifetime += lifetime.observeEnded(observer.sendCompleted)
 		}
 	}
 
@@ -1278,12 +1174,10 @@ extension Signal {
 	///
 	/// - returns: A signal that will deliver events until `trigger` sends
 	///            `value` or `completed` events.
-	public func take(until trigger: Signal<(), NoError>) -> Signal<Value, Error> {
-		return Signal<Value, Error> { observer in
-			let disposable = CompositeDisposable()
-			disposable += self.observe(observer)
-
-			disposable += trigger.observe { event in
+	public func take(until trigger: Signal<(), Never>) -> Signal<Value, Error> {
+		return Signal<Value, Error> { observer, lifetime in
+			lifetime += self.observe(observer)
+			lifetime += trigger.observe { event in
 				switch event {
 				case .value, .completed:
 					observer.sendCompleted()
@@ -1292,8 +1186,6 @@ extension Signal {
 					break
 				}
 			}
-
-			return disposable
 		}
 	}
 
@@ -1307,9 +1199,10 @@ extension Signal {
 	///
 	/// - returns: A signal that will deliver events once the `trigger` sends
 	///            `value` or `completed` events.
-	public func skip(until trigger: Signal<(), NoError>) -> Signal<Value, Error> {
-		return Signal { observer in
+	public func skip(until trigger: Signal<(), Never>) -> Signal<Value, Error> {
+		return Signal { observer, lifetime in
 			let disposable = SerialDisposable()
+			lifetime += disposable
 
 			disposable.inner = trigger.observe { event in
 				switch event {
@@ -1320,16 +1213,8 @@ extension Signal {
 					break
 				}
 			}
-
-			return disposable
 		}
 	}
-  
-  public func split(on trigger: Signal<(), NoError>) -> (front: Signal<Value, Error>, tail: Signal<Value, Error>) {
-    let f = self.take(until: trigger)
-    let t = self.skip(until: trigger)
-    return (f, t)
-  }
 
 	/// Forward events from `self` with history: values of the returned signal
 	/// are a tuples whose first member is the previous value and whose second member
@@ -1343,7 +1228,7 @@ extension Signal {
 	/// - returns: A signal that sends tuples that contain previous and current
 	///            sent values of `self`.
 	public func combinePrevious(_ initial: Value) -> Signal<(Value, Value), Error> {
-		return combinePrevious(initial: initial)
+		return flatMapEvent(Signal.Event.combinePrevious(initial: initial))
 	}
 
 	/// Forward events from `self` with history: values of the returned signal
@@ -1356,36 +1241,10 @@ extension Signal {
 	/// - returns: A signal that sends tuples that contain previous and current
 	///            sent values of `self`.
 	public func combinePrevious() -> Signal<(Value, Value), Error> {
-		return combinePrevious(initial: nil)
+		return flatMapEvent(Signal.Event.combinePrevious(initial: nil))
 	}
 
-	/// Implementation detail of `combinePrevious`. A default argument of a `nil` initial
-	/// is deliberately avoided, since in the case of `Value` being an optional, the
-	/// `nil` literal would be materialized as `Optional<Value>.none` instead of `Value`,
-	/// thus changing the semantic.
-	private func combinePrevious(initial: Value?) -> Signal<(Value, Value), Error> {
-		return Signal<(Value, Value), Error> { observer in
-			var previous = initial
-
-			return self.observe { event in
-				switch event {
-				case let .value(value):
-					if let previous = previous {
-						observer.send(value: (previous, value))
-					}
-					previous = value
-				case .completed:
-					observer.sendCompleted()
-				case let .failed(error):
-					observer.send(error: error)
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
-	}
-
-	/// Combine all values from `self`, and forward only the final accumuated result.
+	/// Combine all values from `self`, and forward only the final accumulated result.
 	///
 	/// See `scan(_:_:)` if the resulting producer needs to forward also the partial
 	/// results.
@@ -1399,12 +1258,10 @@ extension Signal {
 	///
 	/// - returns: A signal that sends the final result as `self` completes.
 	public func reduce<U>(_ initialResult: U, _ nextPartialResult: @escaping (U, Value) -> U) -> Signal<U, Error> {
-		return self.reduce(into: initialResult) { accumulator, value in
-			accumulator = nextPartialResult(accumulator, value)
-		}
+		return flatMapEvent(Signal.Event.reduce(initialResult, nextPartialResult))
 	}
 
-	/// Combine all values from `self`, and forward only the final accumuated result.
+	/// Combine all values from `self`, and forward only the final accumulated result.
 	///
 	/// See `scan(into:_:)` if the resulting producer needs to forward also the partial
 	/// results.
@@ -1418,22 +1275,7 @@ extension Signal {
 	///
 	/// - returns: A signal that sends the final result as `self` completes.
 	public func reduce<U>(into initialResult: U, _ nextPartialResult: @escaping (inout U, Value) -> Void) -> Signal<U, Error> {
-		// We need to handle the special case in which `signal` sends no values.
-		// We'll do that by sending `initial` on the output signal (before
-		// taking the last value).
-		let (scannedSignalWithInitialValue, outputSignalObserver) = Signal<U, Error>.pipe()
-		let outputSignal = scannedSignalWithInitialValue.take(last: 1)
-
-		// Now that we've got takeLast() listening to the piped signal, send
-
-        // that initial value.
-		outputSignalObserver.send(value: initialResult)
-
-		// Pipe the scanned input signal into the output signal.
-		self.scan(into: initialResult, nextPartialResult)
-			.observe(outputSignalObserver)
-
-		return outputSignal
+		return flatMapEvent(Signal.Event.reduce(into: initialResult, nextPartialResult))
 	}
 
 	/// Combine all values from `self`, and forward the partial results and the final
@@ -1451,9 +1293,7 @@ extension Signal {
 	/// - returns: A signal that sends the partial results of the accumuation, and the
 	///            final result as `self` completes.
 	public func scan<U>(_ initialResult: U, _ nextPartialResult: @escaping (U, Value) -> U) -> Signal<U, Error> {
-		return self.scan(into: initialResult) { accumulator, value in
-			accumulator = nextPartialResult(accumulator, value)
-		}
+		return flatMapEvent(Signal.Event.scan(initialResult, nextPartialResult))
 	}
 
 	/// Combine all values from `self`, and forward the partial results and the final
@@ -1471,16 +1311,7 @@ extension Signal {
 	/// - returns: A signal that sends the partial results of the accumuation, and the
 	///            final result as `self` completes.
 	public func scan<U>(into initialResult: U, _ nextPartialResult: @escaping (inout U, Value) -> Void) -> Signal<U, Error> {
-		return Signal<U, Error> { observer in
-			var accumulator = initialResult
-
-			return self.observe { event in
-				observer.action(event.map { value in
-					nextPartialResult(&accumulator, value)
-					return accumulator
-				})
-			}
-		}
+		return flatMapEvent(Signal.Event.scan(into: initialResult, nextPartialResult))
 	}
 }
 
@@ -1492,7 +1323,7 @@ extension Signal where Value: Equatable {
 	///
 	/// - returns: A signal which conditionally forwards values from `self`.
 	public func skipRepeats() -> Signal<Value, Error> {
-		return skipRepeats(==)
+		return flatMapEvent(Signal.Event.skipRepeats(==))
 	}
 }
 
@@ -1507,19 +1338,7 @@ extension Signal {
 	///
 	/// - returns: A signal which conditionally forwards values from `self`.
 	public func skipRepeats(_ isEquivalent: @escaping (Value, Value) -> Bool) -> Signal<Value, Error> {
-		return self
-			.scan((nil, false)) { (accumulated: (Value?, Bool), next: Value) -> (value: Value?, repeated: Bool) in
-				switch accumulated.0 {
-				case nil:
-					return (next, false)
-				case let prev? where isEquivalent(prev, next):
-					return (prev, true)
-				case _?:
-					return (Optional(next), false)
-				}
-			}
-			.filter { !$0.repeated }
-			.filterMap { $0.value }
+		return flatMapEvent(Signal.Event.skipRepeats(isEquivalent))
 	}
 
 	/// Do not forward any value from `self` until `shouldContinue` returns `false`, at
@@ -1531,22 +1350,7 @@ extension Signal {
 	///
 	/// - returns: A signal which conditionally forwards values from `self`.
 	public func skip(while shouldContinue: @escaping (Value) -> Bool) -> Signal<Value, Error> {
-		return Signal { observer in
-			var isSkipping = true
-
-			return self.observe { event in
-				switch event {
-				case let .value(value):
-					isSkipping = isSkipping && shouldContinue(value)
-					if !isSkipping {
-						fallthrough
-					}
-
-				case .failed, .completed, .interrupted:
-					observer.action(event)
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.skip(while: shouldContinue))
 	}
 
 	/// Forward events from `self` until `replacement` begins sending events.
@@ -1562,26 +1366,22 @@ extension Signal {
 	///            instead, regardless of whether `self` has sent events
 	///            already.
 	public func take(untilReplacement signal: Signal<Value, Error>) -> Signal<Value, Error> {
-		return Signal { observer in
-			let disposable = CompositeDisposable()
-
+		return Signal { observer, lifetime in
 			let signalDisposable = self.observe { event in
 				switch event {
 				case .completed:
 					break
 
 				case .value, .failed, .interrupted:
-					observer.action(event)
+					observer.send(event)
 				}
 			}
 
-			disposable += signalDisposable
-			disposable += signal.observe { event in
+			lifetime += signalDisposable
+			lifetime += signal.observe { event in
 				signalDisposable?.dispose()
-				observer.action(event)
+				observer.send(event)
 			}
-
-			return disposable
 		}
 	}
 
@@ -1594,32 +1394,7 @@ extension Signal {
 	/// - returns: A signal that receives up to `count` values from `self`
 	///            after `self` completes.
 	public func take(last count: Int) -> Signal<Value, Error> {
-		return Signal { observer in
-			var buffer: [Value] = []
-			buffer.reserveCapacity(count)
-
-			return self.observe { event in
-				switch event {
-				case let .value(value):
-					// To avoid exceeding the reserved capacity of the buffer, 
-					// we remove then add. Remove elements until we have room to 
-					// add one more.
-					while (buffer.count + 1) > count {
-						buffer.remove(at: 0)
-					}
-
-					buffer.append(value)
-				case let .failed(error):
-					observer.send(error: error)
-				case .completed:
-					buffer.forEach(observer.send(value:))
-
-					observer.sendCompleted()
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.take(last: count))
 	}
 
 	/// Forward any values from `self` until `shouldContinue` returns `false`, at which
@@ -1631,15 +1406,7 @@ extension Signal {
 	///
 	/// - returns: A signal which conditionally forwards values from `self`.
 	public func take(while shouldContinue: @escaping (Value) -> Bool) -> Signal<Value, Error> {
-		return Signal { observer in
-			return self.observe { event in
-				if let value = event.value, !shouldContinue(value) {
-					observer.sendCompleted()
-				} else {
-					observer.action(event)
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.take(while: shouldContinue))
 	}
 }
 
@@ -1655,14 +1422,6 @@ extension Signal {
 		return Signal.zip(self, other)
 	}
 
-  public func sync<U>(with other: Signal<U, Error>) -> Signal<(Value, U), Error> {
-    return Signal.zip(self, other)
-  }
-  
-  public func sync<U>(on other: Signal<U, Error>) -> Signal<Value, Error> {
-    return Signal.zip(self, other).map(first)
-  }
-  
 	/// Forward the latest value on `scheduler` after at least `interval`
 	/// seconds have passed since *the returned signal* last sent a value.
 	///
@@ -1693,63 +1452,7 @@ extension Signal {
 	/// - returns: A signal that sends values at least `interval` seconds 
 	///            appart on a given scheduler.
 	public func throttle(_ interval: TimeInterval, on scheduler: DateScheduler) -> Signal<Value, Error> {
-		precondition(interval >= 0)
-
-		return Signal { observer in
-			let state: Atomic<ThrottleState<Value>> = Atomic(ThrottleState())
-			let schedulerDisposable = SerialDisposable()
-
-			let disposable = CompositeDisposable()
-			disposable += schedulerDisposable
-
-			disposable += self.observe { event in
-				guard let value = event.value else {
-					schedulerDisposable.inner = scheduler.schedule {
-						observer.action(event)
-					}
-					return
-				}
-
-				var scheduleDate: Date!
-				state.modify {
-					$0.pendingValue = value
-
-					let proposedScheduleDate: Date
-					if let previousDate = $0.previousDate, previousDate.compare(scheduler.currentDate) != .orderedDescending {
-						proposedScheduleDate = previousDate.addingTimeInterval(interval)
-					} else {
-						proposedScheduleDate = scheduler.currentDate
-					}
-
-					switch proposedScheduleDate.compare(scheduler.currentDate) {
-					case .orderedAscending:
-						scheduleDate = scheduler.currentDate
-
-					case .orderedSame: fallthrough
-					case .orderedDescending:
-						scheduleDate = proposedScheduleDate
-					}
-				}
-
-				schedulerDisposable.inner = scheduler.schedule(after: scheduleDate) {
-					let pendingValue: Value? = state.modify { state in
-						defer {
-							if state.pendingValue != nil {
-								state.pendingValue = nil
-								state.previousDate = scheduleDate
-							}
-						}
-						return state.pendingValue
-					}
-
-					if let pendingValue = pendingValue {
-						observer.send(value: pendingValue)
-					}
-				}
-			}
-
-			return disposable
-		}
+		return flatMapEvent(Signal.Event.throttle(interval, on: scheduler))
 	}
 
 	/// Conditionally throttles values sent on the receiver whenever
@@ -1777,15 +1480,13 @@ extension Signal {
 	public func throttle<P: PropertyProtocol>(while shouldThrottle: P, on scheduler: Scheduler) -> Signal<Value, Error>
 		where P.Value == Bool
 	{
-		return Signal { observer in
+		return Signal { observer, lifetime in
 			let initial: ThrottleWhileState<Value> = .resumed
 			let state = Atomic(initial)
 			let schedulerDisposable = SerialDisposable()
+			lifetime += schedulerDisposable
 
-			let disposable = CompositeDisposable()
-			disposable += schedulerDisposable
-
-			disposable += shouldThrottle.producer
+			lifetime += shouldThrottle.producer
 				.skipRepeats()
 				.startWithValues { shouldThrottle in
 					let valueToSend = state.modify { state -> Value? in
@@ -1811,7 +1512,7 @@ extension Signal {
 					}
 				}
 
-			disposable += self.observe { event in
+			lifetime += self.observe { event in
 				let eventToSend = state.modify { state -> Event? in
 					switch event {
 					case let .value(value):
@@ -1833,12 +1534,10 @@ extension Signal {
 
 				if let event = eventToSend {
 					schedulerDisposable.inner = scheduler.schedule {
-						observer.action(event)
+						observer.send(event)
 					}
 				}
 			}
-
-			return disposable
 		}
 	}
 
@@ -1856,39 +1555,25 @@ extension Signal {
 	/// - note: If multiple values are received before the interval has elapsed,
 	///         the latest value is the one that will be passed on.
 	///
-	/// - note: If the input signal terminates while a value is being debounced, 
-	///         that value will be discarded and the returned signal will 
-	///         terminate immediately.
+	/// - note: If `self` terminates while a value is being debounced,
+	///         the behaviour will be determined by `discardWhenCompleted`.
+	///         If `true`, that value will be discarded and the returned producer
+	///         will terminate immediately.
+	///         If `false`, that value will be delivered at the next debounce
+	///         interval.
 	///
 	/// - precondition: `interval` must be non-negative number.
 	///
 	/// - parameters:
 	///   - interval: A number of seconds to wait before sending a value.
 	///   - scheduler: A scheduler to send values on.
+	///   - discardWhenCompleted: A boolean to indicate if the latest value
+	///                             should be discarded on completion.
 	///
 	/// - returns: A signal that sends values that are sent from `self` at least
 	///            `interval` seconds apart.
-	public func debounce(_ interval: TimeInterval, on scheduler: DateScheduler) -> Signal<Value, Error> {
-		precondition(interval >= 0)
-
-		let d = SerialDisposable()
-
-		return Signal { observer in
-			return self.observe { event in
-				switch event {
-				case let .value(value):
-					let date = scheduler.currentDate.addingTimeInterval(interval)
-					d.inner = scheduler.schedule(after: date) {
-						observer.send(value: value)
-					}
-
-				case .completed, .failed, .interrupted:
-					d.inner = scheduler.schedule {
-						observer.action(event)
-					}
-				}
-			}
-		}
+	public func debounce(_ interval: TimeInterval, on scheduler: DateScheduler, discardWhenCompleted: Bool = true) -> Signal<Value, Error> {
+		return flatMapEvent(Signal.Event.debounce(interval, on: scheduler, discardWhenCompleted: discardWhenCompleted))
 	}
 }
 
@@ -1905,24 +1590,7 @@ extension Signal {
 	///
 	/// - returns: A signal that sends unique values during its lifetime.
 	public func uniqueValues<Identity: Hashable>(_ transform: @escaping (Value) -> Identity) -> Signal<Value, Error> {
-		return Signal { observer in
-			var seenValues: Set<Identity> = []
-
-			return self
-				.observe { event in
-					switch event {
-					case let .value(value):
-						let identity = transform(value)
-						let (inserted, _) = seenValues.insert(identity)
-						if inserted {
-							fallthrough
-						}
-
-					case .failed, .completed, .interrupted:
-						observer.action(event)
-					}
-				}
-		}
+		return flatMapEvent(Signal.Event.uniqueValues(transform))
 	}
 }
 
@@ -1938,11 +1606,6 @@ extension Signal where Value: Hashable {
 	public func uniqueValues() -> Signal<Value, Error> {
 		return uniqueValues { $0 }
 	}
-}
-
-private struct ThrottleState<Value> {
-	var previousDate: Date?
-	var pendingValue: Value?
 }
 
 private enum ThrottleWhileState<Value> {
@@ -2085,7 +1748,7 @@ extension Signal {
 				var buffer = ContiguousArray<Any>()
 				buffer.reserveCapacity(values.count)
 
-				for index in values.startIndex ..< values.endIndex {
+				for index in values.indices {
 					buffer.append(values[index].removeFirst())
 				}
 
@@ -2173,9 +1836,8 @@ extension Signal {
 		}
 	}
 
-	private convenience init<Strategy: SignalAggregateStrategy>(_ builder: AggregateBuilder<Strategy>, _ transform: @escaping (ContiguousArray<Any>) -> Value) {
-		self.init { observer in
-			let disposables = CompositeDisposable()
+	private convenience init<Strategy>(_ builder: AggregateBuilder<Strategy>, _ transform: @escaping (ContiguousArray<Any>) -> Value) {
+		self.init { observer, lifetime in
 			let strategy = Strategy(count: builder.startHandlers.count) { event in
 				switch event {
 				case let .value(value):
@@ -2185,11 +1847,9 @@ extension Signal {
 				}
 			}
 
-			for (index, action) in builder.startHandlers.enumerated() where !disposables.isDisposed {
-				disposables += action(index, strategy) { observer.action($0.map { _ in fatalError() }) }
+			for (index, action) in builder.startHandlers.enumerated() where !lifetime.hasEnded {
+				lifetime += action(index, strategy) { observer.send($0.map { _ in fatalError() }) }
 			}
-
-			return disposables
 		}
 	}
 
@@ -2385,21 +2045,19 @@ extension Signal {
 	public func timeout(after interval: TimeInterval, raising error: Error, on scheduler: DateScheduler) -> Signal<Value, Error> {
 		precondition(interval >= 0)
 
-		return Signal { observer in
-			let disposable = CompositeDisposable()
+		return Signal { observer, lifetime in
 			let date = scheduler.currentDate.addingTimeInterval(interval)
 
-			disposable += scheduler.schedule(after: date) {
+			lifetime += scheduler.schedule(after: date) {
 				observer.send(error: error)
 			}
 
-			disposable += self.observe(observer)
-			return disposable
+			lifetime += self.observe(observer)
 		}
 	}
 }
 
-extension Signal where Error == NoError {
+extension Signal where Error == Never {
 	/// Promote a signal that does not generate failures into one that can.
 	///
 	/// - note: This does not actually cause failures to be generated for the
@@ -2412,20 +2070,7 @@ extension Signal where Error == NoError {
 	///
 	/// - returns: A signal that has an instantiatable `ErrorType`.
 	public func promoteError<F>(_: F.Type = F.self) -> Signal<Value, F> {
-		return Signal<Value, F> { observer in
-			return self.observe { event in
-				switch event {
-				case let .value(value):
-					observer.send(value: value)
-				case .failed:
-					fatalError("NoError is impossible to construct")
-				case .completed:
-					observer.sendCompleted()
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.promoteError(F.self))
 	}
 
 	/// Promote a signal that does not generate failures into one that can.
@@ -2481,20 +2126,7 @@ extension Signal where Value == Never {
 	///
 	/// - returns: A signal that forwards all terminal events from `self`.
 	public func promoteValue<U>(_: U.Type = U.self) -> Signal<U, Error> {
-		return Signal<U, Error> { observer in
-			return self.observe { event in
-				switch event {
-				case .value:
-					fatalError("Never is impossible to construct")
-				case let .failed(error):
-					observer.send(error: error)
-				case .completed:
-					observer.sendCompleted()
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.promoteValue(U.self))
 	}
 
 	/// Promote a signal that does not generate values, as indicated by `Never`, to be
@@ -2553,11 +2185,7 @@ extension Signal {
 	/// - returns: A signal which forwards the values from `self` until the given action
 	///            fails.
 	public func attempt(_ action: @escaping (Value) -> Result<(), Error>) -> Signal<Value, Error> {
-		return attemptMap { value -> Result<Value, Error> in
-			return action(value).map { _ -> Value in
-				return value
-			}
-		}
+		return flatMapEvent(Signal.Event.attempt(action))
 	}
 
 	/// Apply a transform to every value from `self`, and forward the transformed value
@@ -2570,27 +2198,11 @@ extension Signal {
 	///
 	/// - returns: A signal which forwards the transformed values.
 	public func attemptMap<U>(_ transform: @escaping (Value) -> Result<U, Error>) -> Signal<U, Error> {
-		return Signal<U, Error> { observer in
-			self.observe { event in
-				switch event {
-				case let .value(value):
-					transform(value).analysis(
-						ifSuccess: observer.send(value:),
-						ifFailure: observer.send(error:)
-					)
-				case let .failed(error):
-					observer.send(error: error)
-				case .completed:
-					observer.sendCompleted()
-				case .interrupted:
-					observer.sendInterrupted()
-				}
-			}
-		}
+		return flatMapEvent(Signal.Event.attemptMap(transform))
 	}
 }
 
-extension Signal where Error == NoError {
+extension Signal where Error == Never {
 	/// Apply a throwable action to every value from `self`, and forward the values
 	/// if the action succeeds. If the action throws an error, the returned `Signal`
 	/// would propagate the failure and terminate.
@@ -2599,9 +2211,9 @@ extension Signal where Error == NoError {
 	///   - action: A throwable closure to perform an arbitrary action on the value.
 	///
 	/// - returns: A signal which forwards the successful values of the given action.
-	public func attempt(_ action: @escaping (Value) throws -> Void) -> Signal<Value, AnyError> {
+	public func attempt(_ action: @escaping (Value) throws -> Void) -> Signal<Value, Swift.Error> {
 		return self
-			.promoteError(AnyError.self)
+			.promoteError(Swift.Error.self)
 			.attempt(action)
 	}
 
@@ -2613,14 +2225,14 @@ extension Signal where Error == NoError {
 	///   - transform: A throwable transform.
 	///
 	/// - returns: A signal which forwards the successfully transformed values.
-	public func attemptMap<U>(_ transform: @escaping (Value) throws -> U) -> Signal<U, AnyError> {
+	public func attemptMap<U>(_ transform: @escaping (Value) throws -> U) -> Signal<U, Swift.Error> {
 		return self
-			.promoteError(AnyError.self)
+			.promoteError(Swift.Error.self)
 			.attemptMap(transform)
 	}
 }
 
-extension Signal where Error == AnyError {
+extension Signal where Error == Swift.Error {
 	/// Apply a throwable action to every value from `self`, and forward the values
 	/// if the action succeeds. If the action throws an error, the returned `Signal`
 	/// would propagate the failure and terminate.
@@ -2629,11 +2241,8 @@ extension Signal where Error == AnyError {
 	///   - action: A throwable closure to perform an arbitrary action on the value.
 	///
 	/// - returns: A signal which forwards the successful values of the given action.
-	public func attempt(_ action: @escaping (Value) throws -> Void) -> Signal<Value, AnyError> {
-		return attemptMap { value in
-			try action(value)
-			return value
-		}
+	public func attempt(_ action: @escaping (Value) throws -> Void) -> Signal<Value, Error> {
+		return flatMapEvent(Signal.Event.attempt(action))
 	}
 
 	/// Apply a throwable transform to every value from `self`, and forward the results
@@ -2644,11 +2253,7 @@ extension Signal where Error == AnyError {
 	///   - transform: A throwable transform.
 	///
 	/// - returns: A signal which forwards the successfully transformed values.
-	public func attemptMap<U>(_ transform: @escaping (Value) throws -> U) -> Signal<U, AnyError> {
-		return attemptMap { value in
-			PaversFRP.materialize {
-				try transform(value)
-			}
-		}
+	public func attemptMap<U>(_ transform: @escaping (Value) throws -> U) -> Signal<U, Error> {
+		return flatMapEvent(Signal.Event.attemptMap(transform))
 	}
 }

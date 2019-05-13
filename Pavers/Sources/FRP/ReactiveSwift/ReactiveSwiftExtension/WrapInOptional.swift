@@ -7,7 +7,7 @@ public extension SignalProtocol {
 
    - returns: A new signal.
    */
-  public func wrapInOptional() -> Signal<Value?, Error> {
+  func wrapInOptional() -> Signal<Value?, Error> {
     return signal.map { x in Optional(x) }
   }
 }
@@ -19,7 +19,7 @@ public extension SignalProducerProtocol {
 
    - returns: A new producer.
    */
-  public func wrapInOptional() -> SignalProducer<Value?, Error> {
+  func wrapInOptional() -> SignalProducer<Value?, Error> {
     return self.producer.lift { $0.wrapInOptional() }
   }
 }

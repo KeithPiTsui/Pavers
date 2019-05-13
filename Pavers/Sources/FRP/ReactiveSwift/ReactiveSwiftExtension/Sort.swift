@@ -22,7 +22,7 @@ public extension SignalProtocol where Value: Sequence {
 
    - returns: The sorted signal.
    */
-  public func sort(_ isOrderedBefore: @escaping (Value.Iterator.Element, Value.Iterator.Element) -> Bool) ->
+  func sort(_ isOrderedBefore: @escaping (Value.Iterator.Element, Value.Iterator.Element) -> Bool) ->
     Signal<[Value.Iterator.Element], Error> {
 
     return self.signal.map { (x: Value) in x.sorted(by: isOrderedBefore) }
@@ -51,7 +51,7 @@ public extension SignalProducerProtocol where Value: Sequence {
 
    - returns: The sorted producer.
    */
-  public func sort(_ isOrderedBefore: @escaping (Value.Iterator.Element, Value.Iterator.Element) -> Bool) ->
+  func sort(_ isOrderedBefore: @escaping (Value.Iterator.Element, Value.Iterator.Element) -> Bool) ->
     SignalProducer<[Value.Iterator.Element], Error> {
 
     return self.producer.lift { $0.sort(isOrderedBefore) }

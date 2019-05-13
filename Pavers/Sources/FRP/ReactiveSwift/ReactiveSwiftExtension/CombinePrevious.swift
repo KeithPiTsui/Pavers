@@ -6,7 +6,7 @@ public extension SignalProtocol {
 
    - returns: A new signal.
    */
-  public func combinePrevious() -> Signal<(Value, Value), Error> {
+  func combinePrevious() -> Signal<(Value, Value), Error> {
 
     return self.signal
       .wrapInOptional()
@@ -24,7 +24,7 @@ public extension SignalProducerProtocol {
 
    - returns: A new producer.
    */
-  public func combinePrevious() -> SignalProducer<(Value, Value), Error> {
+  func combinePrevious() -> SignalProducer<(Value, Value), Error> {
     return self.producer.lift { $0.combinePrevious() }
   }
 }

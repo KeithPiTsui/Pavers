@@ -1,8 +1,8 @@
-extension Optional: OptionalType {
-  public var optional: Wrapped? {
-    return self
-  }
-}
+//extension Optional: OptionalType {
+//  public var optional: Wrapped? {
+//    return self
+//  }
+//}
 
 /**
  Flattens a doubly nested optional.

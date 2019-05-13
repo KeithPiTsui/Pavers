@@ -1,9 +1,9 @@
-public extension Array where Element: OptionalType {
+public extension Array where Element: OptionalProtocol {
 
   /**
    - returns: A new array with `nil` values removed.
    */
-  public func compact() -> [Element.Wrapped] {
+  func compact() -> [Element.Wrapped] {
     return self.filter { $0.optional != nil }.map { $0.optional! }
   }
 }
@@ -18,13 +18,13 @@ public extension Array where Element: Semigroup {
 
    - returns: The concatenation of all the values.
    */
-  public func sconcat(_ initial: Element) -> Element {
+  func sconcat(_ initial: Element) -> Element {
     return self.reduce(initial, >>>)
   }
 }
 
 public extension Array where Element: Monoid {
-  public func sconcat() -> Element {
+  func sconcat() -> Element {
     return self.reduce(Element.identity(), >>>)
   }
 }
@@ -34,7 +34,7 @@ public extension Array {
   /**
    Returns a random element from the array, or `nil` if the array is empty.
    */
-  public var randomElement: Element? {
+  var randomElement: Element? {
     guard !self.isEmpty else { return nil }
 
     let idx = Int(arc4random_uniform(UInt32(self.count)))
@@ -49,7 +49,7 @@ public extension Array {
 
    - returns: An array of distinct values in the array without changing the order.
    */
-  public func distincts( _ eq: (Element, Element) -> Bool) -> Array {
+  func distincts( _ eq: (Element, Element) -> Bool) -> Array {
     var result = Array()
     forEach { x in
       if !result.contains(where: { eq(x, $0) }) {
@@ -67,7 +67,7 @@ public extension Array {
    - returns: A dictionary where each key contains all the elements of `self` that are mapped to the key
               via the `grouping` function.
    */
-  public func groupedBy <K: Hashable> (_ grouping: (Element) -> K) -> [K:[Element]] {
+  func groupedBy <K: Hashable> (_ grouping: (Element) -> K) -> [K:[Element]] {
     var result: [K:[Element]] = [:]
 
     for value in self {
@@ -86,7 +86,7 @@ public extension Array {
 
    - returns: A sorted array.
    */
-  public func sorted(comparator: Comparator<Element>) -> Array {
+  func sorted(comparator: Comparator<Element>) -> Array {
     return self.sorted(by: comparator.isOrdered)
   }
 }
@@ -99,7 +99,7 @@ public extension Array where Element: Equatable {
 
    - returns: An array of distinct values in the array without changing the order.
    */
-  public func distincts() -> Array {
+  func distincts() -> Array {
     return self.distincts(==)
   }
 }

@@ -9,7 +9,7 @@ public extension SignalProtocol {
 
    - returns: A new signal.
    */
-  public func mapConst <U> (_ value: U) -> Signal<U, Error> {
+  func mapConst <U> (_ value: U) -> Signal<U, Error> {
     return self.signal.map { _ in value }
   }
 }
@@ -23,7 +23,7 @@ public extension SignalProducerProtocol {
 
    - returns: A new producer.
    */
-  public func mapConst <U> (_ value: U) -> SignalProducer<U, Error> {
+  func mapConst <U> (_ value: U) -> SignalProducer<U, Error> {
     return self.producer.lift { $0.mapConst(value) }
   }
 }
