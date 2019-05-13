@@ -15,7 +15,7 @@ import PaversFRP
   - returns: A value of type `Decoded<T>`
 */
 public func <|> <T>(lhs: Decoded<T>, rhs: @autoclosure () -> Decoded<T>) -> Decoded<T> {
-  return lhs.or(rhs)
+  return lhs.or(rhs())
 }
 
 public extension Decoded {

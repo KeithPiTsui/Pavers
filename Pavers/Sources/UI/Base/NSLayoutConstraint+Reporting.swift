@@ -69,6 +69,8 @@ extension NSLayoutConstraint.Attribute {
     case .centerXWithinMargins: return "centerXWithinMargins"
     case .centerYWithinMargins: return "centerYWithinMargins"
     case .notAnAttribute: return "notAnAttribute"
+    @unknown default:
+      fatalError()
     }
   }
 }
@@ -79,6 +81,8 @@ extension NSLayoutConstraint.Relation {
     case .lessThanOrEqual: return "<="
     case .equal: return "=="
     case .greaterThanOrEqual: return ">="
+    @unknown default:
+      fatalError()
     }
   }
 }

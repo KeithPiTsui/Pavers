@@ -32,35 +32,35 @@ public protocol UIBarButtonItemProtocol: UIBarItemProtocol {
 extension UIBarButtonItem: UIBarButtonItemProtocol {}
 
 public extension LensHolder where Object: UIBarButtonItemProtocol {
-  public var style: Lens<Object, UIBarButtonItem.Style> {
+  var style: Lens<Object, UIBarButtonItem.Style> {
     return Lens(
       view: { $0.style },
       set: { $1.style = $0; return $1 }
     )
   }
 
-  public var width: Lens<Object, CGFloat> {
+  var width: Lens<Object, CGFloat> {
     return Lens(
       view: { $0.width },
       set: { $1.width = $0; return $1 }
     )
   }
 
-  public var possibleTitles: Lens<Object, Set<String>?> {
+  var possibleTitles: Lens<Object, Set<String>?> {
     return Lens(
       view: { $0.possibleTitles },
       set: { $1.possibleTitles = $0; return $1 }
     )
   }
 
-  public var customView: Lens<Object, UIView?> {
+  var customView: Lens<Object, UIView?> {
     return Lens(
       view: { $0.customView },
       set: { $1.customView = $0; return $1 }
     )
   }
 
-  public var targetAction: Lens<Object, (AnyObject, Selector)?> {
+  var targetAction: Lens<Object, (AnyObject, Selector)?> {
     return Lens(
       view: { item in
         guard let target = item.target, let action = item.action else { return nil }
@@ -70,7 +70,7 @@ public extension LensHolder where Object: UIBarButtonItemProtocol {
     )
   }
 
-  public func backgroundImage(forState state: UIControl.State, barMetrics: UIBarMetrics)
+  func backgroundImage(forState state: UIControl.State, barMetrics: UIBarMetrics)
     -> Lens<Object, UIImage?> {
 
       return Lens(
@@ -79,7 +79,7 @@ public extension LensHolder where Object: UIBarButtonItemProtocol {
       )
   }
 
-  public func backgroundImage(forState state: UIControl.State,
+  func backgroundImage(forState state: UIControl.State,
                               style: UIBarButtonItem.Style,
                               barMetrics: UIBarMetrics) -> Lens<Object, UIImage?> {
     return Lens(
@@ -88,14 +88,14 @@ public extension LensHolder where Object: UIBarButtonItemProtocol {
     )
   }
 
-  public var tintColor: Lens<Object, UIColor?> {
+  var tintColor: Lens<Object, UIColor?> {
     return Lens(
       view: { $0.tintColor },
       set: { $1.tintColor = $0; return $1 }
     )
   }
 
-  public func backgroundVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics)
+  func backgroundVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics)
     -> Lens<Object, CGFloat> {
 
       return Lens(
@@ -104,14 +104,14 @@ public extension LensHolder where Object: UIBarButtonItemProtocol {
       )
   }
 
-  public func titlePositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> Lens<Object, UIOffset> {
+  func titlePositionAdjustment(forBarMetrics barMetrics: UIBarMetrics) -> Lens<Object, UIOffset> {
     return Lens(
       view: { $0.titlePositionAdjustment(for: barMetrics) },
       set: { $1.setTitlePositionAdjustment($0, for: barMetrics); return $1 }
     )
   }
 
-  public func backButtonBackgroundImage(forState state: UIControl.State, barMetrics: UIBarMetrics)
+  func backButtonBackgroundImage(forState state: UIControl.State, barMetrics: UIBarMetrics)
     -> Lens<Object, UIImage?> {
 
       return Lens(
@@ -120,7 +120,7 @@ public extension LensHolder where Object: UIBarButtonItemProtocol {
       )
   }
 
-  public func backButtonTitlePositionAdjustment(forBarMetrics barMetrics: UIBarMetrics)
+  func backButtonTitlePositionAdjustment(forBarMetrics barMetrics: UIBarMetrics)
     -> Lens<Object, UIOffset> {
 
       return Lens(
@@ -129,7 +129,7 @@ public extension LensHolder where Object: UIBarButtonItemProtocol {
       )
   }
 
-  public func backButtonBackgroundVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics)
+  func backButtonBackgroundVerticalPositionAdjustment(forBarMetrics barMetrics: UIBarMetrics)
     -> Lens<Object, CGFloat> {
 
       return Lens(

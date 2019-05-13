@@ -6,7 +6,7 @@ import PaversFRP
 }
 
 extension Reactive where Base: NSObject, Base: Reusable {
-	public var prepareForReuse: Signal<(), NoError> {
+	public var prepareForReuse: Signal<(), Never> {
 		return trigger(for: #selector(base.prepareForReuse))
 	}
 }

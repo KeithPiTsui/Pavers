@@ -19,7 +19,7 @@ extension UIDevice: UIDeviceType {
 }
 
 public extension UIDevice {
-  public static let isPhone = UIDevice().userInterfaceIdiom == .phone
-  public static let isPad = UIDevice().userInterfaceIdiom == .pad
-  public static let isSimulator = Simulator.isRunning
+  static let isPhone = UIDevice().userInterfaceIdiom == .phone
+  static let isPad = UIDevice().userInterfaceIdiom == .pad
+  static let isSimulator = Simulator.isRunning
 }
