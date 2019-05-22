@@ -13,37 +13,41 @@ public protocol NSBundleType {
 }
 
 extension NSBundleType {
-  public func getString(_ keys: String ...) -> String? {
+  public func get<Type>(_ keys: [String]) -> Type? {
     for key in keys {
-      if let value = self.infoDictionary?[key] as? String {
+      if let value = self.infoDictionary?[key] as? Type {
         return value
       }
     }
     return nil
   }
   
+  public func get<Type> (_ keys: String ...) -> Type? {
+    return self.get(keys)
+  }
+  
   public var identifier: String? {
-    return self.getString("CFBundleIdentifier")
+    return self.get("CFBundleIdentifier")
   }
   
   public var name: String? {
-    return self.getString("CFBundleDisplayName", "CFBundleName")
+    return self.get("CFBundleDisplayName", "CFBundleName")
   }
   
   public var shortVersionString: String? {
-    return self.getString("CFBundleShortVersionString")
+    return self.get("CFBundleShortVersionString")
   }
   
   public var version: String? {
-    return self.getString("CFBundleVersion")
+    return self.get("CFBundleVersion")
   }
   
   public var build: String? {
-    return self.getString("CFBundleVersion")
+    return self.get("CFBundleVersion")
   }
   
   public var executable: String? {
-    return self.getString("CFBundleExecutable")
+    return self.get("CFBundleExecutable")
   }
 
   public var urlTypes: [[String: AnyObject]]? {
