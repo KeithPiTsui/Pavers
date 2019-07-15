@@ -26,6 +26,10 @@ extension NSBundleType {
     return self.get(keys)
   }
   
+  public func getString (_ keys: String ...) -> String? {
+    return self.get(keys)
+  }
+  
   public var identifier: String? {
     return self.get("CFBundleIdentifier")
   }
